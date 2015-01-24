@@ -44,6 +44,14 @@
       <HintPath>..\StatisticalSolutions.Domain\bin\Debug\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nmedia.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\StatisticalSolutions.Domain\bin\Debug\Nmedia.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Nmedia.DataAccess.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\StatisticalSolutions.Domain\bin\Debug\Nmedia.DataAccess.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
