@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "About Statistical Solutions";
+}
+
+<style type="text/css" media="screen">
+a:link { color:darkblue; text-decoration: none; }
+a:visited { color:#33348e; text-decoration: none; }
+a:hover { color:#33348e; text-decoration: none; }
+a:active { color:#7476b4; text-decoration: underline; }
+</style>
+
+<div id="container">
+
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+  
+</hgroup>
+
+<article  style="display:inline-block">
+    <p>
+        We provide workshops for all skill ranges in statistical analysis for business, students and even universities and corporations
+    </p>
+
+    <p>
+        A combined 30 years for experince in statistical analyis we provide several conveniet training location in Kwara state Nigeria.
+    </p>
+
+    <p>
+       Founded in 2012 by Professor Bayo Lawal PHD of Statistics and BioStatistics. 
+    </p>
+</article>
+
+
+<aside style="display:inline-block; margin-top :-65px;">
+    <h3 class="asideheaders" >  Upcoming WorkShops</h3>
+  
+ 
+    <ul>
+        <li>@Html.ActionLink("Advanced Regression Analysis", "AdvancedRegressionAnalysis", "Home")</li>
+        <div style="margin-left:18px;  ">
+         @Html.ActionLink("Dr H.B Lawal", "Profiles", "Home")
+        </div>
+        <div style="margin-left:18px;">
+            <span>June 5-8 2015,I,lorin,Kwara State</span>
+        </div>
+
+      
+    </ul>
+</aside>
+    </div>

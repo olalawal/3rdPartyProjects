@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "H";
+}
+<style type="text/css" media="screen">
+a:link { color:darkblue; text-decoration: none; }
+a:visited { color:#33348e; text-decoration: none; }
+a:hover { color:#33348e; text-decoration: none; }
+a:active { color:#7476b4; text-decoration: underline; }
+</style>
+
+
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Providing the best Statistics workshops in West-Africa and beyond.
+                With us you can learn the latest statistical technologies, software and teqniqes that will give you all the 
+                tools you need to be perform all the Statsical tasks and requirements you have in mind.
+                Soon we will be adding sameple workshop videos and media for purchase such as books and other training materials.
+                @*  The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.*@
+              
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following steps to get the most out of our website:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Learning More</h5>
+        Check out the  @Html.ActionLink("Intructor", "Intructors", "Home") bios as well as look at the about us page to find out more about how we can can help you       
+    </li>
+
+    <li class="two">
+         <h5>Getting Started</h5>
+        For pricing details and Workshop times you can look at the @Html.ActionLink("WorkShops", "WorkShops", "Home") link.
+        You can also @Html.ActionLink("Contact Us", "Contact", "Home") for further details on pricing via via phone or email to either get for information on our locations or how to register for a class
+        @Html.ActionLink("WorkShops", "WorkShops", "Home")
+    </li>
+
+    <li class="three">
+        <h5>Register and Pay for a Seminar</h5>
+        After you contact us , either register directly on the website using the registration link below
+        Or register via email or phone on the contact us page , please know in advance what WorkShop and the dates you intend to register for 
+        and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+    </li>
+</ol>
