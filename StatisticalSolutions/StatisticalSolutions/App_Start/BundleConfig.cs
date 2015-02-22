@@ -5,14 +5,39 @@ namespace StatisticalSolutions
 {
     public class BundleConfig
     {
-        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
+        {
+            RegisterStyleBundles(bundles);
+            RegisterJavascriptBundles(bundles);
+        }
+
+
+
+        private static void RegisterStyleBundles(BundleCollection bundles)
+        {
+            bundles.Add(new StyleBundle("~/css")
+                            .Include("~/Content/site.css")
+                            .Include("~/Content/bootstrap.css")
+                            .Include("~/Content/carousel.css")
+                          .Include("~/Images")
+                          
+                            
+                            );
+        }
+
+        // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
+        public static void RegisterJavascriptBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
+
+
+              bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                       "~/Scripts/bootstrap.js"));
+             
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -23,7 +48,7 @@ namespace StatisticalSolutions
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -39,5 +64,8 @@ namespace StatisticalSolutions
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
         }
+
+          
+
     }
 }

@@ -15,7 +15,7 @@
     <AssemblyName>StatisticalSolutions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -198,6 +198,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +206,33 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\accent.png" />
+    <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\carousel1.jpg" />
+    <Content Include="Content\images\carousel2.jpg" />
+    <Content Include="Content\images\carousel3.jpg" />
+    <Content Include="Content\images\Famoye.JPG" />
+    <Content Include="Content\images\Felix.jpg" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\heroAccent.png" />
+    <Content Include="Content\images\Icon1.png" />
+    <Content Include="Content\images\Icon2.png" />
+    <Content Include="Content\images\Icon3.png" />
+    <Content Include="Content\images\Male.jpg" />
+    <Content Include="Content\images\orderedList0.png" />
+    <Content Include="Content\images\orderedList1.png" />
+    <Content Include="Content\images\orderedList2.png" />
+    <Content Include="Content\images\orderedList3.png" />
+    <Content Include="Content\images\orderedList4.png" />
+    <Content Include="Content\images\orderedList5.png" />
+    <Content Include="Content\images\orderedList6.png" />
+    <Content Include="Content\images\orderedList7.png" />
+    <Content Include="Content\images\orderedList8.png" />
+    <Content Include="Content\images\orderedList9.png" />
+    <Content Include="Content\images\statistical-solutions-full-logo50.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -268,7 +296,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\Built in database 3rd party.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Images\Famoye.JPG" />
+    <Content Include="Images\Felix.jpg" />
+    <Content Include="Images\Male.jpg" />
     <Content Include="Images\statistical-solutions-full-logo50.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -327,6 +362,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Team.cshtml" />
+    <Content Include="Views\Home\bioFelixFamoye.cshtml" />
+    <Content Include="Views\Home\bioBayoLawal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,9 +395,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>23602</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49825/</IISUrl>
+          <IISUrl>http://localhost/StatisticalSolutions</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

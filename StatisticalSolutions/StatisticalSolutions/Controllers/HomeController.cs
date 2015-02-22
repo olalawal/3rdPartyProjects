@@ -10,7 +10,7 @@ namespace StatisticalSolutions.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Message = "Welcome to Statistical Solutions";
 
             return View();
         }
@@ -28,5 +28,31 @@ namespace StatisticalSolutions.Controllers
 
             return View();
         }
+
+        public ActionResult Team()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+
+        //bios 
+
+        public ActionResult bioBayoLawal()
+        {
+            ViewBag.Message = "Professor Bayo Lawal";
+
+            return View();
+        }
+
+
+        public ActionResult bioFelixFamoye()
+        {
+            ViewBag.Message = "Professor Felix Famoye";
+
+            return View();
+        }
+
     }
 }

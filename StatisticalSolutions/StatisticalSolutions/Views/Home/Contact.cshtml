@@ -2,10 +2,47 @@
     ViewBag.Title = "Contact";
 }
 
-<hgroup class="title">
+
+
+<div id="container">
+
+
+<div style="display:inline-block;" >
+    <h3>Contact Us via email</h3>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label class="text-info">Name</label>
+        <input type="text" class="form-control" placeholder="Name"  style="width:300px;margin-left:15px;" >
+    </div>
+    <p></p>
+    <div class="form-group">
+        <label class="text-info">Email</label>
+        <input type="email" class="form-control" placeholder="Email"  style="width:300px;margin-left:15px;" >
+    </div>
+     <p></p>
+    <div class="form-group">
+        <label class="text-info">Subject</label>
+        <input type="email" class="form-control" placeholder="Subject" style="width:300px;padding-left:2px;" ">
+    </div>
+     <p></p>
+    <div class="form-group">
+        <label class="text-info">Text</label><br/>
+        <textarea class="form-control" cols="20" rows="2" style="width: 400px; height: 200px; max-height: 300px; max-width: 500px"></textarea>
+    </div>
+      <p></p>
+    <button type="submit" class="btn btn-success btn-lg">Send</button>
+</form>
+</div>
+
+<aside style="display:inline-block" >
+    <h3>Contact Us Directly by:</h3>
+    <p>
+        We are always happy to hear from you
+    </p>
+   @* <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>@ViewBag.Message</h2>
-</hgroup>
+</hgroup>*@
 
 <section class="contact">
     <header>
@@ -13,11 +50,11 @@
     </header>
     <p>
         <span class="label">Main:</span>
-        <span>425.555.0100</span>
+        <span>08067454289</span>
     </p>
     <p>
         <span class="label">After Hours:</span>
-        <span>425.555.0199</span>
+        <span>08057454289</span>
     </p>
 </section>
 
@@ -44,7 +81,11 @@
         <h3>Address</h3>
     </header>
     <p>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399
+        12 Okaito Road, Off Pipeline Road. Ilorin.
+        Kwara State. Nigeria.
     </p>
 </section>
+
+</aside>
+</div>
+
