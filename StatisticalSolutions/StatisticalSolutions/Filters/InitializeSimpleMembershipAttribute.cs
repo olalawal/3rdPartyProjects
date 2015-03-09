@@ -26,18 +26,18 @@ namespace StatisticalSolutions.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<StatisticalSolutionsContext>(null);
+               // Database.SetInitializer<StatisticalSolutionsContext>(null);
 
                 try
                 {
-                    using (var context = new StatisticalSolutionsContext())
-                    {
-                        if (!context.Database.Exists())
-                        {
-                            // Create the SimpleMembership database without Entity Framework migration schema
-                            ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                        }
-                    }
+                    //using (var context = new StatisticalSolutionsContext())
+                    //{
+                    //    if (!context.UserProfiles.Exists())
+                    //    {
+                    //        // Create the SimpleMembership database without Entity Framework migration schema
+                    //        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                    //    }
+                    //}
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }

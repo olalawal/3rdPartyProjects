@@ -5,13 +5,16 @@ namespace StatisticalSolutions
 {
     public class BundleConfig
     {
+
+    
+  
+
+
         public static void RegisterBundles(BundleCollection bundles)
         {
-            RegisterStyleBundles(bundles);
-            RegisterJavascriptBundles(bundles);
+            RegisterStyleBundlesNew(bundles);
+            RegisterJavascriptBundlesNew(bundles);
         }
-
-
 
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
@@ -19,11 +22,71 @@ namespace StatisticalSolutions
                             .Include("~/Content/site.css")
                             .Include("~/Content/bootstrap.css")
                             .Include("~/Content/carousel.css")
+                            .Include("~/scripts/CurrentTemplate/fancybox/jquery.fancybox-1.3.4.css")
                           .Include("~/Images")
-                          
-                            
                             );
         }
+
+
+
+
+        
+        private static void RegisterStyleBundlesNew(BundleCollection bundles)
+        {
+            bundles.Add(new StyleBundle("~/css")
+          //.Include("~/Content/bootstrap.css")
+                          
+                            .Include("~/Content/reset.css")
+                            .Include("~/Content/base.css")
+                          
+                            .Include("~/Content/skeleton.css")
+                            .Include("~/Content/layout.css")
+                          
+                          .Include("~/Images")
+                           );
+
+            bundles.Add(new StyleBundle("~/fancybox")
+                            .Include("~/Content/jquery.fancybox.css")
+                            .Include("~/Content/jquery.fancybox-buttons.css")
+                            .Include("~/Content/jquery.fancybox-thumbs.css")
+                           );
+        }
+
+        public static void RegisterJavascriptBundlesNew(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                        "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.unobtrusive*",
+                        "~/Scripts/jquery.validate*"));
+
+            // Use the development version of Modernizr to develop with and learn from. Then, when you're
+            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+                   bundles.Add(new ScriptBundle("~/bundles/HTM5SHIV").Include(
+                        "~/Scripts/html5shiv.js",
+                         "~/Scripts/html5shiv-printshiv.js"
+                        ));
+
+                   bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.js"));
+                          
+                  bundles.Add(new ScriptBundle("~/bundles/base").Include(                       
+                          "~/Scripts/jquery.mousewheel-3.0.6.pack.js",
+                         "~/Scripts/jquery.fancybox.js",
+                         "~/Scripts/jquery.fancybox-buttons.js",
+                         "~/Scripts/jquery.fancybox-media.js",
+                         "~/Scripts/jquery.fancybox-thumbs.js"
+
+                        ));
+        }
+
 
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterJavascriptBundles(BundleCollection bundles)

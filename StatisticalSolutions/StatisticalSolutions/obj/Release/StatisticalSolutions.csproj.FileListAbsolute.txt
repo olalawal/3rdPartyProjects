@@ -32,8 +32,6 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\WebMa
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Domain.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.xml
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Nmedia.DataAccess.pdb
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Nmedia.DataAccess.Interfaces.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Mvc.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Razor.xml
@@ -83,3 +81,9 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\zh-Ha
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Release\StatisticalSolutions.csprojResolveAssemblyReference.cache
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Release\StatisticalSolutions.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Release\StatisticalSolutions.pdb
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.WebHost.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.WebHost.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.xml

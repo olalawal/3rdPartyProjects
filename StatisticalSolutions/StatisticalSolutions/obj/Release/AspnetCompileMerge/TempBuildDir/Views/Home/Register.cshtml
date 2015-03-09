@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+
+
+<div class='container'>
+		<div class='sixteen columns form'>
+			<h3>Enter your registration info</h3>
+			<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>
+			<form>
+
+                  <div style="float:left" >
+			      <div>
+                           <label>WorkShop</label>
+				  <select name="WorkShop" class="ComboBoxBig">
+                                <option>Advanced Regeression Analysis</option>
+                                <option>Place Holder 1 </option>
+                                <option>Place Holder 2</option>
+                            </select>
+			      </div>
+             <br />
+				   <div>
+                        <label>Select Start Date</label>
+                       <select name="StartDate" class="ComboBoxBig">
+                                <option>June 5-8 2015</option>
+                                <option>July 1st 2015 </option>                               
+                            </select>	
+                       </div>
+                    </div>		
+             
+                <div></div>
+                </br>
+                	
+			 	<label>First Name</label>
+				 <input type='text' name='mail' placeholder='Your First name'>
+                 	
+                <label>Last Name</label>
+				 <input type='text' name="mail" placeholder='Your Last name'>
+
+                 	<label>Email Address</label>
+				 <input type='text' name='mail' placeholder='Your Email address'>
+
+                 	<label>Bank Account #</label>
+				 <input type='text' name='mail' placeholder='Your bank account number'>
+
+                 	<label>Phone Number</label>
+				 <input type='text' name='mail' placeholder='Your first name'>
+
+					<a href='@Url.Action("RegisterComplete", "Home")'  class='button medium green'>Submit</a>
+			</form>
+		</div>
+	</div>

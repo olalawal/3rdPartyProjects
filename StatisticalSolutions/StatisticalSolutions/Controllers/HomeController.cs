@@ -15,6 +15,13 @@ namespace StatisticalSolutions.Controllers
             return View();
         }
 
+        public ActionResult IndexNew()
+        {
+            ViewBag.Message = "Welcome to Statistical Solutions";
+
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your app description page.";
@@ -29,12 +36,36 @@ namespace StatisticalSolutions.Controllers
             return View();
         }
 
-        public ActionResult Team()
+        public ActionResult Consultants()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+        public ActionResult WorkShops()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            ViewBag.Message = "Register Now";
+
+            return View();
+        }
+
+        public ActionResult RegisterComplete()
+        {
+            ViewBag.Message = "Register Complete";
+
+            return View();
+        }
+
+
+
 
 
         //bios 

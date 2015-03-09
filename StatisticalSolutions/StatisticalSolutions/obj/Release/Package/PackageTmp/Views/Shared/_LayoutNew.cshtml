@@ -1,0 +1,202 @@
+﻿@using StatisticalSolutions.Helpers
+@using System.Web.Optimization
+
+<!-- =============================================== -->
+<!-- =                                             = -->
+<!-- =                Keyners	                   = -->
+<!-- =                                             = -->
+<!-- =          http://keyners.com/	               = -->
+<!-- =============================================== -->
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+    <head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Statistical Solution</title>
+	<meta name="description" content="">
+	<meta name="author" content=" Made by Keyners">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- PT Sans -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- Crete Roung -->
+	<link href='http://fonts.googleapis.com/css?family=Crete+Round&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- CSS
+  ================================================== -->
+    @Styles.Render("~/css")   
+    @Styles.Render("~/fancybox")
+    @Scripts.Render("~/bundles/modernizr")
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+	
+
+	
+	
+
+</head>
+    <body>
+        <header>			
+		<nav>
+			<div class='container'>
+				<div class='five columns logo'>
+					<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125;" ></a>
+                   
+              
+				</div>
+
+				<div class='eleven columns'>
+					<ul class='mainMenu'>
+						 <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("WorkShops", "WorkShops", "Home")</li>
+                            <li>@Html.ActionLink("Consultants", "Consultants", "Home")</li>
+                            <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                            <li>  @Html.Partial("_LoginPartial")</li>
+
+
+					</ul>
+                    <ul>
+
+                    </ul>
+				</div>
+                   
+			</div>
+		</nav>
+
+		<div class='container'>
+			<div class='slogan'>
+				<div class='ten columns'>
+					<h2>A member of the LOYAL Statistical Consulting Group</h2>
+					<h3>Consulting and Training Solutions</h3>
+				</div>
+
+				<div class='six columns'>
+					<h4>Upcoming WorkShops</h4>
+					<p>Early bird registration for <b>Advanced Regression Analysis</b> starting in June and July</p>
+					<a href='@Url.Action("Register", "Home")'  class='button medium green'>Register Now</a>
+				</div>
+			</div>
+		</div>	
+	</header>
+
+        <div class='clear'></div>
+	    <div class='clear'></div>
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <div class='clear'></div>
+
+
+	    <footer>
+		    <div class='container'>
+			
+			    <div class='eight columns'>
+				    <h5>Copyright Statistical Solutions LLC</h5>
+				    <p> Powered by NewMediaHoldings LLC   &copy; @DateTime.Now.Year -Statistical Solutions</p>
+			    </div>
+
+			    <div class='four columns social'>
+				    <h5>Social media</h5>
+				    <a href='#'><img src="~/Images/social/dribbble.png"></a>
+				    <a href='#'><img src='~/Images/social/facebook.png'></a>
+				    <a href='#'><img src='~/Images/social/twitter.png'></a>
+				    <a href='#'><img src='~/Images/social/forrst.png'></a>
+			    </div>
+
+			    <div class='four columns'>
+				    <h5>Get in touch</h5>
+				    <p>You can call us at:<br>
+					    t:  080 67454289 - NOW</p>
+				    <p>Or drop us a line on:
+					    e: <a href='mailto:contact@free.com'>contact@free.com</a></p>
+			    </div>
+
+
+		    <a id='top' href='#'>&uarr;</a>	
+		    </div>
+	    </footer>
+	   
+      
+
+        @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/base");
+        @Scripts.Render("~/bundles/HTM5SHIV")
+        @RenderSection("scripts", required: false)
+          <script type="text/javascript">
+              $(document).ready(function () {
+                  $("a[rel=example_group]").fancybox({
+                      'transitionIn': 'none',
+                      'transitionOut': 'none',
+                      'titlePosition': 'over',
+                      'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                          return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                      }
+                  });
+              });
+	</script>
+         <script type="text/javascript">
+             var form = $('form');
+
+             $(document).ready(function () {
+                 //form.validate({
+                 //    ignore: "",
+                 //    rules: {
+                 //        'message': {
+                 //            required: true,
+                 //        },
+                 //        'name': {
+                 //            required: true,
+                 //        },
+                 //        'mail': {
+                 //            required: true,
+                 //            email: true
+                 //        }
+                 //    },
+                 //    errorPlacement: function (error, element) { }
+
+                 //});
+             });
+	    </script>
+	    <script type="text/javascript">
+	        var toper = $('a#top');
+
+
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) {
+	                toper.fadeIn(200);
+	            } else {
+	                toper.fadeOut(200);
+	            }
+	        });
+
+	        toper.click(function () {
+	            $('html, body').animate({ scrollTop: 0 }, 500);
+	            return false;
+	        });
+	    </script>
+    </body>
+</html>
