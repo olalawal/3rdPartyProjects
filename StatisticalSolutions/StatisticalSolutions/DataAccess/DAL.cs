@@ -145,7 +145,7 @@ namespace StatisticalSolutions.DataAccess
 
                     //DO whatever work is required to check etc
                     db.registrations.Add(model);
-                    db.SaveChanges();
+                    
                     return "student registred for seminar";
                 }
                 else

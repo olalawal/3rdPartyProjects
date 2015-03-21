@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.StatisticalSolutions.Domain.Models.Context
 {
-    public class StatisticalSolutionsContext : ContextBase
+    public class StatisticalSolutionsContext : DbContext 
     {
         public StatisticalSolutionsContext()
             : base("DefaultConnection")
@@ -17,7 +17,7 @@ namespace Domain.StatisticalSolutions.Domain.Models.Context
             // Database.SetInitializer<AnewluvContext>(null);           
             this.Configuration.ProxyCreationEnabled = true;
             this.Configuration.AutoDetectChangesEnabled = true;
-            this.DisableLazyLoading = true;
+           // this.DisableLazyLoading = true;
             //rebuild DB if schema is differnt
             //Initializer init = new Initializer();            
             // init.InitializeDatabase(this);
