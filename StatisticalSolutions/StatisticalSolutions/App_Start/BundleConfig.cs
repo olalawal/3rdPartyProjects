@@ -41,6 +41,7 @@ namespace StatisticalSolutions
                           
                             .Include("~/Content/skeleton.css")
                             .Include("~/Content/layout.css")
+                            .Include("~/Content/jquery-ui.css")
                           
                           .Include("~/Images")
                            );

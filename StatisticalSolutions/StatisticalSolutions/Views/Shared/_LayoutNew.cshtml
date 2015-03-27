@@ -38,6 +38,9 @@
 
 	<!-- CSS
   ================================================== -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
     @Styles.Render("~/css")   
     @Styles.Render("~/fancybox")
     @Scripts.Render("~/bundles/modernizr")
@@ -58,7 +61,7 @@
 		<nav>
 			<div class='container'>
 				<div class='five columns logo'>
-					<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125;" ></a>
+					<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125" ></a>
                    
               
 				</div>
@@ -92,7 +95,12 @@
 				<div class='six columns'>
 					<h4>Upcoming WorkShops</h4>
 					<p>Early bird registration for <b>Advanced Regression Analysis</b> starting in June and July</p>
-					<a href='@Url.Action("Register", "Home")'  class='button medium green'>Register Now</a>
+					@{
+                        StatisticalSolutions.Models.registration registration = new StatisticalSolutions.Models.registration();
+					    registration.seminar_id=1;
+                        
+                    }
+                    <a href='@Url.Action("Register", "Home", registration)'  class='button medium green'>Register Now</a>
 				</div>
 			</div>
 		</div>	
@@ -109,7 +117,7 @@
         </div>
         <div class='clear'></div>
 
-
+       
 	    <footer>
 		    <div class='container'>
 			
@@ -141,12 +149,12 @@
 	   
       
 
-        @Scripts.Render("~/bundles/jquery")
-                @Scripts.Render("~/bundles/bootstrap")
+      
+        @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/base");
         @Scripts.Render("~/bundles/HTM5SHIV")
         @RenderSection("scripts", required: false)
-          <script type="text/javascript">
+          <script type="text/javascript">  
               $(document).ready(function () {
                   $("a[rel=example_group]").fancybox({
                       'transitionIn': 'none',

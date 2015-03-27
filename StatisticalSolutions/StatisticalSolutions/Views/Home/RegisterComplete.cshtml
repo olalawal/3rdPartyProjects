@@ -1,4 +1,5 @@
-﻿@{
+﻿@model StatisticalSolutions.Models.registration 
+@{
     ViewBag.Title = "Register";
 }
 
@@ -14,24 +15,62 @@
            
            <div class='sixteen columns form'>
              <section class='gray'>
-               <form>
-                <div>
-               <label>First Name</label> <label>Last Name</label>
-                </div>
+               <form >
+                   <div >
+                       <div>
+                           Name :
+                           @Html.DisplayFor(m => m.student.FirstName) &nbsp;
+                           @Html.DisplayFor(m => m.student.LastName)
+                       </div>
+                       <br />
+                  
+                       <div>
+                         Workshop Details :
+                       </div>
+                       <div>
+                           @Html.DisplayFor(m => m.seminar.TitleHtml)
+                       </div>
+                       <br />
+                       <div>
+                          Starting Date :
+                           @Html.DisplayFor(m => m.StartDate, "{0:MM/dd/yyyy}")
 
-                <div>
-                   <label>Workshop Details</label> 
-                </div>
-                <div>
-                   <label>Advanced Regeression Analysis</label> 
-                </div>
-                 <div>
-                   <label>Starting Date :</label>    <label>June 5th 2015 </label> 
-                </div>
-                <div>
-                   <label>Location :</label>    <label><p> Princess Hotel </p><p> 1 Karibu Street.  Off pipeline Road </p><p>Ilorin.   Tel> N0:XXXXXXXXX2 </p><p> Room 208, Princess Hotel, Ilorin:<</p> </label> 
-                </div>
-                	<a href='#'  class='button medium green'>Print</a>
+                       </div>
+                       <br />
+                       <div>
+                           Location :
+                       </div>
+                       
+                       <div>
+                   
+                               <div>
+                                   @Html.DisplayFor(m => m.student.Address1)
+                                   @Html.DisplayFor(m => m.student.Address2)
+                               </div>
+                               <div>
+                                    @Html.DisplayFor(m => m.student.City, new { style = "display:inline-block;" })
+                               </div>
+                               <div>
+                                   @Html.DisplayFor(m => m.student.StateProvince, new { style = "display:inline-block;" })
+                               </div>
+                               <div>
+                                   @Html.DisplayFor(m => m.student.Country, new { style = "display:inline-block;" })
+                               </div>
+                            
+                               <div>
+                                   Tel. > @Html.DisplayFor(m => m.student.Phone, new { style = "display:inline-block;" })
+                               </div>
+
+                               
+
+                     
+
+                           @*<label><p> Princess Hotel </p><p> 1 Karibu Street.  Off pipeline Road </p><p>Ilorin.   Tel> N0:XXXXXXXXX2 </p><p> Room 208, Princess Hotel, Ilorin:<</p> </label>*@
+                       </div>
+                       <br />
+                       <a href='#' class='button medium green'>Print</a>
+                   </div>
+
 			</form>
             </section>
 		</div>

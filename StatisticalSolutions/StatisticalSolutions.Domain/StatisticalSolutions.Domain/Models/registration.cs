@@ -26,7 +26,7 @@ namespace StatisticalSolutions.Models
             public int student_id { get; set; }
             [DataMember]
             public virtual student student { get; set; }
-            [DataMember]
+            [DataMember]     
             public int seminar_id { get; set; }
             [DataMember]
             public virtual seminar seminar { get; set; }
@@ -36,9 +36,10 @@ namespace StatisticalSolutions.Models
             public bool? Attendend { get; set; }
             [DataMember]
             public DateTime? Attenddate { get; set; }
-            [DataMember]
+            [DataMember]       
             public DateTime Registerdate { get; set; }
-            
-
+            [DataMember]
+            public DateTime StartDate { get; set; }     
     }
+
 }

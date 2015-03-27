@@ -54,7 +54,7 @@ p {
 a, a:visited {
     text-decoration: none;
     color: #000080;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 
@@ -162,18 +162,18 @@ ul.mainMenu li a:hover {color: #FF6A00;
 * Form, input, label, textarea
 */
 .form h3, .form p {text-align: center;}
-form {width: 500px; margin: 30px auto; text-align: center;}
-input, label, textarea {width: 500px; float: left; margin: 0; padding: 0;}
-label {font-size: 12px; text-transform: uppercase; font-weight: 300; margin-bottom: 7px;}
-input {margin-bottom: 20px; padding: 7px 0; text-align: center;}
-input, textarea {border: 1px solid #ddd; outline: none;}
-input:focus, textarea:focus {border-color: #b6b6b6;}
+form {width: 500px; margin: 30px auto; text-align: left;}
+input, label, textarea, select {width: 500px; float: left; margin: 0; padding: 2px;}
+label {font-size: 12px; text-transform: uppercase; font-weight: 300; margin-bottom:4px;}
+input, select {margin-bottom: 20px; padding: 7px 0; text-align: left;}
+input, textarea, select{border: 1px solid #ddd; outline: none;}
+input:focus, textarea:focus, select:focus {border-color: #b6b6b6;}
 textarea {width: 480px; padding: 7px 10px;}
-input.error, textarea.error {border-color: #cc4847;}
+input.error, textarea.error, select.error {border-color: #cc4847;}
 
 
 
-input[type='submit'] {width: 502px; padding: 12px 0; font-size: 16px; border: none; background: #eee; color: #aaa; cursor: pointer;}
+input[type='submit'] {width: 502px; padding: 12px 0; font-size: 16px; border: none; background: #eee; color: #aaa; cursor: pointer;text-align:center;}
 input[type='submit']:hover {background: #1EBA6B; color: #fff;}
 
 

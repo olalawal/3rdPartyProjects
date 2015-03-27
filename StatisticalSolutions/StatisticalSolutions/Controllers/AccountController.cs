@@ -38,7 +38,10 @@ namespace StatisticalSolutions.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
+                if (!string.IsNullOrEmpty(returnUrl))
                 return RedirectToLocal(returnUrl);
+                else
+                    return RedirectToAction("Admin");
             }
 
             // If we got this far, something failed, redisplay form
@@ -135,6 +138,14 @@ namespace StatisticalSolutions.Controllers
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
+            return View();
+        }
+
+        // GET: /Account/Manage
+        public ActionResult Admin() 
+        {
+          
+          
             return View();
         }
 

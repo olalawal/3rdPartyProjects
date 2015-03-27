@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
+
 namespace StatisticalSolutions.DataAccess
 {
     public class DAL
     {
+
         //sample method
 
         internal bool CheckIfStudentIsRegistereredForSeminar(student model, int seminarid)
@@ -16,23 +19,26 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-
-               
-                student user = db.students.FirstOrDefault(u => u.id == model.id);
-                // Check if user already exists
-                if (user == null)
+                student student = db.students.FirstOrDefault(s => s.Email == model.Email);
+                if(student==null)
                 {
-                    //DO whatever work is required to check etc
-
                     return false;
                 }
                 else
                 {
-                    return false;
+                    registration registration = db.registrations.FirstOrDefault(u => u.student_id == student.student_id && u.seminar_id == seminarid);
+                    // Check if user already exists
+                    if (registration != null)
+                    {
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-
-
-
+               
             }
             catch (Exception ex)
             {
@@ -40,21 +46,20 @@ namespace StatisticalSolutions.DataAccess
                 return false;
             }
             finally
-            { 
-              //add dispose here
+            {
+                db.Dispose();
             }
         }
 
         //client model comes from chtml page or controller page
-        internal string addclient(client model)
+        internal int addclient(client model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
 
                 //first check if the client name is already in use
-
-                client client = db.clients.Where(u => u.Name == model.Name).FirstOrDefault();
+                client client = db.clients.FirstOrDefault(u => u.Name == model.Name);
 
 
                 // Check if user already exists
@@ -63,29 +68,26 @@ namespace StatisticalSolutions.DataAccess
                     //DO whatever work is required to check etc
                     db.clients.Add(client);
                     db.SaveChanges();
-                    return "client added";
+                    return client.client_id;
                 }
                 else
                 {
-                    return "A client with the same name already exists";
+                    return 0;
                 }
-
-
-
             }
             catch (Exception ex)
             {
 
-                return "failed";
+                throw ex;
             }
             finally
             {
-                //add dispose here
+                db.Dispose();
             }
         }
 
         //client model comes from chtml page or controller page
-        internal string addstudent(student model)
+        internal int addstudent(student model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
@@ -93,92 +95,90 @@ namespace StatisticalSolutions.DataAccess
 
                 //first check if the client name is already in use
 
-                student student = db.students.Where(u => u.Email == model.Email).FirstOrDefault();
+                student student = db.students.FirstOrDefault(u => u.Email == model.Email);
 
 
                 // Check if user already exists
                 if (student == null)
                 {
                     //DO whatever work is required to check etc
-                    db.students.Add(student);
+                    db.students.Add(model);
                     db.SaveChanges();
-                    return "student added";
+                    return model.student_id;
                 }
                 else
                 {
-                    return "A student with the same email already exists";
+                    return 0;
                 }
-
-
-
             }
             catch (Exception ex)
             {
 
-                return "failed";
+               throw ex;
             }
             finally
             {
-                //add dispose here
+                db.Dispose();
             }
         }
 
         //client model comes from chtml page or controller page
-        internal string registerforseminarbystudentandseminarid(registration model)
+        internal int registerforseminarbystudentandseminarid(registration model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-
-                
-
+               
                 //first check if the client name is already in use
+                client client=new client();
+                DateTime currentDatetime = DateTime.Now;
+                student student = db.students.FirstOrDefault(u => u.student_id == model.student_id);
+                seminar seminar = db.seminars.FirstOrDefault(u => u.seminar_id == model.seminar_id);
+                if (!string.IsNullOrEmpty(model.client.Name))
+                   client =  db.clients.FirstOrDefault(c => c.Name == model.client.Name);
 
-                student student = db.students.Where(u => u.id == model.student_id).FirstOrDefault();
-                seminar seminar = db.seminars.Where(u => u.id == model.seminar_id).FirstOrDefault();
+                if (client != null)
+                {
+                    model.client_id = client.client_id;
+                    model.client = client;
+                }
+                   
 
 
                 // oposite here student and seminar must exists
-                if ((student != null & seminar !=null) &&  seminar.registrations.Any(z=>z.student_id != student.id))
+                if ((student != null & seminar != null) && !seminar.registrations.Any(z => z.student_id == student.student_id))
                 {
-                    
-
                     //DO whatever work is required to check etc
+                    model.seminar = seminar;
+                    model.student = student;
+                    model.Registerdate = currentDatetime;
                     db.registrations.Add(model);
-                    
-                    return "student registred for seminar";
+                    return model.id;
+                    //return "student registred for seminar";
                 }
                 else
                 {
-                    return "You are already registred for this seminar!";
+                    return 0;
+                    //return "You are already registred for this seminar!";
                 }
-
-
-
             }
             catch (Exception ex)
             {
 
-                return "failed";
+                throw ex;
             }
             finally
             {
-                //add dispose here
+                db.Dispose();
             }
         }
 
         //client model comes from chtml page or controller page
-        internal string addseminar(seminar model)
+        internal int addseminar(seminar model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-
-
-
-         
-
-
                 // Check if user already exists and is not alrady registered
                 if (model != null && model.Description!="")
                 {
@@ -187,24 +187,22 @@ namespace StatisticalSolutions.DataAccess
                     //DO whatever work is required to check etc
                     db.seminars.Add(model);
                     db.SaveChanges();
-                    return "Seminar created ";
+                    return model.seminar_id;
+                    //return "Seminar created ";
                 }
                 else
                 {
-                    return "A seminar cannot be added withoute a discreption!!";
+                    return 0;
+                   // return "A seminar cannot be added withoute a discreption!!";
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
-                return "failed";
+                throw ex;
             }
             finally
             {
-                //add dispose here
+                db.Dispose();
             }
         }
 
@@ -214,11 +212,8 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-
-               
-
                 // Check if user already exists
-                if (model == null && model.Body !="" && model.Email !=null )
+                if (model != null && model.Body !="" && model.Email !=null )
                 {
                     //DO whatever work is required to check etc
                     db.messages.Add(model);
@@ -229,19 +224,117 @@ namespace StatisticalSolutions.DataAccess
                 {
                     return "Message must contain email body and and address";
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
                 return "failed";
             }
             finally
             {
-                //add dispose here
+                db.Dispose();
             }
         }
+
+
+        //client model comes from chtml page or controller page
+        internal List<seminar> getseminars()
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                List<seminar> seminars = db.seminars.ToList();
+                return seminars;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+
+        internal seminar getseminarbyid(int seminar_id)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id);
+                return seminar;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+
+        //code to gets all componies list
+        internal List<client> getCompanies()  
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                List<client> clients = db.clients.ToList();  
+                return clients;
+            }
+            catch (Exception ex)
+            {
+              
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+
+
+        internal List<Countries> getCountries() 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                List<Countries> countries = db.Countries.ToList();
+                return countries;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+
+
+        internal List<seminar> getfuturesemnarsstartdate()  
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+               //getting all seminars now but will change code later for only future seminars
+                List<seminar> seminars = db.seminars.ToList();
+                return seminars; 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+        
+
+
+        
+
     }
 }

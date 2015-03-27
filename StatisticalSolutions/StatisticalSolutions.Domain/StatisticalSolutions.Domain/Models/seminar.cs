@@ -16,7 +16,7 @@ namespace StatisticalSolutions.Models
         [Key]
           [DataMember]
           [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int seminar_id { get; set; }   
         [DataMember]
         public string TitleHtml { get; set; }
         [DataMember]
@@ -55,4 +55,6 @@ namespace StatisticalSolutions.Models
         public virtual ICollection<registration> registrations { get; set; }
         
     }
+
+
 }
