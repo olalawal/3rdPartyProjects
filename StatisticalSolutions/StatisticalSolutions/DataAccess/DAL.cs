@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using StatisticalSolutions.ViewModels;
 
 
 
@@ -42,7 +43,6 @@ namespace StatisticalSolutions.DataAccess
             }
             catch (Exception ex)
             {
-
                 return false;
             }
             finally
@@ -61,7 +61,6 @@ namespace StatisticalSolutions.DataAccess
                 //first check if the client name is already in use
                 client client = db.clients.FirstOrDefault(u => u.Name == model.Name);
 
-
                 // Check if user already exists
                 if (client == null)
                 {
@@ -72,12 +71,11 @@ namespace StatisticalSolutions.DataAccess
                 }
                 else
                 {
-                    return 0;
+                    throw new CustomException("ClientAllreadyExist");
                 }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -97,7 +95,6 @@ namespace StatisticalSolutions.DataAccess
 
                 student student = db.students.FirstOrDefault(u => u.Email == model.Email);
 
-
                 // Check if user already exists
                 if (student == null)
                 {
@@ -108,12 +105,11 @@ namespace StatisticalSolutions.DataAccess
                 }
                 else
                 {
-                    return 0;
+                    return student.student_id;
                 }
             }
             catch (Exception ex)
             {
-
                throw ex;
             }
             finally
@@ -128,43 +124,48 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-               
-                //first check if the client name is already in use
-                client client=new client();
-                DateTime currentDatetime = DateTime.Now;
-                student student = db.students.FirstOrDefault(u => u.student_id == model.student_id);
-                seminar seminar = db.seminars.FirstOrDefault(u => u.seminar_id == model.seminar_id);
-                if (!string.IsNullOrEmpty(model.client.Name))
-                   client =  db.clients.FirstOrDefault(c => c.Name == model.client.Name);
-
-                if (client != null)
+                if (model != null)
                 {
-                    model.client_id = client.client_id;
-                    model.client = client;
-                }
-                   
+                     //first check if the client name is already in use
+                    client client=new client();
+                    DateTime currentDatetime = DateTime.Now;
+                    student student = db.students.FirstOrDefault(u => u.student_id == model.student_id);
 
+                    if (student == null)
+                    {
+                        throw new CustomException("STUDENT_NOT_FOUND");
+                    }
+                    seminar seminar = db.seminars.FirstOrDefault(u => u.seminar_id == model.seminar_id);
+                    if (seminar == null)
+                    {
+                        throw new CustomException("SEMINAR_NOT_FOUND");
+                    }
 
-                // oposite here student and seminar must exists
-                if ((student != null & seminar != null) && !seminar.registrations.Any(z => z.student_id == student.student_id))
-                {
-                    //DO whatever work is required to check etc
-                    model.seminar = seminar;
-                    model.student = student;
-                    model.Registerdate = currentDatetime;
-                    db.registrations.Add(model);
-                    return model.id;
-                    //return "student registred for seminar";
+                    if (!string.IsNullOrEmpty(model.client.Name))
+                       client =  db.clients.FirstOrDefault(c => c.Name == model.client.Name);
+
+                    if (client != null)
+                        model.client_id = client.client_id;  
+              
+                    //check user is registered for for seminar
+                  if(seminar.registrations.Any(z => z.student_id == student.student_id && z.client_id == model.client_id))
+                  {
+                      throw new CustomException("STUDENT_ALLREADY_REGISTERED");
+                  }
+                
+                //DO whatever work is required to check etc                   
+                model.Registerdate = currentDatetime;
+                db.registrations.Add(model);
+                db.SaveChanges();               
                 }
-                else
-                {
-                    return 0;
-                    //return "You are already registred for this seminar!";
-                }
+                return model.id;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -178,23 +179,41 @@ namespace StatisticalSolutions.DataAccess
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
-            {
+            {                
                 // Check if user already exists and is not alrady registered
-                if (model != null && model.Description!="")
+                if (model != null)
                 {
-                    //TO do add more valiadtion i.e start date end date etc, location
+                   if( string.IsNullOrEmpty(model.Description))
+                       throw new CustomException("SEMINAR_DESCRIPTION_IS_NULL");
 
-                    //DO whatever work is required to check etc
-                    db.seminars.Add(model);
-                    db.SaveChanges();
-                    return model.seminar_id;
-                    //return "Seminar created ";
+                      if( string.IsNullOrEmpty(model.TitleHtml))
+                       throw new CustomException("SEMINAR_TITLEHTML_IS_NULL");
+
+                    //TO do add more valiadtion i.e start date end date etc, location
+                    seminar seminar = db.seminars.FirstOrDefault(s => s.TitleHtml == model.TitleHtml && s.StartDate == model.StartDate && s.Enddate == model.Enddate
+                        && s.Address1 == model.Address1 && s.Address2 == model.Address2 && s.City == model.City && s.StateProvince == model.StateProvince && s.Country == model.Country);
+                    
+                    if (seminar==null)
+                    { 
+                        //DO whatever work is required to check etc
+                        db.seminars.Add(model);
+                        db.SaveChanges();
+                        return model.seminar_id;                       
+                    }
+                    else
+                    {
+                        throw new CustomException("SEMINAR_ALLREADY_EXIST");
+                    }
                 }
                 else
                 {
-                    return 0;
-                   // return "A seminar cannot be added withoute a discreption!!";
+                    throw new CustomException("SEMINAR_MODEL_SUPPLIED_IS_NULL");
                 }
+             
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -207,27 +226,39 @@ namespace StatisticalSolutions.DataAccess
         }
 
         //client model comes from chtml page or controller page
-        internal string addcontactmessage(message model)
+        internal int addcontactmessage(message model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
                 // Check if user already exists
-                if (model != null && model.Body !="" && model.Email !=null )
+                if (model != null)
                 {
+                    if(string.IsNullOrEmpty(model.Body))
+                        throw new CustomException("MESSAGE_BODY_IS_NULL");
+
+                      if(string.IsNullOrEmpty(model.Email))
+                          throw new CustomException("MESSAGE_EMAIL_IS_NULL");
+
+                    DateTime currentDate =  DateTime.Now;
+                    model.MessageDate = currentDate;
                     //DO whatever work is required to check etc
                     db.messages.Add(model);
                     db.SaveChanges();
-                    return "message Sent";
+                    return model.id;
                 }
                 else
                 {
-                    return "Message must contain email body and and address";
+                    throw new CustomException("MESSAGE_MODEL_SUPPLIED_IS_NULL");
                 }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
-                return "failed";
+                throw ex;
             }
             finally
             {
@@ -245,6 +276,10 @@ namespace StatisticalSolutions.DataAccess
                 List<seminar> seminars = db.seminars.ToList();
                 return seminars;
             }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -255,6 +290,30 @@ namespace StatisticalSolutions.DataAccess
             }
         }
 
+
+        internal student getstudentbyid(int student_id)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                student student = db.students.FirstOrDefault(s => s.student_id == student_id);
+                return student;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+        }
+        
+
         internal seminar getseminarbyid(int seminar_id)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -262,6 +321,10 @@ namespace StatisticalSolutions.DataAccess
             {
                 seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id);
                 return seminar;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -281,6 +344,10 @@ namespace StatisticalSolutions.DataAccess
             {
                 List<client> clients = db.clients.ToList();  
                 return clients;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -302,6 +369,10 @@ namespace StatisticalSolutions.DataAccess
                 List<Countries> countries = db.Countries.ToList();
                 return countries;
             }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -321,6 +392,10 @@ namespace StatisticalSolutions.DataAccess
                //getting all seminars now but will change code later for only future seminars
                 List<seminar> seminars = db.seminars.ToList();
                 return seminars; 
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {

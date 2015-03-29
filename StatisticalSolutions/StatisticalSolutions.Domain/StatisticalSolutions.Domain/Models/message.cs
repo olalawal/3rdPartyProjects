@@ -40,6 +40,8 @@ namespace StatisticalSolutions.Models
         public string Email { get; set; }
         [DataMember]
         public string Phone { get; set; }
+            [DataMember]
+        public DateTime? MessageDate { get; set; } 
         
 
     }

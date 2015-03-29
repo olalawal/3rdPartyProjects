@@ -10,10 +10,14 @@ using StatisticalSolutions.Models;
 using StatisticalSolutions.ViewModels;
 using StatisticalSolutions.DataAccess;
 using StatisticalSolutions.Util;
+using StatisticalSolutions.Filters;
+using StatisticalSolutions.Helpers;
+using StatisticalSolutions.Controllers.Base;
 
 namespace StatisticalSolutions.Controllers
 {
-    public class HomeController : Controller 
+ 
+    public class HomeController : BaseController 
     {
 
         ILog Log = LogManager.GetCurrentClassLogger();
@@ -96,13 +100,21 @@ namespace StatisticalSolutions.Controllers
                     companies.Add(c.Name);
 
                 ViewBag.Companies = companies;
-
+                
+               
             }
-            catch (Exception e)
+            catch (CustomException ex)
             {
-                //code for exception handling                
-            }      
-
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                //throw ex;
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                //throw ex;
+                return SystemExceptionCatcher(ex);
+            }   
 
             return View(model);
         }
@@ -119,7 +131,7 @@ namespace StatisticalSolutions.Controllers
                         
                     //code for insertion of student in student table               
                     Log.Info("Function RegisterWorkshop - Insertion Student table");					
-                    model.student_id=dataAccess.addstudent(model.student);				
+                    model.student_id = dataAccess.addstudent(model.student);				
 				
                     // code for insert record in registration table                
                     Log.Info("Function RegisterWorkshop - Insetion in regastration tablr ");              
@@ -139,18 +151,22 @@ namespace StatisticalSolutions.Controllers
                     mail.Subject = "You have successfully registered for " + model.seminar.TitleHtml;
                     _maillSender.SendMail(mail);
                     Log.Info("Function RegisterWorkshop - End of mail sending");
+                    
                     return View("RegisterComplete", model);
-                
-                    }
-				
-                }                    
-                   
+                    }				
+                }
+
+                catch (CustomException ex)
+                {
+                    Log.Error(m => m("Function RegisterWorkshop Error  - {0}", ex.Message));
+                    return CustomExceptionCatcher(ex);
+                }
                 catch (Exception ex)
                 {
-                    Log.Error(m => m("Function Register Error  - {0}", ex.Message));
-                   //code for exception handling
-                }
-                return RedirectToAction("register");
+                    Log.Error(m => m("Function RegisterWorkshop Error  - {0}", ex.Message));                    
+                    return SystemExceptionCatcher(ex);
+                }   
+                return RedirectToAction("register",new registration());
                 
         }
 
@@ -158,8 +174,8 @@ namespace StatisticalSolutions.Controllers
         public ActionResult RegisterComplete(registration registration)
         {
             ViewBag.Message = "Register Complete";
-
-            return View();
+            registration.student = dataAccess.getstudentbyid(registration.student_id);
+            return View(registration);
         }
 
         //bios 
@@ -205,12 +221,16 @@ namespace StatisticalSolutions.Controllers
                    Log.Info("Function ContactUsMail - Insertion of message in table");
                    dataAccess.addcontactmessage(model);                     
                 }
-
-                catch (Exception ex)
-                {
-                    Log.Error(m => m("Function SendMail Error  - {0}", ex.Message));
-                   //code fot exception handling
-                }         
+             catch (CustomException ex)
+             {
+                 Log.Error(m => m("Function ContactUsMail Error  - {0}", ex.Message));
+                 return CustomExceptionCatcher(ex);
+             }
+             catch (Exception ex)
+             {
+                 Log.Error(m => m("Function ContactUsMail Error  - {0}", ex.Message));
+                 return SystemExceptionCatcher(ex);
+             }  
             
             return RedirectToAction("Index", "Home");
         }

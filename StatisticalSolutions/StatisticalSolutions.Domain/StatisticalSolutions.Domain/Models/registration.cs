@@ -26,7 +26,8 @@ namespace StatisticalSolutions.Models
             public int student_id { get; set; }
             [DataMember]
             public virtual student student { get; set; }
-            [DataMember]     
+            [DataMember]
+            [Required(ErrorMessage = "The workshop field is required")]
             public int seminar_id { get; set; }
             [DataMember]
             public virtual seminar seminar { get; set; }
@@ -39,6 +40,7 @@ namespace StatisticalSolutions.Models
             [DataMember]       
             public DateTime Registerdate { get; set; }
             [DataMember]
+            [Required(ErrorMessage = "The Start Date field is required")]
             public DateTime StartDate { get; set; }     
     }
 

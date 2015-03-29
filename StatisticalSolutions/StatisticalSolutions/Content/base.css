@@ -133,7 +133,36 @@ ul.mainMenu li a:hover {color: #FF6A00;
 
 
 
+/* styles for validation helpers */
+.field-validation-error {
+    color: #ff0000;
+    font-weight: normal;
+    font-size:11px;
+}
 
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error,
+textarea.input-validation-error,
+select.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
 
 
 /*
@@ -292,6 +321,11 @@ footer .social a:hover img {opacity: 1;}
 	textarea {width: 280px;}
 
 	.container .one-third.column, .container .eight.columns, .container .four.columns {margin-bottom: 40px;}
+
+
+    
+
+
 
 
 }

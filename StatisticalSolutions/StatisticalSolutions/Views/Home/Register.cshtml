@@ -24,12 +24,12 @@
                     @{
                         string seminatId=Convert.ToString(Model.seminar_id);
                     }
-                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id.ToString()), "--Select--")
+                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", seminatId), "--Select Seminar--", new {@placeholder="Seminar"})
                 </li>
                 <li>
                     <label>Select Start Date</label>
                     @Html.ValidationMessageFor(m => m.StartDate)
-                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select--")
+                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select Start Date--", new {@placeholder="Start Date"})
                 </li>
                 <li>
                     <div >
