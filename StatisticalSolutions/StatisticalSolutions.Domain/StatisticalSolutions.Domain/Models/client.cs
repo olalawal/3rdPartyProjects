@@ -36,6 +36,13 @@ namespace StatisticalSolutions.Models
             [DataMember]
             public string Description { get; set; }
             [DataMember]
+            [Required]
+            [DataType(DataType.EmailAddress)]
+            [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                             ErrorMessage = "Email is not valid")]
+            [Display(Name = "Your Email address")]
             public string Email { get; set; }
             [DataMember]
             public string Phone { get; set; }

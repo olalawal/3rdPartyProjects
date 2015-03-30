@@ -9,7 +9,7 @@ using StatisticalSolutions.ViewModels;
 
 namespace StatisticalSolutions.Util
 {
-
+    
     internal class MailSender
     {
         protected readonly ILog _log = LogManager.GetCurrentClassLogger();
@@ -49,7 +49,6 @@ namespace StatisticalSolutions.Util
         {
             try
             {
-
                 _log.Info(m => m("Mail Sender - {0}", "SendMail Method Start"));
                 _mailMessage.To.Add(mail.To);
                 if (!string.IsNullOrEmpty(mail.CC))
@@ -65,25 +64,38 @@ namespace StatisticalSolutions.Util
                 _mailMessage.Priority = MailPriority.High;
                 SmtpClient smtpServer = new SmtpClient(mail.HostServer);
                 smtpServer.Port = mail.Port;
-                _log.Info(m => m("Mail Sender - Attaching Files"));
-                //if (mail.FilesToAttach.Length > 0)
-                //{
-                //    foreach (string fileName in mail.FilesToAttach)
-                //    {
-                //        if (!string.IsNullOrEmpty(fileName))
-                //            _mailMessage.Attachments.Add(new Attachment(fileName));
-                //    }
-                //}
-                //_log.Info(m => m("Mail Sender -  Files attachment completed"));
+        
                 if (mail.IsCredentialRequired)
                 {
                     smtpServer.Credentials = new System.Net.NetworkCredential(mail.AuthUserName, mail.AuthPassword);
                 }
                 smtpServer.EnableSsl = mail.IsEnableSSL;
-                smtpServer.Send(_mailMessage);
+                try
+                {
+                    smtpServer.Send(_mailMessage);
+                }               
+                 
+                catch (CustomException ex)
+                {      
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    smtpServer.Dispose();
+                }
                 _log.Info(m => m("Mail sent successfully."));
                 return true;
 
+            }
+            catch (CustomException ex)
+            {
+                //if there is any error then put it into the log file...
+                _log.Error(m => m("Mail Sender exception message - {0}", ex.ErrorMessage));
+                return false;
             }
 
             catch (Exception ex)
@@ -94,8 +106,9 @@ namespace StatisticalSolutions.Util
                 return false;
             }
         }
-
-    }
+  
+        
+}
 
     
 }

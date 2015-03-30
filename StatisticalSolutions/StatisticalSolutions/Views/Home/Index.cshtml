@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
     HtmlHelper.ClientValidationEnabled = true;
 }
+
 <div class='container'>
 
     <div class='one-third column'>
@@ -133,4 +134,13 @@
 
 
 <div class='clear'></div>
+@if (!string.IsNullOrEmpty(Convert.ToString(TempData["StatisticalError"])))
+{
+    <script>
+      var error = "@TempData["StatisticalError"]";
+      alert(error);
+    </script>
+    TempData["StatisticalError"] = null;
+}
+
 

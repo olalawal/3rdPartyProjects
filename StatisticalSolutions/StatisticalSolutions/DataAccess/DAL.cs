@@ -71,8 +71,12 @@ namespace StatisticalSolutions.DataAccess
                 }
                 else
                 {
-                    throw new CustomException("ClientAllreadyExist");
+                    throw new CustomException("CLIENT_ALLREADY_EXIST");
                 }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -105,8 +109,12 @@ namespace StatisticalSolutions.DataAccess
                 }
                 else
                 {
-                    return student.student_id;
+                    throw new CustomException("STUDENT_ALLREADY_EXIST");
                 }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -129,12 +137,20 @@ namespace StatisticalSolutions.DataAccess
                      //first check if the client name is already in use
                     client client=new client();
                     DateTime currentDatetime = DateTime.Now;
-                    student student = db.students.FirstOrDefault(u => u.student_id == model.student_id);
+                    student student = db.students.FirstOrDefault(u => u.Email == model.student.Email);
 
-                    if (student == null)
+                    if (student == null)                   
+                        model.student_id = addstudent(model.student); 
+                    else                   
+                        model.student_id = student.student_id; 
+ 
+                    //set student to null to prevent duplicate insertion
+                    if (student==null)
                     {
-                        throw new CustomException("STUDENT_NOT_FOUND");
+                        student = model.student;
                     }
+                    model.student = null;
+
                     seminar seminar = db.seminars.FirstOrDefault(u => u.seminar_id == model.seminar_id);
                     if (seminar == null)
                     {
@@ -145,10 +161,14 @@ namespace StatisticalSolutions.DataAccess
                        client =  db.clients.FirstOrDefault(c => c.Name == model.client.Name);
 
                     if (client != null)
-                        model.client_id = client.client_id;  
+                        model.client_id = client.client_id;
+
+                    //set client to null of model to prevent duplicate insertion                   
+                    model.client = null;
+
               
                     //check user is registered for for seminar
-                  if(seminar.registrations.Any(z => z.student_id == student.student_id && z.client_id == model.client_id))
+                  if(seminar.registrations.Any(z => z.student_id == model.student_id && z.client_id == model.client_id))
                   {
                       throw new CustomException("STUDENT_ALLREADY_REGISTERED");
                   }
@@ -156,7 +176,10 @@ namespace StatisticalSolutions.DataAccess
                 //DO whatever work is required to check etc                   
                 model.Registerdate = currentDatetime;
                 db.registrations.Add(model);
-                db.SaveChanges();               
+                db.SaveChanges();
+                // assign student and seminar to display at register complete page
+                model.seminar = seminar;
+                model.student = student;
                 }
                 return model.id;
             }

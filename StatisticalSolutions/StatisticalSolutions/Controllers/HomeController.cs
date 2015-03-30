@@ -17,15 +17,28 @@ using StatisticalSolutions.Controllers.Base;
 namespace StatisticalSolutions.Controllers
 {
  
-    public class HomeController : BaseController 
+    public class HomeController : BaseController
     {
+        #region variables
+        DAL dataAccess;
+        MailSender _maillSender;
+        #endregion
 
-        ILog Log = LogManager.GetCurrentClassLogger();
-        DAL dataAccess = new DAL();
+        #region constructor
+
+        public HomeController()
+        {
+            dataAccess = new DAL();
+            _maillSender = new MailSender();
+                
+        }
+        #endregion
+
+
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to Statistical Solutions";
-
+            
             return View();
         }
 
@@ -99,8 +112,7 @@ namespace StatisticalSolutions.Controllers
                 foreach (client c in clients)
                     companies.Add(c.Name);
 
-                ViewBag.Companies = companies;
-                
+                ViewBag.Companies = companies;             
                
             }
             catch (CustomException ex)
@@ -128,16 +140,11 @@ namespace StatisticalSolutions.Controllers
             {                    
                 if (!dataAccess.CheckIfStudentIsRegistereredForSeminar(model.student, model.seminar_id))
                 {
-                        
-                    //code for insertion of student in student table               
-                    Log.Info("Function RegisterWorkshop - Insertion Student table");					
-                    model.student_id = dataAccess.addstudent(model.student);				
-				
+                    student  student = new student();
+                    student = model.student;
                     // code for insert record in registration table                
-                    Log.Info("Function RegisterWorkshop - Insetion in regastration tablr ");              
-                    dataAccess.registerforseminarbystudentandseminarid(model);
-                    //get seminar by seminar_id 
-                    model.seminar = dataAccess.getseminarbyid(model.seminar_id);
+                    Log.Info("Function RegisterWorkshop - Insetion in regastration tablr ");
+                    dataAccess.registerforseminarbystudentandseminarid(model);                
 
                     //code for sending mail to registratant and admin
                     Log.Info("Function RegisterWorkshop - Start of mail sending");
@@ -206,20 +213,28 @@ namespace StatisticalSolutions.Controllers
         {
              try
                 {
-                    //code for sending mails
-                    MailSender _maillSender = new MailSender();
+                    //code for sending mails                    
                     Mails mail = _maillSender.SetMailsProperty();
                     mail.Name = model.Name;
                     mail.Body = model.Body;
                     mail.From = model.Email;
                     mail.To = ConfigurationManager.AppSettings["EmailTo"];
-                    mail.Subject = model.Name + " has sent contact request";
-                    Log.Info("Function ContactUsMail - Start of mail sending");
-                   _maillSender.SendMail(mail);
 
-                 //code for insert message in database
-                   Log.Info("Function ContactUsMail - Insertion of message in table");
-                   dataAccess.addcontactmessage(model);                     
+                    mail.Subject = model.Name + " has sent contact request";
+                    model.Subject= "Contact Us Request";                   
+                    Log.Info("Function ContactUsMail - Start of mail sending");
+                  
+                    if (_maillSender.SendMail(mail))
+                    { 
+                        //code for insert message in database
+                        Log.Info("Function ContactUsMail - Insertion of message in table");
+                        dataAccess.addcontactmessage(model);
+                        TempData["StatisticalError"] = "Message sent successfully";
+                    }
+                    else
+                    {
+                        TempData["StatisticalError"] = "Error in sending mail";
+                    }
                 }
              catch (CustomException ex)
              {
@@ -230,9 +245,10 @@ namespace StatisticalSolutions.Controllers
              {
                  Log.Error(m => m("Function ContactUsMail Error  - {0}", ex.Message));
                  return SystemExceptionCatcher(ex);
-             }  
-            
-            return RedirectToAction("Index", "Home");
+             }
+
+             TempData.Keep();
+             return RedirectToAction("index", "Home"); //View("~/Views/Home/index.cshtml", model);
         }
 
 
