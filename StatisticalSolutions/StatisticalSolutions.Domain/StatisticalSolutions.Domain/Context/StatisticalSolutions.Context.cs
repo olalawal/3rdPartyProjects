@@ -31,6 +31,7 @@ namespace Domain.StatisticalSolutions.Domain.Models.Context
         public DbSet<seminar> seminars { get; set; }
         public DbSet<registration> registrations { get; set; }
         public DbSet<message> messages { get; set; }
+        public DbSet<Countries> Countries { get; set; } 
 
     }
 }

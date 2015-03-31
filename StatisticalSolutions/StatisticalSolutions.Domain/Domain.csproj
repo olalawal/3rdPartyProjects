@@ -57,6 +57,7 @@
     <Compile Include="StatisticalSolutions.Domain\Models\AccountModels.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\client.cs" />
     <Compile Include="StatisticalSolutions.Domain\Context\StatisticalSolutions.Context.cs" />
+    <Compile Include="StatisticalSolutions.Domain\Models\Countries.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\message.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\registration.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\students.cs" />

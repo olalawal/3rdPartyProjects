@@ -50,9 +50,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\packages\Common.Logging.Log4Net.2.0.2\lib\net20\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\StatisticalSolutions.Domain\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -206,16 +215,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />    
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />  
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ErrorProperties.cs" />
+    <Compile Include="Util\MailSender.cs" />
+    <Compile Include="ViewModels\CustomException.cs" />    
+    <Compile Include="ViewModels\Mails.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-StatisticalSolutions-20150116141900.mdf" />
+    <Content Include="App_Data\aspnet-StatisticalSolutions-20150116141900_log.ldf">
+      <DependentUpon>aspnet-StatisticalSolutions-20150116141900.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -255,6 +274,7 @@
     <Content Include="Content\images\orderedList8.png" />
     <Content Include="Content\images\orderedList9.png" />
     <Content Include="Content\images\statistical-solutions-full-logo50.png" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox-buttons.css" />
     <Content Include="Content\jquery.fancybox-thumbs.css" />
     <Content Include="Content\jquery.fancybox.css" />
@@ -330,7 +350,9 @@
     <Content Include="Images\.DS_Store" />
     <Content Include="Images\Current-statistical-solutionslogo.png" />
     <Content Include="Images\DSC_1125.JPG" />
+    <Content Include="Images\Error.png" />
     <Content Include="Images\social\.DS_Store" />
+    <Content Include="errorcode.properties" />
     <None Include="Properties\PublishProfiles\Built in database 3rd party.pubxml" />
     <None Include="Properties\PublishProfiles\statisticalsolutions.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
@@ -349,6 +371,7 @@
     <Content Include="Images\social\facebook.png" />
     <Content Include="Images\social\forrst.png" />
     <Content Include="Images\social\twitter.png" />
+    <Content Include="Log4Net.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CurrentTemplate\fancybox\fancybox.png" />
@@ -431,9 +454,12 @@
     <Content Include="Views\Home\RegisterComplete.cshtml" />
     <Content Include="Views\Home\Consultants.cshtml" />
     <Content Include="Views\Shared\Consultants.cshtml" />
+    <Content Include="Views\Account\Admin.cshtml" />
+    <Content Include="Views\Base\StatisticalError.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Log\" />
+	<Folder Include="App_Data\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
