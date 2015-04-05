@@ -296,7 +296,7 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<seminar> seminars = db.seminars.ToList();
+                List<seminar> seminars = db.seminars.OrderBy(s=>s.TitleHtml).ToList();
                 return seminars;
             }
             catch (CustomException ex)
@@ -365,7 +365,7 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<client> clients = db.clients.ToList();  
+                List<client> clients = db.clients.OrderBy(c=>c.Name).ToList();  
                 return clients;
             }
             catch (CustomException ex)
@@ -389,7 +389,7 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<Countries> countries = db.Countries.ToList();
+                List<Countries> countries = db.Countries.OrderBy(c=>c.Country).ToList();
                 return countries;
             }
             catch (CustomException ex)
@@ -413,7 +413,7 @@ namespace StatisticalSolutions.DataAccess
             try
             {
                //getting all seminars now but will change code later for only future seminars
-                List<seminar> seminars = db.seminars.ToList();
+                List<seminar> seminars = db.seminars.OrderBy(s=>s.StartDate).ToList();
                 return seminars; 
             }
             catch (CustomException ex)
