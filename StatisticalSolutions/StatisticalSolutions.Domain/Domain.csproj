@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201504051236556_StatisticalSolutions.cs" />
+    <Compile Include="Migrations\201504051236556_StatisticalSolutions.Designer.cs">
+      <DependentUpon>201504051236556_StatisticalSolutions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\AccountModels.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\client.cs" />
@@ -64,10 +69,16 @@
     <Compile Include="StatisticalSolutions.Domain\Models\seminar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504051236556_StatisticalSolutions.resx">
+      <DependentUpon>201504051236556_StatisticalSolutions.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
