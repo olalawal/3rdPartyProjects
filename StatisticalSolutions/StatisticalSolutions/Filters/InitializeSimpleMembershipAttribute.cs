@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebMatrix.WebData;
 using StatisticalSolutions.Models;
 using Domain.StatisticalSolutions.Domain.Models.Context;
+using System.Web.Security;
 
 namespace StatisticalSolutions.Filters
 {
@@ -40,6 +41,9 @@ namespace StatisticalSolutions.Filters
                     //}
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+
+                  
+
                 }
                 catch (Exception ex)
                 {

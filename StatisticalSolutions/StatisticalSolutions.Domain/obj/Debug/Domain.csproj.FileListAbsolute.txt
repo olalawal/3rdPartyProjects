@@ -20,8 +20,6 @@ C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\De
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.xml
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.xml
-C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Nmedia.DataAccess.pdb
-C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Nmedia.DataAccess.Interfaces.pdb
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll.config
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll
@@ -32,3 +30,6 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bi
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.StatisticalSolutions.resources
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache

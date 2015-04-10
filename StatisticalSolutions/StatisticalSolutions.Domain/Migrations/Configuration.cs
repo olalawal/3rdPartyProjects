@@ -4,6 +4,8 @@ namespace Domain.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Security;
+    using WebMatrix.WebData;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Domain.StatisticalSolutions.Domain.Models.Context.StatisticalSolutionsContext>
     {
@@ -27,6 +29,21 @@ namespace Domain.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+
+            if (!Roles.RoleExists("Administrator"))
+                Roles.CreateRole("Administrator");
+
+            if (!WebSecurity.UserExists("lelong37"))
+                WebSecurity.CreateUserAndAccount(
+                    "lelong37",
+                    "password"
+                       );
+
+            if (!Roles.GetRolesForUser("lelong37").Contains("Administrator"))
+                Roles.AddUsersToRoles(new[] { "lelong37" }, new[] { "Administrator" });
+
+           
         }
     }
 }

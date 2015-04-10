@@ -125,8 +125,6 @@ C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\WebMatrix
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Domain.pdb
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.xml
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.xml
-C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Nmedia.DataAccess.pdb
-C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Nmedia.DataAccess.Interfaces.pdb
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.xml
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.xml
@@ -265,3 +263,10 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\zh-Ha
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.csprojResolveAssemblyReference.cache
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.pdb
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\StatisticalSolutions.dll.config
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.dll
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.Log4Net.dll
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.dll
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.xml
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.dll
+C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.xml
