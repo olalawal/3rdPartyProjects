@@ -33,3 +33,15 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\ob
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.StatisticalSolutions.resources
 C:\temp\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll.config
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.pdb
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.dll
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.xml
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.StatisticalSolutions.resources
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.dll
+D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
