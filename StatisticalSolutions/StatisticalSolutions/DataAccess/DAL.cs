@@ -779,7 +779,7 @@ namespace StatisticalSolutions.DataAccess
 
                     case "unpaid":
 
-                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Paid == false));
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Paid != true));
                         break;
                     case "attended":
 
@@ -788,7 +788,7 @@ namespace StatisticalSolutions.DataAccess
 
                     case "not attended":
 
-                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Attendend == false));
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Attendend != true));
                         break;
                 }
 
