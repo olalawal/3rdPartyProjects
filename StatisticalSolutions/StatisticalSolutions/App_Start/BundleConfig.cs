@@ -42,7 +42,7 @@ namespace StatisticalSolutions
                             .Include("~/Content/skeleton.css")
                             .Include("~/Content/layout.css")
                             .Include("~/Content/jquery-ui.css")
-                          
+                            .Include("~/Content/JqueryTE/jquery-te-{version}.css")                         
                           .Include("~/Images")
                            );
 
@@ -56,10 +56,13 @@ namespace StatisticalSolutions
         public static void RegisterJavascriptBundlesNew(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                         "~/Scripts/JqueryTE/jquery-te-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/form").Include(
+                       "~/Scripts/form.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+                        "~/Scripts/jquery-ui.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -83,9 +86,8 @@ namespace StatisticalSolutions
                          "~/Scripts/jquery.fancybox.js",
                          "~/Scripts/jquery.fancybox-buttons.js",
                          "~/Scripts/jquery.fancybox-media.js",
-                         "~/Scripts/jquery.fancybox-thumbs.js"
-
-                        ));
+                         "~/Scripts/jquery.fancybox-thumbs.js"                        
+                    ));
         }
 
 

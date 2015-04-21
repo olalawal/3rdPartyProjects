@@ -59,9 +59,9 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201504051236556_StatisticalSolutions.cs" />
-    <Compile Include="Migrations\201504051236556_StatisticalSolutions.Designer.cs">
-      <DependentUpon>201504051236556_StatisticalSolutions.cs</DependentUpon>
+    <Compile Include="Migrations\201504200126146_StatisticalSolutions.cs" />
+    <Compile Include="Migrations\201504200126146_StatisticalSolutions.Designer.cs">
+      <DependentUpon>201504200126146_StatisticalSolutions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +81,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504051236556_StatisticalSolutions.resx">
-      <DependentUpon>201504051236556_StatisticalSolutions.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504200126146_StatisticalSolutions.resx">
+      <DependentUpon>201504200126146_StatisticalSolutions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

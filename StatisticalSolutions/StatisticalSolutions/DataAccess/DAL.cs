@@ -3,8 +3,10 @@ using StatisticalSolutions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using StatisticalSolutions.ViewModels;
+using StatisticalSolutions.Util;
 
 
 
@@ -47,7 +49,7 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
@@ -65,9 +67,9 @@ namespace StatisticalSolutions.DataAccess
                 if (client == null)
                 {
                     //DO whatever work is required to check etc
-                    db.clients.Add(client);
+                    db.clients.Add(model);
                     db.SaveChanges();
-                    return client.client_id;
+                    return model.client_id;
                 }
                 else
                 {
@@ -84,19 +86,21 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-        //client model comes from chtml page or controller page
+        /// <summary>
+        /// add student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         internal int addstudent(student model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-
                 //first check if the client name is already in use
-
                 student student = db.students.FirstOrDefault(u => u.Email == model.Email);
 
                 // Check if user already exists
@@ -122,11 +126,278 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-        //client model comes from chtml page or controller page
+
+        /// <summary>
+        /// update student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        internal int updatestudent(student model) 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                student st = db.students.FirstOrDefault(s => s.student_id == model.student_id);
+
+                // Check if student already exists
+                if (st != null)
+                {
+                    //DO whatever work is required to check etc
+                    
+                    st.FirstName = model.FirstName;                    
+                    st.LastName = model.LastName;                    
+                    st.Address1 = model.Address1;                    
+                    st.Address2 = model.Address2;                   
+                    st.City = model.City;                   
+                    st.StateProvince = model.StateProvince;                   
+                    st.Country = model.Country;                    
+                    st.Phone = model.Phone;                    
+                    st.ZipPostalCode = model.ZipPostalCode;                    
+                    st.Fax = model.Fax;                    
+                    st.BankAccountNumber = model.BankAccountNumber;                    
+                    st.IsActive = model.IsActive; 
+                    db.SaveChanges();
+                    return model.student_id;
+                }
+                else
+                {
+                    throw new CustomException("STUDENT_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// delete student
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        internal void deletestudent(int student_id) 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                student student = db.students.FirstOrDefault(s => s.student_id == student_id);
+
+                // Check if user already exists
+                if (student != null)
+                {
+                    student.IsActive = false;
+                    db.SaveChanges();                  
+                }
+                else
+                {
+                    throw new CustomException("STUDENT_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+       /// <summary>
+       /// update client
+       /// </summary>
+       /// <param name="model"></param>
+       /// <returns></returns>
+        internal int updateclient(client model)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {             
+                client client = db.clients.FirstOrDefault(c => c.client_id == model.client_id);
+                // Check if user already exists
+                if (client != null)
+                {
+                    client.Name = model.Name;
+                    client.Address1 = model.Address1;
+                    client.Address2 = model.Address2;
+                    client.City = model.City;
+                    client.StateProvince = model.StateProvince;
+                    client.Country = model.Country;
+                    client.Phone = model.Phone;
+                    client.ZipPostalCode = model.ZipPostalCode;
+                    client.Fax = model.Fax;
+                    client.Description = model.Description;
+                  
+                    db.SaveChanges();
+                    return model.client_id;
+                }
+                else
+                {
+                    throw new CustomException("CLIENT_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// delete client
+        /// </summary>
+        /// <param name="client_id"></param>
+        internal void deleteclient(int client_id) 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                client client = db.clients.FirstOrDefault(s => s.client_id == client_id);
+
+                // Check if user already exists
+                if (client != null)
+                {
+                    client.IsActive = false;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new CustomException("CLIENT_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// update seminar
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        internal int updateseminar(seminar model) 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                seminar objseminar = db.seminars.FirstOrDefault(s => s.seminar_id == model.seminar_id);
+
+                // Check if user already exists
+                if (objseminar != null)
+                {
+                    objseminar.TitleHtml = model.TitleHtml;
+                    objseminar.EventDetailsHtml = model.EventDetailsHtml;
+                    objseminar.Description = model.Description;
+                    objseminar.StartDate = model.StartDate;
+                    objseminar.Enddate = model.Enddate;                    
+                    objseminar.Address1 = model.Address1;
+                    objseminar.Address2 = model.Address2;
+                    objseminar.City = model.City;
+                    objseminar.StateProvince = model.StateProvince;
+                    objseminar.Country = model.Country;
+                    objseminar.Phone = model.Phone;
+                    objseminar.Email = model.Email;
+                    objseminar.ZipPostalCode = model.ZipPostalCode;
+                    objseminar.Fax = model.Fax;
+                    objseminar.ContactEmail = model.ContactEmail;
+                    objseminar.ContactPhone = model.ContactPhone;
+                    objseminar.ContactWebsite = model.ContactWebsite;
+                    objseminar.IsActive = model.IsActive;
+                    db.SaveChanges();
+                    return model.seminar_id;
+                }
+                else
+                {
+                    throw new CustomException("SEMINAR_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// delete seminar
+        /// </summary>
+        /// <param name="seminar_id"></param>
+        internal void deleteseminar(int seminar_id)  
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id); 
+
+                // Check if user already exists
+                if (seminar != null)
+                {
+                    seminar.IsActive = false;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new CustomException("SEMINAR_DOES_NOT_EXIST");
+                }
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// client model comes from chtml page or controller page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         internal int registerforseminarbystudentandseminarid(registration model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -137,6 +408,8 @@ namespace StatisticalSolutions.DataAccess
                      //first check if the client name is already in use
                     client client=new client();
                     DateTime currentDatetime = DateTime.Now;
+                    model.student.IsActive = true;
+
                     student student = db.students.FirstOrDefault(u => u.Email == model.student.Email);
 
                     if (student == null)                   
@@ -154,7 +427,7 @@ namespace StatisticalSolutions.DataAccess
                     seminar seminar = db.seminars.FirstOrDefault(u => u.seminar_id == model.seminar_id);
                     if (seminar == null)
                     {
-                        throw new CustomException("SEMINAR_NOT_FOUND");
+                        throw new CustomException("SEMINAR_DOES_NOT_EXIST");
                     }
 
                     if (!string.IsNullOrEmpty(model.client.Name))
@@ -193,11 +466,15 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-        //client model comes from chtml page or controller page
+        /// <summary>
+        /// seminar model comes from chtml page or controller page
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         internal int addseminar(seminar model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -244,11 +521,15 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-        //client model comes from chtml page or controller page
+       /// <summary>
+       /// add contact message
+       /// </summary>
+       /// <param name="model"></param>
+       /// <returns></returns>
         internal int addcontactmessage(message model)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -285,18 +566,21 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
 
-        //client model comes from chtml page or controller page
+        /// <summary>
+        /// get seminar list
+        /// </summary>
+        /// <returns></returns>
         internal List<seminar> getseminars()
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<seminar> seminars = db.seminars.OrderBy(s=>s.TitleHtml).ToList();
+                List<seminar> seminars = db.seminars.Where(s=>s.IsActive).OrderBy(s=>s.TitleHtml).ToList();
                 return seminars;
             }
             catch (CustomException ex)
@@ -309,11 +593,15 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-
+        /// <summary>
+        /// get student by student id
+        /// </summary>
+        /// <param name="student_id"></param>
+        /// <returns></returns>
         internal student getstudentbyid(int student_id)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -332,11 +620,43 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// get client by client id 
+        /// </summary>
+        /// <param name="client_id"></param>
+        /// <returns></returns>
+        internal client getcompaniesbyid(int client_id)
+        { 
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                client client = db.clients.FirstOrDefault(c => c.client_id == client_id);
+                return client;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+               // db.Dispose();
             }
         }
         
-
+        
+        /// <summary>
+        /// get seminar by seminar id
+        /// </summary>
+        /// <param name="seminar_id"></param>
+        /// <returns></returns>
         internal seminar getseminarbyid(int seminar_id)
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -355,17 +675,20 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-        //code to gets all componies list
+        /// <summary>
+        /// get clients list
+        /// </summary>
+        /// <returns></returns>
         internal List<client> getCompanies()  
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<client> clients = db.clients.OrderBy(c=>c.Name).ToList();  
+                List<client> clients = db.clients.Where(c=>c.IsActive).OrderBy(c=>c.Name).ToList();  
                 return clients;
             }
             catch (CustomException ex)
@@ -379,11 +702,14 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
-
+        /// <summary>
+        /// get country list
+        /// </summary>
+        /// <returns></returns>
         internal List<Countries> getCountries() 
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
@@ -402,18 +728,134 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
             }
         }
 
+        /// <summary>
+        /// get registered seminars
+        /// </summary>
+        /// <returns></returns>
+        internal List<seminar> getregisteredseminars()
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                List<seminar> seminars = (from sem in db.seminars
+                                             join reg in db.registrations on sem.seminar_id equals reg.seminar_id
+                                             orderby sem.TitleHtml
+                                             select sem).ToList();
+                    return seminars;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
 
-        internal List<seminar> getfuturesemnarsstartdate()  
+        internal List<seminar> getfilterregisteredseminars(string filterText)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                Expression<Func<registration, bool>> predicate = PredicateBuilder.True<registration>();
+                string searchText = filterText.Trim();
+                switch (searchText.ToLower())
+                {
+
+                    
+                    case "paid":                  
+                       
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Paid == true));
+                        break;              
+
+                    case "unpaid":
+
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Paid == false));
+                        break;
+                    case "attended":
+
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Attendend == true));
+                        break;
+
+                    case "not attended":
+
+                        predicate = (searchText == "" ? predicate : predicate.And(e => e.Attendend == false));
+                        break;
+                }
+
+                IQueryable<registration> regPredicate = db.registrations.AsExpandable().Where(predicate);
+
+
+                List<seminar> seminars = (from sem in db.seminars
+                                          join reg in regPredicate on sem.seminar_id equals reg.seminar_id
+                                             orderby sem.TitleHtml
+                                             select sem).ToList();
+                    return seminars;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        
+
+        /// <summary>
+        /// get student registered for a particular seminar
+        /// </summary>
+        /// <param name="seminar_id"></param>      
+        /// <returns></returns>
+        internal List<student> getseminarregisteredstudents(int seminar_id)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+               List<student> students = (from st in db.students 
+                                        join reg in db.registrations on st.student_id equals reg.student_id
+                                        orderby st.FirstName
+                                        where reg.seminar_id == seminar_id  
+                                        select st).ToList();
+
+                return students;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        internal List<seminar> getfutureseminarsstartdate()  
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
                //getting all seminars now but will change code later for only future seminars
-                List<seminar> seminars = db.seminars.OrderBy(s=>s.StartDate).ToList();
+                List<seminar> seminars = db.seminars.OrderBy(s => s.StartDate).Distinct().ToList();
                 return seminars; 
             }
             catch (CustomException ex)
@@ -426,11 +868,34 @@ namespace StatisticalSolutions.DataAccess
             }
             finally
             {
-                db.Dispose();
+               // db.Dispose();
+            }
+        }
+
+
+        internal List<student> getstudents() 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                //getting all students
+                List<student> students = db.students.Where(s=> s.IsActive).OrderBy(s => s.LastName ).ToList();
+                return students;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+               // db.Dispose();
             }
         }
         
-
 
         
 

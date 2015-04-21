@@ -20,20 +20,28 @@ namespace StatisticalSolutions.Models
             public int client_id { get; set; }   
             [Required]
             [DataMember]
+            [Display(Name = "Client Name")]
             public string Name { get; set; }
             [DataMember]
+            [Display(Name = "Address Line 1")]
             public string Address1 { get; set; }
             [DataMember]
+            [Display(Name = "Address Line 2")]
             public string Address2 { get; set; }
             [DataMember]
+            [Display(Name = "City")]
             public string City { get; set; }
             [DataMember]
+            [Display(Name = "State/Province")]
             public string StateProvince { get; set; }
             [DataMember]
+            [Display(Name = "ZIP Postal Code")]
             public string ZipPostalCode { get; set; }
             [DataMember]
+            [Display(Name = "Country")]
             public string Country { get; set; }
             [DataMember]
+            [Display(Name = "Description")]
             public string Description { get; set; }
             [DataMember]
             [Required]
@@ -42,12 +50,17 @@ namespace StatisticalSolutions.Models
                              @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                              @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
                              ErrorMessage = "Email is not valid")]
-            [Display(Name = "Your Email address")]
+            [Display(Name = "Email address")]
             public string Email { get; set; }
             [DataMember]
+            [Display(Name = "Phone number")]
             public string Phone { get; set; }
             [DataMember]
-            public string Fax { get; set; }        
+            [Display(Name = "Fax number")]
+            public string Fax { get; set; }
+        
+            [DataMember]
+            public bool IsActive { get; set; }
 
     }
 }

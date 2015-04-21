@@ -82,7 +82,10 @@ namespace StatisticalSolutions.Models
         [DataMember]
         [Required]
         [Display(Name = "Your Bank Account #")]
-        public string BankAccountNumber { get; set; } 
+        public string BankAccountNumber { get; set; }
+
+        [DataMember]
+        public bool IsActive { get; set; }
        // public virtual ICollection<registration> registrations  { get; set; }
     }
 }

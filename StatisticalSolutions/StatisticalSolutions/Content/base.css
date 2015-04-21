@@ -199,13 +199,43 @@ input, textarea, select{border: 1px solid #ddd; outline: none;}
 input:focus, textarea:focus, select:focus {border-color: #b6b6b6;}
 textarea {width: 480px; padding: 7px 10px;}
 input.error, textarea.error, select.error {border-color: #cc4847;}
+input[type="checkbox"] {width: 20px; float: left; margin: 0; padding: 2px;margin-bottom: 20px; padding: 7px 0; text-align: left;}
 
 
 
 input[type='submit'] {width: 502px; padding: 12px 0; font-size: 16px; border: none; background: #eee; color: #aaa; cursor: pointer;text-align:center;}
 input[type='submit']:hover {background: #1EBA6B; color: #fff;}
 
+.filter-dropdown
+{
+    width:375px;
+    display:inline-block;
+}
 
+.filter-button
+{
+    width:120px !important;
+    display:inline-block !important;
+    vertical-align:top !important;
+    margin:0 !important;
+    height:35px !important;
+    padding: 4px 0 !important;     
+    margin-left:5px !important;
+   
+}
+
+.checkbox
+{
+    width: 20px !important; 
+    display: inline-block !important;
+}
+
+.checkbox-label
+{
+    width: 80% !important;
+    display:inline-block !important;
+    margin-bottom:15px !important;
+}
 
 /*
 * Focus

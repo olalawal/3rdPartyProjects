@@ -15,7 +15,7 @@
     <AssemblyName>StatisticalSolutions</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -86,15 +86,18 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -234,10 +237,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\ErrorProperties.cs" />
     <Compile Include="Util\MailSender.cs" />
+    <Compile Include="Util\Predicate\DataConversionUtility.cs" />
+    <Compile Include="Util\Predicate\ExpandableQuery.cs" />
+    <Compile Include="Util\Predicate\ExpressionExpander.cs" />
+    <Compile Include="Util\Predicate\ExpressionVisitor.cs" />
+    <Compile Include="Util\Predicate\Extensions.cs" />
+    <Compile Include="Util\Predicate\Linq.cs" />
+    <Compile Include="Util\Predicate\PredicateBuilder.cs" />
     <Compile Include="ViewModels\CustomException.cs" />
     <Compile Include="ViewModels\Mails.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-StatisticalSolutions-20150116141900.mdf" />
+    <Content Include="App_Data\aspnet-StatisticalSolutions-20150116141900_log.ldf">
+      <DependentUpon>aspnet-StatisticalSolutions-20150116141900.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\localDBdocs.txt" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -279,9 +293,13 @@
     <Content Include="Content\images\orderedList9.png" />
     <Content Include="Content\images\statistical-solutions-full-logo50.png" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery.fancybox-buttons.css" />
     <Content Include="Content\jquery.fancybox-thumbs.css" />
     <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\JqueryTE\demo.css" />
+    <Content Include="Content\JqueryTE\jquery-te-1.4.0.css" />
+    <Content Include="Content\JqueryTE\jquery-te.png" />
     <Content Include="Content\layout.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\skeleton.css" />
@@ -382,6 +400,7 @@
     <Content Include="Scripts\CurrentTemplate\fancybox\jquery.fancybox-1.3.4.css" />
     <Content Include="Scripts\CurrentTemplate\fancybox\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="Scripts\CurrentTemplate\validate.js" />
+    <Content Include="Scripts\form.js" />
     <Content Include="Scripts\html5shiv-printshiv.js" />
     <Content Include="Scripts\html5shiv-printshiv.min.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -392,6 +411,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.fancybox-buttons.js" />
     <Content Include="Scripts\jquery.fancybox-media.js" />
     <Content Include="Scripts\jquery.fancybox-thumbs.js" />
@@ -404,6 +425,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JqueryTE\jquery-te-1.4.0.js" />
+    <Content Include="Scripts\JqueryTE\jquery-te-1.4.0.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -460,6 +483,21 @@
     <Content Include="Views\Shared\Consultants.cshtml" />
     <Content Include="Views\Account\Admin.cshtml" />
     <Content Include="Views\Base\StatisticalError.cshtml" />
+    <Content Include="Views\Home\WorkshopDetails.cshtml" />
+    <Content Include="Views\Home\AddWorkshop.cshtml" />
+    <Content Include="Views\Home\WorkshopList.cshtml" />
+    <Content Include="Views\Home\StudentList.cshtml" />
+    <Content Include="Views\Home\AddStudent.cshtml" />
+    <Content Include="Views\Home\WorkshopPartial.cshtml" />
+    <Content Include="Views\Home\StudentPartial.cshtml" />
+    <Content Include="Views\Home\BulkMails.cshtml" />
+    <Content Include="Views\Home\ClientsList.cshtml" />
+    <Content Include="Views\Home\ClientPartial.cshtml" />
+    <Content Include="Views\Home\AddClient.cshtml" />
+    <Content Include="Views\Home\EditWorkshop.cshtml" />
+    <Content Include="Views\Home\EditStudent.cshtml" />
+    <Content Include="Views\Home\EditClient.cshtml" />
+    <Content Include="Views\Home\BulkMailSent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Log\" />
@@ -493,7 +531,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>23602</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/StatisticalSolutions</IISUrl>
+          <IISUrl>http://localhost:23602/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -20,16 +20,13 @@
                 <li>
                    
                     <label>WorkShop</label>
-                    @Html.ValidationMessageFor(m => m.seminar_id)
-                    @{
-                        string seminatId=Convert.ToString(Model.seminar_id);
-                    }
-                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", seminatId), "--Select Seminar--", new {@placeholder="Seminar"})
+                    @Html.ValidationMessageFor(m => m.seminar_id)                   
+                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar" })
                 </li>
                 <li>
                     <label>Select Start Date</label>
                     @Html.ValidationMessageFor(m => m.StartDate)
-                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select Start Date--", new {@placeholder="Start Date"})
+                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date" })
                 </li>
                 <li>
                     <div >
@@ -41,65 +38,80 @@
                  
                     <label>First Name</label>
                     @Html.ValidationMessageFor(model => model.student.FirstName)
-                    @Html.TextBoxFor(model => model.student.FirstName, new { @placeholder = "Your First name", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.FirstName, new { @tabindex = "4", @placeholder = "Your First name", @class = "form-control" })
                    
                 </li>
                 <li>
                     <label>Last Name</label>
                     @Html.ValidationMessageFor(model => model.student.LastName)
-                    @Html.TextBoxFor(model => model.student.LastName, new { @placeholder = "Your Last name", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.LastName, new { @tabindex = "5", @placeholder = "Your Last name", @class = "form-control" })
 
                 </li>
                 <li>
                     <label>Address Line 1</label>
                     @Html.ValidationMessageFor(model => model.student.Address1)
-                    @Html.TextBoxFor(model => model.student.Address1, new { @placeholder = "Your address line l", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.Address1, new { @tabindex = "6", @placeholder = "Your address line l", @class = "form-control" })
                    
                 </li>
                 <li>
                     <label>Address Line 2</label>
-                    @Html.TextBoxFor(model => model.student.Address2, new { @placeholder = "Your address line 2", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.Address2, new { @tabindex = "7", @placeholder = "Your address line 2", @class = "form-control" })
                
                 </li>
                 <li>
                     <label>City</label>
                     @Html.ValidationMessageFor(model => model.student.City)
-                    @Html.TextBoxFor(model => model.student.City, new { @placeholder = "Your city", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.City, new { @tabindex = "8", @placeholder = "Your city", @class = "form-control" })
                    
                 </li>
                 <li>
                     <label>State/Province</label>
                     @Html.ValidationMessageFor(model => model.student.StateProvince)
-                    @Html.TextBoxFor(model => model.student.StateProvince, new { @placeholder = "Your state/Province", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.StateProvince, new { @tabindex = "9", @placeholder = "Your state/Province", @class = "form-control" })
                   
                 </li>
                 <li>
                     <label>Country</label>
                     @Html.ValidationMessageFor(model => model.student.Country)
-                    @Html.DropDownListFor(model=>model.student.Country,new SelectList(@ViewBag.Countries,"Country", "Country"), "--Select Country--")
+                    @Html.DropDownListFor(model => model.student.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "10" })
                 </li>
 
                 <li>
                     <label>Email Address</label>
                     @Html.ValidationMessageFor(model => model.student.Email)
-                    @Html.TextBoxFor(model => model.student.Email, new { @placeholder = "Your Email address", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.Email, new { @tabindex = "11", @placeholder = "Your Email address", @class = "form-control" })
                    
                 </li>
                 <li>
                     <label>Bank Account #</label>
                     @Html.ValidationMessageFor(model => model.student.BankAccountNumber)
-                    @Html.TextBoxFor(model => model.student.BankAccountNumber, new { @placeholder = "Your bank account number", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.student.BankAccountNumber, new { @tabindex = "12", @placeholder = "Your bank account number", @class = "form-control" })
                    
                 </li>
                 <li>
                     <label>Phone Number</label>
-                    @Html.ValidationMessageFor(model => model.student.BankAccountNumber)
-                    @Html.TextBoxFor(model => model.student.Phone, new { @placeholder = "Your phone number", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.student.Phone)
+                    @Html.TextBoxFor(model => model.student.Phone, new { @tabindex = "13", @placeholder = "Your phone number", @class = "form-control" })
                     
                 </li>  
                 <li>
+                    <label>Fax Number</label>
+                    @Html.ValidationMessageFor(model => model.student.Fax)
+                    @Html.TextBoxFor(model => model.student.Fax, new { @tabindex = "14", @placeholder = "Your Fax number", @class = "form-control" })
+
+                </li>
+                <li>
+                    <span class="checkbox">
+                        @Html.CheckBoxFor(model => model.student.IsActive, new { @tabindex = "15", @class = "form-control" })
+                    </span>
+                    <span class="checkbox-label">
+                        <label>Active</label>
+                        @Html.ValidationMessageFor(model => model.student.IsActive)
+                    </span>
+                </li>
+                <li>
                     @*<a href='@Url.Action("RegisterComplete", "Home")'  class='button medium green'>Submit</a>*@
-                    <input type="submit" value="Submit" class="button medium green" />
+                    <input type="submit" tabindex="15"  value="Submit" class="button medium green" />
                 </li>
             </ol>
         </fieldset>

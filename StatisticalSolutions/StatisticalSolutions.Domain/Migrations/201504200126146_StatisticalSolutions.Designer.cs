@@ -6,14 +6,14 @@ namespace Domain.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.2-31219")]
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
     public sealed partial class StatisticalSolutions : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(StatisticalSolutions));
         
         string IMigrationMetadata.Id
         {
-            get { return "201504051236556_StatisticalSolutions"; }
+            get { return "201504200126146_StatisticalSolutions"; }
         }
         
         string IMigrationMetadata.Source

@@ -14,33 +14,33 @@
 
 <div class='container twelve.columns'>
 
-    @foreach (seminar s in Model)
+    @foreach (seminar sem in Model)
     {
         <section class='gray'>
             <h4>
                 <strong>
                     @*<a  name="Basics" id="Basics"></a>*@
-                    @Html.Raw(s.TitleHtml);
+                    @Html.Raw(sem.TitleHtml);
                 </strong>
             </h4>
             <br />
             <div>
-                @Html.Raw(s.EventDetailsHtml)
+                @Html.Raw(sem.EventDetailsHtml)
             </div>
             <p>
                 Available dates : <b>
-                    @if (s.StartDate != null && s.StartDate != default(DateTime))
+                    @if (sem.StartDate != null && sem.StartDate != default(DateTime))
                     {
-                        @Html.Raw(s.StartDate.ToShortDateString())
+                        @Html.Raw(sem.StartDate.ToShortDateString())
                     }
                 </b>
             </p>
             <div>
 
-                @if (s.StartDate != null && s.StartDate != default(DateTime))
+                @if (sem.StartDate != null && sem.StartDate != default(DateTime))
                 {
                     registration reg = new registration();
-                    reg.seminar_id = s.seminar_id;
+                    reg.seminar_id = sem.seminar_id;
                     <a href='@Url.Action("Register", "Home", reg)' class='button medium green'>Register Now</a>
                 }
 
