@@ -1,0 +1,22 @@
+﻿@model StatisticalSolutions.Models.seminar
+<tr>
+    <td>
+        @Html.DisplayFor(m => m.TitleHtml)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.StartDate, "{0:MM/dd/yyyy}")
+
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.Enddate, "{0:MM/dd/yyyy}")
+
+
+    </td>
+    <td>
+        @Html.CheckBoxFor(model => model.IsActive)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "EditWorkshop", new { id = Model.seminar_id }) | 
+        @Html.ActionLink("Delete", "DeleteWorkshop", new { id = Model.seminar_id })
+</tr>

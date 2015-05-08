@@ -87,3 +87,10 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Syste
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.WebHost.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\StatisticalSolutions.dll.config
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.Log4Net.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.xml

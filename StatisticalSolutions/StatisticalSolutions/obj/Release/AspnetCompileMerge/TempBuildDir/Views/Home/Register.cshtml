@@ -1,56 +1,141 @@
-﻿@{
+﻿@model StatisticalSolutions.Models.registration
+@{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+    HtmlHelper.ClientValidationEnabled = true;
 }
 
 
-
 <div class='container'>
-		<div class='sixteen columns form'>
-			<h3>Enter your registration info</h3>
-			<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>
-			<form>
+    <div class='sixteen columns form'>    
+        <h3>Enter your registration info</h3>
+        <p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>
+        @using (Html.BeginForm("RegisterWorkshop", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+       
+    <div id="divregistration">
+        <fieldset>
+            <ol>
+                <li>
+                   
+                    <label>WorkShop</label>
+                    @Html.ValidationMessageFor(m => m.seminar_id)                   
+                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar" })
+                </li>
+                <li>
+                    <label>Select Start Date</label>
+                    @Html.ValidationMessageFor(m => m.StartDate)
+                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date" })
+                </li>
+                <li>
+                    <div >
+                        <label>Company</label>
+                        @Html.TextBoxFor(model => model.client.Name, new { id = "txtCompany", @tabindex = "3", @placeholder = "Auto complete i.e as they type the company they get suggestions from client table", style = "width:100%;float:left", @class = "form-control" })
+                    </div>
+                </li>
+                <li>
+                 
+                    <label>First Name</label>
+                    @Html.ValidationMessageFor(model => model.student.FirstName)
+                    @Html.TextBoxFor(model => model.student.FirstName, new { @tabindex = "4", @placeholder = "Your First name", @class = "form-control" })
+                   
+                </li>
+                <li>
+                    <label>Last Name</label>
+                    @Html.ValidationMessageFor(model => model.student.LastName)
+                    @Html.TextBoxFor(model => model.student.LastName, new { @tabindex = "5", @placeholder = "Your Last name", @class = "form-control" })
 
-                  <div style="float:left" >
-			      <div>
-                           <label>WorkShop</label>
-				  <select name="WorkShop" class="ComboBoxBig">
-                                <option>Advanced Regeression Analysis</option>
-                                <option>Place Holder 1 </option>
-                                <option>Place Holder 2</option>
-                            </select>
-			      </div>
-             <br />
-				   <div>
-                        <label>Select Start Date</label>
-                       <select name="StartDate" class="ComboBoxBig">
-                                <option>June 5-8 2015</option>
-                                <option>July 1st 2015 </option>                               
-                            </select>	
-                       </div>
-                    </div>		
-             
-                <div></div>
-                </br>
+                </li>
+                <li>
+                    <label>Address Line 1</label>
+                    @Html.ValidationMessageFor(model => model.student.Address1)
+                    @Html.TextBoxFor(model => model.student.Address1, new { @tabindex = "6", @placeholder = "Your address line l", @class = "form-control" })
+                   
+                </li>
+                <li>
+                    <label>Address Line 2</label>
+                    @Html.TextBoxFor(model => model.student.Address2, new { @tabindex = "7", @placeholder = "Your address line 2", @class = "form-control" })
+               
+                </li>
+                <li>
+                    <label>City</label>
+                    @Html.ValidationMessageFor(model => model.student.City)
+                    @Html.TextBoxFor(model => model.student.City, new { @tabindex = "8", @placeholder = "Your city", @class = "form-control" })
+                   
+                </li>
+                <li>
+                    <label>State/Province</label>
+                    @Html.ValidationMessageFor(model => model.student.StateProvince)
+                    @Html.TextBoxFor(model => model.student.StateProvince, new { @tabindex = "9", @placeholder = "Your state/Province", @class = "form-control" })
+                  
+                </li>
+                <li>
+                    <label>Country</label>
+                    @Html.ValidationMessageFor(model => model.student.Country)
+                    @Html.DropDownListFor(model => model.student.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "10" })
+                </li>
 
-                  <label>Company</label>
-				 <input type='text' name='company' placeholder='Auto complete  list i.e as they type the company they get suggestions from client table'>
-                	
-			 	<label>First Name</label>
-				 <input type='text' name='mail' placeholder='Your First name'>
-                 	
-                <label>Last Name</label>
-				 <input type='text' name="mail" placeholder='Your Last name'>
+                <li>
+                    <label>Email Address</label>
+                    @Html.ValidationMessageFor(model => model.student.Email)
+                    @Html.TextBoxFor(model => model.student.Email, new { @tabindex = "11", @placeholder = "Your Email address", @class = "form-control" })
+                   
+                </li>
+                <li>
+                    <label>Bank Account #</label>
+                    @Html.ValidationMessageFor(model => model.student.BankAccountNumber)
+                    @Html.TextBoxFor(model => model.student.BankAccountNumber, new { @tabindex = "12", @placeholder = "Your bank account number", @class = "form-control" })
+                   
+                </li>
+                <li>
+                    <label>Phone Number</label>
+                    @Html.ValidationMessageFor(model => model.student.Phone)
+                    @Html.TextBoxFor(model => model.student.Phone, new { @tabindex = "13", @placeholder = "Your phone number", @class = "form-control" })
+                    
+                </li>  
+                <li>
+                    <label>Fax Number</label>
+                    @Html.ValidationMessageFor(model => model.student.Fax)
+                    @Html.TextBoxFor(model => model.student.Fax, new { @tabindex = "14", @placeholder = "Your Fax number", @class = "form-control" })
 
-                 	<label>Email Address</label>
-				 <input type='text' name='mail' placeholder='Your Email address'>
+                </li>
+                <li>
+                    <span class="checkbox">
+                        @Html.CheckBoxFor(model => model.student.IsActive, new { @tabindex = "15", @class = "form-control" })
+                    </span>
+                    <span class="checkbox-label">
+                        <label>Active</label>
+                        @Html.ValidationMessageFor(model => model.student.IsActive)
+                    </span>
+                </li>
+                <li>
+                    @*<a href='@Url.Action("RegisterComplete", "Home")'  class='button medium green'>Submit</a>*@
+                    <input type="submit" tabindex="15"  value="Submit" class="button medium green" />
+                </li>
+            </ol>
+        </fieldset>
 
-                 	<label>Bank Account #</label>
-				 <input type='text' name='mail' placeholder='Your bank account number'>
+    </div>
 
-                 	<label>Phone Number</label>
-				 <input type='text' name='mail' placeholder='Your first name'>
+        }
+    </div>
+</div>
 
-					<a href='@Url.Action("RegisterComplete", "Home")'  class='button medium green'>Submit</a>
-			</form>
-		</div>
-	</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        
+        var companies = new Array;
+        var availableCompanies = @Html.Raw(Json.Encode(ViewBag.Companies));
+           for(var i =0; i<availableCompanies.length;i++)
+            {
+               companies[i] = availableCompanies[i];
+           }         
+
+        $("#txtCompany").autocomplete({
+            source: companies
+        });
+    });
+</script>

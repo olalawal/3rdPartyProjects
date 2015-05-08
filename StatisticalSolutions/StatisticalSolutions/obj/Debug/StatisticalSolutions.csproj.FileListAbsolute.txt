@@ -366,3 +366,10 @@ D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\zh
 D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.csprojResolveAssemblyReference.cache
 D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.dll
 D:\Ola Project\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.pdb
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\StatisticalSolutions.dll.config
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Common.Logging.Log4Net.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.xml
