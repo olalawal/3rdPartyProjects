@@ -1,0 +1,19 @@
+2015-05-10 15:30:29,982 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 15:45:04,442 [44] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 15:46:10,712 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 15:50:18,741 [29] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 15:50:27,766 [29] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Register 
+ 2015-05-10 16:15:08,449 [82] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 16:31:23,743 [39] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 17:45:08,819 [130] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 17:46:09,539 [122] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Consultants 
+ 2015-05-10 17:46:11,391 [130] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/WorkShops 
+ 2015-05-10 17:46:19,192 [122] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Register 
+ 2015-05-10 17:46:36,426 [129] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Register 
+ 2015-05-10 17:49:33,980 [115] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 18:04:14,523 [121] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 2015-05-10 18:04:30,002 [118] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Register 
+ 2015-05-10 18:04:54,908 [124] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/WorkShops 
+ 2015-05-10 18:05:11,201 [118] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /Home/Register/0 
+ 2015-05-10 18:05:16,301 [86] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - / 
+ 
