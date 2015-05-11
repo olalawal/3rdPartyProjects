@@ -24,7 +24,7 @@ namespace StatisticalSolutions.Helpers
             {
                 //SmtpClient oSmtpClient = new SmtpClient();
                 //MailMessage oMailMessage = new MailMessage();
-                var FromAddress = "noreply@loyalbconsulting.com"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
+                var FromAddress = "noreply@loyabconsulting.com"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
 
                
                     // Create the email object first, then add the properties.

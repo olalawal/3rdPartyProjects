@@ -151,7 +151,8 @@ namespace StatisticalSolutions.Controllers
                     mail.To = model.student.Email;
                     mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
                     mail.Subject = "You have successfully registered for " + model.seminar.TitleHtml;
-                    _maillSender.SendMail(mail);
+                    MailExtention.sendemail(model.student.Email, mail.Subject, mail.Body);
+                   // _maillSender.SendMail(mail);
                     Log.Info("Function RegisterWorkshop - End of mail sending");
                     
                     return View("RegisterComplete", model);

@@ -1,0 +1,44 @@
+﻿@model  StatisticalSolutions.Models.registration
+
+@{
+    ViewBag.Title = "BulkMails";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class='container focus'>
+
+    <legend>Bulk Mail</legend>
+
+    <div class='sixteen form'>
+        <section>
+
+            <div class="content">
+                <br />
+                <ul>
+                    @using (Html.BeginForm("BulkMailsFilter", "Home", FormMethod.Post))
+                    {
+                        <li>
+                            @Html.DropDownList("FilterText", new SelectList(@ViewBag.Filter), "--Select Filter--", new { @tabindex = "1", @placeholder = "Filter", @class="filter-dropdown" })
+                            <input type="submit" value="Filter" class="medium green filter-button" />
+                            <br />
+                        </li>
+                    }
+                    @using (Html.BeginForm("BulkMails", "Home", FormMethod.Post))
+                    {
+                        <li>
+                            <label>Workshops</label>
+                            @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.regseminars, "seminar_id", "TitleHtml"), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar" })
+                        </li>
+
+                        <li>
+                            <input type="submit" tabindex="13" value="Send Mail" class="button medium green" />
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </section>
+    </div>
+</div>
