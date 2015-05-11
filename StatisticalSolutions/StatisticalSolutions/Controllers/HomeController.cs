@@ -219,7 +219,9 @@ namespace StatisticalSolutions.Controllers
                     model.Subject= "Contact Us Request";                   
                     Log.Info("Function ContactUsMail - Start of mail sending");
                   
-                    if (_maillSender.SendMail(mail))
+
+                  //  if (_maillSender.SendMail(mail))
+                    if (MailExtention.sendemail(mail.To,mail.Subject,mail.Body))
                     { 
                         //code for insert message in database
                         Log.Info("Function ContactUsMail - Insertion of message in table");
@@ -631,7 +633,8 @@ namespace StatisticalSolutions.Controllers
                     mail.To = st.Email;
                     mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
                     mail.Subject = "You have registered for " + seminar.TitleHtml;
-                    _maillSender.SendMail(mail);
+                   // _maillSender.SendMail(mail);
+                    MailExtention.sendemail(mail.To, mail.Subject, mail.Body);  //using sendmail
                     Log.Info("Function BulkMails - End of mail sending");
                 }
                 return View("BulkMailSent");
