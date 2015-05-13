@@ -1,0 +1,48 @@
+﻿@using StatisticalSolutions.Models
+@model List<seminar>
+@{
+    ViewBag.Title = "WorkshopList";
+}
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class='container focus'>
+
+    <legend> List of Workshops</legend>
+
+    <div class='sixteen form'>
+        <section>
+
+            <div class="content">
+                @if (Model.Count != 0)
+                {
+                    <table class="table table-bordered table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="width:40%;">Title</th>
+                            <th style="width:20%;">Start Date</th>
+                            <th style="width:20%;">End Date</th>
+                            <th style="width:10%;">Is Active</th>
+                            <th style="width:10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (seminar sem in Model)
+                        {
+                            @Html.Partial("WorkshopPartial", sem)
+                        }
+                    </tbody>
+                </table> 
+                }
+                else
+                {
+                    <p>no workshop records found</p>
+                }              
+                
+            </div>
+
+        </section>
+    </div>
+</div>
+
+

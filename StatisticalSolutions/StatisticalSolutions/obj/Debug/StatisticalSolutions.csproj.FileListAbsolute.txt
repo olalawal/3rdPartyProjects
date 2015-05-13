@@ -20,6 +20,8 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Micro
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Web.WebPages.OAuth.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGrid.SmtpApi.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGridMail.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Spatial.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.dll
@@ -41,9 +43,10 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Entit
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.xml
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.OData.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.WebHost.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Mvc.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Razor.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.WebPages.xml
@@ -58,7 +61,6 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\DotNe
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\DotNetOpenAuth.OAuth.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\DotNetOpenAuth.OpenId.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.OData.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Data.Edm.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Data.OData.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Spatial.xml
@@ -92,5 +94,3 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\zh-Ha
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.csprojResolveAssemblyReference.cache
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.pdb
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGrid.SmtpApi.dll
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGridMail.dll

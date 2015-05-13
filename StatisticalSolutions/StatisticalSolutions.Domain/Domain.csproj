@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Domain</RootNamespace>
     <AssemblyName>Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -38,12 +38,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Nmedia.DataAccess">
-      <HintPath>..\..\..\Anewluv\Nmedia.Infrastructure\DataAccess\Nmedia.DataAccess\bin\Debug\Nmedia.DataAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="Nmedia.DataAccess.Interfaces">
-      <HintPath>..\..\..\Anewluv\Nmedia.Infrastructure\DataAccess\Nmedia.DataAccess\bin\Debug\Nmedia.DataAccess.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

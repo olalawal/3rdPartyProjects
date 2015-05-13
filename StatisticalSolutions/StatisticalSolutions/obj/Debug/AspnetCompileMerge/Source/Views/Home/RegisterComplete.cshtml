@@ -1,0 +1,104 @@
+﻿@model StatisticalSolutions.Models.registration
+@{
+    ViewBag.Title = "Register";
+}
+
+
+
+<div class='container focus'>
+
+    <h3>Your registration form has been submitted!</h3>
+    <p>a copy of this form has been emailed to you for your reccords.</p>
+    <p>After your bank account has been charged you will recived a final confirmation email that your registration is complete </p>
+
+    <h4> Registration details</h4>
+
+    <div class='sixteen columns form'>
+        <section class='gray'>
+            <form>
+                <div class="content">
+                  
+                        <table >
+                            <tr>
+                                <td class="col-sm-4">Name </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">
+                                    @Html.DisplayFor(m => m.student.FirstName)
+                                    &nbsp;
+                                    @Html.DisplayFor(m => m.student.LastName)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">  Workshop Details </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8"><span>@Html.DisplayFor(m => m.seminar.TitleHtml)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">
+                                    Starting Date 
+                                </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">
+                                    @Html.DisplayFor(m => m.StartDate, "{0:MM/dd/yyyy}")
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">  Location </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">
+                                    <span>
+                                        <span>
+                                            @Html.DisplayFor(m => m.student.Address1)
+                                        </span>
+
+                                        @if (!string.IsNullOrEmpty(Model.student.Address2))
+                                        {
+                                            <span>
+                                                ,&nbsp;@Html.DisplayFor(m => m.student.Address2)
+                                            </span>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.student.City))
+                                        {
+                                            <span>
+                                                ,&nbsp;@Html.DisplayFor(m => m.student.City)
+                                            </span>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.student.StateProvince))
+                                        {
+                                            <span>
+                                                ,&nbsp;@Html.DisplayFor(m => m.student.StateProvince)
+                                            </span>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.student.Country))
+                                        {
+                                            <span>
+                                                ,&nbsp;@Html.DisplayFor(m => m.student.Country)
+                                            </span>
+                                        }
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">Phone </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">@Html.DisplayFor(m => m.student.Phone)</td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">Email </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">@Html.DisplayFor(m => m.student.Email)</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <a href='#' class='button medium green'>Print</a>
+                                </td>
+                            </tr>
+                        </table>
+                    <br />
+                    
+                </div>
+
+            </form>
+        </section>
+    </div>
+</div>

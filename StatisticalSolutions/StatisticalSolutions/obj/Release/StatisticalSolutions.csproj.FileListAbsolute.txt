@@ -19,7 +19,6 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Micro
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Web.Infrastructure.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Web.WebPages.OAuth.dll
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGrid.SmtpApi.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\SendGridMail.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.dll
@@ -37,15 +36,15 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Syste
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\WebGrease.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\WebMatrix.Data.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\WebMatrix.WebData.dll
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Domain.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\EntityFramework.SqlServer.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\log4net.xml
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Net.Http.Formatting.xml
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Http.WebHost.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Helpers.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Mvc.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.Razor.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Web.WebPages.xml
@@ -64,6 +63,7 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Syste
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Data.Edm.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Microsoft.Data.OData.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\System.Spatial.xml
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\Newtonsoft.Json.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\de\Microsoft.Data.Edm.resources.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\es\Microsoft.Data.Edm.resources.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\fr\Microsoft.Data.Edm.resources.dll
