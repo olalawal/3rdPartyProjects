@@ -62,8 +62,9 @@
 		<nav>
 			<div class='container'>
 				<div class='five columns logo'>
-					<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125" ></a>
-                   
+                    <a href='@Url.Action("Index", "Home")'  ><img src="~/Images/logo1-0-2Color.png" width="304" height="46" ></a>
+				<!--	<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/logo1-0-1Color.png" width="340" height="78" ></a>-->
+                 <!-- <a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125" ></a>--> 
               
 				</div>
 
@@ -71,10 +72,10 @@
 					<ul class='mainMenu'>
 						 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("WorkShops", "WorkShops", "Home")</li>
+                            <li>@Html.ActionLink("Workshops", "WorkShops", "Home")</li>
                             <li>@Html.ActionLink("Consultants", "Consultants", "Home")</li>
                             <li>@Html.ActionLink("Register", "Register", "Home")</li>
-                            <li>  @Html.Partial("_LoginPartial")</li>
+                            <!--<li>  @Html.Partial("_LoginPartial")</li>-->
 
 
 					</ul>
@@ -89,13 +90,13 @@
 		<div class='container'>
 			<div class='slogan'>
 				<div class='ten columns'>
-					<h2>A member of the LOYAL Statistical Consulting Group</h2>
+					<h2>Now at LOYAB Statistical <br>Consulting Group</h2>
 					<h3>Consulting and Training Solutions</h3>
 				</div>
 
 				<div class='six columns'>
 					<h4>Upcoming WorkShops</h4>
-					<p>Early bird registration for <b>Advanced Regression Analysis</b> starting in June and July</p>
+					<p>Early bird registration for <b>Regression Analysis</b> starting before May 25</p>
 					@{
                         StatisticalSolutions.Models.registration registration = new StatisticalSolutions.Models.registration();
 					    registration.seminar_id=1;
