@@ -93,3 +93,4 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\zh-Ha
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.csprojResolveAssemblyReference.cache
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\obj\Debug\StatisticalSolutions.pdb
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\bin\StatisticalSolutions.dll.config
