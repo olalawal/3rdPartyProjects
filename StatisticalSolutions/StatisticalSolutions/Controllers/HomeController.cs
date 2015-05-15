@@ -176,7 +176,7 @@ namespace StatisticalSolutions.Controllers
 
         public ActionResult RegisterComplete(registration registration)
         {
-            ViewBag.Message = "Register Complete";
+            ViewBag.Message = "Register Complete, please check your spam folders if you do not see your registration email";
             registration.student = dataAccess.getstudentbyid(registration.student_id);
             return View(registration);
         }
@@ -222,17 +222,45 @@ namespace StatisticalSolutions.Controllers
                   
 
                   //  if (_maillSender.SendMail(mail))
-                    if (MailExtention.sendemail(mail.To,mail.Subject,mail.Body))
-                    { 
+                    if (MailExtention.sendemail(mail.To, mail.Subject, mail.Body))
+                    {
                         //code for insert message in database
                         Log.Info("Function ContactUsMail - Insertion of message in table");
                         dataAccess.addcontactmessage(model);
-                        TempData["StatisticalError"] = "Message sent successfully";
+
+
                     }
-                    else
+
+                      
+                    
+
+                   //send message to the sender as well
+
+                    //code for sending mails                    
+                 
+                    mail.Name = model.Name;
+                    mail.Body = "please allow 24 hours for us to reply to your request";
+                  //  mail.From = model.Email;
+                    mail.To = model.Email;
+
+                    mail.Subject = model.Name + " your contact request has been sent";
+                    model.Subject = "Contact Us Request";
+                    //Log.Info("Function ContactUsMail - Start of mail sending");
+
+
+                    //  if (_maillSender.SendMail(mail))
+                    if (MailExtention.sendemail(mail.To, mail.Subject, mail.Body))
                     {
-                        TempData["StatisticalError"] = "Error in sending mail";
+                        //code for insert message in database
+                        Log.Info("Function ContactUsMail - Insertion of message in table");
+                        dataAccess.addcontactmessage(model);
+                       
                     }
+
+
+                    TempData["StatisticalError"] = "Message sent successfully";
+
+
                 }
              catch (CustomException ex)
              {

@@ -53,6 +53,10 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201505150528577_new.cs" />
+    <Compile Include="Migrations\201505150528577_new.Designer.cs">
+      <DependentUpon>201505150528577_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\AccountModels.cs" />
@@ -72,6 +76,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="documenations\Azure Migration Example.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505150528577_new.resx">
+      <DependentUpon>201505150528577_new.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

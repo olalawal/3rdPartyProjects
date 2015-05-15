@@ -21,13 +21,11 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\EntityFramework.dll
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\SendGridMail.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.Core.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.OAuth.Consumer.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.OAuth.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.OpenId.RelyingParty.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\DotNetOpenAuth.OpenId.dll
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\SendGrid.SmtpApi.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\StatisticalSolutions.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\Newtonsoft.Json.xml
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Tests\bin\Debug\System.Web.Helpers.xml

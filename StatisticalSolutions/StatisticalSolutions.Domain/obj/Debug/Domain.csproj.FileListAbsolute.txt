@@ -8,3 +8,5 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bi
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.dll
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations._new.resources
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache

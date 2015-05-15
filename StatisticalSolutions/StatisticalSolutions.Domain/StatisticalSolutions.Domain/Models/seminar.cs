@@ -92,6 +92,12 @@ namespace StatisticalSolutions.Models
         public bool IsActive { get; set; }
         [DataMember]
         public virtual ICollection<registration> registrations { get; set; }
+            [DataMember]
+        public string Starttime { get; set; }
+            [DataMember]
+        public string Endtime { get; set; }
+
+
         
     }
 

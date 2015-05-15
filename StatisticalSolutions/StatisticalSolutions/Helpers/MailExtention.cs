@@ -25,62 +25,69 @@ namespace StatisticalSolutions.Helpers
             {
                 //SmtpClient oSmtpClient = new SmtpClient();
                 //MailMessage oMailMessage = new MailMessage();
-                var FromAddress = "noreply@loyabconsulting.com"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
+                var FromAddress = " admin@loyabconsulting.com"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
 
-               
-                    // Create the email object first, then add the properties.
-                string username = ConfigurationManager.AppSettings["SENDGRID_USER"];
-                string password = ConfigurationManager.AppSettings["SENDGRID_PASS"];
+              
+               //     // Create the email object first, then add the properties.
+               // string username = ConfigurationManager.AppSettings["SENDGRID_USER"];
+               // string password = ConfigurationManager.AppSettings["SENDGRID_PASS"];
 
-                // Create the email object first, then add the properties.
-                SendGridMessage myMessage = new SendGridMessage();
-                myMessage.AddTo(emailaddress);
-                myMessage.From = new MailAddress(FromAddress, "Do Not Reply");
-                myMessage.Subject = subject;// "Testing the SendGrid Library";
-                myMessage.Text = body; //"Hello World!";
+               // // Create the email object first, then add the properties.
+               // SendGridMessage myMessage = new SendGridMessage();
+               // myMessage.AddTo(emailaddress);
+               // myMessage.From = new MailAddress(FromAddress, "Do Not Reply");
+               // myMessage.Subject = subject;// "Testing the SendGrid Library";
+               // myMessage.Text = body; //"Hello World!";
 
-                // Create credentials, specifying your user name and password.
-                var credentials = new NetworkCredential(username, password);
+               // // Create credentials, specifying your user name and password.
+               // var credentials = new NetworkCredential(username, password);
 
-                // Create an Web transport for sending email, using credentials...
-                var transportWeb = new Web(credentials);
+               // // Create an Web transport for sending email, using credentials...
+               // var transportWeb = new Web(credentials);
 
-                // ...OR create a Web transport, using API Key (preferred)
-               // var transportWeb = new Web("This string is an API key");
+               // // ...OR create a Web transport, using API Key (preferred)
+               //// var transportWeb = new Web("This string is an API key");
 
-                // Send the email.
-                transportWeb.DeliverAsync(myMessage);
+               // // Send the email.
+               // transportWeb.DeliverAsync(myMessage);
 
 
-                    MailMessage mailMsg = new MailMessage();
+               //     MailMessage mailMsg = new MailMessage();
 
+
+
+
+                SmtpClient client = new SmtpClient();
+                client.Host = "relay-hosting.secureserver.net";
+                client.Port = 25;
+
+
+                System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage(FromAddress, emailaddress);
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Subject = subject;
+                mailMessage.Body = body;
+               // SmtpClient smtp = new SmtpClient(ConfigurationManager.AppSettings["SENDGRID_HOST"]);
+                //using GO Daddy btw from address should be a godaddy address too
+                //var smtp = new SmtpClient("relay-hosting.secureserver.net");
+
+                /// http://stackoverflow.com/questions/8554567/godaddy-send-email
+                /// 
+                //string host = ConfigurationManager.AppSettings["SENDGRID_HOST"];
+                //smtp.Credentials()
                 
-                   
+                    //Setup credentials to login to our sender email address ("UserName", "Password")
+                    client.UseDefaultCredentials = false;
+                    NetworkCredential credentials = new NetworkCredential("admin@loyabconsulting.com ", "kayode02");
+                    client.Credentials = credentials;
+
+                    client.Host = "smtpout.secureserver.net";
+ 
 
 
 
+              
 
-                   // System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage(FromAddress,emailaddress);
-                   // mailMessage.IsBodyHtml = true;
-                   // mailMessage.Subject = subject;
-                   // mailMessage.Body = body;
-                   // SmtpClient smtp = new SmtpClient(ConfigurationManager.AppSettings["SENDGRID_HOST"]);
-                   // //using GO Daddy btw from address should be a godaddy address too
-                   // //var smtp = new SmtpClient("relay-hosting.secureserver.net");
-
-                   ///// http://stackoverflow.com/questions/8554567/godaddy-send-email
-                   ///// 
-                   //string host = ConfigurationManager.AppSettings["SENDGRID_HOST"];
-                   // //smtp.Credentials()
-                   
-
-                   
-                   // // Init SmtpClient and send
-                   // SmtpClient smtpClient = new SmtpClient(host, Convert.ToInt32(587));
-                   // System.Net.NetworkCredential credentials2 = new System.Net.NetworkCredential(username, password);
-                   // smtpClient.Credentials = credentials;
-
-                   // smtpClient.Send(mailMessage);
+                client.Send(mailMessage);
                 
                 
              //   smtp.Send(mailMessage);
