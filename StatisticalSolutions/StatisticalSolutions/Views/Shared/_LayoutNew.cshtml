@@ -1,6 +1,7 @@
 ﻿@using StatisticalSolutions.Helpers
 @using System.Web.Optimization
 
+
 <!-- =============================================== -->
 <!-- =                                             = -->
 <!-- =                Keyners	                   = -->
@@ -72,10 +73,10 @@
 					<ul class='mainMenu'>
 						 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Workshops", "WorkShops", "Home")</li>
-                            <li>@Html.ActionLink("Consultants", "Consultants", "Home")</li>
-                            <li>@Html.ActionLink("Register", "Register", "Home")</li>
-                            <!--<li>  @Html.Partial("_LoginPartial")</li>-->
+                            <li>@Html.ActionLink("Workshops", "WorkShops", "Workshop")</li>
+                            <li>@Html.ActionLink("Consultants", "Consultants", "Instructor")</li>
+                            <li>@Html.ActionLink("Register", "Register", "Workshop")</li>
+                            <li>  @Html.Partial("_LoginPartial")</li>
 
 
 					</ul>
@@ -97,12 +98,8 @@
 				<div class='six columns'>
 					<h4>Upcoming WorkShops</h4>
 					<p>Early bird registration for <b>Regression Analysis</b> starting before May 25</p>
-					@{
-                        StatisticalSolutions.Models.registration registration = new StatisticalSolutions.Models.registration();
-					    registration.seminar_id=1;
-                        
-                    }
-                    <a href='@Url.Action("Register", "Home", registration)'  class='button medium green'>Register Now</a>
+				
+                    <a href='@Url.Action("RegisterSeminar", "Workshop", new { seminarname = "Regression Analysis" })'  class='button medium green'>Register Now</a>
 				</div>
 			</div>
 		</div>	

@@ -1,44 +1,49 @@
 ﻿@model StatisticalSolutions.Models.student
 @{
-    ViewBag.Title = "EditStudent";
+    ViewBag.Title = "AddStudent";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
-    HtmlHelper.ClientValidationEnabled = true;
+  HtmlHelper.ClientValidationEnabled = true;
 }
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 <div class='container'>
     <div class='sixteen columns form'>
-        <h3>Edit Student Info</h3>
+        <h3>Enter your Seminar info</h3>
         @*<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>*@
-        @using (Html.BeginForm("EditStudent", "Home", FormMethod.Post))
+        @using (Html.BeginForm("AddStudent", "Admin", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
-            <div id="diveditstudent">
+            <div id="divaddstudent">
                 <fieldset>
                     <ol>
+
                         <li>
                             <div>
-                                @Html.TextBoxFor(model => model.student_id, new { @style = "visibility:hidden;" })
                                 <label>First Name</label>
                                 @Html.ValidationMessageFor(model => model.FirstName)
                                 @Html.TextBoxFor(model => model.FirstName, new { @tabindex = "1", @placeholder = "First Name", @class = "form-control" })
                             </div>
                         </li>
                         <li>
+
                             <label>Last name</label>
                             @Html.ValidationMessageFor(model => model.LastName)
                             @Html.TextBoxFor(model => model.LastName, new { @tabindex = "2", @placeholder = "Last Name", @class = "form-control" })
+
                         </li>
+                   
                         <li>
                             <label>Address Line 1</label>
                             @Html.ValidationMessageFor(model => model.Address1)
                             @Html.TextBoxFor(model => model.Address1, new { @tabindex = "3", @placeholder = "Address line l", @class = "form-control" })
+
                         </li>
                         <li>
                             <label>Address Line 2</label>
                             @Html.TextBoxFor(model => model.Address2, new { @tabindex = "4", @placeholder = "Address line 2", @class = "form-control" })
+
                         </li>
                         <li>
                             <label>City</label>
@@ -83,9 +88,10 @@
                             @Html.TextBoxFor(model => model.BankAccountNumber, new { @tabindex = "13", @placeholder = "Bank Account Number", @class = "form-control" })
 
                         </li>
-
+                       
                         <li>
                             <span class="checkbox">
+
                                 @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "14", @class = "form-control" })
                             </span>
                             <span class="checkbox-label">
@@ -93,12 +99,16 @@
                                 @Html.ValidationMessageFor(model => model.IsActive)
                             </span>
                         </li>
+                       
                         <li>
+                        
                             <input type="submit" tabindex="15" value="SUBMIT" class="button medium green" />
                         </li>
                     </ol>
                 </fieldset>
+
             </div>
+
         }
     </div>
 </div>

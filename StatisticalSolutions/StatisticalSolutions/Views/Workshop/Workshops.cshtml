@@ -1,0 +1,78 @@
+﻿@using System.Collections.Generic;
+@using StatisticalSolutions.Models;
+
+@{
+    ViewBag.Title = "WorkShops";
+}
+
+
+<div class="container focus">
+    <h4>Currently Available WorkShops</h4>
+
+</div>
+<div class='container twenty columns'>
+    @{List<seminar> seminars= TempData["Seminars"] as List<seminar>;}
+    @if(seminars.Count > 0)
+    {
+        <div class="container four columns">
+          
+        @foreach (seminar sem in seminars)
+        {
+            <div>
+                <ul>
+                    <li>
+                        @Html.ActionLink(sem.TitleHtml, "Workshop", new { seminar_id = sem.seminar_id })
+                        <hr />
+                    </li>
+                </ul>
+
+
+            </div>
+
+        }
+        
+    </div>
+        <div class='container twelve columns'>
+        @{ seminar seminar = ViewBag.Seminars; }
+        <div>
+            <h4>
+                <strong>
+                    @Html.Raw(seminar.TitleHtml)
+                </strong>
+            </h4>
+        </div>
+        <div class='container eight columns'>
+            @Html.Raw(seminar.EventDetailsHtml)
+        </div>
+
+        <div class='container four columns'>
+
+            Available dates : <b>
+                @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
+                {
+                    @Html.Raw(seminar.StartDate.ToShortDateString())
+                }
+            </b>
+
+            <div>
+
+                @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
+                {
+                    registration reg = new registration();
+                    reg.seminar_id = seminar.seminar_id;
+                    <a href='@Url.Action("Register", "Workshop", reg)' class='button medium green'>Register Now</a>
+                }
+            </div>
+        </div>
+
+
+
+    </div>  
+    }
+
+    else
+    {
+        <p>No Records Found</p>
+    }
+
+</div>

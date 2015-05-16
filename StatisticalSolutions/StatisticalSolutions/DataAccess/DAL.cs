@@ -597,6 +597,24 @@ namespace StatisticalSolutions.DataAccess
             }
         }
 
+        internal int getseminaridbyname(string seminarTitle)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                int seminar_id = db.seminars.FirstOrDefault(s => s.TitleHtml.Contains(seminarTitle)).seminar_id;
+                return seminar_id;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// get student by student id
         /// </summary>
@@ -869,6 +887,29 @@ namespace StatisticalSolutions.DataAccess
             finally
             {
                // db.Dispose();
+            }
+        }
+
+        internal List<seminar> getfutureseminarsstartdate(int seminar_id)
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                //getting all seminars now but will change code later for only future seminars
+                List<seminar> seminars = db.seminars.Where(s=>s.seminar_id == seminar_id).OrderBy(s => s.StartDate).Distinct().ToList();
+                return seminars;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
             }
         }
 

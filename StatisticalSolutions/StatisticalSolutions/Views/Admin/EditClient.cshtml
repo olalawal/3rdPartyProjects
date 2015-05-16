@@ -1,39 +1,37 @@
-﻿@model StatisticalSolutions.Models.student
+﻿@model StatisticalSolutions.Models.client
 @{
-    ViewBag.Title = "AddStudent";
+    ViewBag.Title = "EditClient";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
-  HtmlHelper.ClientValidationEnabled = true;
+    HtmlHelper.ClientValidationEnabled = true;
 }
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 <div class='container'>
     <div class='sixteen columns form'>
-        <h3>Enter your Seminar info</h3>
-        @*<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>*@
-        @using (Html.BeginForm("AddStudent", "Home", FormMethod.Post))
+        <h3>Enter your Client info</h3>
+
+        @using (Html.BeginForm("EditClient", "Admin", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
-            <div id="divaddstudent">
+            <div id="diveditclient">
                 <fieldset>
                     <ol>
-
                         <li>
                             <div>
-                                <label>First Name</label>
-                                @Html.ValidationMessageFor(model => model.FirstName)
-                                @Html.TextBoxFor(model => model.FirstName, new { @tabindex = "1", @placeholder = "First Name", @class = "form-control" })
+                                @Html.TextBoxFor(model => model.client_id, new { @style = "visibility:hidden;" })
+                                <label>Client Name</label>
+                                @Html.ValidationMessageFor(model => model.Name)
+                                @Html.TextBoxFor(model => model.Name, new { @tabindex = "1", @placeholder = "Client Name", @class = "form-control" })
                             </div>
                         </li>
                         <li>
-
-                            <label>Last name</label>
-                            @Html.ValidationMessageFor(model => model.LastName)
-                            @Html.TextBoxFor(model => model.LastName, new { @tabindex = "2", @placeholder = "Last Name", @class = "form-control" })
-
+                            <label>Description</label>
+                            @Html.ValidationMessageFor(model => model.Description)
+                            @Html.TextBoxFor(model => model.Description, new { @tabindex = "2", @placeholder = "Description", @class = "form-control" })
                         </li>
-                   
+
                         <li>
                             <label>Address Line 1</label>
                             @Html.ValidationMessageFor(model => model.Address1)
@@ -83,32 +81,20 @@
 
                         </li>
                         <li>
-                            <label>Bank Account #</label>
-                            @Html.ValidationMessageFor(model => model.BankAccountNumber)
-                            @Html.TextBoxFor(model => model.BankAccountNumber, new { @tabindex = "13", @placeholder = "Bank Account Number", @class = "form-control" })
-
-                        </li>
-                       
-                        <li>
                             <span class="checkbox">
-
-                                @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "14", @class = "form-control" })
+                                @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "11", @class = "form-control"})
                             </span>
                             <span class="checkbox-label">
                                 <label>Active</label>
                                 @Html.ValidationMessageFor(model => model.IsActive)
                             </span>
                         </li>
-                       
                         <li>
-                        
-                            <input type="submit" tabindex="15" value="SUBMIT" class="button medium green" />
+                            <input type="submit" tabindex="12" value="SUBMIT" class="button medium green" />
                         </li>
                     </ol>
                 </fieldset>
-
             </div>
-
         }
     </div>
 </div>

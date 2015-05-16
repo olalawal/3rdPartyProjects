@@ -10,23 +10,22 @@
     <div class='sixteen columns form'>    
         <h3>Enter your registration info</h3>
         <p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>
-        @using (Html.BeginForm("RegisterWorkshop", "Home", FormMethod.Post))
+        @using (Html.BeginForm("RegisterWorkshop", "Workshop", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
        
     <div id="divregistration">
         <fieldset>
             <ol>
-                <li>
-                   
+                <li>                   
                     <label>WorkShop</label>
-                    @Html.ValidationMessageFor(m => m.seminar_id)                   
-                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar" })
+                    @Html.ValidationMessageFor(m => m.seminar_id)  
+                    @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar", onchange = "document.location.href = '../Workshop/WorkshopSelected?id=' + this.options[this.selectedIndex].value;" })               
                 </li>
                 <li>
                     <label>Select Start Date</label>
                     @Html.ValidationMessageFor(m => m.StartDate)
-                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "StartDate", "StartDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date" })
+                    @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "Date", "LongDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date" })
                 </li>
                 <li>
                     <div >

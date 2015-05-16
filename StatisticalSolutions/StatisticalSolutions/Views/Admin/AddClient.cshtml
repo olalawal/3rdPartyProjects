@@ -11,7 +11,7 @@
     <div class='sixteen columns form'>
         <h3>Enter your Client info</h3>
 
-        @using (Html.BeginForm("AddClient", "Home", FormMethod.Post))
+        @using (Html.BeginForm("AddClient", "Admin", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 

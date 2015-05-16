@@ -222,14 +222,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\WorkshopController.cs" />
     <Compile Include="DataAccess\DAL.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Helpers\DisplayDateTime.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\MailExtention.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -472,31 +477,31 @@
     <Content Include="Views\Home\bioBayoLawal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
-    <Content Include="Views\Home\WorkShops.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\RegisterComplete.cshtml" />
     <Content Include="Views\Home\Consultants.cshtml" />
     <Content Include="Views\Shared\Consultants.cshtml" />
     <Content Include="Views\Account\Admin.cshtml" />
     <Content Include="Views\Base\StatisticalError.cshtml" />
-    <Content Include="Views\Home\WorkshopDetails.cshtml" />
-    <Content Include="Views\Home\AddWorkshop.cshtml" />
-    <Content Include="Views\Home\WorkshopList.cshtml" />
-    <Content Include="Views\Home\StudentList.cshtml" />
-    <Content Include="Views\Home\AddStudent.cshtml" />
-    <Content Include="Views\Home\WorkshopPartial.cshtml" />
-    <Content Include="Views\Home\StudentPartial.cshtml" />
-    <Content Include="Views\Home\BulkMails.cshtml" />
-    <Content Include="Views\Home\ClientsList.cshtml" />
-    <Content Include="Views\Home\ClientPartial.cshtml" />
-    <Content Include="Views\Home\AddClient.cshtml" />
-    <Content Include="Views\Home\EditWorkshop.cshtml" />
-    <Content Include="Views\Home\EditStudent.cshtml" />
-    <Content Include="Views\Home\EditClient.cshtml" />
-    <Content Include="Views\Home\BulkMailSent.cshtml" />
+    <Content Include="Views\Workshop\Workshops.cshtml" />
+    <Content Include="Views\Workshop\Register.cshtml" />
+    <Content Include="Views\Workshop\RegisterComplete.cshtml" />
+    <Content Include="Views\Admin\AddWorkshop.cshtml" />
+    <Content Include="Views\Admin\EditWorkshop.cshtml" />
+    <Content Include="Views\Admin\WorkshopList.cshtml" />
+    <Content Include="Views\Admin\WorkshopPartial.cshtml" />
+    <Content Include="Views\Admin\AddClient.cshtml" />
+    <Content Include="Views\Admin\AddStudent.cshtml" />
+    <Content Include="Views\Admin\BulkMails.cshtml" />
+    <Content Include="Views\Admin\BulkMailSent.cshtml" />
+    <Content Include="Views\Admin\ClientPartial.cshtml" />
+    <Content Include="Views\Admin\ClientsList.cshtml" />
+    <Content Include="Views\Admin\EditClient.cshtml" />
+    <Content Include="Views\Admin\EditStudent.cshtml" />
+    <Content Include="Views\Admin\StudentList.cshtml" />
+    <Content Include="Views\Admin\StudentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Log\" />
+    <Folder Include="Views\Instructor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
