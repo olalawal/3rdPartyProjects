@@ -65,5 +65,13 @@ namespace StatisticalSolutions.Models
         [DataMember]
         public bool IsActive { get; set; }
 
+        [DataMember]
+        public string ImageName { get; set; }  
+
+        [DataMember]
+        public string ImagePath { get; set; }
+        [DataMember]
+        public string DetailsHtml { get; set; } 
+
     }
 }
