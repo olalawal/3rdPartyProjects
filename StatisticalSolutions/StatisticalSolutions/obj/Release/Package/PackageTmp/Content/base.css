@@ -237,6 +237,12 @@ input[type='submit']:hover {background: #1EBA6B; color: #fff;}
     margin-bottom:15px !important;
 }
 
+.mid-size
+{
+    width: 248px !important; 
+    display: inline-block !important;
+}
+
 /*
 * Focus
 */

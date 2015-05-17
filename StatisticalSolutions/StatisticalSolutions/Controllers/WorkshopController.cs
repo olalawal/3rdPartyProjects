@@ -249,11 +249,20 @@ namespace StatisticalSolutions.Controllers
                     mail.Body = "Hi " + model.student.FirstName + ", <br/><br/> You have successfully registered for workshop " + model.seminar.TitleHtml + " starting from " + model.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
                     mail.From = ConfigurationManager.AppSettings["EmailFrom"];
                     mail.To = model.student.Email;
-                    mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
+                    //mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
                     mail.Subject = "You have successfully registered for " + model.seminar.TitleHtml;
                     MailExtention.sendemail(model.student.Email, mail.Subject, mail.Body);
                     // _maillSender.SendMail(mail);
                     Log.Info("Function RegisterWorkshop - End of mail sending");
+
+                    //send message to admin as well
+                    
+                    mail.Body =  model.student.FirstName + ", has registered for the workshop " + model.seminar.TitleHtml + " starting from " + model.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
+                    mail.From = ConfigurationManager.AppSettings["EmailFrom"];
+                    mail.To = ConfigurationManager.AppSettings["EmailTo"];                  
+                    mail.Subject = "A new student has registered for the seminar :" + model.seminar.TitleHtml;
+                    MailExtention.sendemail(mail.To, mail.Subject, mail.Body);
+
 
                     return View("RegisterComplete", model);
                 }

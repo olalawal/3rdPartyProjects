@@ -477,7 +477,6 @@
     <Content Include="Views\Home\bioBayoLawal.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
-    <Content Include="Views\Home\Consultants.cshtml" />
     <Content Include="Views\Shared\Consultants.cshtml" />
     <Content Include="Views\Account\Admin.cshtml" />
     <Content Include="Views\Base\StatisticalError.cshtml" />
@@ -498,10 +497,10 @@
     <Content Include="Views\Admin\EditStudent.cshtml" />
     <Content Include="Views\Admin\StudentList.cshtml" />
     <Content Include="Views\Admin\StudentPartial.cshtml" />
+    <Content Include="Views\Instructor\Consultants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Log\" />
-    <Folder Include="Views\Instructor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
