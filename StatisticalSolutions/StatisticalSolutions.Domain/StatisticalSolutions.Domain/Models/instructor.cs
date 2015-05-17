@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Domain.StatisticalSolutions.Domain.Models
+namespace StatisticalSolutions.Models
 {
     [Table("instructors")]
     [DataContract]
