@@ -23,3 +23,4 @@ E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domai
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.dll
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedins.resources
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedsomestuff.resources
