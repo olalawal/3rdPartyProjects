@@ -16,7 +16,10 @@ namespace StatisticalSolutions.Models
         [Key]
           [DataMember]
           [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int seminar_id { get; set; }   
+        public int seminar_id { get; set; }
+
+        [DataMember]
+        public int? instructor_id { get; set; } 
         [DataMember]
         [Required]
         [Display(Name = "Title Html")]
