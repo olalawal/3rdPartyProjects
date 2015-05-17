@@ -6,8 +6,14 @@
 }
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-
-<div class='container'>
+<div class='container focus'>
+    <div class="breadcrumb" id="divPageTitle_Add">
+        <a tabindex="21" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <span class="active"> - </span>
+        <a tabindex="22" href="@Url.Action("WorkshopList", "Admin")">Workshop List</a>
+        <span class="active"> - Edit Workshop</span>
+    </div>
+    <div class="clear"></div>
     <div class='sixteen columns form'>
         <h3>Enter your Seminar info</h3>
         @*<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>*@

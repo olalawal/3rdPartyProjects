@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
 using Common.Logging;
+using System.Web.Hosting;
 using System.Configuration;
 using StatisticalSolutions.Models;
 using StatisticalSolutions.ViewModels;
@@ -212,6 +213,194 @@ namespace StatisticalSolutions.Controllers
 
         #endregion
 
+        #region Consultants
+
+
+        /// <summary>
+        /// Add Consultant
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddConsultant()  
+        {
+            try
+            {
+                ViewBag.Seminars = dataAccess.getseminars();
+
+                ViewBag.Countries = dataAccess.getCountries();
+                return View();
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function AddConsultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function AddConsultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        /// <summary>
+        /// post action of Add workshop
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddConsultant(instructor model, HttpPostedFileBase file)
+        {
+
+            try
+            {
+                string fileName = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/images/consultants"), fileName);
+                // file is uploaded
+                file.SaveAs(path);
+                model.ImageName = file.FileName;
+                model.ImagePath = "/images/consultants/" + fileName;
+                model.IsActive = true;
+                dataAccess.addInstructor(model);
+                return RedirectToAction("ConsultantList");
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function AddConsultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function AddConsultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// render Consultant lists
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ConsultantList()
+        {
+            try
+            {
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                List<instructor> instructorList = dataAccess.getinstructors();
+                return View(instructorList);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+
+        /// <summary>
+        /// get action of edit workshop
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>     
+        public ActionResult EditConsultant(int id)
+        {
+            try
+            {
+
+                instructor instructor = dataAccess.getinstructorbyid(id);
+
+                //ViewBag.Instructors = dataAccess.getinstructors();
+
+                ViewBag.Seminars = dataAccess.getseminars();
+
+                ViewBag.Countries = dataAccess.getCountries();
+
+               
+                return View(instructor); 
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function EditConsultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function EditConsultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+
+        /// <summary>
+        /// Post action of edit Consultant
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost, ValidateInput(false)]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditConsultant(instructor model, HttpPostedFileBase file)
+        {
+            try
+            {
+                string fileName = System.IO.Path.GetFileName(file.FileName); 
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/images/consultants"), fileName);
+                // file is uploaded
+                file.SaveAs(path);
+                model.ImageName = file.FileName;
+                model.ImagePath = "/images/consultants/" + fileName;
+                dataAccess.updateInstructor(model);
+                return RedirectToAction("ConsultantList");
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function EditConsultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function EditConsultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+        }
+
+        /// <summary>
+        /// get action of delete Consultant
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>     
+        public ActionResult DeleteConsultant(int id) 
+        {
+            try
+            {
+                dataAccess.deleteInstructor(id);
+                return RedirectToAction("ConsultantList");
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function DeleteConsultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function DeleteConsultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        #endregion
+
         # region Clients Actions
 
 
@@ -376,10 +565,17 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
+                BulkMailModel bulkMailModel = new BulkMailModel();
+                bulkMailModel.Students =new List<student>();
+                bulkMailModel.Registration = new registration();
+
+               
                 ViewBag.Filter = getFilterList();
 
+
                 ViewBag.regseminars = dataAccess.getregisteredseminars();
-                return View();
+
+                return View(bulkMailModel);
             }
             catch (CustomException ex)
             {
@@ -401,33 +597,39 @@ namespace StatisticalSolutions.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult BulkMails(registration model)
+        public ActionResult BulkMails(BulkMailModel model)  
         {
             try
             {
-                ViewBag.Filter = getFilterList();
-
                 MailSender _maillSender = new MailSender();
                 Mails mail = _maillSender.SetMailsProperty();
 
-                seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                seminar seminar = dataAccess.getseminarbyid(model.Registration.seminar_id);
 
                 //get list of students registered for a particular seminar
-                List<student> students = dataAccess.getseminarregisteredstudents(model.seminar_id);
+                List<student> students = dataAccess.getseminarregisteredstudents(model.Registration.seminar_id);
 
-                foreach (student st in students)
+                if (students.Any())
                 {
-
-                    mail.Name = st.FirstName + " " + st.LastName;
-                    mail.Body = "Hi " + st.FirstName + ", <br/><br/> You have registered for workshop " + seminar.TitleHtml + " starting from " + seminar.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
-                    mail.From = ConfigurationManager.AppSettings["EmailFrom"];
-                    mail.To = st.Email;
-                    mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
-                    mail.Subject = "You have registered for " + seminar.TitleHtml;
-                    // _maillSender.SendMail(mail);
-                    MailExtention.sendemail(mail.To, mail.Subject, mail.Body);  //using sendmail
-                    Log.Info("Function BulkMails - End of mail sending");
+                      foreach (student st in students)
+                    {
+                        if(st.IsActive)
+                        {
+                            mail.Name = st.FirstName + " " + st.LastName;
+                            mail.Body = "Hi " + st.FirstName + ", <br/><br/> You have registered for workshop " + seminar.TitleHtml + " starting from " + seminar.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
+                            mail.From = ConfigurationManager.AppSettings["EmailFrom"];
+                            mail.To = st.Email;
+                            mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
+                            mail.Subject = "You have registered for " + seminar.TitleHtml;
+                            // _maillSender.SendMail(mail);
+                            MailExtention.sendemail(mail.To, mail.Subject, mail.Body);  //using sendmail
+                            Log.Info("Function BulkMails - End of mail sending");
+                        }
+            
+                    }
                 }
+
+                ViewBag.MailCount = students.Count; ;
                 return View("BulkMailSent");
             }
             catch (CustomException ex)
@@ -444,16 +646,67 @@ namespace StatisticalSolutions.Controllers
         }
 
 
+        /// <summary>
+        /// contrrlller  for sending bulk mails
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult BulkMailStudents(int id)     
+        {
+            try
+            {
+                BulkMailModel model = new BulkMailModel();
+             
+                ViewBag.Filter = getFilterList();
+                string filtertext = TempData["filteredText"] as string;
+                if(!string.IsNullOrEmpty(filtertext))                
+                    ViewBag.regseminars = dataAccess.getfilterregisteredseminars(filtertext);              
+                else
+                    ViewBag.regseminars = dataAccess.getregisteredseminars();
+
+
+                //get list of students registered for a particular seminar
+                List<student> students = dataAccess.getseminarregisteredstudents(id);
+
+                model.Registration = new registration();
+                model.Registration.seminar_id = id;
+
+                model.Students = new List<student>();
+                model.Students = students;
+
+                return View("BulkMails", model);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function BulkMailStudents Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function BulkMailStudents Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+
         [HttpPost]
         public ActionResult BulkMailsFilter(string FilterText)
         {
             try
             {
-
+                BulkMailModel model=new BulkMailModel();
+                model.Registration = new registration();
+                model.Students = new List<student>();
                 ViewBag.Filter = getFilterList();
 
+                TempData["filteredText"] = FilterText;
+                TempData.Keep();
+
                 ViewBag.regseminars = dataAccess.getfilterregisteredseminars(FilterText);
-                return View("BulkMails");
+              
+                return View("BulkMails", model);
             }
             catch (CustomException ex)
             {

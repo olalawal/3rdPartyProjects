@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using Common.Logging;
 using System.Configuration;
+using System.Web.Hosting;
 using StatisticalSolutions.Models;
 using StatisticalSolutions.ViewModels;
 using StatisticalSolutions.DataAccess;
@@ -36,7 +37,57 @@ namespace StatisticalSolutions.Controllers
 
         public ActionResult Consultants()
         {
+            List<instructor> instructors = dataAccess.getinstructors();
+            TempData["Consultants"] = instructors;
+            TempData.Keep();
+            ViewBag.Consultants = instructors;
+
+           ViewBag.Seminar_Instructor = dataAccess.getseminarinstructors();
+           ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
            return View();
+        }
+
+        /// <summary>
+        /// Consultant details
+        /// </summary>
+        /// <param name="instructor_id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Consultant(int id)   
+        {
+            try
+            {
+                ViewBag.Instructor = dataAccess.getinstructorbyid(id);
+                //get the list of instructors
+                if (TempData["Consultants"] == null)
+                {
+                    List<instructor> instructors = dataAccess.getinstructors();
+                    TempData["Consultants"] = instructors;
+                    TempData.Keep();
+                }
+       
+                ViewBag.Seminar_Instructor = dataAccess.getseminarinstructors(); ;
+
+                ViewBag.Consultants = TempData["Consultants"] as List<instructor>;
+
+                ViewBag.Instructor = dataAccess.getinstructorbyid(id);
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                return View("Consultants");
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function Consultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function Consultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+
         }
 
 

@@ -247,8 +247,10 @@
     <Compile Include="Util\Predicate\Extensions.cs" />
     <Compile Include="Util\Predicate\Linq.cs" />
     <Compile Include="Util\Predicate\PredicateBuilder.cs" />
+    <Compile Include="ViewModels\BulkMailModel.cs" />
     <Compile Include="ViewModels\CustomException.cs" />
     <Compile Include="ViewModels\Mails.cs" />
+    <Compile Include="ViewModels\SeminarInstructorModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\localDBdocs.txt" />
@@ -498,8 +500,16 @@
     <Content Include="Views\Admin\StudentList.cshtml" />
     <Content Include="Views\Admin\StudentPartial.cshtml" />
     <Content Include="Views\Instructor\Consultants.cshtml" />
+    <Content Include="Views\Admin\BulkMailsPartial.cshtml" />
+    <Content Include="Views\Admin\AddConsultant.cshtml" />
+    <Content Include="Views\Admin\EditConsultant.cshtml" />
+    <Content Include="Views\Admin\ConsultantList.cshtml" />
+    <Content Include="Views\Admin\ConsultantPartial.cshtml" />
+    <Content Include="Views\Instructor\_ConsultantDetailsPartial.cshtml" />
+    <Content Include="Views\Instructor\_SeminarPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\consultants\" />
     <Folder Include="Log\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,18 +1,18 @@
 ﻿@using StatisticalSolutions.Models
-@model List<seminar>
+@model List<instructor>
 @{
-    ViewBag.Title = "WorkshopList";
+    ViewBag.Title = "ConsultantList";
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
         <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
-        <span class="active"> - Workshop List</span>
+        <span class="active"> - Consultants List</span>
     </div>
-    <legend> </legend>
 
-    <div class='sixteen form'>
+
+    <div class='twelve form'>
         <section>
 
             <div class="content">
@@ -21,24 +21,25 @@
                     <table class="table table-bordered table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th style="width:40%;">Title</th>
-                                <th style="width:20%;">Start Date</th>
-                                <th style="width:20%;">End Date</th>
+                                <th style="width:7%;">Photo</th>
+                                <th style="width:25%;">Consultant</th>
+                                <th style="width:28%;">Email</th>
+                                <th style="width:20%;">Phone</th>
                                 <th style="width:10%;">Is Active</th>
                                 <th style="width:10%;"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (seminar sem in Model)
+                            @foreach (instructor ins in Model)
                             {
-                                @Html.Partial("WorkshopPartial", sem)
+                                @Html.Partial("ConsultantPartial", ins)
                             }
                         </tbody>
                     </table>
                 }
                 else
                 {
-                    <p>no workshop records found</p>
+                    <p>no consultant records found</p>
                 }
 
             </div>
@@ -46,11 +47,3 @@
         </section>
     </div>
 </div>
-
-
-
-
-
-
-
-

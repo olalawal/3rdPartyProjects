@@ -39,9 +39,6 @@ namespace StatisticalSolutions.Controllers
 
         public ActionResult WorkShops()
         {
-            ViewBag.Message = "Your contact page.";
-
-
             //get the list of seminars
            List<seminar> seminars = dataAccess.getseminars();
            TempData["Seminars"] = seminars;

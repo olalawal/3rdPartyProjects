@@ -5,8 +5,12 @@
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <div class='container focus'>
-
-    <legend> List of Students</legend>
+    <div class="breadcrumb" id="divPageTitle_Add">
+        <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <span class="active"> - Student List</span>
+    </div>
+</div>
+<div class='container focus'>
 
     <div class='sixteen form'>
         <section>
@@ -14,26 +18,26 @@
             <div class="content">
                 @if (Model.Count != 0)
                 {
-                <table class="table table-bordered table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th style="width:30%;">Name</th>
-                            <th style="width:30%;">Email</th>
-                            <th style="width:20%;">Contact</th>
-                            <th style="width:10%;">Active</th>
-                            <th style="width:10%;"></th>
-                        </tr>
+                    <table class="table table-bordered table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">Name</th>
+                                <th style="width:30%;">Email</th>
+                                <th style="width:20%;">Contact</th>
+                                <th style="width:10%;">Active</th>
+                                <th style="width:10%;"></th>
+                            </tr>
 
-                    </thead>
-                    <tbody>
-                        @foreach (student student in Model)
-                        {
-                            @Html.Partial("StudentPartial", student)
-                        }
+                        </thead>
+                        <tbody>
+                            @foreach (student student in Model)
+                            {
+                                @Html.Partial("StudentPartial", student)
+                            }
 
-                    </tbody>
-                </table>
-               }
+                        </tbody>
+                    </table>
+                }
                 else
                 {
                     <p>no student records found</p>
@@ -44,7 +48,3 @@
         </section>
     </div>
 </div>
-
-
-
-

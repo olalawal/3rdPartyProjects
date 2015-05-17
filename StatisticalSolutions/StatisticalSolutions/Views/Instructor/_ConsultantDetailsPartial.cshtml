@@ -1,0 +1,22 @@
+﻿@model StatisticalSolutions.Models.instructor
+<div class='nine columns'>
+    <hr class="hr" />
+    <div class="two columns">
+        @{string path = ViewBag.VirtualPath + Model.ImagePath;}
+        <img src="@path" height="90" width="90" class="img-circle" />
+    </div>
+    <div class="six columns text-justify">
+        <strong>
+            @Html.Raw(Model.Name)
+        </strong>
+
+        <br />
+
+        @Html.Raw(Model.Description.Trim())
+        <br />
+        <div class="light_orange font-bold">
+            @Html.ActionLink("Learn More..", "Consultant",  new { id = Model.instructor_id})
+        </div>
+       
+    </div>
+</div>

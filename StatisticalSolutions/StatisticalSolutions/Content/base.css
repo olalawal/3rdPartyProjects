@@ -212,6 +212,35 @@ input[type='submit']:hover {background: #1EBA6B; color: #fff;}
     display:inline-block;
 }
 
+.hr
+    {
+        margin-top:5px ;
+        margin-bottom:5px;
+        margin-left:0;
+        margin-right:0;
+    }
+
+    .light_orange
+    {
+        color:#ff9999
+    }
+
+    .font-bold
+    {
+        font-weight:bold;
+
+    }
+
+    .breadcrumb {
+  padding: 8px 15px!important;
+   margin-top: 10px!important;
+  margin-bottom: 20px!important;
+  list-style: none!important;
+  background-color: #f5f5f5!important;
+  border-radius: 4px!important;
+  height:40px!important;
+}
+
 .filter-button
 {
     width:120px !important;
@@ -360,8 +389,6 @@ footer .social a:hover img {opacity: 1;}
 
 
     
-
-
 
 
 }

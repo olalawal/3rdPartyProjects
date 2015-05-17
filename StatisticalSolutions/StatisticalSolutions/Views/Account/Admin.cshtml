@@ -11,33 +11,48 @@
 <div class='container eight columns'>
     <section>
        
-           <div>
-                <ul style="list-style-type:disc">
-                    <li>
-                        @Html.ActionLink("Add Workshop", "AddWorkshop","Admin")
-                    </li>
-                    <li>
-                        @Html.ActionLink("List of Workshops", "WorkshopList", "Admin")
-                    </li>
-                    <li>
-                        @Html.ActionLink("List of Students", "StudentList", "Admin")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Add Aclient", "AddClient", "Admin")
-                    </li>
-                    <li>
-                        @Html.ActionLink("List of Clients", "ClientsList", "Admin")
-                    </li>
+        <div class='container three columns'>
+            <ul >
+                <li>
+                    <hr />
+                    @Html.ActionLink("Add Workshop", "AddWorkshop", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Workshops", "WorkshopList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("Add Consultant", "AddConsultant", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Consultants", "ConsultantList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Students", "StudentList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("Add Aclient", "AddClient", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Clients", "ClientsList", "Admin")
+                    <hr />
+                </li>
 
-                    <li>
-                        @Html.ActionLink("Send mail to Registered Students", "BulkMails", "Admin")
-                    </li>
-
-                    
-                </ul>
+                <li>
+                    @Html.ActionLink("Send mail to Registered Students", "BulkMails", "Admin")
+                    <hr />
+                </li>
 
 
-            </div>
+            </ul>
+
+
+        </div>
 
     </section>
 

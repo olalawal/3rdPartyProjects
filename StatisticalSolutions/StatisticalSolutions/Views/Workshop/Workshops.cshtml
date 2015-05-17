@@ -5,69 +5,94 @@
     ViewBag.Title = "WorkShops";
 }
 
-
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <div class="container focus">
     <h4>Currently Available WorkShops</h4>
-
 </div>
-<div class='container twenty columns'>
+<div class="clear"></div>
+<div class='container sixteen columns'>
     @{List<seminar> seminars= TempData["Seminars"] as List<seminar>;}
     @if(seminars.Count > 0)
     {
         <div class="container four columns">
-          
-        @foreach (seminar sem in seminars)
+
+            @foreach (seminar sem in seminars)
         {
+                <div>
+                    <ul>
+                        <li>
+                            @Html.ActionLink(sem.TitleHtml, "Workshop", new { seminar_id = sem.seminar_id })
+                            <hr />
+                        </li>
+                    </ul>
+
+
+                </div>
+        }
+
+        </div>
+        <div class='container twelve columns'>
+            @{ seminar seminar = ViewBag.Seminars; }
             <div>
-                <ul>
-                    <li>
-                        @Html.ActionLink(sem.TitleHtml, "Workshop", new { seminar_id = sem.seminar_id })
-                        <hr />
-                    </li>
-                </ul>
-
-
+                <h4>
+                    <strong>
+                        @Html.Raw(seminar.TitleHtml)
+                    </strong>
+                </h4>
             </div>
 
-        }
-        
-    </div>
-        <div class='container twelve columns'>
-        @{ seminar seminar = ViewBag.Seminars; }
-        <div>
-            <h4>
-                <strong>
-                    @Html.Raw(seminar.TitleHtml)
-                </strong>
-            </h4>
-        </div>
-        <div class='container eight columns'>
-            @Html.Raw(seminar.EventDetailsHtml)
-        </div>
+            <div class='container eight columns'>
+                @Html.Raw(seminar.EventDetailsHtml)
+            </div>
 
-        <div class='container four columns'>
+            <div class='container four columns'>
 
-            Available dates : <b>
-                @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
+                Available dates : <b>
+                    @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
                 {
-                    @Html.Raw(seminar.StartDate.ToShortDateString())
+                    if (seminar.StartDate == seminar.Enddate)
+                        {
+                        @seminar.StartDate.ToString("MMM, d")
+                        }
+                        else
+                        {
+                            if (seminar.StartDate.Month == seminar.Enddate.Month)
+                            {
+                        <span>
+                            @seminar.StartDate.ToString("MMM, d")
+                        </span>
+                        <span> - </span>
+                        <span>  @seminar.Enddate.Day</span>
+                            }
+                            else
+                            {
+                        <span>
+                            @seminar.StartDate.ToString("MMM, d")
+                        </span>
+                        <span> - </span>
+                        <span> @seminar.Enddate.ToString("MMM, d") </span>
+                            }
+
+
+        }
+
                 }
-            </b>
+                </b>
 
-            <div>
+                <div>
 
-                @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
+                    @if (seminar.StartDate != null && seminar.StartDate != default(DateTime))
                 {
                     registration reg = new registration();
                     reg.seminar_id = seminar.seminar_id;
-                    <a href='@Url.Action("Register", "Workshop", reg)' class='button medium green'>Register Now</a>
+                        <a href='@Url.Action("Register", "Workshop", reg)' class='button medium green'>Register Now</a>
                 }
+                </div>
             </div>
+
+
+
         </div>
-
-
-
-    </div>  
     }
 
     else

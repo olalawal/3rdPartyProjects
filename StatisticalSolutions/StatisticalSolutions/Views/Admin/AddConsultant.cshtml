@@ -1,6 +1,6 @@
-﻿@model StatisticalSolutions.Models.client
+﻿@model StatisticalSolutions.Models.instructor
 @{
-    ViewBag.Title = "AddClient";
+    ViewBag.Title = "AddConsultant";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
     HtmlHelper.ClientValidationEnabled = true;
 }
@@ -9,35 +9,33 @@
 
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
-        <span class="active"> - Add Client</span>
+        <a tabindex="16" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <span class="active"> - Add Consultant</span>
     </div>
-</div>
-<div class='container'>
-    <div class='sixteen columns form'>
-        <h3>Enter your Client info</h3>
 
-        @using (Html.BeginForm("AddClient", "Admin", FormMethod.Post))
+    <div class='sixteen columns form'>
+        <h3>Enter your Consultant info</h3>
+       
+        @using (Html.BeginForm("AddConsultant", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <div id="divclient">
+
+            <div id="divworkshop">
                 <fieldset>
                     <ol>
 
                         <li>
                             <div>
-                                <label>First Name</label>
+                                <label>Consultant Name</label>
                                 @Html.ValidationMessageFor(model => model.Name)
-                                @Html.TextBoxFor(model => model.Name, new { @tabindex = "1", @placeholder = "Client Name", @class = "form-control" })
+                                @Html.TextBoxFor(model => model.Name, new { @tabindex = "1", @placeholder = "Consultant Name", @class = "form-control" })
                             </div>
                         </li>
                         <li>
-                            <label>Bank Account #</label>
-                            @Html.ValidationMessageFor(model => model.Description)
-                            @Html.TextBoxFor(model => model.Description, new { @tabindex = "2", @placeholder = "Description", @class = "form-control" })
-
-                        </li>
-
+                            <label>Seminar</label>                        
+                            @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml"), "--Select Seminar--", new { @tabindex = "2",@class = "form-control" })
+                        </li>                     
+                       
                         <li>
                             <label>Address Line 1</label>
                             @Html.ValidationMessageFor(model => model.Address1)
@@ -64,7 +62,7 @@
                         <li>
                             <label>Country</label>
                             @Html.ValidationMessageFor(model => model.Country)
-                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
+                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7", @class = "form-control" } )
                         </li>
 
                         <li>
@@ -86,26 +84,44 @@
                             @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
 
                         </li>
+                 
                         <li>
                             <span class="checkbox">
-                                @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "11", @class = "form-control", style = "display:inline-block;" })
+
+                                @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "11", @class = "form-control" })
                             </span>
                             <span class="checkbox-label">
                                 <label>Active</label>
                                 @Html.ValidationMessageFor(model => model.IsActive)
                             </span>
                         </li>
-
                         <li>
-                            <input type="submit" tabindex="12" value="SUBMIT" class="button medium green" />
+                            <label>Description</label>
+                            @Html.ValidationMessageFor(model => model.Description)
+                            @Html.TextBoxFor(model => model.Description, new { @tabindex = "12", @class = "form-control" })
+
+                        </li>
+
+                        <li>                            
+                            <label>Details Html</label>
+                            @Html.ValidationMessageFor(model => model.DetailsHtml)
+                            @Html.TextAreaFor(model => model.DetailsHtml, new { @tabindex = "13", @row = "15", @cols = "50", @class = "form-control html-editor", @style = "width:100%;height:250px;overflow:auto;" })
+
+                        </li>
+                        <li>
+                            <label for="file">Upload Image</label>
+                            <input type="file" name="file" id="file" tabindex="14" /> 
+                        </li>
+                        <li>
+                         
+                            <input type="submit" tabindex="15" value="Submit" class="button medium green" />
                         </li>
                     </ol>
                 </fieldset>
 
             </div>
+
         }
     </div>
 </div>
-
-
 

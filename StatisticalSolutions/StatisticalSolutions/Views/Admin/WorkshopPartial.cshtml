@@ -4,13 +4,11 @@
         @Html.DisplayFor(m => m.TitleHtml)
     </td>
     <td>
-        @Html.DisplayFor(m => m.StartDate, "{0:MM/dd/yyyy}")
+        @Html.DisplayFor(m => m.StartDate, "{0:dddd, MMM dd, yyyy}")
 
     </td>
     <td>
-        @Html.DisplayFor(m => m.Enddate, "{0:MM/dd/yyyy}")
-
-
+        @Html.DisplayFor(m => m.Enddate, "{0:dddd, MMM dd, yyyy}")
     </td>
     <td>
         @Html.CheckBoxFor(model => model.IsActive)
