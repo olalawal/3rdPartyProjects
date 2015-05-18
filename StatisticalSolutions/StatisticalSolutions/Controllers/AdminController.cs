@@ -47,6 +47,9 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 ViewBag.Countries = dataAccess.getCountries();
+
+                ViewBag.Instructors = dataAccess.getinstructors();  
+
                 return View();
             }
             catch (CustomException ex)
@@ -255,14 +258,15 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 string fileName = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/images/consultants"), fileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/images/consultants"), fileName);
                 // file is uploaded
                 file.SaveAs(path);
                 model.ImageName = file.FileName;
                 model.ImagePath = "/images/consultants/" + fileName;
                 model.IsActive = true;
+
                 dataAccess.addInstructor(model);
+
                 return RedirectToAction("ConsultantList");
             }
             catch (CustomException ex)
@@ -289,17 +293,21 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-                List<instructor> instructorList = dataAccess.getinstructors();
-                return View(instructorList);
+
+                // List<instructor> instructorList = dataAccess.getinstructors();
+
+                List<SeminarInstructorModel> seminarIns = dataAccess.getseminarinstructors();
+
+                return View(seminarIns);
             }
             catch (CustomException ex)
             {
-                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                Log.Error(m => m("Function ConsultantList Error  - {0}", ex.Message));
                 return CustomExceptionCatcher(ex);
             }
             catch (Exception ex)
             {
-                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                Log.Error(m => m("Function ConsultantList Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
 
@@ -400,6 +408,7 @@ namespace StatisticalSolutions.Controllers
         }
 
         #endregion
+
 
         # region Clients Actions
 
@@ -556,7 +565,6 @@ namespace StatisticalSolutions.Controllers
         }
 
         #endregion
-
 
 
         #region Bulk Mails Actions
@@ -721,6 +729,7 @@ namespace StatisticalSolutions.Controllers
 
         }
         #endregion
+
 
         #region Students Actions
 

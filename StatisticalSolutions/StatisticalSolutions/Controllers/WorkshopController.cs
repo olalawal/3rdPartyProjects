@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
 using Common.Logging;
+using System.Web.Hosting;
 using System.Configuration;
 using StatisticalSolutions.Models;
 using StatisticalSolutions.ViewModels;
@@ -40,10 +41,13 @@ namespace StatisticalSolutions.Controllers
         public ActionResult WorkShops()
         {
             //get the list of seminars
-           List<seminar> seminars = dataAccess.getseminars();
-           TempData["Seminars"] = seminars;
-            TempData.Keep();
-            ViewBag.Seminars = dataAccess.getseminarbyid(seminars.FirstOrDefault().seminar_id);
+            ViewBag.Seminars = dataAccess.getfutureseminars();
+            
+            ViewBag.Seminar_Instructors = dataAccess.getseminarinstructors();
+
+            ViewBag.Instructors = dataAccess.getinstructors();
+
+            ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 
             return View();
         }
@@ -58,16 +62,16 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.Seminars = dataAccess.getseminarbyid(seminar_id);
-                //get the list of seminars
-                if (TempData["Seminars"]==null)
-                {
-                    List<seminar> seminars = dataAccess.getseminars();
-                    TempData["Seminars"] = seminars;
-                    TempData.Keep();
-                }
-                
-                return View("~/Views/Workshop/Workshops.cshtml");
+                //get the list of seminars            
+                ViewBag.Seminars = dataAccess.getfutureseminars();
+
+                IQueryable<SeminarInstructorModel> seminarInstructor = dataAccess.getseminarinstructor(seminar_id); 
+
+                ViewBag.Seminar = dataAccess.getseminarbyid(seminar_id);
+
+                ViewBag.Consultant = seminarInstructor.AsEnumerable().FirstOrDefault().Instructor.Name;
+
+                return View("Workshops");
             }
             catch (CustomException ex)
             {
@@ -86,16 +90,24 @@ namespace StatisticalSolutions.Controllers
         public ActionResult Register(registration model)
         {
             try
-            {
-                ViewBag.Message = "Register Now";
-
-
+            {               
                 //code for fill value in workshop dropdown 
-                ViewBag.Seminars = dataAccess.getseminars();
+                ViewBag.Seminars = dataAccess.getfutureseminars();
 
+                if (model.seminar_id > 0)
+                {
+                    ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
 
-                //// code for start dates 
-                ViewBag.StartDates = GetDisplayDates(new List<seminar>()); 
+                    seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                    ViewBag.StartTime = seminar.Starttime;
+                    ViewBag.EndTime = seminar.Endtime;
+                }
+                else
+                {
+                    //// code for start dates 
+                    ViewBag.StartDates = GetDisplayDates(new List<seminar>()); 
+                }
+         
 
 
                 //code to fill country in dropdown
@@ -103,8 +115,7 @@ namespace StatisticalSolutions.Controllers
 
                 //code which fetch list of companies for autocomplete
                 List<string> companies = new List<string>();
-                //List<client> clients = new List<client>();
-                //clients = dataAccess.getCompanies();
+                
                 foreach (client c in dataAccess.getCompanies())
                     companies.Add(c.Name);
 
@@ -132,8 +143,7 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.Message = "Register Now";
-
+                
                 registration model = new Models.registration();
 
                 model.seminar_id = dataAccess.getseminaridbyname(seminarname);
@@ -142,6 +152,9 @@ namespace StatisticalSolutions.Controllers
                 //code for fill value in workshop dropdown 
                 ViewBag.Seminars = dataAccess.getseminars();
 
+                seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                ViewBag.StartTime = seminar.Starttime;
+                ViewBag.EndTime = seminar.Endtime;
 
                 //// code for start dates 
                 ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
@@ -152,8 +165,7 @@ namespace StatisticalSolutions.Controllers
 
                 //code which fetch list of companies for autocomplete
                 List<string> companies = new List<string>();
-                //List<client> clients = new List<client>();
-                //clients = dataAccess.getCompanies();
+             
                 foreach (client c in dataAccess.getCompanies())
                     companies.Add(c.Name);
 
@@ -185,10 +197,16 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 registration registration = new registration();
-                registration.seminar_id = id;
-                //code for fill value in workshop dropdown 
-                ViewBag.Seminars = dataAccess.getseminars();
 
+                registration.seminar_id = id;
+
+                //code for fill value in workshop dropdown 
+                ViewBag.Seminars = dataAccess.getfutureseminars();
+
+                seminar seminar = dataAccess.getseminarbyid(id);
+               
+                ViewBag.StartTime = seminar.Starttime;
+                ViewBag.EndTime = seminar.Endtime;
 
                 // code for start dates 
                 ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
@@ -199,13 +217,13 @@ namespace StatisticalSolutions.Controllers
 
                 //code which fetch list of companies for autocomplete
                 List<string> companies = new List<string>();
-                //List<client> clients = new List<client>();
-                //clients = dataAccess.getCompanies();
+               
                 foreach (client c in dataAccess.getCompanies())
                     companies.Add(c.Name);
 
                 ViewBag.Companies = companies;
-                return View("~/Views/Workshop/Register.cshtml", registration);
+
+                return View("Register", registration);
             }
             catch (CustomException ex)
             {

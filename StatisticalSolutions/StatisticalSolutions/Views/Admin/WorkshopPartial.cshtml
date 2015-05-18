@@ -4,14 +4,17 @@
         @Html.DisplayFor(m => m.TitleHtml)
     </td>
     <td>
-        @Html.DisplayFor(m => m.StartDate, "{0:dddd, MMM dd, yyyy}")
+        @Model.StartDate.ToString("dddd, MMM dd, yyyy")
 
     </td>
     <td>
-        @Html.DisplayFor(m => m.Enddate, "{0:dddd, MMM dd, yyyy}")
+        @Model.Enddate.ToString("dddd, MMM dd, yyyy")
+        </td>
+    <td>
+       @Html.DisplayFor(m => m.Starttime)
     </td>
     <td>
-        @Html.CheckBoxFor(model => model.IsActive)
+        @Html.DisplayFor(m => m.Endtime)
     </td>
 
     <td>

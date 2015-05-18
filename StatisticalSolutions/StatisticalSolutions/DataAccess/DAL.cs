@@ -66,6 +66,7 @@ namespace StatisticalSolutions.DataAccess
                 // Check if user already exists
                 if (client == null)
                 {
+                    model.IsActive = true;
                     //DO whatever work is required to check etc
                     db.clients.Add(model);
                     db.SaveChanges();
@@ -106,6 +107,7 @@ namespace StatisticalSolutions.DataAccess
                 // Check if user already exists
                 if (student == null)
                 {
+                    model.IsActive = true;
                     //DO whatever work is required to check etc
                     db.students.Add(model);
                     db.SaveChanges();
@@ -317,6 +319,7 @@ namespace StatisticalSolutions.DataAccess
                 // Check if user already exists
                 if (objseminar != null)
                 {
+                    objseminar.instructor_id = model.instructor_id;
                     objseminar.TitleHtml = model.TitleHtml;
                     objseminar.EventDetailsHtml = model.EventDetailsHtml;
                     objseminar.Description = model.Description;                    
@@ -403,6 +406,7 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
+
                 instructor objinstructor = db.instructors.FirstOrDefault(ins => ins.instructor_id == model.instructor_id);
 
                 // Check if instructor already exists
@@ -537,6 +541,7 @@ namespace StatisticalSolutions.DataAccess
                 
                 //DO whatever work is required to check etc                   
                 model.Registerdate = currentDatetime;
+             
                 db.registrations.Add(model);
                 db.SaveChanges();
                 // assign student and seminar to display at register complete page
@@ -578,14 +583,18 @@ namespace StatisticalSolutions.DataAccess
                       if( string.IsNullOrEmpty(model.TitleHtml))
                        throw new CustomException("SEMINAR_TITLEHTML_IS_NULL");
 
+                     
                     //TO do add more valiadtion i.e start date end date etc, location
-                    seminar seminar = db.seminars.FirstOrDefault(s => s.TitleHtml == model.TitleHtml && s.StartDate == model.StartDate && s.Enddate == model.Enddate
+                      seminar seminar = db.seminars.FirstOrDefault(s => s.TitleHtml == model.TitleHtml && s.StartDate == model.StartDate && s.Enddate == model.Enddate
                         && s.Address1 == model.Address1 && s.Address2 == model.Address2 && s.City == model.City && s.StateProvince == model.StateProvince && s.Country == model.Country);
                     
+                    
+
                     if (seminar==null)
-                    { 
+                    {
+                        model.IsActive = true;
                         //DO whatever work is required to check etc
-                        db.seminars.Add(model);
+                        db.seminars.Add(model);                       
                         db.SaveChanges();
                         return model.seminar_id;                       
                     }
@@ -640,6 +649,7 @@ namespace StatisticalSolutions.DataAccess
 
                     if (instructor == null) 
                     {
+                        model.IsActive = true;
                         //DO whatever work is required to check etc
                         db.instructors.Add(model);
                         db.SaveChanges();
@@ -725,7 +735,8 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                List<seminar> seminars = db.seminars.Where(s=>s.IsActive).OrderBy(s=>s.StartDate).OrderBy(s=>s.Starttime).Distinct().ToList();
+                DateTime today = DateTime.Now;
+                List<seminar> seminars = db.seminars.Where(s => s.IsActive && s.StartDate >= today).OrderBy(s => s.StartDate).OrderBy(s => s.Starttime).Distinct().ToList();
                 return seminars;
             }
             catch (CustomException ex)
@@ -741,6 +752,34 @@ namespace StatisticalSolutions.DataAccess
                // db.Dispose();
             }
         }
+
+        /// <summary>
+        /// get seminar list
+        /// </summary>
+        /// <returns></returns>
+        internal List<seminar> getfutureseminars()
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                DateTime today = DateTime.Now;
+                List<seminar> seminars = db.seminars.Where(s => s.IsActive && s.StartDate >= today).OrderBy(s => s.StartDate).OrderBy(s => s.Starttime).Distinct().ToList();
+                return seminars;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
 
         /// <summary>
         /// get seminar by seminar id
@@ -819,7 +858,7 @@ namespace StatisticalSolutions.DataAccess
         }
 
         /// <summary>
-        /// get instructor list
+        /// get seminar instructor list
         /// </summary>
         /// <returns></returns>
         internal List<SeminarInstructorModel> getseminarinstructors()
@@ -829,12 +868,47 @@ namespace StatisticalSolutions.DataAccess
             {
                 var semIns = (from s in db.seminars
                               join ins in db.instructors on s.seminar_id equals ins.seminar_id
+                              where s.IsActive
                               select new SeminarInstructorModel
                               {
                                   seminar = s,
                                   Instructor = ins
 
                               }).Distinct().ToList();
+                return semIns;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// get seminar instructor list
+        /// </summary>
+        /// <returns></returns>
+        internal IQueryable<SeminarInstructorModel> getseminarinstructor(int seminar_id) 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                IQueryable<SeminarInstructorModel> semIns = (from s in db.seminars
+                              join ins in db.instructors on s.seminar_id equals ins.seminar_id
+                              where s.IsActive && s.seminar_id == seminar_id
+                              select new SeminarInstructorModel
+                              {
+                                  seminar = s,
+                                  Instructor = ins
+
+                              });
                 return semIns;
             }
             catch (CustomException ex)
@@ -997,8 +1071,10 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
+                DateTime today = DateTime.Now;
                 List<seminar> seminars = (from sem in db.seminars
                                              join reg in db.registrations on sem.seminar_id equals reg.seminar_id
+                                             where sem.StartDate >= today && sem.IsActive
                                              orderby sem.TitleHtml
                                           select sem).Distinct().ToList();
                     return seminars;
@@ -1111,8 +1187,8 @@ namespace StatisticalSolutions.DataAccess
             try
             {
                //getting all seminars now but will change code later for only future seminars
-                DateTime today = new DateTime();
-                List<seminar> seminars = db.seminars.Where(s => s.StartDate >= today).OrderBy(sem => Math.Abs((today - sem.StartDate).Days)).Distinct().ToList();
+                DateTime today = DateTime.Now;
+                List<seminar> seminars = db.seminars.Where(s => s.StartDate >= today && s.IsActive).OrderBy(sem =>sem.StartDate).OrderBy(sem => sem.Starttime).Distinct().ToList();
                 return seminars; 
             }
             catch (CustomException ex)
@@ -1134,9 +1210,9 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                DateTime today=new DateTime();
+                DateTime today = DateTime.Now;
                 //getting all seminars now but will change code later for only future seminars
-                List<seminar> seminars = db.seminars.Where(s=>s.seminar_id == seminar_id && s.StartDate >= today).OrderBy(sem => Math.Abs((today - sem.StartDate).Days)).Distinct().ToList(); 
+                List<seminar> seminars = db.seminars.Where(s => s.seminar_id == seminar_id && s.StartDate >= today).OrderBy(sem => sem.StartDate).OrderBy(sem => sem.Starttime).Distinct().ToList(); 
                 return seminars;
             }
             catch (CustomException ex)

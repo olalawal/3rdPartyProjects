@@ -507,6 +507,9 @@
     <Content Include="Views\Admin\ConsultantPartial.cshtml" />
     <Content Include="Views\Instructor\_ConsultantDetailsPartial.cshtml" />
     <Content Include="Views\Instructor\_SeminarPartial.cshtml" />
+    <Content Include="Views\Workshop\_InstructorPartial.cshtml" />
+    <Content Include="Views\Workshop\_SeminarListPartial.cshtml" />
+    <Content Include="Views\Workshop\_SeminarInfoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\consultants\" />

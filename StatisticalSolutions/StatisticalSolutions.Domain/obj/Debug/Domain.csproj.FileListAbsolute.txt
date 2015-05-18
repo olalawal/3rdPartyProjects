@@ -10,6 +10,8 @@ E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\ob
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations._new.resources
 E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedins.resources
+E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedsomestuff.resources
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll.config
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.dll
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\Domain.pdb
@@ -19,10 +21,8 @@ E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domai
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\bin\Debug\EntityFramework.SqlServer.xml
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations._new.resources
+E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedins.resources
+E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedsomestuff.resources
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.csproj.GenerateResource.Cache
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.dll
 E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.pdb
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedins.resources
-E:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedsomestuff.resources
-E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedins.resources
-E:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Debug\Domain.Migrations.addedsomestuff.resources

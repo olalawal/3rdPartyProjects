@@ -1,0 +1,106 @@
+﻿@using StatisticalSolutions.Models
+@model seminar
+
+<div class="six columns">
+    Seminar <br />
+    <b>Information</b>
+    <hr class="hr" />
+</div>
+
+<div class="six columns">
+    Available dates : <b>
+        @if (Model.StartDate != null && Model.StartDate != default(DateTime))
+                            {
+                                if (Model.StartDate == Model.Enddate)
+                                {
+                                    @Model.StartDate.ToString("MMM, d")
+                                }
+                                else
+                                {
+                                    if (Model.StartDate.Month == Model.Enddate.Month)
+                                    {
+                                        <span>
+                                            @Model.StartDate.ToString("MMM, d")
+                                        </span>
+                                        <span> - </span>
+                                        <span>  @Model.Enddate.Day</span>
+                                    }
+                                    else
+                                    {
+                                        <span>
+                                            @Model.StartDate.ToString("MMM, d")
+                                        </span>
+                                        <span> - </span>
+                                        <span> @Model.Enddate.ToString("MMM, d") </span>
+                                    }
+                                }
+                            }
+    </b>
+</div>
+
+
+<div class="clear"></div>
+<div class="six columns">
+    <span>The Seminar Center</span>
+    <br />
+    <span>
+        <span>@Html.Raw(Model.Address1)</span>
+        @if (!string.IsNullOrEmpty(Model.Address2))
+                            {
+            <span>, @Html.Raw(Model.Address2)</span>
+                            }
+        @if (!string.IsNullOrEmpty(Model.City))
+                            {
+            <br />
+            <span> @Html.Raw(Model.City)</span>
+                            }
+        @if (!string.IsNullOrEmpty(Model.StateProvince))
+                            {
+            <span>, @Html.Raw(Model.StateProvince)</span>
+                            }
+        @if (!string.IsNullOrEmpty(Model.ZipPostalCode))
+                            {
+            <span> @Html.Raw(Model.ZipPostalCode)</span>
+                            }
+        @if (!string.IsNullOrEmpty(Model.Country))
+                            {
+            <br />
+            <span> @Html.Raw(Model.Country)</span>
+                            }
+    </span>
+    <br />
+</div>
+
+<div class="clear"></div>
+<div class="six columns">
+    Contact <br />
+    <b>Information</b>
+    <hr class="hr" />
+
+    <span>Phone :</span>
+    <span>@Html.Raw(Model.Phone)</span><br />
+    <span>Fax :</span>
+    <span>@Html.Raw(Model.Fax)</span><br />
+    <span>Email :</span>
+    <span>@Html.Raw(Model.Email)</span><br />
+</div>
+
+<div class="clear"></div>
+<div class="six columns">
+    Payment <br />
+    <b>Instructions</b>
+    <hr class="hr" />
+    <span>The fee of $995 includes all course materials. </span><br /><br />
+    <span>PayPal and all major credit cards are accepted. </span><br /><br />
+    <span>Our Tax ID number is 12-1212121. </span>
+</div>
+<div class="clear"></div>
+
+<div class="six columns">
+    @if (Model.StartDate != null && Model.StartDate != default(DateTime))
+                        {
+                            registration reg = new registration();
+                            reg.seminar_id = Model.seminar_id;
+        <a href='@Url.Action("Register", "Workshop", reg)' class='button medium green'>Register Now</a>
+                        }
+</div>

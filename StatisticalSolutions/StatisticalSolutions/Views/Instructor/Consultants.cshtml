@@ -7,10 +7,13 @@
 }
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
 <div class="container focus">
     <h2>Our Consultants</h2>
 </div>
+
 <div class="clear"></div>
+
 <div class='container focus'>
     @{List<instructor> Consultants = ViewBag.Consultants as List<instructor>;}
     @if (Consultants.Count > 0)
@@ -18,17 +21,17 @@
         <div class="four columns">
             @foreach (instructor instructor in Consultants)
             {
-                <div>
-                    <ul>
-                        <li>
-                            @Html.ActionLink(instructor.Name, "Consultant", new { id = instructor.instructor_id })
-                            <hr class="hr" />
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li>
+                        @Html.ActionLink(instructor.Name, "Consultant", new { id = instructor.instructor_id })
+                        <hr class="hr" />
+                    </li>
+                </ul>
+               
             }
 
         </div>
+        
         <div class='nine columns'>
             @{ instructor ins = ViewBag.Instructor; }
             @if (ins != null)
@@ -46,11 +49,7 @@
                        
                         <br />
                         @Html.Raw(ins.Description.Trim())
-                    </div>      
-                 
-
-                   
-                   
+                    </div> 
                 <hr />
                     <br />
                     @Html.Raw(ins.DetailsHtml)
@@ -76,6 +75,7 @@
             }
 
         </div>
+        
         <div class='container six columns'>
             upcoming <br /><b>Seminars</b>
             <hr class="hr" />

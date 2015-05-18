@@ -1,0 +1,45 @@
+﻿
+@model StatisticalSolutions.ViewModels.SeminarInstructorModel
+<div class='container four columns'>
+    <ul>
+        <li>
+            <a href="~/Workshop/Workshop?seminar_id=@Model.seminar.seminar_id">@Model.seminar.TitleHtml</a>
+        </li>
+        <li>
+            @Model.Instructor.Name
+        </li>
+        <li>
+            @if (Model.seminar.StartDate == Model.seminar.Enddate)
+            {
+                @Model.seminar.StartDate.ToString("MMM, d")
+            }
+            else
+            {
+                if (Model.seminar.StartDate.Month == Model.seminar.Enddate.Month)
+                {
+                    <span>
+                        @Model.seminar.StartDate.ToString("MMM, d")
+                    </span>
+                    <span> - </span>
+                    <span>  @Model.seminar.Enddate.Day</span>
+                }
+                else
+                {
+                    <span>
+                        @Model.seminar.StartDate.ToString("MMM, d")
+                    </span>
+                    <span> - </span>
+                    <span> @Model.seminar.Enddate.ToString("MMM, d") </span>
+                }
+            }
+            @if (!string.IsNullOrEmpty(Model.seminar.City))
+            {
+                <span>, </span>  <span>
+
+                    @Model.seminar.City
+                </span>
+            }
+        </li>
+    </ul>
+</div>
+
