@@ -2671,4 +2671,10 @@ Parameter name: parameters
  2015-05-18 20:03:04,823 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/RegisterSeminar 
  2015-05-18 20:03:35,794 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/RegisterSeminar 
  2015-05-18 20:04:35,105 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/RegisterSeminar 
+ 2015-05-18 18:49:08,520 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-18 18:49:24,794 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-18 18:49:45,547 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-18 18:50:19,895 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop 
+ 2015-05-18 18:51:05,086 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Home/About 
+ 2015-05-18 18:51:07,790 [27] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
  
