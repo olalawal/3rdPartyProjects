@@ -116,8 +116,10 @@ namespace StatisticalSolutions.Controllers
                     companies.Add(c.Name);
 
                 ViewBag.Companies = companies;
-                return View(model);
 
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+                return View(model);               
             }
             catch (CustomException ex)
             {
@@ -171,6 +173,8 @@ namespace StatisticalSolutions.Controllers
                     companies.Add(c.Name);
 
                 ViewBag.Companies = companies;
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 				
                 return View("Register", model);
 
@@ -230,6 +234,8 @@ namespace StatisticalSolutions.Controllers
 
                 ViewBag.Companies = companies;
 
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
                 return View("Register", model);
             }
             catch (CustomException ex)
@@ -248,57 +254,7 @@ namespace StatisticalSolutions.Controllers
            
         } 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult WorkshopSelected(int id) 
-        //{
-
-        //    try
-        //    {
-        //        registration registration = new registration();
-
-        //        registration.seminar_id = id;
-
-        //        //code for fill value in workshop dropdown 
-        //        ViewBag.Seminars = dataAccess.getfutureseminars();
-
-        //        seminar seminar = dataAccess.getseminarbyid(id);
-               
-        //        ViewBag.StartTime = seminar.Starttime;
-        //        ViewBag.EndTime = seminar.Endtime;
-
-        //        // code for start dates 
-        //        ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
-
-
-        //        //code to fill country in dropdown
-        //        ViewBag.Countries = dataAccess.getCountries(); ;
-
-        //        //code which fetch list of companies for autocomplete
-        //        List<string> companies = new List<string>();
-               
-        //        foreach (client c in dataAccess.getCompanies())
-        //            companies.Add(c.Name);
-
-        //        ViewBag.Companies = companies;
-
-        //        return View("Register", registration);
-        //    }
-        //    catch (CustomException ex)
-        //    {
-        //        Log.Error(m => m("Function Register Error  - {0}", ex.Message));
-        //        //throw ex;
-        //        return CustomExceptionCatcher(ex);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Log.Error(m => m("Function Register Error  - {0}", ex.Message));
-        //        //throw ex;
-        //        return SystemExceptionCatcher(ex);
-        //    }
-
-
-        //}
+    
 
         [HttpPost]
         [ValidateAntiForgeryToken]

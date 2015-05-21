@@ -412,8 +412,7 @@ namespace StatisticalSolutions.DataAccess
                 // Check if instructor already exists
                 if (objinstructor != null)
                 {
-                    objinstructor.Name = model.Name;
-                    objinstructor.seminar_id = model.seminar_id;  
+                    objinstructor.Name = model.Name;                   
                     objinstructor.Description = model.Description;                  
                     objinstructor.Address1 = model.Address1;
                     objinstructor.Address2 = model.Address2;
@@ -869,13 +868,13 @@ namespace StatisticalSolutions.DataAccess
             {
                 DateTime today = DateTime.Now;
                 var semIns = (from s in db.seminars
-                              join ins in db.instructors on s.seminar_id equals ins.seminar_id into si
-                              from intructor in si.DefaultIfEmpty()
+                              //join ins in db.instructors on s.instructor_id equals ins.instructor_id into si
+                              //from intructor in si.DefaultIfEmpty()
                               where s.IsActive && s.StartDate >= today
                               select new SeminarInstructorModel
                               {
                                   seminar = s,
-                                  Instructor = intructor
+                                  Instructor =s.instructor 
 
                               }).Distinct().ToList();
                 return semIns;
@@ -905,13 +904,13 @@ namespace StatisticalSolutions.DataAccess
             {
                 DateTime today = DateTime.Now;
                 IQueryable<SeminarInstructorModel> semIns = (from s in db.seminars
-                              join ins in db.instructors on s.seminar_id equals ins.seminar_id into si
-                              from intructor in si.DefaultIfEmpty() 
+                              //join ins in db.instructors on s.seminar_id equals ins.seminar_id into si
+                              //from intructor in si.DefaultIfEmpty() 
                               where s.IsActive && s.seminar_id == seminar_id  && s.StartDate >= today
                               select new SeminarInstructorModel
                               {
                                   seminar = s,
-                                  Instructor = intructor
+                                  Instructor = s.instructor
 
                               });
                 return semIns;
@@ -944,9 +943,9 @@ namespace StatisticalSolutions.DataAccess
                 DateTime today = DateTime.Now;
                 var semIns = (from ins in db.instructors 
                               join s in db.seminars
-                                on ins.seminar_id equals s.seminar_id into inssem
+                                on ins.instructor_id equals s.instructor_id into inssem
                               from sem in inssem.DefaultIfEmpty()  
-                              where ins.IsActive &&  sem.StartDate >= today
+                              where ins.IsActive && sem.IsActive && sem.StartDate >= today
                               select new SeminarInstructorModel
                               {
                                   seminar = sem,
@@ -980,9 +979,9 @@ namespace StatisticalSolutions.DataAccess
             {
                 DateTime today = DateTime.Now;
                 IQueryable<SeminarInstructorModel> semIns   = (from ins in db.instructors 
-                                                               join s in db.seminars on ins.seminar_id equals s.seminar_id into inssem
+                                                               join s in db.seminars on ins.instructor_id equals s.instructor_id into inssem
                                                               from sem in inssem.DefaultIfEmpty()  
-                                                              where ins.IsActive 
+                                                              where ins.IsActive && sem.IsActive
                                                               && sem.seminar_id == instructor_id
                                                               && sem.StartDate >= today
                                                                 select new SeminarInstructorModel

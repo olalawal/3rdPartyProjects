@@ -45,12 +45,12 @@
 
                         </li>
                         <li>
-                            <div class="mid-size">
+                            <div class="mid-left">
                                 <label>Start Date</label>
                                 @Html.ValidationMessageFor(model => model.StartDate)
                                 @Html.TextBoxFor(model => model.StartDate, "{0:MM/dd/yyyy}", new { @tabindex = "4", @placeholder = "MM/DD/YYYY", @class = "form-control calendar mid-size" })
                             </div>
-                            <div class="mid-size">
+                            <div class="mid-right">
                                 <label>Start Time</label>
                                 @Html.ValidationMessageFor(model => model.Starttime)
                                 @Html.TextBoxFor(model => model.Starttime, new { @tabindex = "5", @placeholder = "Start Time", @class = "form-control mid-size" })

@@ -65,10 +65,7 @@
                 </table>
                 <input type="submit" tabindex="2" value="Send Mails" class="button medium green filter-button right-align" />
             }
-
         }
-
-
     }
 </div>
 
@@ -79,7 +76,7 @@
     {
         if (index > 0)
         {
-            document.location.href = '../Admin/BulkMailStudents/' + value;            
+            document.location.href = '@ViewBag.VirtualPath/Admin/BulkMailStudents/' + value;
         }
     }
 </script>

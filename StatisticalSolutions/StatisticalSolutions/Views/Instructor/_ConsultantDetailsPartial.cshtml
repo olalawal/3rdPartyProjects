@@ -6,7 +6,7 @@
         @{string path = ViewBag.VirtualPath+ "/" + Model.ImagePath;}
         <img src="@path" height="90" width="90" class="img-circle" />
     </div>
-    <div class="six columns text-justify">
+    <div class="con-desc text-justify">
         <strong>
             @Html.Raw(Model.Name)
         </strong>
@@ -15,9 +15,9 @@
 
         @Html.Raw(Model.Description.Trim())
         <br />
-        <div class="light_orange font-bold">
-            <a class="light_orange font-bold" href='@Url.Action("Consultant", "Instructor", new { id = Model.instructor_id })'>Learn More..</a>  
+        <div class="light-orange font-bold">
+            <a class="light-orange font-bold" href='@Url.Action("Consultant", "Instructor", new { id = Model.instructor_id })'>Learn More..</a>
         </div>
-       
+
     </div>
 </div>

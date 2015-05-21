@@ -23,18 +23,22 @@
                             @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value, this.selectedIndex)" })
                         </li>
                         <li>
-                            <div class="mid-size">
-                                <label class="mid-size">Select Start Date</label>
+                            <div class="mid-left">
+                                <label class="mid-left">Select Start Date</label>
                                 @Html.ValidationMessageFor(m => m.StartDate)
-                                @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "Date", "LongDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date", @class = "mid-size" })
+                                @Html.DropDownListFor(model => model.StartDate, new SelectList(@ViewBag.StartDates, "Date", "LongDate", Model.StartDate), "--Select Start Date--", new { @tabindex = "2", @placeholder = "Start Date", @class = "mid-left" })
 
                             </div>
-                            <div class="mid-size" style="vertical-align: top; margin-top: 30px; ">
-                                <span style=" padding-left: 30px; ">  @ViewBag.StartTime  </span>  
-                                @if(!string.IsNullOrEmpty(ViewBag.EndTime))
-                                {
-                                  <span> - </span><span> @ViewBag.EndTime  </span>  
-                                }
+                            <div class="mid-size" >
+                                <label style=" padding-left: 30px; "> Time</label>
+                                <div style=" padding-left: 30px;margin-top:40px; ">
+                                    <span>  @ViewBag.StartTime  </span>
+                                    @if (!string.IsNullOrEmpty(ViewBag.EndTime))
+                                    {
+                                        <span> - </span><span> @ViewBag.EndTime  </span>
+                                    }
+                                </div>
+                               
                                 
                             </div>
                         </li>
@@ -145,7 +149,7 @@
     {
         if(index >0)
         {
-            document.location.href = '../Workshop/Registration/' + value;
+            document.location.href = '@ViewBag.VirtualPath/Workshop/Registration/' + value;
         }
 
     }

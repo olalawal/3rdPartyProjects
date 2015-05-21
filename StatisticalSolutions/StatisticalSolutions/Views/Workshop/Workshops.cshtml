@@ -8,13 +8,11 @@
 
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
-
-<div class="container focus">
-    <h4>Currently Available WorkShops</h4>
+<div class="container nine columns text-center font-24">
+    Currently Available WorkShops
 </div>
 
 <div class="clear"></div>
-
 <div class='container focus'>
     @{List<seminar> seminars = ViewBag.Seminars as List<seminar>;}
     @if (seminars.Count > 0)
@@ -35,14 +33,15 @@
             seminar seminar = ViewBag.Seminar as seminar;
             if (seminar != null)
         {
-        <div class='nine columns'>
+        <div class='nine columns'>            
+           
             <div class='nine columns'>
                 <div class="font-bold" style="text-align:center;">
                     <strong>@Html.Raw(seminar.TitleHtml)</strong>
                 </div>
                 <div style="text-align:center;">
                     @{  string consultant = ViewBag.Consultant as string;}
-                    <span> Taught by @consultant</span>
+                    <span> @consultant</span>
                 </div>
 
                 <br />
@@ -58,6 +57,7 @@
         else
         {
         <div class='nine columns'>
+            
 
             <p> Here are all of our currently scheduled seminars for spring 2015. Just click on the course titles for detailed information and registration. All seminars meet for two full days, unless otherwise noted. Please check back periodically for updates.</p>
             <br />

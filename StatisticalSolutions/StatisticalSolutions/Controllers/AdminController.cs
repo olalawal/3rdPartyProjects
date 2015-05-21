@@ -592,6 +592,8 @@ namespace StatisticalSolutions.Controllers
 
                 ViewBag.regseminars = dataAccess.getregisteredseminars();
 
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
                 return View(bulkMailModel);
             }
             catch (CustomException ex)
@@ -690,6 +692,10 @@ namespace StatisticalSolutions.Controllers
                 model.Registration.seminar_id = id;
 
                 model.Students = students;
+                
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+
 
                 return View("BulkMails", model);
             }
@@ -725,6 +731,8 @@ namespace StatisticalSolutions.Controllers
                 TempData.Keep();
 
                 ViewBag.regseminars = dataAccess.getfilterregisteredseminars(FilterText);
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
               
                 return View("BulkMails", model);
             }

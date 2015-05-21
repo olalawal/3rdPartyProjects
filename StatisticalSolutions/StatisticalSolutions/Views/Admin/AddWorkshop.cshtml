@@ -40,27 +40,28 @@
                             @Html.TextBoxFor(model => model.Description, new { @tabindex = "3", @placeholder = "Description", @class = "form-control" })
 
                         </li>
+                     
                         <li>
-                            <div class="mid-size">
-                                <label>Start Date</label>
+                            <div class="mid-left">
+                                <label class="mid-left">Start Date</label>
                                 @Html.ValidationMessageFor(model => model.StartDate)
-                                @Html.TextBoxFor(model => model.StartDate, "{0:MM/dd/yyyy}", new { @tabindex = "4", @placeholder = "MM/DD/YYYY", @class = "form-control calendar mid-size" })
+                                @Html.TextBoxFor(model => model.StartDate, "{0:MM/dd/yyyy}", new { @tabindex = "4", @autocomplete="off", @placeholder = "MM/DD/YYYY", @class = "form-control calendar mid-size" })
                             </div>
-                            <div class="mid-size">
-                                <label>Start Time</label>
+                            <div class="mid-right">
+                                <label class="mid-left">Start Time</label>
                                 @Html.ValidationMessageFor(model => model.Starttime)
-                                @Html.TextBoxFor(model => model.Starttime, new { @tabindex = "5", @placeholder = "Start Time", @class = "form-control mid-size" })
+                                @Html.TextBoxFor(model => model.Starttime, new { @tabindex = "5", @placeholder = "Start Time", @class = "form-control" })
                             </div>
                         </li>
                         <li>
-                            <div class="mid-size">
-                                <label>End Date</label>
+                            <div class="mid-left">
+                                <label class="mid-left">End Date</label>
                                 @Html.ValidationMessageFor(model => model.Enddate)
-                                @Html.TextBoxFor(model => model.Enddate, "{0:MM/dd/yyyy}", new { @tabindex = "6", @placeholder = "MM/DD/YYYY", @class = "form-control calendar mid-size" })
+                                @Html.TextBoxFor(model => model.Enddate, "{0:MM/dd/yyyy}", new { @tabindex = "6", @autocomplete="off", @placeholder = "MM/DD/YYYY", @class = "form-control calendar" })
                             </div>
 
-                            <div class="mid-size">
-                                <label>End Time</label>
+                            <div class="mid-right">
+                                <label class="mid-left">End Time</label>
                                 @Html.ValidationMessageFor(model => model.Endtime)
                                 @Html.TextBoxFor(model => model.Endtime, new { @tabindex = "7", @placeholder = "End Time", @class = "form-control mid-size" })
                             </div>

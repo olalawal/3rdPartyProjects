@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<div class="container focus">
-    <h2>Our Consultants</h2>
+<div class="container nine columns text-center font-24" style="padding-right:150px;">
+    Our Consultants
 </div>
 
 <div class="clear"></div>
@@ -33,6 +33,7 @@
         </div>
         
         <div class='nine columns'>
+            
             @{ instructor ins = ViewBag.Instructor; }
             @if (ins != null)
             {
@@ -60,9 +61,9 @@
             {
                 <div class='nine columns'>
 
-                    <h2>Nothing beats personal contact with a great instructor!</h2>
+                    <div class="font-24 text-center">Nothing beats personal contact with a great instructor!</div>
                     <br />
-                    <div>
+                    <div class="text-justify">
                         When it comes to statistics, a top-notch instructor can make all the difference. At Statistical Horizons, we only recruit the best. All our instructors are recognized experts in their fields. Equally important, they have the talent and experience to make statistics interesting and understandable to researchers from a wide variety of backgrounds. Take one of our seminars and you’ll see what we mean.
                     </div>
 
