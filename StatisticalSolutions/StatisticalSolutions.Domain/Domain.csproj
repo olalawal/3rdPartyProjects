@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201505171954550_addedsomestuff.Designer.cs">
       <DependentUpon>201505171954550_addedsomestuff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505210513112_changedinstructors.cs" />
+    <Compile Include="Migrations\201505210513112_changedinstructors.Designer.cs">
+      <DependentUpon>201505210513112_changedinstructors.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\AccountModels.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505171954550_addedsomestuff.resx">
       <DependentUpon>201505171954550_addedsomestuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505210513112_changedinstructors.resx">
+      <DependentUpon>201505210513112_changedinstructors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

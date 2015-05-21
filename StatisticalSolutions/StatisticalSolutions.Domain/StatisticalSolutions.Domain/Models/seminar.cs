@@ -95,7 +95,6 @@ namespace StatisticalSolutions.Models
         public bool IsActive { get; set; }
         [DataMember]
         public virtual ICollection<registration> registrations { get; set; }
-
         [DataMember]
         public virtual instructor instructor { get; set; }
             [DataMember]

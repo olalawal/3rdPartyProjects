@@ -87,4 +87,18 @@
  2015-05-21 09:16:50,789 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
  2015-05-21 09:17:32,091 [61] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
  2015-05-21 09:19:57,791 [61] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 00:04:07,479 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 00:04:13,805 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 00:04:26,960 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/14 
+ 2015-05-21 00:04:51,827 [5] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/14 
+ 2015-05-21 00:04:54,838 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/14 
+ 2015-05-21 00:05:11,997 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/14 
+ 2015-05-21 00:05:26,877 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 00:05:33,014 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/14 
+ 2015-05-21 00:05:52,312 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 00:05:55,849 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 00:07:15,911 [26] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 00:08:20,599 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 00:09:25,500 [35] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 00:09:29,624 [36] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
  

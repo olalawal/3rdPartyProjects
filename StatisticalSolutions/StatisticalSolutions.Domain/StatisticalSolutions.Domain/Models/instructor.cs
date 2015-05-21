@@ -20,7 +20,7 @@ namespace StatisticalSolutions.Models
         [DataMember]
         public int instructor_id { get; set; }
         [DataMember]
-        public int? seminar_id { get; set; } 
+        public virtual ICollection<seminar> assignedseminars { get; set; }
         [Required]
         [DataMember]
         [Display(Name = "Instructor Name")]

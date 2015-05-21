@@ -18,7 +18,7 @@ Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True;Max Pool Siz
 
 update model example
 //adding migration
-Add-Migration addedsomestuff -StartUpProjectName "Domain" -ConnectionString "Server=tcp:b6qk2z7st9.database.windows.net,1433;Database=statisticalsolutions;User ID=anewluv@b6qk2z7st9;Password=Olakayode02;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True;Max Pool Size=100;" -ConnectionProviderName "System.Data.SqlClient"
+Add-Migration changedinstructors -StartUpProjectName "Domain" -ConnectionString "Server=tcp:b6qk2z7st9.database.windows.net,1433;Database=statisticalsolutions;User ID=anewluv@b6qk2z7st9;Password=Olakayode02;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True;Max Pool Size=100;" -ConnectionProviderName "System.Data.SqlClient"
 
 //now update
 Update-Database  -StartUpProjectName "Domain" -ConnectionString "Server=tcp:b6qk2z7st9.database.windows.net,1433;Database=statisticalsolutions;User ID=anewluv@b6qk2z7st9;Password=Olakayode02;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True;Max Pool Size=100;" -ConnectionProviderName "System.Data.SqlClient"
