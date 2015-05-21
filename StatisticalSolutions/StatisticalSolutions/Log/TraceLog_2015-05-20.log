@@ -9,4 +9,10 @@
  2015-05-20 22:07:57,959 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Home/ContactUsMail 
  2015-05-20 22:07:57,966 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function ContactUsMail - Start of mail sending
  2015-05-20 22:08:25,630 [48] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-20 23:12:14,285 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-20 23:12:29,752 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Home/ContactUsMail 
+ 2015-05-20 23:12:29,759 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function ContactUsMail - Start of mail sending
+ 2015-05-20 23:12:33,552 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function ContactUsMail - Insertion of message in table
+ 2015-05-20 23:12:44,151 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function ContactUsMail - Insertion of message in table
+ 2015-05-20 23:12:44,470 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
  

@@ -73,7 +73,7 @@ namespace StatisticalSolutions.Helpers
                 
                     //Setup credentials to login to our sender email address ("UserName", "Password")
                     client.UseDefaultCredentials = false;
-                    NetworkCredential credentials = new NetworkCredential("admin@loyabconsulting.com ", "kayode02");
+                    NetworkCredential credentials = new NetworkCredential("admin@loyabconsulting.com ", "momdad2000");
                     client.Credentials = credentials;
 
                     client.Host = "smtpout.secureserver.net";
