@@ -120,6 +120,15 @@ ul {
     }
 
 
+.six ul {
+    font-size: 14px;
+    margin: 7px 0;
+    padding-left: 0;
+}
+
+    .six ul li {
+        margin-bottom: 5px;
+    }
 /*
 * divs random
 */
@@ -445,25 +454,33 @@ input[type='submit'] {
     margin-right: 0;
 }
 
+.hr-class {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .legend-line {
     margin-bottom: 5px;
     margin-top: 5px;
 }
 
-
+.right-align
+{
+    text-align:right;
+}
 
 .light-orange {
     color: #ff9999 !important;
 }
 
-.con-desc
-{
+.con-desc {
     width: 395px;
     float: left;
-  display: inline;
-  margin-left: 5px;
-  margin-right:0;
-
+    display: inline;
+    margin-left: 5px;
+    margin-right: 0;
 }
 
 .font-bold {
@@ -502,7 +519,7 @@ input[type='submit'] {
 }
 
 .mid-size {
-    vertical-align: top;    
+    vertical-align: top;
     width: 248px !important;
     display: inline-block !important;
 }
@@ -555,17 +572,28 @@ input[type='submit'] {
         height: 10px !important;
     }
 
-      .mid-right-label {
-        width: 247px !important;
-        display: inline-block !important;
-        margin: 0 !important;
-    }
+.mid-right-label {
+    width: 247px !important;
+    display: inline-block !important;
+    margin: 0 !important;
+}
 
 .jqte {
     margin: 2px !important;
     margin-bottom: 20px !important;
 }
 
+.font-15 {
+    font-size: 15px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-18 {
+    font-size: 18px !important;
+}
 
 .font-24 {
     font-size: 24px !important;

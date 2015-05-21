@@ -5,8 +5,9 @@
         <img src="@path" height="60" width="60" class="img-circle" />
    
     </td>
-    <td>
-        @Html.DisplayFor(m => m.Instructor.Name)
+    <td>    
+        <a href='@Url.Action("AssignedSeminars", "Admin", new { id = Model.Instructor.instructor_id })'>@Model.seminar.TitleHtml</a>
+
     </td>
     <td>
         @Html.DisplayFor(m => m.Instructor.Email)

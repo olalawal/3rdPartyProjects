@@ -9,8 +9,24 @@
         <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
         <span class="active"> - Student List</span>
     </div>
-</div>
-<div class='container focus'>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.InactiveStudents))
+{
+    <div class='sixteen form'>
+
+        <div class="checkbox ">
+            @using (Html.BeginForm("InactiveStudents", "Admin", FormMethod.Post, new { @style = "margin:0;margin-left:20px;" }))
+            {
+                <input type="checkbox" name="IsActive" value="false" onclick=" this.form.submit();" />
+                <span>Inactive Students</span>
+            }
+        </div>
+
+    </div>
+}
+
+
 
     <div class='sixteen form'>
         <section>
@@ -23,8 +39,8 @@
                             <tr>
                                 <th style="width:30%;">Name</th>
                                 <th style="width:30%;">Email</th>
-                                <th style="width:20%;">Contact</th>
-                                <th style="width:10%;">Active</th>
+                                <th style="width:30%;">Contact</th>
+                               
                                 <th style="width:10%;"></th>
                             </tr>
 

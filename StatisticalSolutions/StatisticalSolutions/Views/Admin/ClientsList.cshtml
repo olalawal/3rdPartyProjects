@@ -12,8 +12,24 @@
         <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
         <span class="active"> - Company List</span>
     </div>
-</div>
-<div class='container focus'>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.InactiveClients))
+{
+    <div class='sixteen form'>
+
+        <div class="checkbox ">
+            @using (Html.BeginForm("InactiveClients", "Admin", FormMethod.Post, new { @style = "margin:0;margin-left:20px;" }))
+            {
+                <input type="checkbox" name="IsActive" value="false" onclick=" this.form.submit();" />
+                <span>Inactive Companies</span>
+            }
+        </div>
+
+    </div>
+}
+
+
     <div class='sixteen form'>
         <section>
 

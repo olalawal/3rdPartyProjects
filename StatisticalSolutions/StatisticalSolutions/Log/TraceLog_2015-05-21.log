@@ -1093,4 +1093,350 @@
  2015-05-21 17:38:58,519 [53] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
  2015-05-21 17:39:50,889 [53] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
  2015-05-21 17:45:19,669 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 17:52:23,271 [60] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:21:09,726 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 18:23:00,973 [3] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:23:49,061 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 18:25:19,646 [3] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditConsultant/1 
+ 2015-05-21 18:26:45,875 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditConsultant/1 
+ 2015-05-21 18:26:46,614 [3] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 18:27:44,528 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:47:21,867 [40] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 18:48:10,271 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 18:49:01,476 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:49:22,293 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:49:23,709 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:49:23,710 [43] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - The view 'InactiveWorkshops' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Admin/InactiveWorkshops.aspx
+~/Views/Admin/InactiveWorkshops.ascx
+~/Views/Shared/InactiveWorkshops.aspx
+~/Views/Shared/InactiveWorkshops.ascx
+~/Views/Admin/InactiveWorkshops.cshtml
+~/Views/Admin/InactiveWorkshops.vbhtml
+~/Views/Shared/InactiveWorkshops.cshtml
+~/Views/Shared/InactiveWorkshops.vbhtml
+ 2015-05-21 18:49:23,711 [43] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 18:49:23,778 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 18:49:23,780 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 18:50:28,543 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 18:51:03,815 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:51:30,368 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:51:40,324 [40] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:51:57,666 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:53:00,424 [39] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 18:54:17,828 [12] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 18:54:37,535 [12] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 18:55:17,281 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 18:58:08,629 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 18:58:40,865 [40] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 18:59:50,904 [35] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 19:00:47,975 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 19:02:08,518 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 19:02:52,160 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/3 
+ 2015-05-21 19:02:54,861 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:03:04,201 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:03:11,832 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/5 
+ 2015-05-21 19:03:36,428 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/5 
+ 2015-05-21 19:03:40,753 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:05:14,858 [46] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:06:30,868 [52] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:06:37,260 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:07:12,171 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:08:41,747 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:09:48,315 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:11:17,534 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:11:38,427 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:12:43,476 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:13:12,236 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:14:24,289 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:14:25,702 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:14:25,703 [20] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Encountered end tag "div" with no matching start tag.  Are your start/end tags properly balanced?
+
+ 2015-05-21 19:14:25,704 [20] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 19:14:25,832 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:14:25,834 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:15:00,139 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:15:01,547 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:15:01,547 [20] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Encountered end tag "div" with no matching start tag.  Are your start/end tags properly balanced?
+
+ 2015-05-21 19:15:01,547 [20] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 19:15:01,555 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:15:01,557 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:15:04,080 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 19:15:07,139 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 19:15:30,640 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:15:32,237 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:15:32,238 [18] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Encountered end tag "div" with no matching start tag.  Are your start/end tags properly balanced?
+
+ 2015-05-21 19:15:32,238 [18] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 19:15:32,242 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:15:32,242 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 19:16:19,156 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:17:21,006 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:18:48,974 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:19:09,822 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:20:55,897 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:21:16,343 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:22:04,995 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:23:05,240 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:26:58,550 [27] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:27:41,691 [26] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:28:05,520 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:30:38,435 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:31:17,513 [26] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:33:19,785 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:36:25,716 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:37:41,818 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:37:59,199 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:40:45,597 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 19:42:00,787 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:43:57,867 [12] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:45:04,954 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:45:30,725 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:50:55,614 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 19:51:27,455 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:55:31,970 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 19:56:03,014 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:56:28,381 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:57:18,018 [15] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:57:57,801 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 19:59:03,736 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 20:00:24,347 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:01:15,164 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:02:10,157 [15] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:02:48,227 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:03:11,443 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:03:46,534 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:04:50,490 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:04:52,840 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:04:52,842 [16] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Encountered end tag "div" with no matching start tag.  Are your start/end tags properly balanced?
+
+ 2015-05-21 20:04:52,842 [16] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 20:04:52,905 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 20:04:52,907 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Base/StatisticalError 
+ 2015-05-21 20:05:14,799 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:06:22,615 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:06:40,903 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 20:06:51,816 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 20:06:51,817 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Cannot convert null to 'bool' because it is a non-nullable value type
+ 2015-05-21 20:06:51,817 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception stack trace -    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at ASP._Page_Views_Admin_WorkshopList_cshtml.Execute() in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Views\Admin\WorkshopList.cshtml:line 14
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-05-21 20:09:14,626 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 20:09:56,330 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:10:20,789 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveWorkshops 
+ 2015-05-21 20:10:47,903 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:12:16,487 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:13:10,557 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:14:44,179 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:15:04,557 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:16:17,485 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:16:29,480 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:16:40,189 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 20:17:24,681 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
+ 2015-05-21 20:17:59,696 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/AddWorkshop 
+ 2015-05-21 20:34:54,832 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 20:38:11,998 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 20:38:41,617 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveConsultants 
+ 2015-05-21 20:38:56,519 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 20:51:42,212 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 20:52:44,125 [25] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveConsultants 
+ 2015-05-21 20:53:39,668 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 20:53:44,583 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveConsultants 
+ 2015-05-21 21:39:14,729 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 21:39:53,398 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 21:40:29,379 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/5 
+ 2015-05-21 21:40:58,252 [11] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:43:05,835 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:43:30,300 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 21:43:43,993 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 21:44:12,933 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 21:44:39,531 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:44:58,678 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/4 
+ 2015-05-21 21:45:35,366 [23] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 21:46:32,327 [29] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 21:47:24,028 [27] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 21:47:36,030 [40] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:47:52,357 [34] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 21:48:07,454 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 21:48:38,347 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 21:49:46,569 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:50:06,064 [36] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:50:29,263 [36] ERROR StatisticalSolutions.Controllers.Base.BaseController - Function ClientsList Error  - An error occurred while executing the command definition. See the inner exception for details.
+ 2015-05-21 21:50:29,266 [36] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - An error occurred while executing the command definition. See the inner exception for details.
+ System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.Data.SqlClient.SqlException: A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   at System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at StatisticalSolutions.DataAccess.DAL.getCompanies() in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\DataAccess\DAL.cs:line 1188
+   at StatisticalSolutions.Controllers.AdminController.ClientsList() in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Controllers\AdminController.cs:line 482
+2015-05-21 21:50:46,507 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 21:52:11,828 [46] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 22:05:26,272 [55] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 22:05:56,996 [55] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 22:09:02,397 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 22:09:24,728 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 22:13:43,203 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 23:05:25,630 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 23:10:43,481 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 23:13:39,030 [27] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 23:15:21,739 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 23:16:23,265 [29] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-21 23:16:27,352 [27] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-21 23:18:41,647 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-21 23:21:01,180 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 23:22:11,767 [31] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/1 
+ 2015-05-21 23:35:01,876 [34] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 23:35:37,562 [36] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:38:41,315 [39] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:44:36,279 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:48:00,728 [23] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:48:32,008 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:49:21,555 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:50:34,832 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:51:48,779 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:52:14,881 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:52:50,786 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:53:59,680 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:55:26,596 [52] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:58:04,043 [34] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 23:58:31,768 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
  

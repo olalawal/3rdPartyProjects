@@ -107,7 +107,54 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors();
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                ViewBag.InactiveWorkshops = "InactiveWorkshops";
                 return View(seminarInsList);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function WorkshopList Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        public ActionResult AssignedSeminars(int id)
+        {
+            try
+            {
+                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors(id);
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                ViewBag.InactiveWorkshops = "InactiveWorkshops";
+                return View("WorkshopList", seminarInsList);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function AssignedSeminars Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function AssignedSeminars Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+        
+
+        [HttpPost]
+        public ActionResult InactiveWorkshops(bool IsActive)
+        {
+            try
+            {
+                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors(IsActive);
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                return View("WorkshopList", seminarInsList);
             }
             catch (CustomException ex)
             {
@@ -250,6 +297,7 @@ namespace StatisticalSolutions.Controllers
 
         }
 
+
         /// <summary>
         /// post action of Add workshop
         /// </summary>
@@ -299,7 +347,9 @@ namespace StatisticalSolutions.Controllers
             {
                 ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 
-                // List<instructor> instructorList = dataAccess.getinstructors();
+                ViewBag.InactiveConsultants = HostingEnvironment.ApplicationVirtualPath;
+
+                ViewBag.InativeConsultants = "InativeConsultants";
 
                 List<SeminarInstructorModel> seminarIns = dataAccess.getinstructorseminars();
 
@@ -320,6 +370,34 @@ namespace StatisticalSolutions.Controllers
 
 
         /// <summary>
+        /// post action for inactive consultants
+        /// </summary>
+        /// <param name="IsActive"></param>
+        /// <returns></returns>
+        public ActionResult InactiveConsultants(bool IsActive)        {
+            try
+            {
+                 List<SeminarInstructorModel> consultantList = dataAccess.getinstructorseminars(IsActive);
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+                return View("ConsultantList", consultantList);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function InactiveConsultants Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function InactiveConsultants Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+
+        /// <summary>
         /// get action of edit workshop
         /// </summary>
         /// <param name="model"></param>
@@ -329,16 +407,13 @@ namespace StatisticalSolutions.Controllers
             try
             {
 
-                instructor instructor = dataAccess.getinstructorbyid(id);
+               instructor instructor = dataAccess.getinstructorbyid(id);
 
-                //ViewBag.Instructors = dataAccess.getinstructors();
+               ViewBag.Seminars = dataAccess.getseminars();
 
-                ViewBag.Seminars = dataAccess.getseminars();
+               ViewBag.Countries = dataAccess.getCountries();
 
-                ViewBag.Countries = dataAccess.getCountries();
-
-               
-                return View(instructor); 
+               return View(instructor); 
             }
             catch (CustomException ex)
             {
@@ -427,6 +502,9 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 List<client> companies = dataAccess.getCompanies();
+
+                ViewBag.InactiveClients = "InactiveClients";
+
                 return View(companies);
             }
             catch (CustomException ex)
@@ -443,8 +521,37 @@ namespace StatisticalSolutions.Controllers
         }
 
 
+        /// <summary>
+        /// post action for inactive clients
+        /// </summary>
+        /// <param name="IsActive"></param>
+        /// <returns></returns>
+        public ActionResult InactiveClients(bool IsActive) 
+        {
+            try
+            {              
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+                List<client> clientList = dataAccess.getCompanies(IsActive);
 
 
+                return View("ClientsList", clientList);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function InactiveClients Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function InactiveClients Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        
         /// <summary>
         /// Add company
         /// </summary>
@@ -468,6 +575,7 @@ namespace StatisticalSolutions.Controllers
             }
 
         }
+
 
         /// <summary>
         /// post action of  company
@@ -498,6 +606,7 @@ namespace StatisticalSolutions.Controllers
 
         }
 
+
         /// <summary>
         /// edit client
         /// </summary>
@@ -524,11 +633,17 @@ namespace StatisticalSolutions.Controllers
             }
 
         }
+
+
+        /// <summary>
+        /// action method of EditClient
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditClient(client model)
         {
-
             try
             {
                 dataAccess.updateclient(model);
@@ -544,11 +659,14 @@ namespace StatisticalSolutions.Controllers
                 Log.Error(m => m("Function AddClient Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
-
-
         }
 
 
+        /// <summary>
+        /// action method of delete client
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult DeleteClient(int id)
         {
             try
@@ -762,6 +880,7 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 List<student> students = dataAccess.getstudents();
+                ViewBag.InactiveStudents = "InactiveStudents";
                 return View(students);
             }
             catch (CustomException ex)
@@ -776,6 +895,63 @@ namespace StatisticalSolutions.Controllers
             }
 
         }
+
+
+        /// <summary>
+        /// get list of students
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult RegisteredStudents(int  id)
+        {
+            try
+            {
+                List<student> students = dataAccess.getstudents();
+                ViewBag.InactiveStudents = "InactiveStudents";
+                return View("StudentList", students);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function RegisteredStudents Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function RegisteredStudents Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        /// <summary>
+        /// post action for inactive students
+        /// </summary>
+        /// <param name="IsActive"></param>
+        /// <returns></returns>
+        public ActionResult InactiveStudents(bool IsActive)
+        {
+            try
+            {
+
+                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+                
+                List<student> students = dataAccess.getinactivestudents(IsActive);
+
+                return View("StudentList", students);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function InactiveStudents Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function InactiveStudents Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+        }
+
 
 
         [HttpPost]

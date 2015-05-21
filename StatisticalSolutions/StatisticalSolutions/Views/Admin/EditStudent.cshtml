@@ -65,9 +65,8 @@
                         </li>
 
                         <li>
-                            <label>Email Address</label>
-                            @Html.ValidationMessageFor(model => model.Email)
-                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "8", @placeholder = "Email address", @class = "form-control" })
+                            <label>Email Address</label>                         
+                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "8", @readonly = "readonly", @placeholder = "Email address", @class = "form-control" })
 
                         </li>
 

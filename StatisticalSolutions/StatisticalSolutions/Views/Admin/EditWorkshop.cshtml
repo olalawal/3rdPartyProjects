@@ -57,13 +57,13 @@
                             </div>                           
                         </li>
                         <li>
-                            <div class="mid-size">
+                            <div class="mid-left">
                                 <label>End Date</label>
                                 @Html.ValidationMessageFor(model => model.Enddate)
                                 @Html.TextBoxFor(model => model.Enddate, "{0:MM/dd/yyyy}", new { @tabindex = "6", @placeholder = "MM/DD/YYYY", @class = "form-control calendar mid-size" })
                             </div>
                            
-                            <div class="mid-size">
+                            <div class="mid-right">
                                 <label>End Time</label>
                                 @Html.ValidationMessageFor(model => model.Endtime)
                                 @Html.TextBoxFor(model => model.Endtime, new { @tabindex = "7", @placeholder = "End Time", @class = "form-control mid-size" })
@@ -101,7 +101,7 @@
                         <li>
                             <label>Email Address</label>
                             @Html.ValidationMessageFor(model => model.Email)
-                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "13", @placeholder = "Email address", @class = "form-control" })
+                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "13", @readonly = "readonly", @placeholder = "Email address", @class = "form-control" })
 
                         </li>
 

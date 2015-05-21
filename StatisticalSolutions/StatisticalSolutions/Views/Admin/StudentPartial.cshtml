@@ -9,10 +9,7 @@
     </td>
     <td>
         @Html.DisplayFor(model => model.Phone)
-    </td>     
-    <td>
-        @Html.CheckBoxFor(model=>model.IsActive)                                 
-    </td>
+    </td> 
     <td>
         @Html.ActionLink("Edit", "EditStudent", new { id = Model.student_id }) | 
         @Html.ActionLink("Delete", "DeleteStudent", new { id = Model.student_id })

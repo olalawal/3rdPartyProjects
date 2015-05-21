@@ -6,12 +6,26 @@
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
 <div class='container focus'>
-    <div class="breadcrumb" id="divPageTitle_Add">
+   
+     <div class="breadcrumb" id="divPageTitle_Add">
         <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
         <span class="active"> - Workshop List</span>
     </div>
-   
 
+    @if (!string.IsNullOrEmpty(ViewBag.InactiveWorkshops))
+    {
+        <div class='sixteen form'>
+
+            <div class="checkbox ">
+                @using (Html.BeginForm("InactiveWorkshops", "Admin", FormMethod.Post, new { @style = "margin:0;margin-left:20px;" }))
+                {
+                    <input type="checkbox" name="IsActive" value="false" onclick=" this.form.submit();" />
+                    <span>Inactive Workshops</span>
+                }
+            </div>
+
+        </div>
+    }
     <div class='sixteen form'>
         <section>
 
@@ -47,7 +61,11 @@
 
         </section>
     </div>
+    
+
 </div>
+
+
 
 
 

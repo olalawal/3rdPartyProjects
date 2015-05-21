@@ -11,8 +11,21 @@
         <span class="active"> - Consultants List</span>
     </div>
 
+    @if (!string.IsNullOrEmpty(ViewBag.InativeConsultants))
+    {
+        <div class='sixteen form'>
 
-    <div class='twelve form'>
+            <div class="checkbox ">
+                @using (Html.BeginForm("InactiveConsultants", "Admin", FormMethod.Post, new { @style = "margin:0;margin-left:20px;" }))
+                {
+                    <input type="checkbox" name="IsActive" value="false" onclick=" this.form.submit();" />
+                    <span>Inactive Consultants</span>
+                }
+            </div>
+
+        </div>
+    }
+    <div class='sixteen form'>
         <section>
 
             <div class="content">

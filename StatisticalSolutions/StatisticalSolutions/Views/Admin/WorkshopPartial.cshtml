@@ -1,7 +1,8 @@
 ﻿@model StatisticalSolutions.ViewModels.SeminarInstructorModel
 <tr>
     <td>
-        @Html.DisplayFor(m => m.seminar.TitleHtml)
+        <a  href='@Url.Action("RegisteredStudents", "Admin", new { id = Model.seminar.seminar_id })'>@Model.seminar.TitleHtml</a>  
+       
     </td>
     <td>
         @if(Model.Instructor !=null)

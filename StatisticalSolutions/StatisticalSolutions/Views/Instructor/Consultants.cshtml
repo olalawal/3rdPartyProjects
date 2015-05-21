@@ -8,11 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<div class="container nine columns text-center font-24" style="padding-right:150px;">
-    Our Consultants
-</div>
 
-<div class="clear"></div>
 
 <div class='container focus'>
     @{List<instructor> Consultants = ViewBag.Consultants as List<instructor>;}
@@ -22,9 +18,13 @@
             @foreach (instructor instructor in Consultants)
             {
                 <ul>
-                    <li>
-                        <a href='@Url.Action("Consultant", "Instructor", new { id = instructor.instructor_id })'>@instructor.Name</a>                        
-                        <hr class="hr" />
+                    <li > 
+                        <div class="right-align">
+                            <a href='@Url.Action("Consultant", "Instructor", new { id = instructor.instructor_id })'>@instructor.Name</a>
+                        </div>                   
+                        
+                        
+                        <hr class="hr-class" />
                     </li>
                 </ul>
                

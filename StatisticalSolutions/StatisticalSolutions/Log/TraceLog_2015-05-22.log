@@ -1,0 +1,16 @@
+2015-05-22 00:00:34,322 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-22 00:02:16,093 [23] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-22 00:35:41,701 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-22 01:56:58,308 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-22 01:57:55,877 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-22 01:58:17,592 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveClients 
+ 2015-05-22 01:58:26,040 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-22 01:58:38,253 [6] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditClient/2 
+ 2015-05-22 01:58:40,511 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ClientsList 
+ 2015-05-22 01:58:58,983 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/StudentList 
+ 2015-05-22 01:59:11,416 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/InactiveStudents 
+ 2015-05-22 01:59:19,690 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditStudent/1 
+ 2015-05-22 01:59:40,989 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditStudent/1 
+ 2015-05-22 01:59:42,880 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/StudentList 
+ 2015-05-22 02:00:44,991 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/StudentList 
+ 
