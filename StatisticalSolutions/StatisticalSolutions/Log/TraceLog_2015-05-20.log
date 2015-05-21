@@ -1,0 +1,12 @@
+2015-05-20 21:44:52,990 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-20 21:44:59,267 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-20 21:45:12,492 [24] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkshopSelected 
+ 2015-05-20 21:46:29,187 [30] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/RegisterWorkshop 
+ 2015-05-20 21:46:29,283 [30] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function RegisterWorkshop - Insetion in regastration tablr 
+ 2015-05-20 21:46:30,549 [30] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function RegisterWorkshop - Start of mail sending
+ 2015-05-20 21:47:45,625 [30] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function RegisterWorkshop - End of mail sending
+ 2015-05-20 21:50:07,558 [41] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-20 22:07:57,959 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Home/ContactUsMail 
+ 2015-05-20 22:07:57,966 [21] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function ContactUsMail - Start of mail sending
+ 2015-05-20 22:08:25,630 [48] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 
