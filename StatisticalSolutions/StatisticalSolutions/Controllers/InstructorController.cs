@@ -37,13 +37,11 @@ namespace StatisticalSolutions.Controllers
 
         public ActionResult Consultants()
         {
-            List<instructor> instructors = dataAccess.getinstructors();
-            TempData["Consultants"] = instructors;
-            TempData.Keep();
-            ViewBag.Consultants = instructors;
+           ViewBag.Consultants = dataAccess.getinstructors(); ;
 
-           ViewBag.Seminar_Instructor = dataAccess.getseminarinstructors();
-           ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+            ViewBag.Seminar_Instructor = dataAccess.getinstructorseminars();
+            
+            ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 
            return View();
         }
@@ -51,7 +49,7 @@ namespace StatisticalSolutions.Controllers
         /// <summary>
         /// Consultant details
         /// </summary>
-        /// <param name="instructor_id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
         public ActionResult Consultant(int id)   
@@ -59,17 +57,10 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 ViewBag.Instructor = dataAccess.getinstructorbyid(id);
-                //get the list of instructors
-                if (TempData["Consultants"] == null)
-                {
-                    List<instructor> instructors = dataAccess.getinstructors();
-                    TempData["Consultants"] = instructors;
-                    TempData.Keep();
-                }
-       
-                ViewBag.Seminar_Instructor = dataAccess.getseminarinstructors(); ;
+                
+                ViewBag.Seminar_Instructor = dataAccess.getinstructorseminars(); ;
 
-                ViewBag.Consultants = TempData["Consultants"] as List<instructor>;
+                ViewBag.Consultants = dataAccess.getinstructors();
 
                 ViewBag.Instructor = dataAccess.getinstructorbyid(id);
 

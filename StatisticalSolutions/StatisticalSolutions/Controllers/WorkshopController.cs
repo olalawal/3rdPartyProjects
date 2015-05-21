@@ -55,19 +55,19 @@ namespace StatisticalSolutions.Controllers
         /// <summary>
         /// Workshop details
         /// </summary>
-        /// <param name="seminar_id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult Workshop(int seminar_id) 
+        public ActionResult Workshop(int id)  
         {
             try
             {
                 //get the list of seminars            
                 ViewBag.Seminars = dataAccess.getfutureseminars();
 
-                IQueryable<SeminarInstructorModel> seminarInstructor = dataAccess.getseminarinstructor(seminar_id); 
+                IQueryable<SeminarInstructorModel> seminarInstructor = dataAccess.getseminarinstructor(id);
 
-                ViewBag.Seminar = dataAccess.getseminarbyid(seminar_id);
+                ViewBag.Seminar = dataAccess.getseminarbyid(id);
 
                 ViewBag.Consultant = seminarInstructor.AsEnumerable().FirstOrDefault().Instructor.Name;
 
@@ -87,28 +87,24 @@ namespace StatisticalSolutions.Controllers
 
         }
 
-        public ActionResult Register(registration model)
+
+        /// <summary>
+        /// seminar registration
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Register()
         {
             try
             {               
                 //code for fill value in workshop dropdown 
                 ViewBag.Seminars = dataAccess.getfutureseminars();
 
-                if (model.seminar_id > 0)
-                {
-                    ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
-
-                    seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
-                    ViewBag.StartTime = seminar.Starttime;
-                    ViewBag.EndTime = seminar.Endtime;
-                }
-                else
-                {
-                    //// code for start dates 
-                    ViewBag.StartDates = GetDisplayDates(new List<seminar>()); 
-                }
-         
-
+                registration model = new registration();
+               
+                //// code for start dates 
+                ViewBag.StartDates = GetDisplayDates(new List<seminar>()); 
+                
 
                 //code to fill country in dropdown
                 ViewBag.Countries = dataAccess.getCountries(); ;
@@ -139,14 +135,77 @@ namespace StatisticalSolutions.Controllers
            
         }
 
-        public ActionResult RegisterSeminar(string seminarname)  
+
+
+        /// <summary>
+        /// Seminar registration by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Registration(int id)  
+        {
+            try
+            {
+                //code for fill value in workshop dropdown 
+                ViewBag.Seminars = dataAccess.getfutureseminars();
+
+                registration model = new registration();
+                model.seminar_id = id;
+
+               
+                ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
+
+                seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                ViewBag.StartTime = seminar.Starttime;
+                ViewBag.EndTime = seminar.Endtime;
+                
+
+                //code to fill country in dropdown
+                ViewBag.Countries = dataAccess.getCountries(); ;
+
+                //code which fetch list of companies for autocomplete
+                List<string> companies = new List<string>();
+
+                foreach (client c in dataAccess.getCompanies())
+                    companies.Add(c.Name);
+
+                ViewBag.Companies = companies;
+				
+                return View("Register", model);
+
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                //throw ex;
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                //throw ex;
+                return SystemExceptionCatcher(ex);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// Register Seminar by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public ActionResult RegisterNow(string name)   
         {
             try
             {
                 
                 registration model = new Models.registration();
 
-                model.seminar_id = dataAccess.getseminaridbyname(seminarname);
+                //get seminar id from database based on seminar name
+                model.seminar_id = dataAccess.getseminaridbyname(name);
 
 
                 //code for fill value in workshop dropdown 
@@ -171,79 +230,79 @@ namespace StatisticalSolutions.Controllers
 
                 ViewBag.Companies = companies;
 
-                return View("~/Views/Workshop/Register.cshtml", model);
+                return View("Register", model);
             }
             catch (CustomException ex)
             {
-                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                Log.Error(m => m("Function RegisterNow Error  - {0}", ex.Message));
                 //throw ex;
                 return CustomExceptionCatcher(ex);
             }
             catch (Exception ex)
             {
-                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+                Log.Error(m => m("Function RegisterNow Error  - {0}", ex.Message));
                 //throw ex;
                 return SystemExceptionCatcher(ex);
             }
 
            
-        }
+        } 
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult WorkshopSelected(int id) 
-        {
+        //public ActionResult WorkshopSelected(int id) 
+        //{
 
-            try
-            {
-                registration registration = new registration();
+        //    try
+        //    {
+        //        registration registration = new registration();
 
-                registration.seminar_id = id;
+        //        registration.seminar_id = id;
 
-                //code for fill value in workshop dropdown 
-                ViewBag.Seminars = dataAccess.getfutureseminars();
+        //        //code for fill value in workshop dropdown 
+        //        ViewBag.Seminars = dataAccess.getfutureseminars();
 
-                seminar seminar = dataAccess.getseminarbyid(id);
+        //        seminar seminar = dataAccess.getseminarbyid(id);
                
-                ViewBag.StartTime = seminar.Starttime;
-                ViewBag.EndTime = seminar.Endtime;
+        //        ViewBag.StartTime = seminar.Starttime;
+        //        ViewBag.EndTime = seminar.Endtime;
 
-                // code for start dates 
-                ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
+        //        // code for start dates 
+        //        ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
 
 
-                //code to fill country in dropdown
-                ViewBag.Countries = dataAccess.getCountries(); ;
+        //        //code to fill country in dropdown
+        //        ViewBag.Countries = dataAccess.getCountries(); ;
 
-                //code which fetch list of companies for autocomplete
-                List<string> companies = new List<string>();
+        //        //code which fetch list of companies for autocomplete
+        //        List<string> companies = new List<string>();
                
-                foreach (client c in dataAccess.getCompanies())
-                    companies.Add(c.Name);
+        //        foreach (client c in dataAccess.getCompanies())
+        //            companies.Add(c.Name);
 
-                ViewBag.Companies = companies;
+        //        ViewBag.Companies = companies;
 
-                return View("Register", registration);
-            }
-            catch (CustomException ex)
-            {
-                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
-                //throw ex;
-                return CustomExceptionCatcher(ex);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
-                //throw ex;
-                return SystemExceptionCatcher(ex);
-            }
+        //        return View("Register", registration);
+        //    }
+        //    catch (CustomException ex)
+        //    {
+        //        Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+        //        //throw ex;
+        //        return CustomExceptionCatcher(ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error(m => m("Function Register Error  - {0}", ex.Message));
+        //        //throw ex;
+        //        return SystemExceptionCatcher(ex);
+        //    }
 
 
-        }
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RegisterWorkshop(registration model)
+        public ActionResult Register(registration model)
         {
 
             try
@@ -253,11 +312,11 @@ namespace StatisticalSolutions.Controllers
                     student student = new student();
                     student = model.student;
                     // code for insert record in registration table                
-                    Log.Info("Function RegisterWorkshop - Insetion in regastration tablr ");
+                    Log.Info("Function Register - Insetion in regastration tablr ");
                     dataAccess.registerforseminarbystudentandseminarid(model);
 
                     //code for sending mail to registratant and admin
-                    Log.Info("Function RegisterWorkshop - Start of mail sending");
+                    Log.Info("Function Register - Start of mail sending");
                     MailSender _maillSender = new MailSender();
                     Mails mail = _maillSender.SetMailsProperty();
                     mail.Name = model.student.FirstName + " " + model.student.LastName;
@@ -268,7 +327,7 @@ namespace StatisticalSolutions.Controllers
                     mail.Subject = "You have successfully registered for " + model.seminar.TitleHtml;
                     MailExtention.sendemail(model.student.Email, mail.Subject, mail.Body);
                     // _maillSender.SendMail(mail);
-                    Log.Info("Function RegisterWorkshop - End of mail sending");
+                    Log.Info("Function Register - End of mail sending");
 
                     //send message to admin as well
                     
@@ -285,12 +344,12 @@ namespace StatisticalSolutions.Controllers
 
             catch (CustomException ex)
             {
-                Log.Error(m => m("Function RegisterWorkshop Error  - {0}", ex.Message));
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
                 return CustomExceptionCatcher(ex);
             }
             catch (Exception ex)
             {
-                Log.Error(m => m("Function RegisterWorkshop Error  - {0}", ex.Message));
+                Log.Error(m => m("Function Register Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
             return RedirectToAction("register", new registration());

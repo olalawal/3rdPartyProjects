@@ -157,18 +157,8 @@ namespace StatisticalSolutions.Controllers
                  Log.Error(m => m("Function ContactUsMail Error  - {0}", ex.Message));
                  return SystemExceptionCatcher(ex);
              }
-
             
-        }
-
-
-      
-
-
-        
-
-
-       
+        }     
 
         
     }

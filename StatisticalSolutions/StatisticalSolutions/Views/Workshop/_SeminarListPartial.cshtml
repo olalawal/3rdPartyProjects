@@ -3,10 +3,14 @@
 <div class='container four columns'>
     <ul>
         <li>
-            <a href="~/Workshop/Workshop?seminar_id=@Model.seminar.seminar_id">@Model.seminar.TitleHtml</a>
+            <a href='@Url.Action("Workshop", "Workshop", new { id = Model.seminar.seminar_id })'>@Model.seminar.TitleHtml</a>           
         </li>
         <li>
-            @Model.Instructor.Name
+            @if (Model.Instructor!=null)
+            {
+               @Model.Instructor.Name  
+            }
+           
         </li>
         <li>
             @if (Model.seminar.StartDate == Model.seminar.Enddate)

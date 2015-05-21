@@ -1,0 +1,90 @@
+2015-05-21 06:53:27,521 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 06:53:52,975 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 06:57:32,387 [12] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 06:59:54,851 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 06:59:58,576 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Insetion in regastration tablr 
+ 2015-05-21 07:00:17,628 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Start of mail sending
+ 2015-05-21 07:00:43,916 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - End of mail sending
+ 2015-05-21 07:03:51,045 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 07:03:52,579 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/register/0 
+ 2015-05-21 07:04:32,964 [18] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/register/ 
+ 2015-05-21 07:04:52,289 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 07:05:45,877 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 07:05:46,546 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Insetion in regastration tablr 
+ 2015-05-21 07:05:52,689 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Start of mail sending
+ 2015-05-21 07:06:33,051 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - End of mail sending
+ 2015-05-21 07:13:01,303 [35] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/BulkMails 
+ 2015-05-21 07:13:19,377 [35] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/BulkMailsFilter 
+ 2015-05-21 07:14:51,901 [39] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/BulkMailsFilter 
+ 2015-05-21 07:14:59,314 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/BulkMailsFilter 
+ 2015-05-21 07:55:15,230 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 07:55:35,343 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 07:56:16,435 [16] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 07:56:43,165 [23] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 07:57:48,222 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 08:04:00,894 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 08:04:04,298 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Insetion in regastration tablr 
+ 2015-05-21 08:04:11,577 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Start of mail sending
+ 2015-05-21 08:04:19,025 [17] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - End of mail sending
+ 2015-05-21 08:07:21,586 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 08:07:27,686 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 08:10:47,656 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Register 
+ 2015-05-21 08:10:48,179 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Insetion in regastration tablr 
+ 2015-05-21 08:10:53,719 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - Start of mail sending
+ 2015-05-21 08:14:00,945 [32] INFO  StatisticalSolutions.Controllers.Base.BaseController - Function Register - End of mail sending
+ 2015-05-21 08:19:57,708 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 08:20:55,944 [48] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 08:21:04,470 [45] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/9 
+ 2015-05-21 08:21:59,144 [49] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Registration/9 
+ 2015-05-21 08:25:24,693 [46] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 08:25:48,821 [52] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultant/2 
+ 2015-05-21 08:26:01,352 [53] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/9 
+ 2015-05-21 08:26:11,082 [53] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 08:26:25,626 [53] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultant/1 
+ 2015-05-21 08:28:18,682 [56] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Instructor/Consultants 
+ 2015-05-21 08:32:49,864 [55] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/AddWorkshop 
+ 2015-05-21 08:33:16,610 [55] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 08:33:24,274 [56] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
+ 2015-05-21 08:34:09,383 [54] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
+ 2015-05-21 08:34:10,490 [58] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 08:40:49,181 [47] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
+ 2015-05-21 08:41:40,876 [42] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/9 
+ 2015-05-21 08:41:43,115 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 08:44:05,302 [43] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/ConsultantList 
+ 2015-05-21 08:49:04,886 [37] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/AddConsultant 
+ 2015-05-21 08:56:19,660 [13] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/AddWorkshop 
+ 2015-05-21 09:03:44,685 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-05-21 09:04:14,631 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:04:35,364 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/14 
+ 2015-05-21 09:04:37,161 [7] ERROR StatisticalSolutions.Controllers.Base.BaseController - Function Workshop Error  - Object reference not set to an instance of an object.
+ 2015-05-21 09:04:37,163 [7] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Object reference not set to an instance of an object.
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at StatisticalSolutions.Controllers.WorkshopController.Workshop(Int32 id) in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Controllers\WorkshopController.cs:line 72
+2015-05-21 09:08:42,279 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:08:47,915 [38] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/14 
+ 2015-05-21 09:08:49,850 [38] ERROR StatisticalSolutions.Controllers.Base.BaseController - Function Workshop Error  - Object reference not set to an instance of an object.
+ 2015-05-21 09:08:49,850 [38] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Object reference not set to an instance of an object.
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at StatisticalSolutions.Controllers.WorkshopController.Workshop(Int32 id) in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Controllers\WorkshopController.cs:line 72
+2015-05-21 09:09:08,393 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 09:09:11,688 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:09:21,099 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/14 
+ 2015-05-21 09:09:23,225 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Function Workshop Error  - Object reference not set to an instance of an object.
+ 2015-05-21 09:09:23,225 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Object reference not set to an instance of an object.
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at StatisticalSolutions.Controllers.WorkshopController.Workshop(Int32 id) in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Controllers\WorkshopController.cs:line 72
+2015-05-21 09:09:43,008 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 09:10:04,076 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:10:12,812 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/14 
+ 2015-05-21 09:10:14,730 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Function Workshop Error  - Object reference not set to an instance of an object.
+ 2015-05-21 09:10:14,730 [28] ERROR StatisticalSolutions.Controllers.Base.BaseController - Statistical exception message - Object reference not set to an instance of an object.
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at StatisticalSolutions.Controllers.WorkshopController.Workshop(Int32 id) in e:\Ola Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions\Controllers\WorkshopController.cs:line 72
+2015-05-21 09:12:53,563 [28] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-21 09:12:55,674 [14] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:14:07,994 [22] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/Workshop/9 
+ 2015-05-21 09:15:33,903 [29] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:16:50,789 [19] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:17:32,091 [61] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 2015-05-21 09:19:57,791 [61] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Workshop/WorkShops 
+ 

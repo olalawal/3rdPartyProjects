@@ -25,7 +25,7 @@
     @using (Html.BeginForm())
     {
         <label>Workshops</label>
-        @Html.DropDownListFor(model => model.Registration.seminar_id, new SelectList(@ViewBag.regseminars, "seminar_id", "TitleHtml", Model.Registration.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value)" })
+        @Html.DropDownListFor(model => model.Registration.seminar_id, new SelectList(@ViewBag.regseminars, "seminar_id", "TitleHtml", Model.Registration.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value, this.selectedIndex)" })
     }
 
 
@@ -75,11 +75,11 @@
 
 <script type="text/javascript">
 
-    function selectseminar( value)
+    function selectseminar( value, index)
     {
-        if(value > 0)
+        if (index > 0)
         {
-            document.location.href = '../Admin/BulkMailStudents?id=' + value;            
+            document.location.href = '../Admin/BulkMailStudents/' + value;            
         }
     }
 </script>
