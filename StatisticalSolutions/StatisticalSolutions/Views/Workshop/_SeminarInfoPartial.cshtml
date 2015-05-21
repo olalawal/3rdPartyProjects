@@ -98,9 +98,8 @@
 
 <div class="six columns">
     @if (Model.StartDate != null && Model.StartDate != default(DateTime))
-                        {
-                            registration reg = new registration();
-                            reg.seminar_id = Model.seminar_id;
-        <a href='@Url.Action("Register", "Workshop", reg)' class='button medium green'>Register Now</a>
-                        }
+    {
+                        
+    <a href='@Url.Action("Registration", "Workshop", new { id = Model.seminar_id })' class='button medium green'>Register Now</a>
+    }
 </div>

@@ -2,14 +2,15 @@
          
 <div class="two columns">
     @{
-        string path = ViewBag.VirtualPath + @Model.ImagePath;
+        string path = ViewBag.VirtualPath + "/"+ @Model.ImagePath;
     }
     <img src="@path" height="90" width="90" class="img-circle" />
 </div>
 <div class="three columns">
     <ul>
         <li>
-            @Html.ActionLink(Model.Name, "Consultant", new { id = Model.instructor_id })
+            <a href='@Url.Action("Consultant", "Instructor", new { id = Model.instructor_id })' >@Model.Name</a>
+           
         </li>
 
         <li>

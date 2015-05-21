@@ -818,11 +818,12 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
-                int seminar_id = db.seminars.FirstOrDefault(s => s.TitleHtml.Contains(seminarTitle)).seminar_id;
+                DateTime today = DateTime.Now;
+                int seminar_id  = db.seminars.Where(s => s.TitleHtml.Contains(seminarTitle) && s.StartDate >=today && s.IsActive).OrderBy(s=>s.StartDate).OrderBy(s=>s.Starttime).FirstOrDefault().seminar_id;
                 return seminar_id;
             }
             catch (CustomException ex)
-            {
+            { 
                 throw ex;
             }
             catch (Exception ex)
@@ -866,13 +867,15 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
+                DateTime today = DateTime.Now;
                 var semIns = (from s in db.seminars
-                              join ins in db.instructors on s.seminar_id equals ins.seminar_id
-                              where s.IsActive
+                              join ins in db.instructors on s.seminar_id equals ins.seminar_id into si
+                              from intructor in si.DefaultIfEmpty()
+                              where s.IsActive && s.StartDate >= today
                               select new SeminarInstructorModel
                               {
                                   seminar = s,
-                                  Instructor = ins
+                                  Instructor = intructor
 
                               }).Distinct().ToList();
                 return semIns;
@@ -900,15 +903,94 @@ namespace StatisticalSolutions.DataAccess
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
+                DateTime today = DateTime.Now;
                 IQueryable<SeminarInstructorModel> semIns = (from s in db.seminars
-                              join ins in db.instructors on s.seminar_id equals ins.seminar_id
-                              where s.IsActive && s.seminar_id == seminar_id
+                              join ins in db.instructors on s.seminar_id equals ins.seminar_id into si
+                              from intructor in si.DefaultIfEmpty() 
+                              where s.IsActive && s.seminar_id == seminar_id  && s.StartDate >= today
                               select new SeminarInstructorModel
                               {
                                   seminar = s,
-                                  Instructor = ins
+                                  Instructor = intructor
 
                               });
+                return semIns;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+
+
+          /// <summary>
+        /// get seminar instructor list
+        /// </summary>
+        /// <returns></returns>
+        internal List<SeminarInstructorModel> getinstructorseminars() 
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                DateTime today = DateTime.Now;
+                var semIns = (from ins in db.instructors 
+                              join s in db.seminars
+                                on ins.seminar_id equals s.seminar_id into inssem
+                              from sem in inssem.DefaultIfEmpty()  
+                              where ins.IsActive &&  sem.StartDate >= today
+                              select new SeminarInstructorModel
+                              {
+                                  seminar = sem,
+                                  Instructor = ins
+
+                              }).Distinct().ToList();
+                return semIns;
+            }
+            catch (CustomException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // db.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// get seminar instructor list
+        /// </summary>
+        /// <returns></returns>
+        internal IQueryable<SeminarInstructorModel> getinstructorseminar(int instructor_id)  
+        {
+            StatisticalSolutionsContext db = new StatisticalSolutionsContext();
+            try
+            {
+                DateTime today = DateTime.Now;
+                IQueryable<SeminarInstructorModel> semIns   = (from ins in db.instructors 
+                                                               join s in db.seminars on ins.seminar_id equals s.seminar_id into inssem
+                                                              from sem in inssem.DefaultIfEmpty()  
+                                                              where ins.IsActive 
+                                                              && sem.seminar_id == instructor_id
+                                                              && sem.StartDate >= today
+                                                                select new SeminarInstructorModel
+                                                                {
+                                                                    seminar = sem,
+                                                                    Instructor = ins
+
+                                                                });
                 return semIns;
             }
             catch (CustomException ex)
@@ -1126,9 +1208,10 @@ namespace StatisticalSolutions.DataAccess
 
                 IQueryable<registration> regPredicate = db.registrations.AsExpandable().Where(predicate);
 
-
+                DateTime today=DateTime.Now;
                 List<seminar> seminars = (from sem in db.seminars
                                           join reg in regPredicate on sem.seminar_id equals reg.seminar_id
+                                          where sem.StartDate >= today && sem.IsActive
                                              orderby sem.TitleHtml
                                              select sem).Distinct().ToList();
                     return seminars;

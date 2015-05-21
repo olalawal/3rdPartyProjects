@@ -1,12 +1,10 @@
 ﻿@model StatisticalSolutions.ViewModels.SeminarInstructorModel
 <ul>
     <li>
-        @*@Html.ActionLink(Model.seminar.TitleHtml, "Workshop", new { id = Model.seminar.seminar_id })*@
-        <a href="~/Workshop/Workshop?seminar_id=@Model.seminar.seminar_id">@Model.seminar.TitleHtml</a>
-
+        <a href='@Url.Action("Workshop", "Workshop", new { id = Model.seminar.seminar_id })'>@Model.seminar.TitleHtml</a>  
     </li>
     <li>
-        @Html.ActionLink(Model.Instructor.Name, "Consultant",  new { id = Model.seminar.instructor_id })
+        <a href='@Url.Action("Consultant", "Instructor", new { id = Model.Instructor.instructor_id })'>@Model.Instructor.Name</a>  
     </li>
     <li>
 
@@ -24,7 +22,7 @@
                 </span>
                 <span> - </span>
                 <span>  @Model.seminar.Enddate.Day</span>
-            }
+            }         
             else
             {
                 <span>

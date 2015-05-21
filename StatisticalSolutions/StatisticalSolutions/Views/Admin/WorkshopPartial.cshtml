@@ -1,23 +1,30 @@
-﻿@model StatisticalSolutions.Models.seminar
+﻿@model StatisticalSolutions.ViewModels.SeminarInstructorModel
 <tr>
     <td>
-        @Html.DisplayFor(m => m.TitleHtml)
+        @Html.DisplayFor(m => m.seminar.TitleHtml)
     </td>
     <td>
-        @Model.StartDate.ToString("dddd, MMM dd, yyyy")
+        @if(Model.Instructor !=null)
+        {
+            @Html.DisplayFor(m => m.Instructor.Name) 
+        }
+       
+    </td>
+    <td>
+        @Model.seminar.StartDate.ToString("dddd, MMM dd, yyyy")
 
     </td>
     <td>
-        @Model.Enddate.ToString("dddd, MMM dd, yyyy")
+        @Model.seminar.Enddate.ToString("dddd, MMM dd, yyyy")
         </td>
     <td>
-       @Html.DisplayFor(m => m.Starttime)
+       @Html.DisplayFor(m => m.seminar.Starttime)
     </td>
     <td>
-        @Html.DisplayFor(m => m.Endtime)
+        @Html.DisplayFor(m => m.seminar.Endtime)
     </td>
 
     <td>
-        @Html.ActionLink("Edit", "EditWorkshop", new { id = Model.seminar_id }) | 
-        @Html.ActionLink("Delete", "DeleteWorkshop", new { id = Model.seminar_id })
+        @Html.ActionLink("Edit", "EditWorkshop", new { id = Model.seminar.seminar_id }) | 
+        @Html.ActionLink("Delete", "DeleteWorkshop", new { id = Model.seminar.seminar_id })
 </tr>

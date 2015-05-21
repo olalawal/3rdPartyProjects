@@ -9,7 +9,7 @@
 
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="1" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <a tabindex="12" href="@Url.Action("Admin", "Account")">Dashboard</a>
         <span class="active"> - Add Client</span>
     </div>
 </div>
@@ -85,19 +85,10 @@
                             @Html.ValidationMessageFor(model => model.Fax)
                             @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
 
-                        </li>
-                        <li>
-                            <span class="checkbox">
-                                @Html.CheckBoxFor(model => model.IsActive, new { @tabindex = "11", @class = "form-control", style = "display:inline-block;" })
-                            </span>
-                            <span class="checkbox-label">
-                                <label>Active</label>
-                                @Html.ValidationMessageFor(model => model.IsActive)
-                            </span>
-                        </li>
+                        </li>                
 
                         <li>
-                            <input type="submit" tabindex="12" value="SUBMIT" class="button medium green" />
+                            <input type="submit" tabindex="11" value="SUBMIT" class="button medium green" />
                         </li>
                     </ol>
                 </fieldset>

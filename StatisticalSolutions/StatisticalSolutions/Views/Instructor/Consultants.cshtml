@@ -23,7 +23,7 @@
             {
                 <ul>
                     <li>
-                        @Html.ActionLink(instructor.Name, "Consultant", new { id = instructor.instructor_id })
+                        <a href='@Url.Action("Consultant", "Instructor", new { id = instructor.instructor_id })'>@instructor.Name</a>                        
                         <hr class="hr" />
                     </li>
                 </ul>
@@ -38,7 +38,7 @@
             {
                 <div class='nine columns'> 
                     <div class="nine">
-                        @{string path = ViewBag.VirtualPath + ins.ImagePath;}
+                        @{string path = ViewBag.VirtualPath +"/"+ ins.ImagePath;}
                         <img src="@path" height="120" width="120" class="img-circle" />
                         &nbsp; &nbsp; &nbsp;
                         <strong>

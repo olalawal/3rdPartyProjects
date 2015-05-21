@@ -26,6 +26,7 @@ namespace StatisticalSolutions.Controllers
         
         #endregion
 
+
         #region constructor
 
         public AdminController()
@@ -34,6 +35,7 @@ namespace StatisticalSolutions.Controllers
                 
         }
         #endregion
+
 
         #region workshops
 
@@ -104,8 +106,8 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<seminar> seminarList = dataAccess.getseminars();
-                return View(seminarList);
+                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors();
+                return View(seminarInsList);
             }
             catch (CustomException ex)
             {
@@ -133,19 +135,21 @@ namespace StatisticalSolutions.Controllers
 
                 seminar seminar = dataAccess.getseminarbyid(id);
 
-                ViewBag.Seminars = dataAccess.getseminars();
+                //ViewBag.Seminars = dataAccess.getseminars();
 
-                ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
+                ViewBag.Instructors = dataAccess.getinstructors();
+
+               // ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
 
                 ViewBag.Countries = dataAccess.getCountries();
 
-                //code which fetch list of companies for autocomplete
-                List<string> companies = new List<string>();
+                ////code which fetch list of companies for autocomplete
+                //List<string> companies = new List<string>();
 
-                foreach (client c in dataAccess.getCompanies())
-                    companies.Add(c.Name);
+                //foreach (client c in dataAccess.getCompanies())
+                //    companies.Add(c.Name);
 
-                ViewBag.Companies = companies;
+                //ViewBag.Companies = companies;
                 return View(seminar);
             }
             catch (CustomException ex)
@@ -216,6 +220,7 @@ namespace StatisticalSolutions.Controllers
 
         #endregion
 
+
         #region Consultants
 
 
@@ -262,7 +267,7 @@ namespace StatisticalSolutions.Controllers
                 // file is uploaded
                 file.SaveAs(path);
                 model.ImageName = file.FileName;
-                model.ImagePath = "/images/consultants/" + fileName;
+                model.ImagePath = "images/consultants/" + fileName;
                 model.IsActive = true;
 
                 dataAccess.addInstructor(model);
@@ -296,7 +301,7 @@ namespace StatisticalSolutions.Controllers
 
                 // List<instructor> instructorList = dataAccess.getinstructors();
 
-                List<SeminarInstructorModel> seminarIns = dataAccess.getseminarinstructors();
+                List<SeminarInstructorModel> seminarIns = dataAccess.getinstructorseminars();
 
                 return View(seminarIns);
             }
@@ -366,7 +371,7 @@ namespace StatisticalSolutions.Controllers
                 // file is uploaded
                 file.SaveAs(path);
                 model.ImageName = file.FileName;
-                model.ImagePath = "/images/consultants/" + fileName;
+                model.ImagePath = "images/consultants/" + fileName;
                 dataAccess.updateInstructor(model);
                 return RedirectToAction("ConsultantList");
             }
@@ -569,6 +574,10 @@ namespace StatisticalSolutions.Controllers
 
         #region Bulk Mails Actions
 
+        /// <summary>
+        /// get action for bulk mails
+        /// </summary>
+        /// <returns></returns>
         public ActionResult BulkMails()
         {
             try
@@ -655,7 +664,7 @@ namespace StatisticalSolutions.Controllers
 
 
         /// <summary>
-        /// contrrlller  for sending bulk mails
+        /// action for get list of to registered students
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -680,7 +689,6 @@ namespace StatisticalSolutions.Controllers
                 model.Registration = new registration();
                 model.Registration.seminar_id = id;
 
-                model.Students = new List<student>();
                 model.Students = students;
 
                 return View("BulkMails", model);
@@ -698,7 +706,11 @@ namespace StatisticalSolutions.Controllers
 
         }
 
-
+        /// <summary>
+        /// filter action of bulk mails
+        /// </summary>
+        /// <param name="FilterText"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult BulkMailsFilter(string FilterText)
         {
@@ -718,12 +730,12 @@ namespace StatisticalSolutions.Controllers
             }
             catch (CustomException ex)
             {
-                Log.Error(m => m("Function BulkMails Error  - {0}", ex.Message));
+                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
                 return CustomExceptionCatcher(ex);
             }
             catch (Exception ex)
             {
-                Log.Error(m => m("Function BulkMails Error  - {0}", ex.Message));
+                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
 
@@ -859,13 +871,23 @@ namespace StatisticalSolutions.Controllers
         #endregion
 
 
+        #region Methods
+
+        /// <summary>
+        /// Method to get list of filter fields
+        /// </summary>
+        /// <returns></returns>
         public string[] getFilterList()
         {
             string[] filters = new string[] { "Paid", "Unpaid", "Attended", "Not Attended" };
             return filters;
         }
 
-
+        /// <summary>
+        /// Method to add Start Dates
+        /// </summary>
+        /// <param name="seminars"></param>
+        /// <returns></returns>
         public List<DisplayDateTime> GetDisplayDates(List<seminar> seminars)
         {
             var displayDates = new List<DisplayDateTime>();
@@ -876,6 +898,8 @@ namespace StatisticalSolutions.Controllers
 
             return displayDates;
         }
+        
+        #endregion
         
 
     }

@@ -220,6 +220,14 @@ input[type='submit']:hover {background: #1EBA6B; color: #fff;}
         margin-right:0;
     }
 
+.legend-line
+{
+margin-bottom:5px;
+margin-top:5px;
+}
+
+
+
     .light_orange
     {
         color:#ff9999
