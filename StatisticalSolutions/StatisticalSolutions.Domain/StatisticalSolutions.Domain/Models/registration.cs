@@ -40,8 +40,20 @@ namespace StatisticalSolutions.Models
             [DataMember]       
             public DateTime Registerdate { get; set; }
             [DataMember]
-            [Required(ErrorMessage = "The Start Date field is required")]
-            public DateTime StartDate { get; set; }     
+           // [Required(ErrorMessage = "The Start Date field is required")]
+            public DateTime StartDate { get; set; }
+
+
+             [NotMapped]
+             [Required(ErrorMessage = "The Start Date field is required")]
+            public string Starttime { get; set; }
+            [NotMapped]
+            public string Endtime { get; set; }
+           [NotMapped]
+           public List<DisplayDateTime> StartDates { get; set; }
+
+
+
     }
 
 }

@@ -80,6 +80,7 @@
     <Compile Include="StatisticalSolutions.Domain\Models\registration.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\students.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\seminar.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\ViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
