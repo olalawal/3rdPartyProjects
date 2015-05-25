@@ -41,10 +41,10 @@
 
 <div class="clear"></div>
 <div class="six columns">
-    <span>The Seminar Center</span>
-    <br />
+  <!--<span>The Seminar Center</span>
+    <br />-->  
     <span>
-        <span>@Html.Raw(Model.Address1)</span>
+        <span>@Html.Raw(Model.Address1)</span><br>
         @if (!string.IsNullOrEmpty(Model.Address2))
                             {
             <span>, @Html.Raw(Model.Address2)</span>
@@ -79,10 +79,11 @@
 
     <span>Phone :</span>
     <span>@Html.Raw(Model.Phone)</span><br />
-    <span>Fax :</span>
-    <span>@Html.Raw(Model.Fax)</span><br />
+   <!-- <span>Fax :</span>
+    <span>@Html.Raw(Model.Fax)</span><br />-->
     <span>Email :</span>
     <span>@Html.Raw(Model.Email)</span><br />
+    <span>Lodging Rate : 30% off</span><br>
 </div>
 
 <div class="clear"></div>
@@ -90,9 +91,9 @@
     Payment <br />
     <b>Instructions</b>
     <hr class="hr" />
-    <span>The fee of $995 includes all course materials. </span><br /><br />
-    <span>PayPal and all major credit cards are accepted. </span><br /><br />
-    <span>Our Tax ID number is 12-1212121. </span>
+    <span>The fee of N120,000.00 includes all workshop materials. </span><br /><br />
+ <!--<span>PayPal and all major credit cards are accepted. </span><br /><br />-->
+    <span></span>
 </div>
 <div class="clear"></div>
 
