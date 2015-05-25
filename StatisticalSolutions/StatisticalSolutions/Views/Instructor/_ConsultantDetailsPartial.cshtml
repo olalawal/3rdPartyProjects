@@ -3,8 +3,9 @@
     <legend class="legend-line"></legend>
 
     <div class="two columns">
-        @{string path = ViewBag.VirtualPath+ "/" + Model.ImagePath;}
-        <img src="@path" height="90" width="90" class="img-circle" />
+        @*@{string path = ViewBag.VirtualPath+ "/" + Model.ImagePath;}*@      
+        @{string path = "http://statisticalsolutions.azurewebsites.net/" + Model.ImagePath;}        
+        <img src=@path height="120" width="120" class="img-circle" />
     </div>
     <div class="con-desc text-justify">
         <div class=" font-15  text-uppercase font-bold">

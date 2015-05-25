@@ -48,31 +48,31 @@
                                 <td class="col-sm-8">
                                     <span>
                                         <span>
-                                            @Html.DisplayFor(m => m.student.Address1)
+                                            @Html.DisplayFor(m => m.seminar.Address1)
                                         </span>
 
-                                        @if (!string.IsNullOrEmpty(Model.student.Address2))
+                                        @if (!string.IsNullOrEmpty(Model.seminar.Address2))
                                         {
                                             <span>
-                                                ,&nbsp;@Html.DisplayFor(m => m.student.Address2)
+                                                ,&nbsp;@Html.DisplayFor(m => m.seminar.Address2)
                                             </span>
                                         }
-                                        @if (!string.IsNullOrEmpty(Model.student.City))
+                                        @if (!string.IsNullOrEmpty(Model.seminar.City))
                                         {
                                             <span>
-                                                ,&nbsp;@Html.DisplayFor(m => m.student.City)
+                                                ,&nbsp;@Html.DisplayFor(m => m.seminar.City)
                                             </span>
                                         }
-                                        @if (!string.IsNullOrEmpty(Model.student.StateProvince))
+                                        @if (!string.IsNullOrEmpty(Model.seminar.StateProvince))
                                         {
                                             <span>
-                                                ,&nbsp;@Html.DisplayFor(m => m.student.StateProvince)
+                                                ,&nbsp;@Html.DisplayFor(m => m.seminar.StateProvince)
                                             </span>
                                         }
-                                        @if (!string.IsNullOrEmpty(Model.student.Country))
+                                        @if (!string.IsNullOrEmpty(Model.seminar.Country))
                                         {
                                             <span>
-                                                ,&nbsp;@Html.DisplayFor(m => m.student.Country)
+                                                ,&nbsp;@Html.DisplayFor(m => m.seminar.Country)
                                             </span>
                                         }
                                     </span>
@@ -81,10 +81,10 @@
                             <tr>
                                 <td class="col-sm-4">Phone </td>
                                 <td class="col-sm-1">:</td>
-                                <td class="col-sm-8">@Html.DisplayFor(m => m.student.Phone)</td>
+                                <td class="col-sm-8">@Html.DisplayFor(m => m.seminar.Phone)</td>
                             </tr>
                             <tr>
-                                <td class="col-sm-4">Email </td>
+                                <td class="col-sm-4">Using the Email Address </td>
                                 <td class="col-sm-1">:</td>
                                 <td class="col-sm-8">@Html.DisplayFor(m => m.student.Email)</td>
                             </tr>

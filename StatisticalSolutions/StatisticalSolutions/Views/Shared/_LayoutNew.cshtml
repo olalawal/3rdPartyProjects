@@ -52,7 +52,9 @@
 	<![endif]-->
 
 
-	
+        <script type="text/javascript">
+    var baseSiteURL = '@Url.Content("~")';
+        </script>
 
 	
 	
@@ -76,7 +78,7 @@
                             <li>@Html.ActionLink("Workshops", "WorkShops", "Workshop")</li>
                             <li>@Html.ActionLink("Consultants", "Consultants", "Instructor")</li>
                             <li>@Html.ActionLink("Register", "Register", "Workshop")</li>
-                            <li>  @Html.Partial("_LoginPartial")</li>
+                            @*<li>  @Html.Partial("_LoginPartial")</li>*@
 
 
 					</ul>

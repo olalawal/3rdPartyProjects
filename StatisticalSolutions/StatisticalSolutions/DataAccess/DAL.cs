@@ -523,7 +523,9 @@ namespace StatisticalSolutions.DataAccess
                         throw new CustomException("SEMINAR_DOES_NOT_EXIST");
                     }
 
-                    if (!string.IsNullOrEmpty(model.client.Name))
+                    model.StartDate = seminar.StartDate;
+                    
+                    if (model.client == null || !string.IsNullOrEmpty(model.client.Name))
                        client =  db.clients.FirstOrDefault(c => c.Name == model.client.Name);
 
                     if (client != null)
@@ -792,6 +794,9 @@ namespace StatisticalSolutions.DataAccess
             try
             {
                 seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id);
+
+
+
                 return seminar;
             }
             catch (CustomException ex)

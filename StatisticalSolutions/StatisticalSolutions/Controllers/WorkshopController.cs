@@ -103,11 +103,15 @@ namespace StatisticalSolutions.Controllers
                 registration model = new registration();
                
                 //// code for start dates 
-                ViewBag.StartDates = GetDisplayDates(new List<seminar>()); 
+               // ViewBag.StartDates = GetDisplayDates(new List<seminar>());
+
+              //  model.StartDates = GetDisplayDates(new List<seminar>()); ;
+             
                 
 
                 //code to fill country in dropdown
                 ViewBag.Countries = dataAccess.getCountries(); ;
+               
 
                 //code which fetch list of companies for autocomplete
                 List<string> companies = new List<string>();
@@ -119,6 +123,8 @@ namespace StatisticalSolutions.Controllers
 
                 ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 
+
+                model.Starttime = "Select a Seminar to see Date";
                 return View(model);               
             }
             catch (CustomException ex)
@@ -143,9 +149,9 @@ namespace StatisticalSolutions.Controllers
         /// Seminar registration by id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public ActionResult Registration(int id)  
+        /// <returns></returns>  
+        [HttpPost]
+        public ActionResult Registration(string id)  
         {
             try
             {
@@ -153,15 +159,22 @@ namespace StatisticalSolutions.Controllers
                 ViewBag.Seminars = dataAccess.getfutureseminars();
 
                 registration model = new registration();
-                model.seminar_id = id;
+                model.seminar_id = Convert.ToInt32(id);
 
-               
+                model.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
                 ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
 
+                ViewBag.SingleStatDate = model.StartDates.FirstOrDefault();
+           
+             
                 seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
                 ViewBag.StartTime = seminar.Starttime;
+                model.Starttime = seminar.Starttime;         
                 ViewBag.EndTime = seminar.Endtime;
-                
+                model.Endtime = seminar.Endtime;
+
+                    var formatteddatetime  = model.StartDates.FirstOrDefault().LongDate +  " " + seminar.Starttime + " to " +seminar.Endtime ;
+
 
                 //code to fill country in dropdown
                 ViewBag.Countries = dataAccess.getCountries(); ;
@@ -175,8 +188,13 @@ namespace StatisticalSolutions.Controllers
                 ViewBag.Companies = companies;
 
                 ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-				
-                return View("Register", model);
+
+                TempData.Keep();
+
+
+                return Content(formatteddatetime);
+
+              //  return View("Register", model);
 
             }
             catch (CustomException ex)
@@ -216,6 +234,7 @@ namespace StatisticalSolutions.Controllers
                 ViewBag.Seminars = dataAccess.getseminars();
 
                 seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                model.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
                 ViewBag.StartTime = seminar.Starttime;
                 ViewBag.EndTime = seminar.Endtime;
 
@@ -235,6 +254,8 @@ namespace StatisticalSolutions.Controllers
                 ViewBag.Companies = companies;
 
                 ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+
+                model.Starttime = model.StartDates.FirstOrDefault().LongDate + " " + seminar.Starttime + " to " + seminar.Endtime;
 
                 return View("Register", model);
             }
@@ -265,6 +286,8 @@ namespace StatisticalSolutions.Controllers
             {
                 if (!dataAccess.CheckIfStudentIsRegistereredForSeminar(model.student, model.seminar_id))
                 {
+                    seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                    model.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
                     student student = new student();
                     student = model.student;
                     // code for insert record in registration table                
@@ -276,7 +299,10 @@ namespace StatisticalSolutions.Controllers
                     MailSender _maillSender = new MailSender();
                     Mails mail = _maillSender.SetMailsProperty();
                     mail.Name = model.student.FirstName + " " + model.student.LastName;
-                    mail.Body = "Hi " + model.student.FirstName + ", <br/><br/> You have successfully registered for workshop " + model.seminar.TitleHtml + " starting from " + model.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
+
+                   
+                    mail.Body = "Hi " + model.student.FirstName + ", <br/><br/> You have successfully registered for workshop " + model.seminar.TitleHtml + " starting from " 
+                        +seminar.StartDate.ToShortDateString() + "to" + seminar.Enddate.ToShortDateString() + ":" + seminar.Starttime +  "-" + seminar.Endtime +  " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
                     mail.From = ConfigurationManager.AppSettings["EmailFrom"];
                     mail.To = model.student.Email;
                     //mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
@@ -296,6 +322,17 @@ namespace StatisticalSolutions.Controllers
 
                     return View("RegisterComplete", model);
                 }
+                else
+                {
+                 seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+                 model.seminar = seminar;
+                 // model.student = dataAccess.getstudentbyid(registration.student_id);
+                  return View("RegisteredAlready", model);
+                
+                
+                }
+
+
             }
 
             catch (CustomException ex)

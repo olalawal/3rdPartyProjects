@@ -39,8 +39,8 @@
             {
                 <div class='nine columns'> 
                     <div class="nine">
-                        @{string path = ViewBag.VirtualPath +"/"+ ins.ImagePath;}
-                        <img src="@path" height="120" width="120" class="img-circle" />
+                        @{string path = "http://statisticalsolutions.azurewebsites.net/" + ins.ImagePath;}                        
+                        <img src=@path height="120" width="120" class="img-circle" />
                         &nbsp; &nbsp; &nbsp;
                         <strong>
                             @Html.Raw(ins.Name)
