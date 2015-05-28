@@ -101,6 +101,10 @@ namespace StatisticalSolutions.Models
         public string Starttime { get; set; }
             [DataMember]
         public string Endtime { get; set; }
+           [DataMember]
+          public string EarlyBirdPrice { get; set; }
+           [DataMember]
+          public string NormalPrice { get; set; }
 
 
         
