@@ -73,6 +73,14 @@
     <Compile Include="Migrations\201505280200336_addedprices.Designer.cs">
       <DependentUpon>201505280200336_addedprices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505310840189_registerchange.cs" />
+    <Compile Include="Migrations\201505310840189_registerchange.Designer.cs">
+      <DependentUpon>201505310840189_registerchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505310843076_studentchange.cs" />
+    <Compile Include="Migrations\201505310843076_studentchange.Designer.cs">
+      <DependentUpon>201505310843076_studentchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\AccountModels.cs" />
@@ -110,6 +118,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505280200336_addedprices.resx">
       <DependentUpon>201505280200336_addedprices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505310840189_registerchange.resx">
+      <DependentUpon>201505310840189_registerchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505310843076_studentchange.resx">
+      <DependentUpon>201505310843076_studentchange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,7 +29,7 @@ namespace StatisticalSolutions.Models
         public string LastName { get; set; }
 
         [DataMember]
-        [Required]
+        
         [Display(Name = "Your address 1")]
         public string Address1 { get; set; }
 
@@ -38,12 +38,12 @@ namespace StatisticalSolutions.Models
         public string Address2 { get; set; }
 
         [DataMember]
-        [Required]
+        
         [Display(Name = "Your city")]
         public string City { get; set; }
 
         [DataMember]
-        [Required]
+      
         [Display(Name = "Your state/province")]
         public string StateProvince { get; set; }
 
@@ -52,7 +52,7 @@ namespace StatisticalSolutions.Models
         public string ZipPostalCode { get; set; }
 
         [DataMember]
-        [Required]
+     
         [Display(Name = "Your country")]
         public string Country { get; set; }
 
@@ -80,7 +80,7 @@ namespace StatisticalSolutions.Models
         public string Fax { get; set; }
 
         [DataMember]
-        [Required]
+        
         [Display(Name = "Your Bank Account #")]
         public string BankAccountNumber { get; set; }
 

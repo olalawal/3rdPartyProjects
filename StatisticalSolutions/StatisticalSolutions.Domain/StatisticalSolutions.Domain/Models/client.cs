@@ -17,8 +17,7 @@ namespace StatisticalSolutions.Models
             [Key]
             [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
             [DataMember]
-            public int client_id { get; set; }   
-            [Required]
+            public int client_id { get; set; }             
             [DataMember]
             [Display(Name = "Client Name")]
             public string Name { get; set; }

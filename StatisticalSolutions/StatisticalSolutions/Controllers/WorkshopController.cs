@@ -302,9 +302,9 @@ namespace StatisticalSolutions.Controllers
 
                    
                     mail.Body = "Hi " + model.student.FirstName + ", <br/><br/> You have successfully registered for workshop " + model.seminar.TitleHtml + " starting from " 
-                        +seminar.StartDate.ToShortDateString() + "to" + seminar.Enddate.ToShortDateString() + ":" + seminar.Starttime +  "-" + seminar.Endtime +  " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team"
+                        +seminar.StartDate.ToShortDateString() + "to" + seminar.Enddate.ToShortDateString() + ":" + seminar.Starttime +  " To " + seminar.Endtime +  " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team"
 
-                        + " <br/><br/>please make your  make your payment of + " + seminar.EarlyBirdPrice + " to :  <b>GTB</b> bank AC/#: <b>0171482631<b></b></span>"
+                        + " <br/><br/>please make your  make your payment of :" + seminar.EarlyBirdPrice + " to :  <b>GTB</b> bank AC/#: <b>0171482631<b></b></span>"
                         ;
                     mail.From = ConfigurationManager.AppSettings["EmailFrom"];
                     mail.To = model.student.Email;

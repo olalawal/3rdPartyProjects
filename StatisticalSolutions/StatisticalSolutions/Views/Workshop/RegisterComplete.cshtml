@@ -39,7 +39,7 @@
                                 </td>
                                 <td class="col-sm-1">:</td>
                                 <td class="col-sm-8">
-                                    @Html.DisplayFor(m => m.StartDate, "{0:MM/dd/yyyy}")
+                                    @Html.DisplayFor(m => m.seminar.StartDate, "{0:MM/dd/yyyy}")
                                 </td>
                             </tr>
                             <tr>
@@ -87,6 +87,11 @@
                                 <td class="col-sm-4">Using the Email Address </td>
                                 <td class="col-sm-1">:</td>
                                 <td class="col-sm-8">@Html.DisplayFor(m => m.student.Email)</td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-4">Make payments of </td>
+                                <td class="col-sm-1">:</td>
+                                <td class="col-sm-8">&nbsp;@Html.DisplayFor(m => m.seminar.EarlyBirdPrice),&nbsp; To :<b>GTB</b> bank AC/#: <b>0171482631<b></b></td>
                             </tr>
                             <tr>
                                 <td colspan="3">
