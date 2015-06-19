@@ -1,31 +1,31 @@
-﻿@model StatisticalSolutions.ViewModels.SeminarInstructorModel
+﻿@model StatisticalSolutions.Models.seminar
 <tr>
     <td>
-        <a  href='@Url.Action("RegisteredStudents", "Admin", new { id = Model.seminar.seminar_id })'>@Model.seminar.TitleHtml</a>  
+        <a  href='@Url.Action("RegisteredStudents", "Admin", new { id = Model.seminar_id })'>@Model.TitleHtml</a>  
        
     </td>
     <td>
-        @if(Model.Instructor !=null)
+        @if(Model.instructor !=null)
         {
-            @Html.DisplayFor(m => m.Instructor.Name) 
+            @Html.DisplayFor(m => m.instructor.Name) 
         }
        
     </td>
     <td>
-        @Model.seminar.StartDate.ToString("dddd, MMM dd, yyyy")
+        @Model.StartDate.ToString("dddd, MMM dd, yyyy")
 
     </td>
     <td>
-        @Model.seminar.Enddate.ToString("dddd, MMM dd, yyyy")
+        @Model.Enddate.ToString("dddd, MMM dd, yyyy")
         </td>
     <td>
-       @Html.DisplayFor(m => m.seminar.Starttime)
+       @Html.DisplayFor(m => m.Starttime)
     </td>
     <td>
-        @Html.DisplayFor(m => m.seminar.Endtime)
+        @Html.DisplayFor(m => m.Endtime)
     </td>
 
     <td>
-        @Html.ActionLink("Edit", "EditWorkshop", new { id = Model.seminar.seminar_id }) | 
-        @Html.ActionLink("Delete", "DeleteWorkshop", new { id = Model.seminar.seminar_id })
+        @Html.ActionLink("Edit", "EditWorkshop", new { id = Model.seminar_id }) | 
+        @Html.ActionLink("Delete", "DeleteWorkshop", new { id = Model.seminar_id })
 </tr>

@@ -38,7 +38,7 @@ namespace StatisticalSolutions
                           
                             .Include("~/Content/reset.css")
                             .Include("~/Content/base.css")
-                          
+                            .Include( "~/Content/bootstrap-notify.css")
                             .Include("~/Content/skeleton.css")
                             .Include("~/Content/layout.css")
                             .Include("~/Content/jquery-ui.css")
@@ -58,9 +58,12 @@ namespace StatisticalSolutions
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                          "~/Scripts/jquery-migrate-{version}.js",
-                         "~/Scripts/JqueryTE/jquery-te-{version}.js"));
+                         "~/Scripts/JqueryTE/jquery-te-{version}.js",
+                          "~/Scripts/jquery.blockUI.js"
+                         ));
             bundles.Add(new ScriptBundle("~/bundles/form").Include(
-                       "~/Scripts/form.js"));
+                       "~/Scripts/form.js", 
+                       "~/Scripts/Statistical.Alert.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui.js"));
@@ -80,7 +83,7 @@ namespace StatisticalSolutions
                         ));
 
                    bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                     "~/Scripts/bootstrap.js"));
+                     "~/Scripts/bootstrap.js", "~/Scripts/bootstrap-notify.js"));
                           
                   bundles.Add(new ScriptBundle("~/bundles/base").Include(                       
                           "~/Scripts/jquery.mousewheel-3.0.6.pack.js",

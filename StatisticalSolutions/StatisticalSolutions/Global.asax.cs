@@ -8,6 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.IO;
 using StatisticalSolutions.Util;
+using StatisticalSolutions.DataAccess;
+using StatisticalSolutions.Models;
+
 
 namespace StatisticalSolutions
 {
@@ -20,11 +23,18 @@ namespace StatisticalSolutions
         {
             AreaRegistration.RegisterAllAreas();
             ReadErrorCodeProperties();
+            GetCountries();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+        }
+
+
+        protected void Session_Start()
+        {
+
         }
 
         /// <summary>
@@ -41,5 +51,17 @@ namespace StatisticalSolutions
             //we are using that properties in our views to display alert messages.
             ErrorProperties.ErrorCodeProp = data;
         }
+
+        private void GetCountries()
+        {
+            DAL dataAccess=new DAL();
+
+            List<Countries> countries = dataAccess.getCountries();
+
+          ListClass.CountryList = countries; 
+           
+        }
     }
+
+    
 }

@@ -92,7 +92,13 @@
     <Compile Include="StatisticalSolutions.Domain\Models\registration.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\students.cs" />
     <Compile Include="StatisticalSolutions.Domain\Models\seminar.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\ClientViewModel.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\InstructorViewModel.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\SeminarEntity.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\StudentViewModel.cs" />
     <Compile Include="StatisticalSolutions.Domain\ViewModels\ViewModels.cs" />
+    <Compile Include="StatisticalSolutions.Domain\ViewModels\WorkshopViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

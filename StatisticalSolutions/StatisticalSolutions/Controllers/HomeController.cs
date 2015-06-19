@@ -8,7 +8,6 @@ using System.Net.Mail;
 using Common.Logging;
 using System.Configuration;
 using StatisticalSolutions.Models;
-using StatisticalSolutions.ViewModels;
 using StatisticalSolutions.DataAccess;
 using StatisticalSolutions.Util;
 using StatisticalSolutions.Filters;

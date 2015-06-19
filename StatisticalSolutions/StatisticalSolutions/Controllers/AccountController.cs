@@ -4,6 +4,7 @@ using System.Linq;
 using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
+using StatisticalSolutions.DataAccess;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
@@ -18,6 +19,21 @@ namespace StatisticalSolutions.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+
+        #region variables
+        DAL dataAccess;
+
+        #endregion
+
+        #region Controller
+        public  AccountController ()
+        {
+            dataAccess = new DAL();
+        }
+
+        #endregion
+
+
         //
         // GET: /Account/Login
 
@@ -38,10 +54,33 @@ namespace StatisticalSolutions.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                if (!string.IsNullOrEmpty(returnUrl))
-                return RedirectToLocal(returnUrl);
-                else
-                    return RedirectToAction("Admin");
+
+               List<string> roles = Roles.GetRolesForUser(model.UserName).ToList();
+
+
+               if (roles.Any(role => role.Contains("Admin")))
+                {
+                    if (!string.IsNullOrEmpty(returnUrl))
+                        return RedirectToLocal(returnUrl);
+                    else
+                        return RedirectToAction("Admin","Admin");
+                }
+                else if (roles.Any(role=>role.Contains("Student")))
+                    {
+                        if (!string.IsNullOrEmpty(returnUrl))
+                            return RedirectToLocal(returnUrl);
+                        else
+                            return RedirectToAction("Student", "Student");
+                    }
+                else if (roles.Any(role=>role.Contains("Instructor")))
+                {
+                    if (!string.IsNullOrEmpty(returnUrl))
+                        return RedirectToLocal(returnUrl);
+                    else
+                        return RedirectToAction("Instructor", "Instructor");
+                }
+
+                ModelState.AddModelError("", "Sorry! you are not authorized to access the requested page.");
             }
 
             // If we got this far, something failed, redisplay form
@@ -86,8 +125,15 @@ namespace StatisticalSolutions.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    if(WebSecurity.Login(model.UserName, model.Password))                    
-                        return RedirectToAction("Admin");                    
+                    Roles.AddUserToRole(model.UserName, "Admin");
+                    if(WebSecurity.Login(model.UserName, model.Password))  
+                    {
+                       List<string> roles = Roles.GetRolesForUser(model.UserName).ToList();
+                       if (roles.Any(role => role.Contains("Admin")))
+                        {
+                            return RedirectToAction("Admin","Admin");
+                        }
+                    }                                          
                     else                    
                         return RedirectToAction("Index", "Home");
                 }
@@ -145,13 +191,7 @@ namespace StatisticalSolutions.Controllers
             return View();
         }
 
-        // GET: /Account/Manage
-        public ActionResult Admin() 
-        {
-          
-          
-            return View();
-        }
+     
 
         //
         // POST: /Account/Manage

@@ -103,6 +103,6 @@
     @if (Model.StartDate != null && Model.StartDate != default(DateTime))
     {
                         
-    <a href='@Url.Action("Registration", "Workshop", new { id = Model.seminar_id })' class='button medium green'>Register Now</a>
+    <a href='@Url.Action("RegisterSeminar", "Workshop", new { id = Model.seminar_id })' class='button medium green'>Register Now</a>
     }
 </div>

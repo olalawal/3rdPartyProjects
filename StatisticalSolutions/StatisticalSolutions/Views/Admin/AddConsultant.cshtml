@@ -1,4 +1,4 @@
-﻿@model StatisticalSolutions.Models.instructor
+﻿@model StatisticalSolutions.Models.InstructorViewModel
 @{
     ViewBag.Title = "AddConsultant";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
@@ -9,14 +9,14 @@
 
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="15" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <a tabindex="15" href="@Url.Action("Admin", "Admin")">Dashboard</a>
         <span class="active"> - Add Consultant</span>
     </div>
 
     <div class='sixteen columns form'>
         <h3>Enter your Consultant info</h3>
        
-        @using (Html.BeginForm("AddConsultant", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddConsultant", "Admin", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
@@ -27,14 +27,10 @@
                         <li>
                             <div>
                                 <label>Consultant Name</label>
-                                @Html.ValidationMessageFor(model => model.Name)
-                                @Html.TextBoxFor(model => model.Name, new { @tabindex = "1", @placeholder = "Consultant Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.InstructorName)
+                                @Html.TextBoxFor(model => model.InstructorName, new { @tabindex = "1", @placeholder = "Consultant Name", @class = "form-control" })
                             </div>
-                        </li>
-                        <li>
-                            <label>Seminar</label>                        
-                            @Html.DropDownListFor(model => model.seminar_id, new SelectList(@ViewBag.Seminars, "seminar_id", "TitleHtml"), "--Select Seminar--", new { @tabindex = "2",@class = "form-control" })
-                        </li>                     
+                        </li>                                   
                        
                         <li>
                             <label>Address Line 1</label>
@@ -62,7 +58,7 @@
                         <li>
                             <label>Country</label>
                             @Html.ValidationMessageFor(model => model.Country)
-                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7", @class = "form-control" } )
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "-- Select Country --", new { @tabindex = "7", @class = "form-control" } )
                         </li>
 
                         <li>
@@ -81,7 +77,7 @@
                         <li>
                             <label>Fax Number</label>
                             @Html.ValidationMessageFor(model => model.Fax)
-                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
+                            @Html.TextBoxFor(model => model.Fax, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
 
                         </li>                
                       
@@ -100,10 +96,11 @@
                         </li>
                         <li>
                             <label for="file">Upload Image</label>
-                            <input type="file" name="file" id="file" tabindex="13" /> 
+                            @*@Html.ValidationMessageFor(model => model.File)*@
+                            @Html.TextBoxFor(model => model.File, new { type = "file", tabindex = "13" })
+                           
                         </li>
-                        <li>
-                         
+                        <li>                         
                             <input type="submit" tabindex="14" value="Submit" class="button medium green" />
                         </li>
                     </ol>

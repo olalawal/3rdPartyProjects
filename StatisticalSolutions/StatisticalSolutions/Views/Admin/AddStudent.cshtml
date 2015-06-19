@@ -10,7 +10,7 @@
 
     <div class='container focus'>
         <div class="breadcrumb" id="divPageTitle_Add">
-            <a tabindex="15" href="@Url.Action("Admin", "Account")">Dashboard</a>
+            <a tabindex="15" href="@Url.Action("Admin", "Admin")">Dashboard</a>
             <span class="active"> - Add Student</span>
         </div>
 
@@ -67,7 +67,7 @@
                         <li>
                             <label>Country</label>
                             @Html.ValidationMessageFor(model => model.Country)
-                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
                         </li>
 
                         <li>

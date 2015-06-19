@@ -472,11 +472,11 @@ input[type='submit'] {
 }
 
 .light-orange {
-    color: #ff9999 !important;
+    color: #FA1E55 !important;
 }
 
 .con-desc {
-    width: 395px;
+    width: 390px;
     float: left;
     display: inline;
     margin-left: 5px;
@@ -598,6 +598,29 @@ input[type='submit'] {
 .font-24 {
     font-size: 24px !important;
 }
+
+input.maskError {
+    border: 1px solid #cc0000;
+    background: #f3d8d8;
+    color: #2e2e2e;
+}
+div.maskError {
+    border: 1px solid #cc0000;
+}
+div.maskError .jqte_editor {
+    background: #f3d8d8 ;
+    color: #2e2e2e;
+}
+label.maskError {
+    color: red;
+    font-size:11px;
+    font-style:italic;
+    display:block;
+}
+
+
+
+
 
 /*
 * Focus

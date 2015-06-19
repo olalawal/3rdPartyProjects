@@ -1,6 +1,6 @@
 ﻿@using System.Collections.Generic;
 @using StatisticalSolutions.Models;
-@using StatisticalSolutions.ViewModels;
+@model WorkshopInstructorViewModel
 
 @{
     ViewBag.Title = "WorkShops";
@@ -14,70 +14,78 @@
 
 <div class="clear"></div>
 <div class='container focus'>
-    @{List<seminar> seminars = ViewBag.Seminars as List<seminar>;}
-    @if (seminars.Count > 0)
+  @if (Model!=null)
+  { 
+      if (Model.Seminars!= null)
     {
         <div class="four columns">
 
-            @foreach (seminar sem in seminars)
+            @foreach (seminar sem in Model.Seminars)
             {
                 <ul>
                     <li>
-                        @Html.ActionLink(sem.TitleHtml, "Workshop", new { id = sem.seminar_id })
+                        @*@Html.ActionLink(sem.TitleHtml, "Workshop", new { id = sem.seminar_id })*@
+                        <a href='#' onclick='bindPartialView("divWorkshop","Workshop","WorkshopDetails",@sem.seminar_id)'>@sem.TitleHtml</a>
                         <hr />
                     </li>
                 </ul>
             }
-        </div>
- 
-            seminar seminar = ViewBag.Seminar as seminar;
-            if (seminar != null)
-        {
-        <div class='nine columns'>            
-           
-            <div class='nine columns'>
-                <div class="font-bold" style="text-align:center;">
-                    <strong>@Html.Raw(seminar.TitleHtml)</strong>
-                </div>
-                <div style="text-align:center;">
-                    @{  string consultant = ViewBag.Consultant as string;}
-                    <span> @consultant</span>
-                </div>
+        </div> 
+         <div class="fifteen" id="divWorkshop">
+             @if (Model.Seminar != null)
+             {
+             <div class='nine columns'>
 
-                <br />
-                @Html.Raw(seminar.EventDetailsHtml)
-            </div>
+                 <div class='nine columns'>
+                     <div class="font-bold" style="text-align:center;">
+                         <strong>@Html.Raw(Model.Seminar.TitleHtml)</strong>
+                     </div>
+                     <div style="text-align:center;">
+                         @if (Model.Seminar.instructor != null)
+                         {
+                             <span> @Model.Seminar.instructor.Name</span>
+                         }
 
-        </div>
+                     </div>
 
-        <div class='container six columns'>
-            @Html.Partial("_SeminarInfoPartial", seminar)
-        </div>
-        }
-        else
-        {
-        <div class='nine columns'>
-            
+                     <br />
+                     @Html.Raw(Model.Seminar.EventDetailsHtml)
+                 </div>
 
-            <p> Here are all of our currently scheduled seminars for the Summer and Fall of 2015. Just click on the course titles for detailed information and registration. All seminars meet for two full days, unless otherwise noted. Please check back periodically for updates.</p>
-            <br />
+             </div>
 
-            @{List<SeminarInstructorModel> sem_ins = ViewBag.Seminar_Instructors as List<SeminarInstructorModel>;}
-            @foreach (SeminarInstructorModel sems in sem_ins)
-            {
-                @Html.Partial("_SeminarListPartial", sems)
-            }
-        </div>
+             <div class='container six columns'>
+                 @Html.Partial("_SeminarInfoPartial", Model.Seminar)
+             </div>
+             }
+             else
+             {
+             <div class='nine columns'>
 
-        <div class='container six columns'>
-            Featured <br /><b>Consultants</b>
-            <hr class="hr" />
-            @{List<instructor> instructors = ViewBag.Instructors as List<instructor>;}
-            @foreach (instructor ins in instructors)
-            {
-                @Html.Partial("_InstructorPartial", ins)
-            }
-        </div>
-        }
+
+                 <p> Here are all of our currently scheduled seminars for the Summer and Fall of 2015. Just click on the course titles for detailed information and registration. All seminars meet for two full days, unless otherwise noted. Please check back periodically for updates.</p>
+                 <br />
+
+
+                 @foreach (seminar sems in Model.Seminars)
+                 {
+                     @Html.Partial("_SeminarListPartial", sems)
+                 }
+             </div>
+
+             <div class='container six columns'>
+                 Featured <br /><b>Consultants</b>
+                 <hr class="hr" />
+
+                 @foreach (instructor ins in Model.Instructors)
+                 {
+                     @Html.Partial("_InstructorPartial", ins)
+                 }
+             </div>
+             }
+         </div>  
+         
     }
+}
+   
 </div>

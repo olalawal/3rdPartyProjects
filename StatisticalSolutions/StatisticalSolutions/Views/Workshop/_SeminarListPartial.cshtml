@@ -1,46 +1,46 @@
 ﻿
-@model StatisticalSolutions.ViewModels.SeminarInstructorModel
+@model StatisticalSolutions.Models.seminar
 <div class='container four columns'>
     <ul>
         <li>
-            <a  href='@Url.Action("Workshop", "Workshop", new { id = Model.seminar.seminar_id })'>@Model.seminar.TitleHtml</a>           
+            <a  href='@Url.Action("Workshop", "Workshop", new { id = Model.seminar_id })'>@Model.TitleHtml</a>           
         </li>
         <li>
-            @if (Model.Instructor!=null)
+            @if (Model.instructor!=null)
             {
-               @Model.Instructor.Name  
+               @Model.instructor.Name  
             }
            
         </li>
         <li>
-            @if (Model.seminar.StartDate == Model.seminar.Enddate)
+            @if (Model.StartDate == Model.Enddate)
             {
-                @Model.seminar.StartDate.ToString("MMM, d")
+                @Model.StartDate.ToString("MMM, d")
             }
             else
             {
-                if (Model.seminar.StartDate.Month == Model.seminar.Enddate.Month)
+                if (Model.StartDate.Month == Model.Enddate.Month)
                 {
                     <span>
-                        @Model.seminar.StartDate.ToString("MMM, d")
+                        @Model.StartDate.ToString("MMM, d")
                     </span>
                     <span> - </span>
-                    <span>  @Model.seminar.Enddate.Day</span>
+                    <span>  @Model.Enddate.Day</span>
                 }
                 else
                 {
                     <span>
-                        @Model.seminar.StartDate.ToString("MMM, d")
+                        @Model.StartDate.ToString("MMM, d")
                     </span>
                     <span> - </span>
-                    <span> @Model.seminar.Enddate.ToString("MMM, d") </span>
+                    <span> @Model.Enddate.ToString("MMM, d") </span>
                 }
             }
-            @if (!string.IsNullOrEmpty(Model.seminar.City))
+            @if (!string.IsNullOrEmpty(Model.City))
             {
                 <span>, </span>  <span>
 
-                    @Model.seminar.City
+                    @Model.City
                 </span>
             }
         </li>

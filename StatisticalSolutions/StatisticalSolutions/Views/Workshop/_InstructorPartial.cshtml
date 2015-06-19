@@ -14,7 +14,19 @@
         </li>
 
         <li>
-          @Html.Raw(Model.Description.Substring(0,200).Trim())
+            @if(!string.IsNullOrEmpty(Model.Description))
+            {
+                 if(Model.Description.Length > 200)
+                {  
+                    @Html.Raw(Model.Description.Substring(0,200).Trim())
+                }
+                else
+                { 
+                 @Html.Raw(Model.Description.Trim())
+                } 
+            }
+          
+         
         </li>
 
     </ul>

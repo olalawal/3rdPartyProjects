@@ -5,7 +5,7 @@ using System.Web;
 using Common.Logging;
 using System.Net.Mail;
 using System.Configuration;
-using StatisticalSolutions.ViewModels;
+using StatisticalSolutions.Models;
 
 namespace StatisticalSolutions.Util
 {
