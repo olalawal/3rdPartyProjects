@@ -1458,13 +1458,25 @@ namespace StatisticalSolutions.DataAccess
         /// get students
         /// </summary>
         /// <returns></returns>
-        internal List<student> getstudents() 
+        internal List<student> getstudents(int? workshopid) 
         {
             StatisticalSolutionsContext db = new StatisticalSolutionsContext();
             try
             {
+                List<student> students = new List<student>();
+
                 //getting all students
-                List<student> students = db.students.Where(s => s.IsActive).OrderBy(s => s.LastName).Distinct().ToList();
+                if (workshopid == null)
+                {
+
+                  students = db.students.Where(s => s.IsActive).OrderBy(s => s.LastName).Distinct().ToList();
+                }
+                else
+                {
+                    var test = db.registrations.Where(z => z.id == workshopid);
+                    students = db.students.Where(s => s.IsActive && test.Any(z=>z.student_id == s.student_id)).OrderBy(s => s.LastName).Distinct().ToList();
+
+                }
                 return students;
             }
             catch (CustomException ex)

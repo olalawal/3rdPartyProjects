@@ -879,7 +879,7 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<student> students = dataAccess.getstudents();
+                List<student> students = dataAccess.getstudents(null);
                 ViewBag.InactiveStudents = "InactiveStudents";
                 return View(students);
             }
@@ -905,7 +905,7 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<student> students = dataAccess.getstudents();
+                List<student> students = dataAccess.getstudents(id);
                 ViewBag.InactiveStudents = "InactiveStudents";
                 return View("StudentList", students);
             }
