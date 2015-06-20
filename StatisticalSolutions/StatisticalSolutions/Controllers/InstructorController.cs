@@ -7,9 +7,12 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using Common.Logging;
 using System.Configuration;
+using System.Web.Security;
+using DotNetOpenAuth.AspNet;
+using Microsoft.Web.WebPages.OAuth;
+using WebMatrix.WebData;
 using System.Web.Hosting;
 using StatisticalSolutions.Models;
-using StatisticalSolutions.ViewModels;
 using StatisticalSolutions.DataAccess;
 using StatisticalSolutions.Util;
 using StatisticalSolutions.Filters;
@@ -18,6 +21,8 @@ using StatisticalSolutions.Controllers.Base;
 
 namespace StatisticalSolutions.Controllers
 {
+
+    [Authorize(Roles="Instructor")]
     public class InstructorController : BaseController 
     {
               
@@ -35,37 +40,54 @@ namespace StatisticalSolutions.Controllers
         }
         #endregion
 
+
+        /// <summary>
+        /// get action for consultant page
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet]
         public ActionResult Consultants()
         {
-           ViewBag.Consultants = dataAccess.getinstructors(); ;
+            WorkshopInstructorViewModel model = new WorkshopInstructorViewModel();
 
-            ViewBag.Seminar_Instructor = dataAccess.getinstructorseminars();
+
+            //List<instructor> instructors = dataAccess.getinstructors(); ;
+
+            //TempData["Instructors"] = instructors;
+            model.Instructors = dataAccess.getinstructors(); ;
+
+            List<seminar> seminars = dataAccess.getfutureseminars();
+
+            //TempData["Seminars"] = seminars;
+            model.Seminars = seminars;
             
-            ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+            //TempData.Keep();
 
-           return View();
+            return View(model);
         }
 
         /// <summary>
-        /// Consultant details
+        /// get action for Consultant details
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult Consultant(int id)   
         {
             try
             {
-                ViewBag.Instructor = dataAccess.getinstructorbyid(id);
-                
-                ViewBag.Seminar_Instructor = dataAccess.getinstructorseminars(); ;
+                WorkshopInstructorViewModel model = new WorkshopInstructorViewModel();
+                                    
+                model.Seminars = dataAccess.getfutureseminars();  
+                    
+                model.Instructors = dataAccess.getinstructors();
 
-                ViewBag.Consultants = dataAccess.getinstructors();
-
-                ViewBag.Instructor = dataAccess.getinstructorbyid(id);
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-                return View("Consultants");
+                //get instructor by innstructor id
+                model.Instructor = dataAccess.getinstructorbyid(id);
+                                
+                return View("Consultants", model);
             }
             catch (CustomException ex)
             {
@@ -75,6 +97,76 @@ namespace StatisticalSolutions.Controllers
             catch (Exception ex)
             {
                 Log.Error(m => m("Function Consultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// get action for Consultant details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult ConsultantDetails(string id)  
+        {
+            try
+            {
+
+                int instructor_id = Convert.ToInt32(id);              
+
+                // get instructor by innstructor id
+                instructor instructor = dataAccess.getinstructorbyid(instructor_id);
+
+                return PartialView("_ConsultantDetailsPartial", instructor);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function Consultant Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function Consultant Error  - {0}", ex.Message));
+                return SystemExceptionCatcher(ex);
+            }
+
+
+        }
+
+
+        /// <summary>
+        /// get action for logged in instructor
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult Instructor() 
+        {
+            try
+            {
+                WorkshopInstructorViewModel model = new WorkshopInstructorViewModel();
+               
+                //Method to get instructor based on instructor user id
+                instructor instructor = dataAccess.getinstructorbyid(WebSecurity.CurrentUserId);               
+              
+                model.Instructor = instructor;
+           
+                //get list of all seminars taught by particular instructor  
+                model.Seminars = dataAccess.getseminarsbyinstructorid(instructor.instructor_id);                 
+                
+                return View("Consultant", model);
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function Instructor Error  - {0}", ex.Message));
+                return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function Instructor Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
 

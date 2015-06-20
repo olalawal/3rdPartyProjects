@@ -1,6 +1,5 @@
 ﻿@using System.Collections.Generic;
 @using StatisticalSolutions.Models;
-@using StatisticalSolutions.ViewModels;
 @model  BulkMailModel
 @{
     ViewBag.Title = "BulkMails";
@@ -10,74 +9,157 @@
 
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="3" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <a tabindex="3" href="@Url.Action("Admin", "Admin")">Dashboard</a>
         <span class="active"> - Bulk Mail</span>
     </div>
 
 
 
-    @using (Html.BeginForm("BulkMailsFilter", "Admin", FormMethod.Post))
-    {
-        @Html.DropDownList("FilterText", new SelectList(@ViewBag.Filter), "--Select Filter--", new { @tabindex = "1", @placeholder = "Filter", @class = "filter-dropdown" })
-        <input type="submit" value="Filter" class="medium green filter-button" />
-        <br />
-    }
     @using (Html.BeginForm())
-    {
-        <label>Workshops</label>
-        @Html.DropDownListFor(model => model.Registration.seminar_id, new SelectList(@ViewBag.regseminars, "seminar_id", "TitleHtml", Model.Registration.seminar_id), "--Select Seminar--", new { @tabindex = "1", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value, this.selectedIndex)" })
-    }
-
-
-    @using (Html.BeginForm("BulkMails", "Admin", FormMethod.Post))
-    {
-
-
-        if (Model != null)
+    { 
+            @Html.DropDownList("FilterText", new SelectList(Model.Filteres), "-- Select Filter --", new { @tabindex = "1", @placeholder = "Filter",  onchange = "return selectfilter(this.options[this.selectedIndex].value, this.selectedIndex)" })
+          
+            <br />
+        }
+        @using (Html.BeginForm())
         {
-            if (Model.Registration != null)
-            {
-                <div class="clear"></div>
-                @Html.HiddenFor(model => model.Registration.seminar_id)
-                <br />
+            <label>Workshops</label>
+            @Html.DropDownListFor(model => model.Registration.seminar_id, new SelectList(Model.Seminars, "seminar_id", "TitleHtml", Model.Registration.seminar_id), "-- Select Seminar --", new {id="ddlSeminars", @tabindex = "2", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value, this.selectedIndex)" })
+        }
 
-            }
-            if (Model.Students.Any())
-            {
-                <div style="color:red;"> @Model.Students.Count active registered students found for this seminar </div>
-                <table class="table table-bordered table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th style="width:30%;">Name</th>
-                            <th style="width:40%;">Email</th>
-                            <th style="width:30%;">Contact</th>
-                            @*<th style="width:10%;">Active</th>*@
-                        </tr>
+        <div class="clear"></div>
 
-                    </thead>
-                    <tbody>
-                        @foreach (student student in Model.Students)
-                        {
-                            @Html.Partial("BulkMailsPartial", student)
+        <div class="container sixteen columns">
+            <div id="BulkMailsContent" class="container sixteen columns">
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        function selectfilter(value, index) {
+            // e.preventDefault(); // <------------------ stop default behaviour of button
+            //var element = this;
+            if (index > 0) {              
+                var myURL = 'Admin/BulkMailsFilter';
+                var fullurl = baseSiteURL + myURL;
+                WaitUI();
+                $.ajax({
+                    url: fullurl,
+                    data: JSON.stringify ({ FilterText: value }),
+                    type: "post",
+                    //cache: false,
+                    traditional: true,
+                    async: false,
+                    datatype: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+
+                        $('#ddlSeminars option').remove();
+                        var optionTag = $('<option></option>');
+                        $(optionTag).val(0).text('-- Select Seminar --');
+                        $('#ddlSeminars').append(optionTag);
+
+                        if (data.status == 'success')
+                        {                          
+                            $.each(data.value, function (index, val) {
+                                var optionTag = $('<option></option>');
+                                $(optionTag).val(val.seminar_id).text(val.TitleHtml);
+                                $('#ddlSeminars').append(optionTag);
+
+                            });
                         }
-
-                    </tbody>
-                </table>
-                <input type="submit" tabindex="2" value="Send Mails" class="button medium green filter-button right-align" />
+                    
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
             }
+
+
         }
-    }
-</div>
 
+        function selectseminar(value, index) {
+            // e.preventDefault(); // <------------------ stop default behaviour of button
+            //var element = this;
+            if(index > 0)
+            {
+                var myURL = 'Admin/BulkMailStudents';
+                var fullurl = baseSiteURL + myURL;
+                WaitUI();
+                $.ajax({
+                    url: fullurl,
+                    data: { 'id': value },
+                    type: "post",
+                    cache: false,
+                    success: function (data) {
 
-<script type="text/javascript">
+                        $("#BulkMailsContent").html(data);
 
-    function selectseminar( value, index)
-    {
-        if (index > 0)
-        {
-            document.location.href = '@ViewBag.VirtualPath/Admin/BulkMailStudents/' + value;
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
+            }
+
         }
-    }
-</script>
+
+
+        function sendMails() {
+
+            var student = new Array();
+            var students = new Array();
+            $("#BulkMailsContent table tbody tr ").each(function () {
+                if ($(this).find("input[type='checkbox'][name='chkBxIsActive']").prop('checked'))
+                {
+                    student = {
+                        'student_id': $(this).find("input[name='student_id']").prop('value'),
+                        'FirstName': $(this).find("input[name='FirstName']").prop('value'),
+                        'LastName': $(this).find("input[name='LastName']").prop('value'),
+                        'Email': $(this).find("input[name='Email']").prop('value'),
+                        'Phone': $(this).find("input[name='Phone']").prop('value')
+                    };
+                    students.push(student);
+                }
+            });
+
+            var seminarId = $("input[name='Registration.seminar_id']").prop('value');
+            var bulkMails = {
+                Students: students,
+                seminar_id: seminarId
+            };
+            var myURL = 'Admin/BulkMails';
+            var fullurl = baseSiteURL + myURL;
+            WaitUI();
+            $.ajax({
+                url: fullurl,
+                data: JSON.stringify({ model: bulkMails, seminar_id: seminarId }),
+                type: "POST",
+                cache: false,
+                datatype: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    if (data.status == 'success' || data.status != undefined) {
+                        Statistical_Alert.success({ title: window.StatisticalAlertMessages.BulkMailSentSuccessfully, text: '' });
+
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    Statistical_Alert.error({ title: thrownError, text: '' });
+                }
+            });
+
+
+        }
+
+
+
+    </script>
 

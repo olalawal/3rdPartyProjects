@@ -7,7 +7,7 @@ using System.Web.Routing;
 using Common.Logging;
 using System.IO;
 using StatisticalSolutions.Helpers;
-using StatisticalSolutions.ViewModels;
+using StatisticalSolutions.Models;
 using StatisticalSolutions.Filters;
 
 

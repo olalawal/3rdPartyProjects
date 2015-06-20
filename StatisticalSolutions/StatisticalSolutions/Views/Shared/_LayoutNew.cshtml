@@ -1,5 +1,6 @@
 ﻿@using StatisticalSolutions.Helpers
 @using System.Web.Optimization
+@using StatisticalSolutions.Util 
 
 
 <!-- =============================================== -->
@@ -118,6 +119,7 @@
         </div>
         <div class='clear'></div>
 
+        <div class='notifications bottom-right'></div>
        
 	    <footer>
 		    <div class='container'>
@@ -208,6 +210,92 @@
 	            $('html, body').animate({ scrollTop: 0 }, 500);
 	            return false;
 	        });
+
+	        function scrollPageTo(myTarget, topPadding) {
+
+	            if (topPadding == undefined) {
+	                topPadding = 0;
+	            }
+	            var moveTo = $(myTarget).offset().top - topPadding;
+	            $('html, body').stop().animate({
+	                scrollTop: moveTo
+	            }, 1000);
+	        }
+
 	    </script>
+        <script type="text/javascript">
+            StatisticalAlertMessages = {          
+                ClientAllreadyExist: '@Html.GetErrorMessageBasedOnCode("CLIENT_ALLREADY_EXIST")',              
+                StudentAllreadyExist: '@Html.GetErrorMessageBasedOnCode("STUDENT_ALLREADY_EXIST")',   
+                StudentAllreadyRegistered: '@Html.GetErrorMessageBasedOnCode("STUDENT_ALLREADY_REGISTERED")',
+                SeminarDescriptionIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_DESCRIPTION_IS_NULL")',
+                SeminarTitleHtmlIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_TITLEHTML_IS_NULL")',
+                SeminarAllreadyExist: '@Html.GetErrorMessageBasedOnCode("SEMINAR_ALLREADY_EXIST")',
+                SeminarModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_MODEL_SUPPLIED_IS_NULL")',
+                MessageBodyIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_BODY_IS_NULL")',
+                MessageEmailIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_EMAIL_IS_NULL")',
+                MessageModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_MODEL_SUPPLIED_IS_NULL")',
+                ErrorInSendingMail: '@Html.GetErrorMessageBasedOnCode("ERROR_IN_SENDING_MAIL")',
+                MessageSentSuccessfully: '@Html.GetErrorMessageBasedOnCode("MESSAGE_SENT_SUCCESSFULLY")',
+                StudentDoesNotExist: '@Html.GetErrorMessageBasedOnCode("STUDENT_DOES_NOT_EXIST")',
+                SeminarDoesNotExist: '@Html.GetErrorMessageBasedOnCode("SEMINAR_DOES_NOT_EXIST")',
+                ClientDoesNotExist: '@Html.GetErrorMessageBasedOnCode("CLIENT_DOES_NOT_EXIST")',
+                InstructorDescriptionIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_DESCRIPTION_IS_NULL")',
+                InstructorNameIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_NAME_IS_NULL")',
+                InstructorAllreadyExist: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_ALLREADY_EXIST")',
+                InstructorModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_MODEL_SUPPLIED_IS_NULL")',
+                InstructorDoesNotExist: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_DOES_NOT_EXIST")',
+                BulkMailSentSuccessfully:'@Html.GetErrorMessageBasedOnCode("BULK_MAILS_SENT_SUCCESSFULLY")'
+        
+            };
+
+            function WaitUI() {
+                var divWaitMessage = $('<div id="WaitMessage" style="display:none"><button class="spinner"><i class="fa fa-refresh fa-spin"></i>Please wait...</button></div>');
+                $("body").append(divWaitMessage);
+                var obj = {
+                    message: $('#WaitMessage'), css: {
+                        border: 'none',
+                        backgroundColor: 'none',
+                        top: ($(window).height() - 100) / 2 + 'px',
+                        left: ($(window).width() - 100) / 2 + 'px',
+                        width: '150px',
+                        opacity: 1
+                    }
+                };
+                $.blockUI(obj);
+                return obj;
+            }
+            $.ajaxSetup({ cache: false });
+            $(document).ajaxStop(function () {
+
+                $.unblockUI();
+            });
+
+
+    function bindPartialView(container, controller, action, id) {
+
+    
+        var myURL = controller+'/'+action;
+        var fullurl = baseSiteURL + myURL;
+    
+        $.ajax({
+            url: fullurl,
+            data: {'id': id },
+            type: "POST",
+            cache: false,
+            //datatype: 'json',
+            //contentType: 'application/json; charset=utf-8',
+            success: function (data) {             
+                $("#"+container).html(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                Statistical_Alert.error({ title: thrownError, text: '' });
+            }
+        });
+
+
+    }
+</script>
+     
     </body>
 </html>

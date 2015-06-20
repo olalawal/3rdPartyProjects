@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 
-namespace StatisticalSolutions.ViewModels
+namespace StatisticalSolutions.Models 
 {
     public class CustomException : ApplicationException 
     {

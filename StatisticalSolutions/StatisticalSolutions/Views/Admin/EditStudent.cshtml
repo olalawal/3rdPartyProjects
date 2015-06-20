@@ -1,4 +1,4 @@
-﻿@model StatisticalSolutions.Models.student
+﻿@model StatisticalSolutions.Models.StudentViewModel
 @{
     ViewBag.Title = "EditStudent";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="16" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <a tabindex="16" href="@Url.Action("Admin", "Admin")">Dashboard</a>
         <span class="active"> - </span>
         <a tabindex="17" href="@Url.Action("StudentList", "Admin")">Students List</a>
         <span class="active"> - Edit Student</span>
@@ -61,7 +61,7 @@
                         <li>
                             <label>Country</label>
                             @Html.ValidationMessageFor(model => model.Country)
-                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "-- Select Country --", new { @tabindex = "7" })
                         </li>
 
                         <li>
@@ -77,9 +77,8 @@
 
                         </li>
                         <li>
-                            <label>Fax Number</label>
-                            @Html.ValidationMessageFor(model => model.Fax)
-                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
+                            <label>Fax Number</label>                       
+                            @Html.TextBoxFor(model => model.Fax, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
 
                         </li>
                         <li>

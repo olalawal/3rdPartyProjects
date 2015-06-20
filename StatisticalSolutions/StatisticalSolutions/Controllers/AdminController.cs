@@ -9,7 +9,6 @@ using Common.Logging;
 using System.Web.Hosting;
 using System.Configuration;
 using StatisticalSolutions.Models;
-using StatisticalSolutions.ViewModels;
 using StatisticalSolutions.DataAccess;
 using StatisticalSolutions.Util;
 using StatisticalSolutions.Filters;
@@ -18,7 +17,7 @@ using StatisticalSolutions.Controllers.Base;
 
 namespace StatisticalSolutions.Controllers
 {
-    [Authorize]
+    [Authorize(Roles="Admin")]
     public class AdminController : BaseController
     {
         #region variables
@@ -36,6 +35,10 @@ namespace StatisticalSolutions.Controllers
         }
         #endregion
 
+        public ActionResult Admin()
+        {
+            return View();
+        }
 
         #region workshops
 
@@ -48,11 +51,13 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.Countries = dataAccess.getCountries();
+                WorkshopViewModel model = new WorkshopViewModel();               
 
-                ViewBag.Instructors = dataAccess.getinstructors();  
+                model.Countries =  ListClass.CountryList;
 
-                return View();
+                model.Instructors = dataAccess.getinstructors();
+
+                return View(model);
             }
             catch (CustomException ex)
             {
@@ -74,13 +79,42 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult AddWorkshop(seminar model)
+        public ActionResult AddWorkshop(WorkshopViewModel model)
         {
 
             try
             {
-                model.IsActive = true;
-                dataAccess.addseminar(model);
+                if (model == null)
+                    throw new CustomException("SEMINAR_MODEL_IS_NULL");
+
+                seminar seminar = new seminar();
+
+                seminar.instructor_id = model.instructor_id;
+                seminar.TitleHtml = model.TitleHtml;
+                seminar.Description = model.Description;
+                seminar.EventDetailsHtml = model.EventDetailsHtml;
+
+                seminar.StartDate =Convert.ToDateTime( model.StartDate);
+                seminar.Enddate = Convert.ToDateTime(model.Enddate);
+                seminar.Starttime = model.Starttime;
+                seminar.Endtime = model.Endtime;
+
+                seminar.Address1 = model.Address1;
+                seminar.Address2 = model.Address2;
+                seminar.City = model.City;
+                seminar.StateProvince = model.StateProvince;
+                seminar.Country = model.Country;
+                seminar.Email = model.Email; 
+                seminar.Phone = model.Phone;
+                seminar.Fax = model.Fax;
+
+                seminar.ContactEmail = model.ContactEmail;
+                seminar.ContactPhone = model.ContactPhone;
+                seminar.ContactWebsite = model.ContactWebsite;
+
+                seminar.IsActive = true;
+              
+                dataAccess.addseminar(seminar);
                 return RedirectToAction("WorkshopList");
             }
             catch (CustomException ex)
@@ -105,11 +139,12 @@ namespace StatisticalSolutions.Controllers
         public ActionResult WorkshopList()
         {
             try
-            {
-                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors();
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+            {                
+                List<seminar> seminars = dataAccess.getfutureseminars();
+               
                 ViewBag.InactiveWorkshops = "InactiveWorkshops";
-                return View(seminarInsList);
+
+                return View(seminars);
             }
             catch (CustomException ex)
             {
@@ -128,10 +163,11 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors(id);
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                List<seminar> seminars = dataAccess.getseminarsbyinstructorid(id); 
+              
                 ViewBag.InactiveWorkshops = "InactiveWorkshops";
-                return View("WorkshopList", seminarInsList);
+
+                return View("WorkshopList", seminars);
             }
             catch (CustomException ex)
             {
@@ -152,9 +188,9 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<SeminarInstructorModel> seminarInsList = dataAccess.getseminarinstructors(IsActive);
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-                return View("WorkshopList", seminarInsList);
+                List<seminar> seminars = dataAccess.getseminars(IsActive);  
+               
+                return View("WorkshopList", seminars);
             }
             catch (CustomException ex)
             {
@@ -179,34 +215,54 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
+                WorkshopViewModel model = new WorkshopViewModel();
 
-                seminar seminar = dataAccess.getseminarbyid(id);
+                //get seminar by seminar id
+                seminar seminar= dataAccess.getseminarbyid(id);
 
-                //ViewBag.Seminars = dataAccess.getseminars();
+                model.seminar_id = seminar.seminar_id;
+                model.instructor_id = seminar.instructor_id;
+                model.TitleHtml = seminar.TitleHtml;
+                model.Description = seminar.Description;
+                model.EventDetailsHtml = seminar.EventDetailsHtml;
 
-                ViewBag.Instructors = dataAccess.getinstructors();
+                model.StartDate = seminar.StartDate;
+                model.Enddate = seminar.Enddate;
+                model.Starttime = seminar.Starttime;
+                model.Endtime = seminar.Endtime;
 
-               // ViewBag.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(id));
+                model.Address1 = seminar.Address1;
+                model.Address2 = seminar.Address2;
+                model.City = seminar.City;
+                model.StateProvince = seminar.StateProvince;
+                model.Country = seminar.Country;
+                model.Email = seminar.Email;
+                model.Phone = seminar.Phone;
+                model.Fax = seminar.Fax;
 
-                ViewBag.Countries = dataAccess.getCountries();
+                model.ContactEmail = seminar.ContactEmail;
+                model.ContactPhone = seminar.ContactPhone;
+                model.ContactWebsite = seminar.ContactWebsite;
 
-                ////code which fetch list of companies for autocomplete
-                //List<string> companies = new List<string>();
+                model.IsActive = seminar.IsActive;
 
-                //foreach (client c in dataAccess.getCompanies())
-                //    companies.Add(c.Name);
+                //get list of instructors
+                model.Instructors = dataAccess.getinstructors();
 
-                //ViewBag.Companies = companies;
-                return View(seminar);
+                //get list of countries
+                model.Countries = ListClass.CountryList;
+
+
+                return View(model);
             }
             catch (CustomException ex)
             {
-                Log.Error(m => m("Function Seminar Error  - {0}", ex.Message));
+                Log.Error(m => m("Function EditWorkshop Error  - {0}", ex.Message));
                 return CustomExceptionCatcher(ex);
             }
             catch (Exception ex)
             {
-                Log.Error(m => m("Function Seminar Error  - {0}", ex.Message));
+                Log.Error(m => m("Function EditWorkshop Error  - {0}", ex.Message));
                 return SystemExceptionCatcher(ex);
             }
 
@@ -220,12 +276,44 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult EditWorkshop(seminar model)
+        public ActionResult EditWorkshop(WorkshopViewModel model)
         {
 
             try
             {
-                dataAccess.updateseminar(model);
+                if (model == null)
+                    throw new CustomException("SEMINAR_MODEL_IS_NULL");
+
+                seminar seminar = new seminar();
+
+                seminar.seminar_id = model.seminar_id;
+                seminar.instructor_id = model.instructor_id;
+                seminar.TitleHtml = model.TitleHtml;
+                seminar.Description = model.Description;
+                seminar.EventDetailsHtml = model.EventDetailsHtml;
+
+                seminar.StartDate = Convert.ToDateTime(model.StartDate);
+                seminar.Enddate = Convert.ToDateTime(model.Enddate);
+                seminar.Starttime = model.Starttime;
+                seminar.Endtime = model.Endtime;
+
+                seminar.Address1 = model.Address1;
+                seminar.Address2 = model.Address2;
+                seminar.City = model.City;
+                seminar.StateProvince = model.StateProvince;
+                seminar.Country = model.Country;
+                seminar.Email = model.Email;
+                seminar.Phone = model.Phone;
+                seminar.Fax = model.Fax;
+
+                seminar.ContactEmail = model.ContactEmail;
+                seminar.ContactPhone = model.ContactPhone;
+                seminar.ContactWebsite = model.ContactWebsite;
+
+                seminar.IsActive = model.IsActive;
+
+                dataAccess.updateseminar(seminar);
+
                 return RedirectToAction("WorkshopList");
             }
             catch (CustomException ex)
@@ -279,10 +367,11 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.Seminars = dataAccess.getseminars();
+                InstructorViewModel model = new InstructorViewModel();
 
-                ViewBag.Countries = dataAccess.getCountries();
-                return View();
+                model.Countries = ListClass.CountryList;
+
+                return View(model);
             }
             catch (CustomException ex)
             {
@@ -305,20 +394,42 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult AddConsultant(instructor model, HttpPostedFileBase file)
+        public ActionResult AddConsultant(InstructorViewModel model)
         {
 
             try
             {
-                string fileName = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(Server.MapPath("~/images/consultants"), fileName);
-                // file is uploaded
-                file.SaveAs(path);
-                model.ImageName = file.FileName;
-                model.ImagePath = "images/consultants/" + fileName;
-                model.IsActive = true;
 
-                dataAccess.addInstructor(model);
+                if (model == null)
+                    throw new CustomException("INSTRUCTOR_MODEL_IS_NULL");
+
+                instructor instructor = new instructor();
+
+                if(model.File!=null)
+                {
+                    string fileName = System.IO.Path.GetFileName(model.File.FileName);
+                    string path = System.IO.Path.Combine(Server.MapPath("~/images/consultants"), fileName);
+                    // file is uploaded
+                    model.File.SaveAs(path);
+                    instructor.ImageName = model.File.FileName;
+                    instructor.ImagePath = "images/consultants/" + fileName;
+                }
+              
+                instructor.Name = model.InstructorName;
+                instructor.Address1 = model.Address1;
+                instructor.Address2 = model.Address2;
+                instructor.City = model.City;
+                instructor.StateProvince = model.StateProvince;
+                instructor.Country = model.Country;
+                instructor.Email = model.Email;
+                instructor.Description = model.Description;
+                instructor.DetailsHtml = model.DetailsHtml;
+                instructor.Phone = model.Phone;
+                instructor.Fax = model.Fax;
+                instructor.IsActive = model.IsActive;
+                instructor.IsActive = true;
+
+                dataAccess.addInstructor(instructor);
 
                 return RedirectToAction("ConsultantList");
             }
@@ -345,15 +456,11 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-
-                ViewBag.InactiveConsultants = HostingEnvironment.ApplicationVirtualPath;
-
                 ViewBag.InativeConsultants = "InativeConsultants";
 
-                List<SeminarInstructorModel> seminarIns = dataAccess.getinstructorseminars();
+                List<instructor> instructors = dataAccess.getinstructors();
 
-                return View(seminarIns);
+                return View(instructors);
             }
             catch (CustomException ex)
             {
@@ -377,9 +484,7 @@ namespace StatisticalSolutions.Controllers
         public ActionResult InactiveConsultants(bool IsActive)        {
             try
             {
-                 List<SeminarInstructorModel> consultantList = dataAccess.getinstructorseminars(IsActive);
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                List<instructor> consultantList = dataAccess.getinstructors(IsActive);
 
                 return View("ConsultantList", consultantList);
             }
@@ -406,14 +511,31 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
+                InstructorViewModel model = new InstructorViewModel();
 
-               instructor instructor = dataAccess.getinstructorbyid(id);
+                //get instructor by id
+                instructor instructor = dataAccess.getinstructorbyid(id);
+                if (instructor==null)
+                    throw new CustomException("INSTRUCTOR_MODEL_IS_NULL");
 
-               ViewBag.Seminars = dataAccess.getseminars();
+                model.instructor_id = instructor.instructor_id;
+                model.InstructorName = instructor.Name;            
+                model.Address1 = instructor.Address1;
+                model.Address2 = instructor.Address2;
+                model.City = instructor.City;
+                model.StateProvince = instructor.StateProvince;
+                model.Country = instructor.Country;
+                model.Email = instructor.Email;
+                model.Description = instructor.Description;
+                model.DetailsHtml = instructor.DetailsHtml;
+                model.Phone = instructor.Phone;
+                model.Fax = instructor.Fax;
+                model.IsActive = instructor.IsActive;
+             
+                //get list of countries
+                model.Countries = ListClass.CountryList;
 
-               ViewBag.Countries = dataAccess.getCountries();
-
-               return View(instructor); 
+                return View(model); 
             }
             catch (CustomException ex)
             {
@@ -436,18 +558,40 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost, ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult EditConsultant(instructor model, HttpPostedFileBase file)
+        public ActionResult EditConsultant(InstructorViewModel model)
         {
             try
             {
-                string fileName = System.IO.Path.GetFileName(file.FileName); 
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/images/consultants"), fileName);
-                // file is uploaded
-                file.SaveAs(path);
-                model.ImageName = file.FileName;
-                model.ImagePath = "images/consultants/" + fileName;
-                dataAccess.updateInstructor(model);
+                if (model== null)
+                    throw new CustomException("INSTRUCTOR_MODEL_IS_NULL");
+                instructor instructor = new instructor();
+                if (model.File != null)
+                {
+                    string fileName = System.IO.Path.GetFileName(model.File.FileName);
+                    string path = System.IO.Path.Combine(
+                                           Server.MapPath("~/images/consultants"), fileName);
+                    // file is uploaded
+                    model.File.SaveAs(path);
+                    instructor.ImageName = model.File.FileName;
+                    instructor.ImagePath = "images/consultants/" + fileName;
+                }
+                
+                instructor.instructor_id = model.instructor_id;
+                instructor.Name = model.InstructorName;            
+                instructor.Address1 = model.Address1;
+                instructor.Address2 = model.Address2;
+                instructor.City = model.City;
+                instructor.StateProvince = model.StateProvince;
+                instructor.Country = model.Country;
+                instructor.Email = model.Email;
+                instructor.Description = model.Description;
+                instructor.DetailsHtml = model.DetailsHtml;
+                instructor.Phone = model.Phone;
+                instructor.Fax = model.Fax;
+                instructor.IsActive = model.IsActive;
+
+                dataAccess.updateInstructor(instructor);
+
                 return RedirectToAction("ConsultantList");
             }
             catch (CustomException ex)
@@ -529,10 +673,7 @@ namespace StatisticalSolutions.Controllers
         public ActionResult InactiveClients(bool IsActive) 
         {
             try
-            {              
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-
+            {  
                 List<client> clientList = dataAccess.getCompanies(IsActive);
 
 
@@ -560,8 +701,9 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                ViewBag.Countries = dataAccess.getCountries();
-                return View();
+                ClientViewModel model = new ClientViewModel();
+                model.Countries = ListClass.CountryList;
+                return View(model);
             }
             catch (CustomException ex)
             {
@@ -584,12 +726,29 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddClient(client model)
+        public ActionResult AddClient(ClientViewModel model)
         {
             try
             {
-                model.IsActive = true;
-                dataAccess.addclient(model);
+                client client = new client();
+                if (model == null)
+                    throw new CustomException("CLIENT_MODEL_IS_NULL");
+                else
+                {                  
+                    client.Name = model.ClientName;                 
+                    client.Address1 = model.Address1;
+                    client.Address2 = model.Address2;
+                    client.City = model.City;
+                    client.StateProvince = model.StateProvince;
+                    client.Country = model.Country;
+                    client.Email = model.Email;
+                    client.Description = model.Description;
+                    client.Phone = model.Phone;
+                    client.Fax = model.Fax;
+                    client.IsActive = true;                   
+                }               
+                
+                dataAccess.addclient(client);
                 return RedirectToAction("ClientsList");
             }
             catch (CustomException ex)
@@ -616,10 +775,29 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                client client = dataAccess.getcompaniesbyid(id);
-                ViewBag.Countries = dataAccess.getCountries();
+                ClientViewModel model = new ClientViewModel();
 
-                return View(client);
+                client client=dataAccess.getcompaniesbyid(id);
+
+                if (client != null)                   
+                {
+                    model.client_id = client.client_id;
+                    model.ClientName = client.Name;
+                    model.Address1 = client.Address1;
+                    model.Address2 = client.Address2;
+                    model.City = client.City;
+                    model.StateProvince = client.StateProvince;
+                    model.Country = client.Country;
+                    model.Email = client.Email;
+                    model.Description = client.Description;
+                    model.Phone = client.Phone;
+                    model.Fax = client.Fax;
+                    model.IsActive = client.IsActive;
+                }
+
+                model.Countries = ListClass.CountryList;
+
+                return View(model);
             }
             catch (CustomException ex)
             {
@@ -642,11 +820,31 @@ namespace StatisticalSolutions.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditClient(client model)
+        public ActionResult EditClient(ClientViewModel model)
         {
             try
             {
-                dataAccess.updateclient(model);
+                client client = new client();
+                if (model == null)
+                    throw new CustomException("CLIENT_MODEL_IS_NULL");
+                else
+                {
+                    client.client_id = model.client_id;
+                    client.Name = model.ClientName;               
+                    client.Address1 = model.Address1;
+                    client.Address2 = model.Address2;
+                    client.City = model.City;
+                    client.StateProvince = model.StateProvince;
+                    client.Country = model.Country;
+                    client.Email = model.Email;
+                    client.Description = model.Description;
+                    client.Phone = model.Phone;
+                    client.Fax = model.Fax;
+                    client.IsActive = model.IsActive;                
+                }             
+
+                dataAccess.updateclient(client);
+
                 return RedirectToAction("ClientsList");
             }
             catch (CustomException ex)
@@ -704,13 +902,14 @@ namespace StatisticalSolutions.Controllers
                 bulkMailModel.Students =new List<student>();
                 bulkMailModel.Registration = new registration();
 
-               
-                ViewBag.Filter = getFilterList();
+                string[] filteres = getFilterList();
+                bulkMailModel.Filteres = filteres;
+                TempData["Filters"] = filteres;
 
+                List<seminar> seminars = dataAccess.getregisteredseminars();
+                bulkMailModel.Seminars = seminars;           
 
-                ViewBag.regseminars = dataAccess.getregisteredseminars();
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
+                TempData.Keep();
 
                 return View(bulkMailModel);
             }
@@ -729,45 +928,88 @@ namespace StatisticalSolutions.Controllers
 
 
         /// <summary>
+        /// filter action of bulk mails
+        /// </summary>
+        /// <param name="FilterText"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult BulkMailsFilter(string FilterText)
+        {
+            try
+            {
+                //BulkMailModel model = new BulkMailModel();
+                //model.Registration = new registration();
+                //model.Students = new List<student>();
+
+                //if (TempData["Filters"] != null)
+                //    model.Filteres = TempData["Filters"] as string[];
+                //else
+                //    model.Filteres = getFilterList();
+
+                //TempData["filteredText"] = FilterText;
+                //TempData.Keep();
+               
+
+                //model.Seminars = dataAccess.getfilterregisteredseminars(FilterText);
+
+                //return View("BulkMails", model);
+
+                var seminars = dataAccess.getfilterregisteredseminars(FilterText);
+
+                //return Json( seminars , JsonRequestBehavior.AllowGet);
+                return Json(new { value = seminars, status = "success" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (CustomException ex)
+            {
+                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
+                return Json(new { value = ex.Message, status = "error" }, JsonRequestBehavior.AllowGet);
+                //return CustomExceptionCatcher(ex);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
+                return Json(new { value = ex.Message, status = "error" }, JsonRequestBehavior.AllowGet);
+                //return SystemExceptionCatcher(ex);
+            }
+
+        }
+
+        /// <summary>
         /// contrrlller  for sending bulk mails
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult BulkMails(BulkMailModel model)  
+        public ActionResult BulkMails(BulkMailModel model)   
         {
             try
             {
                 MailSender _maillSender = new MailSender();
                 Mails mail = _maillSender.SetMailsProperty();
 
-                seminar seminar = dataAccess.getseminarbyid(model.Registration.seminar_id);
 
-                //get list of students registered for a particular seminar
-                List<student> students = dataAccess.getseminarregisteredstudents(model.Registration.seminar_id);
-
-                if (students.Any())
+                seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
+               
+                if (model.Students.Any())
                 {
-                      foreach (student st in students)
+                    foreach (student st in model.Students)
                     {
-                        if(st.IsActive)
-                        {
-                            mail.Name = st.FirstName + " " + st.LastName;
-                            mail.Body = "Hi " + st.FirstName + ", <br/><br/> You have registered for workshop " + seminar.TitleHtml + " starting from " + seminar.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
-                            mail.From = ConfigurationManager.AppSettings["EmailFrom"];
-                            mail.To = st.Email;
-                            mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
-                            mail.Subject = "You have registered for " + seminar.TitleHtml;
-                            // _maillSender.SendMail(mail);
-                            MailExtention.sendemail(mail.To, mail.Subject, mail.Body);  //using sendmail
-                            Log.Info("Function BulkMails - End of mail sending");
-                        }
-            
+                       
+                        mail.Name = st.FirstName + " " + st.LastName;
+                        mail.Body = "Hi " + st.FirstName + ", <br/><br/> You have registered for workshop " + seminar.TitleHtml + " starting from " + seminar.StartDate + " at statistical solutions. <br/><br/> Regards<br/>Statistical Solutions Team";
+                        mail.From = ConfigurationManager.AppSettings["EmailFrom"];
+                        mail.To = st.Email;
+                        mail.CC = ConfigurationManager.AppSettings["AdminEmail"];
+                        mail.Subject = "You have registered for " + seminar.TitleHtml;
+                        // _maillSender.SendMail(mail);
+                        //MailExtention.sendemail(mail.To, mail.Subject, mail.Body);  //using sendmail
+                        Log.Info("Function BulkMails - End of mail sending");
+                        
                     }
                 }
 
-                ViewBag.MailCount = students.Count; ;
-                return View("BulkMailSent");
+                return Json(new { totalCount = model.Students.Count, status="success"}, JsonRequestBehavior.AllowGet); 
             }
             catch (CustomException ex)
             {
@@ -788,34 +1030,25 @@ namespace StatisticalSolutions.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        [HttpGet]
-        public ActionResult BulkMailStudents(int id)     
+        [HttpPost]
+        public ActionResult BulkMailStudents(string id)     
         {
             try
             {
-                BulkMailModel model = new BulkMailModel();
-             
-                ViewBag.Filter = getFilterList();
-                string filtertext = TempData["filteredText"] as string;
-                if(!string.IsNullOrEmpty(filtertext))                
-                    ViewBag.regseminars = dataAccess.getfilterregisteredseminars(filtertext);              
-                else
-                    ViewBag.regseminars = dataAccess.getregisteredseminars();
 
+                int seminar_id=Convert.ToInt32(id);
+                    
+                BulkMailModel model = new BulkMailModel();
+
+                model.Registration = new registration();
+                model.Registration.seminar_id = seminar_id;
 
                 //get list of students registered for a particular seminar
-                List<student> students = dataAccess.getseminarregisteredstudents(id);
-
-                model.Registration = new registration();
-                model.Registration.seminar_id = id;
+                List<student> students = dataAccess.getseminarregisteredstudents(seminar_id);                
 
                 model.Students = students;
-                
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
 
-
-
-                return View("BulkMails", model);
+                return PartialView("BulkMailsPartial", model); 
             }
             catch (CustomException ex)
             {
@@ -830,42 +1063,8 @@ namespace StatisticalSolutions.Controllers
 
         }
 
-        /// <summary>
-        /// filter action of bulk mails
-        /// </summary>
-        /// <param name="FilterText"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult BulkMailsFilter(string FilterText)
-        {
-            try
-            {
-                BulkMailModel model=new BulkMailModel();
-                model.Registration = new registration();
-                model.Students = new List<student>();
-                ViewBag.Filter = getFilterList();
 
-                TempData["filteredText"] = FilterText;
-                TempData.Keep();
-
-                ViewBag.regseminars = dataAccess.getfilterregisteredseminars(FilterText);
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-              
-                return View("BulkMails", model);
-            }
-            catch (CustomException ex)
-            {
-                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
-                return CustomExceptionCatcher(ex);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(m => m("Function BulkMailsFilter Error  - {0}", ex.Message));
-                return SystemExceptionCatcher(ex);
-            }
-
-        }
+      
         #endregion
 
 
@@ -879,8 +1078,11 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-                List<student> students = dataAccess.getstudents(null);
+                //get list of students
+                List<student> students = dataAccess.getstudents();
+
                 ViewBag.InactiveStudents = "InactiveStudents";
+
                 return View(students);
             }
             catch (CustomException ex)
@@ -898,15 +1100,17 @@ namespace StatisticalSolutions.Controllers
 
 
         /// <summary>
-        /// get list of students
+        ///  get list of registered students by seminar id
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
         public ActionResult RegisteredStudents(int  id)
         {
             try
             {
+                //get student by student id
                 List<student> students = dataAccess.getstudents(id);
-                ViewBag.InactiveStudents = "InactiveStudents";
+               
                 return View("StudentList", students);
             }
             catch (CustomException ex)
@@ -931,10 +1135,7 @@ namespace StatisticalSolutions.Controllers
         {
             try
             {
-
-                ViewBag.VirtualPath = HostingEnvironment.ApplicationVirtualPath;
-
-                
+                //get list of active students
                 List<student> students = dataAccess.getinactivestudents(IsActive);
 
                 return View("StudentList", students);
@@ -953,41 +1154,66 @@ namespace StatisticalSolutions.Controllers
         }
 
 
+        ///// <summary>
+        ///// post action of add student
+        ///// </summary>
+        ///// <param name="model"></param>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult AddStudent(student model)
+        //{
+        //    try
+        //    {
+        //        model.IsActive = true;
+        //        dataAccess.addstudent(model);
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddStudent(student model)
-        {
-            try
-            {
-                model.IsActive = true;
-                dataAccess.addstudent(model);
-
-                return RedirectToAction("StudentList");
-            }
-            catch (CustomException ex)
-            {
-                Log.Error(m => m("Function AddStudent Error  - {0}", ex.Message));
-                return CustomExceptionCatcher(ex);
-            }
-            catch (Exception ex)
-            {
-                Log.Error(m => m("Function AddStudent Error  - {0}", ex.Message));
-                return SystemExceptionCatcher(ex);
-            }
+        //        return RedirectToAction("StudentList");
+        //    }
+        //    catch (CustomException ex)
+        //    {
+        //        Log.Error(m => m("Function AddStudent Error  - {0}", ex.Message));
+        //        return CustomExceptionCatcher(ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error(m => m("Function AddStudent Error  - {0}", ex.Message));
+        //        return SystemExceptionCatcher(ex);
+        //    }
 
 
-        }
+        //}
 
 
         public ActionResult EditStudent(int id)
         {
             try
             {
-                student student = dataAccess.getstudentbyid(id);
-                ViewBag.Countries = dataAccess.getCountries();
+                StudentViewModel model = new StudentViewModel();
 
-                return View("EditStudent", student);
+                //get student by student id
+                student student= dataAccess.getstudentbyid(id);
+                if (student!=null)
+                {
+                    model.student_id = student.student_id;
+                    model.FirstName = student.FirstName;
+                    model.LastName = student.LastName;
+                    model.Address1 = student.Address1;
+                    model.Address2 = student.Address2;
+                    model.City = student.City;
+                    model.StateProvince = student.StateProvince;
+                    model.Country = student.Country;
+                    model.Email = student.Email;
+                    model.BankAccountNumber = student.BankAccountNumber;
+                    model.Phone = student.Phone;
+                    model.Fax = student.Fax;
+                    model.IsActive = student.IsActive;
+                }
+
+                //get list of countries
+                model.Countries = ListClass.CountryList;
+
+                return View("EditStudent", model);
             }
             catch (CustomException ex)
             {
@@ -1005,11 +1231,31 @@ namespace StatisticalSolutions.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditStudent(student model)
+        public ActionResult EditStudent(StudentViewModel  model)
         {
             try
             {
-                dataAccess.updatestudent(model);
+                student student = new student();
+                if(model !=null)
+                {
+                    student.student_id = model.student_id;
+                    student.FirstName = model.FirstName;
+                    student.LastName = model.LastName;
+                    student.Address1 = model.Address1;
+                    student.Address2 = model.Address2;
+                    student.City = model.City;
+                    student.StateProvince = model.StateProvince;
+                    student.Country = model.Country;
+                    student.Email = model.Email;
+                    student.BankAccountNumber = model.BankAccountNumber;
+                    student.Phone = model.Phone;
+                    student.Fax = model.Fax;
+                    student.IsActive = model.IsActive;
+                }
+                else
+                    throw new CustomException("STUDENT_MODEL_IS_NULL");
+
+                dataAccess.updatestudent(student);
 
                 return RedirectToAction("StudentList");
             }

@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<div class="container focus">
+    <h4>Admin Dashboard</h4>
+
+</div>
+
+<div class='container eight columns'>
+    <section>
+       
+        <div class='container three columns'>
+            <ul >
+                <li>
+                    <hr />
+                    @Html.ActionLink("Add Workshop", "AddWorkshop", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Workshops", "WorkshopList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("Add Consultant", "AddConsultant", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Consultants", "ConsultantList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Students", "StudentList", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("Add Aclient", "AddClient", "Admin")
+                    <hr />
+                </li>
+                <li>
+                    @Html.ActionLink("List of Clients", "ClientsList", "Admin")
+                    <hr />
+                </li>
+
+                <li>
+                    @Html.ActionLink("Send mail to Registered Students", "BulkMails", "Admin")
+                    <hr />
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+    </section>
+
+
+</div>

@@ -1,4 +1,4 @@
-﻿@model StatisticalSolutions.Models.client
+﻿@model StatisticalSolutions.Models.ClientViewModel
 @{
     ViewBag.Title = "EditClient";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <div class='container focus'>
     <div class="breadcrumb" id="divPageTitle_Add">
-        <a tabindex="13" href="@Url.Action("Admin", "Account")">Dashboard</a>
+        <a tabindex="13" href="@Url.Action("Admin", "Admin")">Dashboard</a>
         <span class="active"> - </span>
         <a tabindex="14" href="@Url.Action("ClientsList", "Admin")">Clients List</a>
         <span class="active"> - Edit Client</span>
@@ -28,13 +28,12 @@
                             <div>
                                 @Html.TextBoxFor(model => model.client_id, new { @style = "visibility:hidden;" })
                                 <label>Client Name</label>
-                                @Html.ValidationMessageFor(model => model.Name)
-                                @Html.TextBoxFor(model => model.Name, new { @tabindex = "1", @placeholder = "Client Name", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ClientName)
+                                @Html.TextBoxFor(model => model.ClientName, new { @tabindex = "1", @placeholder = "Client Name", @class = "form-control" })
                             </div>
                         </li>
                         <li>
-                            <label>Description</label>
-                            @Html.ValidationMessageFor(model => model.Description)
+                            <label>Description</label>                        
                             @Html.TextBoxFor(model => model.Description, new { @tabindex = "2", @placeholder = "Description", @class = "form-control" })
                         </li>
 
@@ -64,7 +63,7 @@
                         <li>
                             <label>Country</label>
                             @Html.ValidationMessageFor(model => model.Country)
-                            @Html.DropDownListFor(model => model.Country, new SelectList(@ViewBag.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "-- Select Country --", new { @tabindex = "7" })
                         </li>
 
                         <li>
@@ -80,9 +79,8 @@
 
                         </li>
                         <li>
-                            <label>Fax Number</label>
-                            @Html.ValidationMessageFor(model => model.Fax)
-                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
+                            <label>Fax Number</label>                           
+                            @Html.TextBoxFor(model => model.Fax, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
 
                         </li>
                         <li>
