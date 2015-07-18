@@ -1,0 +1,30 @@
+﻿@model StatisticalSolutions.ViewModels.SeminarInstructorModel
+<tr>
+    <td>
+        @{string path = ViewBag.VirtualPath + "/"+ Model.Instructor.ImagePath;}
+        <img src="@path" height="60" width="60" class="img-circle" />
+   
+    </td>
+    <td>    
+        <a href='@Url.Action("AssignedSeminars", "Admin", new { id = Model.Instructor.instructor_id })'>@Model.seminar.TitleHtml</a>
+
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.Instructor.Email)
+
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.Instructor.Phone)
+    </td>
+    <td>
+        @if(Model.seminar!=null)
+        {
+           @Html.DisplayFor(model => model.seminar.TitleHtml)  
+        }
+       
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "EditConsultant", new { id = Model.Instructor.instructor_id }) |
+        @Html.ActionLink("Delete", "DeleteConsultant", new { id = Model.Instructor.instructor_id })
+</tr>

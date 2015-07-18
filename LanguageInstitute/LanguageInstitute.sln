@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webclient", "StatisticalSolutions\Webclient.csproj", "{333BA94E-761A-40D2-A626-E5A79023257E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webclient.Tests", "StatisticalSolutions.Tests\Webclient.Tests.csproj", "{7BF5E530-BDCA-4CCF-8823-D69251B324C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "StatisticalSolutions.Domain\Domain.csproj", "{05C9034C-1FE5-4FFE-B115-F976576CEAE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{333BA94E-761A-40D2-A626-E5A79023257E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{333BA94E-761A-40D2-A626-E5A79023257E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{333BA94E-761A-40D2-A626-E5A79023257E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{333BA94E-761A-40D2-A626-E5A79023257E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BF5E530-BDCA-4CCF-8823-D69251B324C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BF5E530-BDCA-4CCF-8823-D69251B324C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BF5E530-BDCA-4CCF-8823-D69251B324C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BF5E530-BDCA-4CCF-8823-D69251B324C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C9034C-1FE5-4FFE-B115-F976576CEAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C9034C-1FE5-4FFE-B115-F976576CEAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C9034C-1FE5-4FFE-B115-F976576CEAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C9034C-1FE5-4FFE-B115-F976576CEAE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

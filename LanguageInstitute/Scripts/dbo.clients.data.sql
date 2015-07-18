@@ -1,0 +1,6 @@
+SET IDENTITY_INSERT [dbo].[clients] ON
+INSERT INTO [dbo].[clients] ([client_id], [Name], [Address1], [Address2], [City], [StateProvince], [ZipPostalCode], [Country], [Description], [Email], [Phone], [Fax], [IsActive]) VALUES (1, N'Company1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'info@company1.com', NULL, NULL, 0)
+INSERT INTO [dbo].[clients] ([client_id], [Name], [Address1], [Address2], [City], [StateProvince], [ZipPostalCode], [Country], [Description], [Email], [Phone], [Fax], [IsActive]) VALUES (2, N'Company2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'info@Company2.com', NULL, NULL, 0)
+INSERT INTO [dbo].[clients] ([client_id], [Name], [Address1], [Address2], [City], [StateProvince], [ZipPostalCode], [Country], [Description], [Email], [Phone], [Fax], [IsActive]) VALUES (3, N'Test', N'kjhgfdkjhgf', N'jhgf', N'kjhgf', N'kjhgf', NULL, N'United States', N'sdfgh', N'testcom@test.com', N'65432', NULL, 0)
+INSERT INTO [dbo].[clients] ([client_id], [Name], [Address1], [Address2], [City], [StateProvince], [ZipPostalCode], [Country], [Description], [Email], [Phone], [Fax], [IsActive]) VALUES (4, N'Test Company', N'oiytre', N'oiuytr', N'oiuytr', N'oiuytre', NULL, N'United States', N'iuytrew', N'testcompany@test.com', N'hgfdsa', NULL, 1)
+SET IDENTITY_INSERT [dbo].[clients] OFF
