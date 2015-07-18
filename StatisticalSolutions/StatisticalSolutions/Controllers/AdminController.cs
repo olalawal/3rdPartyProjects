@@ -1079,7 +1079,7 @@ namespace StatisticalSolutions.Controllers
             try
             {
                 //get list of students
-                List<student> students = dataAccess.getstudents();
+                List<student> students = dataAccess.getstudents(null);
 
                 ViewBag.InactiveStudents = "InactiveStudents";
 
