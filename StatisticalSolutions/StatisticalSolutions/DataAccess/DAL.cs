@@ -736,7 +736,8 @@ namespace StatisticalSolutions.DataAccess
             try
             {
                 DateTime today = DateTime.Now;
-                List<seminar> seminars = db.seminars.Where(s => s.IsActive && s.StartDate >= today).OrderBy(s => s.StartDate).OrderBy(s => s.Starttime).Distinct().ToList();
+                List<seminar> seminars = db.seminars.Where(s => s.IsActive && s.StartDate >= today).OrderBy(s => s.StartDate).Distinct().ToList();
+                //List<seminar> seminars = db.seminars.Where(s => s.IsActive && s.StartDate >= today).OrderBy(s => s.StartDate).OrderBy(s => s.Starttime).Distinct().ToList();
                 return seminars;
             }
             catch (CustomException ex)

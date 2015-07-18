@@ -44,7 +44,7 @@ namespace StatisticalSolutions.Controllers
 
             //get list of seminars
             List<seminar> seminars = dataAccess.getfutureseminars();  
-            model.Seminars = seminars;
+            model.Seminars= seminars;
             
             //get list of instructors
             List<instructor> instructors = dataAccess.getinstructors();
