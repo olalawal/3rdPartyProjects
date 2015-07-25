@@ -1,0 +1,49 @@
+﻿
+@modelLanguageInstitute.Models.seminar
+<div class='container four columns'>
+    <ul>
+        <li>
+            <a  href='@Url.Action("Workshop", "Workshop", new { id = Model.seminar_id })'>@Model.TitleHtml</a>           
+        </li>
+        <li>
+            @if (Model.instructor!=null)
+            {
+               @Model.instructor.Name  
+            }
+           
+        </li>
+        <li>
+            @if (Model.StartDate == Model.Enddate)
+            {
+                @Model.StartDate.ToString("MMM, d")
+            }
+            else
+            {
+                if (Model.StartDate.Month == Model.Enddate.Month)
+                {
+                    <span>
+                        @Model.StartDate.ToString("MMM, d")
+                    </span>
+                    <span> - </span>
+                    <span>  @Model.Enddate.Day</span>
+                }
+                else
+                {
+                    <span>
+                        @Model.StartDate.ToString("MMM, d")
+                    </span>
+                    <span> - </span>
+                    <span> @Model.Enddate.ToString("MMM, d") </span>
+                }
+            }
+            @if (!string.IsNullOrEmpty(Model.City))
+            {
+                <span>, </span>  <span>
+
+                    @Model.City
+                </span>
+            }
+        </li>
+    </ul>
+</div>
+

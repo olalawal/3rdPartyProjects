@@ -1,0 +1,141 @@
+﻿@model StatisticalSolutions.Models.message
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+    HtmlHelper.ClientValidationEnabled = true;
+}
+
+<div class='container'>
+
+    <div class='one-third column'>
+        <img src="~/Images/misc/about_us.png">
+        <h3>About Us</h3>
+        <p>We are a statistical training and consulting company based in Nigeria. We provide statistical hands-on training and expertise in several fields such as Medicine, Agriculture, Biological Sciences and Social Sciences to companies and post-secondary faculty.</p>
+    </div>
+
+
+    <div class='one-third column'>
+        <img src='~/images/misc/team.png'>
+        <h3>Consultants</h3>
+        <p>We are experts in the data analysis and have over 30 years of teaching and collaboration experiences in the United States and Nigeria.</p>
+    </div>
+
+
+
+    <div class='one-third column'>
+        <img src='~/images/misc/goals.png'>
+        <h3>Goals</h3>
+        <p>To enhance the capability of Nigerian Researchers in various disciplines in the use of Statistical methods in analyzing their research data and in some cases-instructional capability.</p>
+    </div>
+
+</div>
+
+
+<div class='clear'></div>
+
+
+<div class='orange'>
+
+    <div class='container'>
+        <h3>Get to know what we do</h3>
+      <!--  <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+        </p>-->
+        <a href="@Url.Action("About", "Home")" class='dalej'>See closer what we do</a>
+
+    </div>
+
+</div>
+
+
+<div class='clear'></div>
+<div class='clear'></div>
+
+<section class='gray'>
+    <div class='container'>
+        <div class='two-thirds column'>
+            <h3>Something About the team</h3>
+            <p>
+                Bayo Lawal, Ph.D., FNSA , is a professor of Statistics at Kwara State University, Malete. Nigeria. His research focused on small samples in contingency tables, models for square tables having ordinal categories; categorical data analysis and overdispersed count regression models. He is the author of Applied Statistcal Methods in Agriculture, health and Life Sciences (2014, Springer).
+                <br><br>
+                Felix Famoye, Ph.D., is a professor and a consulting statistician in the Department of Mathematics at Central Michigan University, Mount Pleasant, Michigan, USA. He is an Editor-in-Chief of Journal of Statistical Distributions and Applications.
+            </p>
+        </div>
+
+        <div class='one-third column gallery'>
+            <h3>Get to know us</h3>
+
+            <a rel="example_group" title="Professor Bayo Lawal" href='~/Images/DSC_1125.JPG'><img src='~/Images/DSC_1125.JPG' width="120" height="120"></a>
+
+            <a rel="example_group" title="Professor Felix Famoye" href="~/Images/Famoye.JPG"><img class="img-circle" src='~/Images/Famoye.JPG' width="120" height="120"></a>
+
+            @*<a rel="example_group" href='images/photos/3.jpg'><img src='images/photos/3.jpg'></a>
+
+                <a rel="example_group" href='images/photos/4.jpg'><img src='images/photos/4.jpg'></a>*@
+        </div>
+    </div>
+</section>
+
+
+<div class='clear'></div>
+
+
+<div class='container'>
+    <div class='sixteen columns form'>
+        <h3>Contact Us</h3>
+        <p>Go ahead, write something. Send it, and we will respond in 24 hours</p>
+        @using (Html.BeginForm("ContactUsMail", "Home"))
+        {
+            @Html.AntiForgeryToken()
+        
+            <div class="left-align">
+                <fieldset>
+                    @*<legend>Set Password Form</legend>*@
+                    <ol>
+                        <li>
+                            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+                            @Html.ValidationMessageFor(m => m.Name)
+                            @Html.TextBoxFor(m => m.Name, new { @tabindex = "1", @class = "form-control" })
+                           
+                        </li>
+                        <li>
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            @Html.ValidationMessageFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, new { @tabindex = "2", @class = "form-control" })
+                          
+                        </li>
+                        <li>
+                            @Html.LabelFor(m => m.Body, new { @class = "control-label" })
+                            @Html.ValidationMessageFor(m => m.Body)
+                            @Html.TextAreaFor(m => m.Body, new { @tabindex = "3", @row = "15", @cols = "50", @class = "form-control" })
+                         
+                        </li>
+
+                        <li>
+                            <input type="submit" tabindex="4" value="Submit" style="margin-top:20px;text-align:center;" />
+
+                        </li>
+                    </ol>
+
+
+                </fieldset>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+<div class='clear'></div>
+@if (!string.IsNullOrEmpty(Convert.ToString(TempData["StatisticalError"])))
+{
+    <script>
+      var error = "@TempData["StatisticalError"]";
+      alert(error);
+    </script>
+    TempData["StatisticalError"] = null;
+}
+
+

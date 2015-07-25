@@ -1,0 +1,63 @@
+﻿@modelLanguageInstitute.Models.RegistrationViewModel
+
+<div id="divregistration">
+    <fieldset>
+        <ol>
+            <li>
+                <label>WorkShop</label>
+                @Html.ValidationMessageFor(m => m.seminar_id)
+                @Html.DropDownListFor(model => model.seminar_id, new SelectList(Model.Seminars, "seminar_id", "TitleHtml", Model.seminar_id), "-- Select Seminar --", new { @tabindex = "1", @placeholder = "Seminar", onchange = "return selectseminar(this.options[this.selectedIndex].value, this.selectedIndex)" })
+            </li>
+            <li>
+               
+                    <label>Start Date</label>
+                    
+                    @Html.TextBoxFor(model => model.Starttime, new { @tabindex = "4", @placeholder = "Start Date", @class = "form-control" })
+
+
+            </li>
+            <li>
+                <div>
+                    <label>Company</label>
+                    @Html.TextBoxFor(model => model.ClientName, new { id = "txtCompany", @tabindex = "3", @placeholder = "Auto complete i.e as they type the company they get suggestions from client table", style = "width:100%;float:left", @class = "form-control" })
+                </div>
+            </li>
+            <li>
+
+                <label>First Name</label>
+                @Html.ValidationMessageFor(model => model.FirstName)
+                @Html.TextBoxFor(model => model.FirstName, new { @tabindex = "4", @placeholder = "Your First name", @class = "form-control" })
+
+            </li>
+            <li>
+                <label>Last Name</label>
+                @Html.ValidationMessageFor(model => model.LastName)
+                @Html.TextBoxFor(model => model.LastName, new { @tabindex = "5", @placeholder = "Your Last name", @class = "form-control" })
+
+            </li>
+           
+
+            <li>
+                <label>Email Address</label>
+                @Html.ValidationMessageFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new { @tabindex = "11", @placeholder = "Your Email address", @class = "form-control" })
+
+            </li>
+      
+            <li>
+                <label>Phone Number</label>
+                @Html.ValidationMessageFor(model => model.Phone)
+                @Html.TextBoxFor(model => model.Phone, new { @tabindex = "13", @placeholder = "Your phone number", @class = "form-control" })
+
+            </li>
+        
+
+            <li>
+                @*<a href='@Url.Action("RegisterComplete", "Home")'  class='button medium green'>Submit</a>*@
+                <input type="submit" tabindex="15" value="Submit" class="button medium green" />
+            </li>
+        </ol>
+    </fieldset>
+
+</div>
+

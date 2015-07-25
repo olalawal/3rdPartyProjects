@@ -1,0 +1,33 @@
+﻿@modelLanguageInstitute.Models.instructor
+         
+<div class="two columns">
+   
+    @{string path = "http://statisticalsolutions.azurewebsites.net/" + @Model.ImagePath;}
+    
+    <img src="@path" height="90" width="90" class="img-circle" />
+</div>
+<div class="three columns">
+    <ul>
+        <li>
+            <a href='@Url.Action("Consultant", "Instructor", new { id = Model.instructor_id })' >@Model.Name</a>
+           
+        </li>
+
+        <li>
+            @if(!string.IsNullOrEmpty(Model.Description))
+            {
+                 if(Model.Description.Length > 200)
+                {  
+                    @Html.Raw(Model.Description.Substring(0,200).Trim())
+                }
+                else
+                { 
+                 @Html.Raw(Model.Description.Trim())
+                } 
+            }
+          
+         
+        </li>
+
+    </ul>
+</div>

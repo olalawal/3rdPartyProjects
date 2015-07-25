@@ -1,0 +1,21 @@
+﻿@model StatisticalSolutions.Models.instructor
+<div class='nine '>
+    <legend class="legend-line"></legend>
+
+    <div class="two columns">         
+        @{string path = "http://statisticalsolutions.azurewebsites.net/" + Model.ImagePath;}        
+        <img src=@path height="110" width="110" class="img-circle" />
+    </div>
+    <div class="con-desc text-justify">
+        <div class=" font-15  text-uppercase font-bold">
+            @Html.Raw(Model.Name)
+        </div>    
+
+        @Html.Raw(Model.Description.Trim())
+        <br />
+        <div class="light-orange font-bold">
+            <a class="light-orange font-bold" href='@Url.Action("Consultant", "Instructor", new { id = Model.instructor_id })'>Learn More..</a>
+        </div>
+
+    </div>
+</div>

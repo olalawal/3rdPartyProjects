@@ -1,0 +1,303 @@
+﻿@using LanguageInstitute.Helpers
+@using System.Web.Optimization
+@using LanguageInstitute.Util 
+
+
+<!-- =============================================== -->
+<!-- =                                             = -->
+<!-- =                Keyners	                   = -->
+<!-- =                                             = -->
+<!-- =          http://keyners.com/	               = -->
+<!-- =============================================== -->
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+    <head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Statistical Solution</title>
+	<meta name="description" content="">
+	<meta name="author" content=" Made by Keyners">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- PT Sans -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- Crete Roung -->
+	<link href='http://fonts.googleapis.com/css?family=Crete+Round&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<!-- CSS
+  ================================================== -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/css")   
+    @Styles.Render("~/fancybox")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/form")
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+
+        <script type="text/javascript">
+    var baseSiteURL = '@Url.Content("~")';
+        </script>
+
+	
+	
+
+</head>
+    <body>
+        <header>			
+		<nav>
+			<div class='container'>
+				<div class='five columns logo'>
+                    <a href='@Url.Action("Index", "Home")'  ><img src="~/Images/logo1-0-2Color.png" width="304" height="46" ></a>
+				<!--	<a href='@Url.Action("Index", "Home")'  ><img src="~/Images/logo1-0-1Color.png" width="340" height="78" ></a>-->
+                 <!-- <a href='@Url.Action("Index", "Home")'  ><img src="~/Images/Current-statistical-solutionslogo.png" height="125" ></a>--> 
+              
+				</div>
+
+				<div class='eleven columns'>
+					<ul class='mainMenu'>
+						 <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Workshops", "WorkShops", "Workshop")</li>
+                            <li>@Html.ActionLink("Consultants", "Consultants", "Instructor")</li>
+                            <li>@Html.ActionLink("Register", "Register", "Workshop")</li>
+                            @*<li>  @Html.Partial("_LoginPartial")</li>*@
+
+
+					</ul>
+                    <ul>
+
+                    </ul>
+				</div>
+                   
+			</div>
+		</nav>
+
+		<div class='container'>
+			<div class='slogan'>
+				<div class='ten columns'>
+					<h2>Now at LOYAB Statistical <br>Consulting Group</h2>
+					<h3>Consulting and Training Solutions</h3>
+				</div>
+
+				<div class='six columns'>
+					<h4>Upcoming WorkShops</h4>
+					<p>Early bird registration for <b>Logistic Regression I</b> starting before 
+                        August 12th.
+					</p>
+				
+                    <a href='@Url.Action("RegisterNow", "Workshop", new { name = "Regression Analysis" })'  class='button medium green'>Register Now</a>
+				</div>
+			</div>
+		</div>	
+	</header>
+
+        <div class='clear'></div>
+	    <div class='clear'></div>
+
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <div class='clear'></div>
+
+        <div class='notifications bottom-right'></div>
+       
+	    <footer>
+		    <div class='container'>
+			
+			    <div class='eight columns'>
+				    <h5>Copyright Statistical Solutions LLC</h5>
+				    <p> Powered by NewMediaHoldings LLC   &copy; @DateTime.Now.Year -Statistical Solutions</p>
+			    </div>
+
+			    <div class='four columns social'>
+				  <!--  <h5>Social media</h5>
+				    <a href='#'><img src="~/Images/social/dribbble.png"></a>
+				    <a href='#'><img src='~/Images/social/facebook.png'></a>
+				    <a href='#'><img src='~/Images/social/twitter.png'></a>
+				    <a href='#'><img src='~/Images/social/forrst.png'></a>
+                    -->
+                    <br>
+			    </div>
+
+			    <div class='four columns'>
+				    <h5>Get in touch</h5>
+				    <p>You can call us at:<br>
+					    t:  080 67454289 - NOW</p>
+				    <p>Or drop us a line on:
+					    e: <a href='mailto:info@loyabconsulting.com'>info@loyabconsulting.com</a></p>
+			    </div>
+
+
+		    <a id='top' href='#'>&uarr;</a>	
+		    </div>
+	    </footer>
+	   
+      
+
+      
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/base");
+        @Scripts.Render("~/bundles/HTM5SHIV")
+        @RenderSection("scripts", required: false)
+          <script type="text/javascript">  
+              $(document).ready(function () {
+                  $("a[rel=example_group]").fancybox({
+                      'transitionIn': 'none',
+                      'transitionOut': 'none',
+                      'titlePosition': 'over',
+                      'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                          return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                      }
+                  });
+              });
+	</script>
+         <script type="text/javascript">
+             var form = $('form');
+
+             $(document).ready(function () {
+                 //form.validate({
+                 //    ignore: "",
+                 //    rules: {
+                 //        'message': {
+                 //            required: true,
+                 //        },
+                 //        'name': {
+                 //            required: true,
+                 //        },
+                 //        'mail': {
+                 //            required: true,
+                 //            email: true
+                 //        }
+                 //    },
+                 //    errorPlacement: function (error, element) { }
+
+                 //});
+             });
+	    </script>
+	    <script type="text/javascript">
+	        var toper = $('a#top');
+
+
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) {
+	                toper.fadeIn(200);
+	            } else {
+	                toper.fadeOut(200);
+	            }
+	        });
+
+	        toper.click(function () {
+	            $('html, body').animate({ scrollTop: 0 }, 500);
+	            return false;
+	        });
+
+	        function scrollPageTo(myTarget, topPadding) {
+
+	            if (topPadding == undefined) {
+	                topPadding = 0;
+	            }
+	            var moveTo = $(myTarget).offset().top - topPadding;
+	            $('html, body').stop().animate({
+	                scrollTop: moveTo
+	            }, 1000);
+	        }
+
+	    </script>
+        <script type="text/javascript">
+            StatisticalAlertMessages = {          
+                ClientAllreadyExist: '@Html.GetErrorMessageBasedOnCode("CLIENT_ALLREADY_EXIST")',              
+                StudentAllreadyExist: '@Html.GetErrorMessageBasedOnCode("STUDENT_ALLREADY_EXIST")',   
+                StudentAllreadyRegistered: '@Html.GetErrorMessageBasedOnCode("STUDENT_ALLREADY_REGISTERED")',
+                SeminarDescriptionIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_DESCRIPTION_IS_NULL")',
+                SeminarTitleHtmlIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_TITLEHTML_IS_NULL")',
+                SeminarAllreadyExist: '@Html.GetErrorMessageBasedOnCode("SEMINAR_ALLREADY_EXIST")',
+                SeminarModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("SEMINAR_MODEL_SUPPLIED_IS_NULL")',
+                MessageBodyIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_BODY_IS_NULL")',
+                MessageEmailIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_EMAIL_IS_NULL")',
+                MessageModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("MESSAGE_MODEL_SUPPLIED_IS_NULL")',
+                ErrorInSendingMail: '@Html.GetErrorMessageBasedOnCode("ERROR_IN_SENDING_MAIL")',
+                MessageSentSuccessfully: '@Html.GetErrorMessageBasedOnCode("MESSAGE_SENT_SUCCESSFULLY")',
+                StudentDoesNotExist: '@Html.GetErrorMessageBasedOnCode("STUDENT_DOES_NOT_EXIST")',
+                SeminarDoesNotExist: '@Html.GetErrorMessageBasedOnCode("SEMINAR_DOES_NOT_EXIST")',
+                ClientDoesNotExist: '@Html.GetErrorMessageBasedOnCode("CLIENT_DOES_NOT_EXIST")',
+                InstructorDescriptionIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_DESCRIPTION_IS_NULL")',
+                InstructorNameIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_NAME_IS_NULL")',
+                InstructorAllreadyExist: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_ALLREADY_EXIST")',
+                InstructorModelSuppliedIsNull: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_MODEL_SUPPLIED_IS_NULL")',
+                InstructorDoesNotExist: '@Html.GetErrorMessageBasedOnCode("INSTRUCTOR_DOES_NOT_EXIST")',
+                BulkMailSentSuccessfully:'@Html.GetErrorMessageBasedOnCode("BULK_MAILS_SENT_SUCCESSFULLY")'
+        
+            };
+
+            function WaitUI() {
+                var divWaitMessage = $('<div id="WaitMessage" style="display:none"><button class="spinner"><i class="fa fa-refresh fa-spin"></i>Please wait...</button></div>');
+                $("body").append(divWaitMessage);
+                var obj = {
+                    message: $('#WaitMessage'), css: {
+                        border: 'none',
+                        backgroundColor: 'none',
+                        top: ($(window).height() - 100) / 2 + 'px',
+                        left: ($(window).width() - 100) / 2 + 'px',
+                        width: '150px',
+                        opacity: 1
+                    }
+                };
+                $.blockUI(obj);
+                return obj;
+            }
+            $.ajaxSetup({ cache: false });
+            $(document).ajaxStop(function () {
+
+                $.unblockUI();
+            });
+
+
+    function bindPartialView(container, controller, action, id) {
+
+    
+        var myURL = controller+'/'+action;
+        var fullurl = baseSiteURL + myURL;
+    
+        $.ajax({
+            url: fullurl,
+            data: {'id': id },
+            type: "POST",
+            cache: false,
+            //datatype: 'json',
+            //contentType: 'application/json; charset=utf-8',
+            success: function (data) {             
+                $("#"+container).html(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                Statistical_Alert.error({ title: thrownError, text: '' });
+            }
+        });
+
+
+    }
+</script>
+     
+    </body>
+</html>

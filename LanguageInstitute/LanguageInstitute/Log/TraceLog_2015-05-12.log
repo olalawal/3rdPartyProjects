@@ -1,0 +1,5 @@
+2015-05-12 21:41:45,426 [10] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-12 22:23:34,388 [9] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-05-12 22:23:42,731 [20] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Home/Consultants 
+ 2015-05-12 22:56:28,918 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 

@@ -1,0 +1,71 @@
+﻿@using LanguageInstitute.Models
+@model WorkshopInstructorViewModel
+@{
+    ViewBag.Title = "Consultant";
+Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class=' container focus  text-center'>
+  <h2>Consultant</h2>
+</div>
+
+<div class=' container focus  text-right'>
+
+    Welcome, <span>
+    @if (Model.Instructor!=null)
+    @Model.Instructor.Name</span>!
+</div>
+<div class="clear"></div>
+<div class='container focus'> 
+    <div class='sixteen form'>
+        <section>
+            <div class="content">
+                @if(Model.Seminars!=null)
+                {
+                    if (Model.Seminars.Count != 0)
+                    {
+                        <table class="table table-bordered table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th style="width:30%;">Seminar</th>                               
+                                    <th style="width:20%;">Start Date</th>
+                                    <th style="width:20%;">End Date</th>
+                                    <th style="width:15%;">Start Time</th>
+                                    <th style="width:15%;">End Time</th>
+                               
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (seminar sem in Model.Seminars)
+                                {
+                                    @Html.Partial("_ConsultantPartial", sem)
+                                }
+                            </tbody>
+                        </table>
+                    } 
+                }
+               
+                else
+                {
+                    <p>no workshop records found</p>
+                }
+
+            </div>
+
+        </section>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
