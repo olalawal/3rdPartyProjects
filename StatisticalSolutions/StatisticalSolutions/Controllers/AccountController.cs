@@ -54,40 +54,50 @@ namespace StatisticalSolutions.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-
-               List<string> roles = Roles.GetRolesForUser(model.UserName).ToList();
-
-
-               if (roles.Any(role => role.Contains("Admin")))
+                try
                 {
-                    if (!string.IsNullOrEmpty(returnUrl))
-                        return RedirectToLocal(returnUrl);
-                    else
-                        return RedirectToAction("Admin","Admin");
-                }
-                else if (roles.Any(role=>role.Contains("Student")))
+                    List<string> roles = Roles.GetRolesForUser(model.UserName).ToList();
+
+
+                    if (roles.Any(role => role.Contains("Admin")))
+                    {
+                        if (!string.IsNullOrEmpty(returnUrl))
+                            return RedirectToLocal(returnUrl);
+                        else
+                            return RedirectToAction("Admin", "Admin");
+                    }
+                    else if (roles.Any(role => role.Contains("Student")))
                     {
                         if (!string.IsNullOrEmpty(returnUrl))
                             return RedirectToLocal(returnUrl);
                         else
                             return RedirectToAction("Student", "Student");
                     }
-                else if (roles.Any(role=>role.Contains("Instructor")))
+                    else if (roles.Any(role => role.Contains("Instructor")))
+                    {
+                        if (!string.IsNullOrEmpty(returnUrl))
+                            return RedirectToLocal(returnUrl);
+                        else
+                            return RedirectToAction("Instructor", "Instructor");
+                    }
+
+                    ModelState.AddModelError("", "Sorry! you are not authorized to access the requested page.");
+
+                    // If we got this far, something failed, redisplay form
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+
+
+                }
+                catch (Exception ex)
                 {
-                    if (!string.IsNullOrEmpty(returnUrl))
-                        return RedirectToLocal(returnUrl);
-                    else
-                        return RedirectToAction("Instructor", "Instructor");
+                    //TO DO log
                 }
 
-                ModelState.AddModelError("", "Sorry! you are not authorized to access the requested page.");
+              
             }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
-
 
 
         //

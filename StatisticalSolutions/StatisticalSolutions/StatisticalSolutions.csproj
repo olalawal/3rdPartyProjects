@@ -536,6 +536,7 @@
     <Content Include="Views\Instructor\_ConsultantDetailsPartial.cshtml" />
     <Content Include="Views\Workshop\_SeminarDetailsPartial.cshtml" />
     <Content Include="Views\Shared\_RegisterPartial.cshtml" />
+    <Content Include="Views\Instructor\Instructor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\themes\ui-darkness\images\" />
