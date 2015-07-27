@@ -225,16 +225,29 @@ namespace StatisticalSolutions.Controllers
                 RegistrationViewModel model = new RegistrationViewModel();
            
 
-                //get seminar id from database based on seminar name
-                model.seminar_id = dataAccess.getseminaridbyname(name);
-
+                
 
                 //code for fill value in workshop dropdown 
-                model.Seminars = dataAccess.getseminars();
+                model.Seminars = dataAccess.getseminars().ToList();
+
+                //find a seminar with name matching or clsoe to passed in
+                var dd = model.Seminars.Where(z=>z.TitleHtml.Contains(name)).FirstOrDefault();
+                if (dd == null) {
+                    model.seminar_id = model.Seminars.FirstOrDefault().seminar_id; 
+                }
+                else
+                {
+                    model.seminar_id = dd.seminar_id;
+                }
+
+
 
                 seminar seminar = dataAccess.getseminarbyid(model.seminar_id);
                 //model.StartDates = GetDisplayDates(dataAccess.getfutureseminarsstartdate(model.seminar_id));
          
+
+
+
 
                 //code to fill country in dropdown
                 model.Countries = ListClass.CountryList;
