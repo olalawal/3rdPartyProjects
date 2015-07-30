@@ -1,4 +1,4 @@
-﻿using Domain.StatisticalSolutions.Domain.Models.Context;
+﻿using Domain.LanguageInstitute.Domain.Models.Context;
 using LanguageInstitute.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal bool CheckIfStudentIsRegistereredForSeminar(student model, int seminarid)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 student student = db.students.FirstOrDefault(s => s.Email == model.Email);
@@ -66,7 +66,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int addclient(client model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
 
@@ -109,7 +109,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int addstudent(student model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 //first check if the client name is already in use
@@ -151,7 +151,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int updatestudent(student model) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 student st = db.students.FirstOrDefault(s => s.student_id == model.student_id);
@@ -205,7 +205,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal void deletestudent(int student_id) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 student student = db.students.FirstOrDefault(s => s.student_id == student_id);
@@ -242,7 +242,7 @@ namespace LanguageInstitute.DataAccess
        /// <returns></returns>
         internal int updateclient(client model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {             
                 client client = db.clients.FirstOrDefault(c => c.client_id == model.client_id);
@@ -290,7 +290,7 @@ namespace LanguageInstitute.DataAccess
         /// <param name="client_id"></param>
         internal void deleteclient(int client_id) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 client client = db.clients.FirstOrDefault(s => s.client_id == client_id);
@@ -328,7 +328,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int updateseminar(seminar model) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 seminar objseminar = db.seminars.FirstOrDefault(s => s.seminar_id == model.seminar_id);
@@ -384,7 +384,7 @@ namespace LanguageInstitute.DataAccess
         /// <param name="seminar_id"></param>
         internal void deleteseminar(int seminar_id)  
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id); 
@@ -423,7 +423,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int updateInstructor(instructor model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
 
@@ -476,7 +476,7 @@ namespace LanguageInstitute.DataAccess
         /// <param name="seminar_id"></param>
         internal void deleteInstructor(int instructor_id)  
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 instructor instructor = db.instructors.FirstOrDefault(ins => ins.instructor_id == instructor_id);
@@ -514,7 +514,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int registerforseminarbystudentandseminarid( registration model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 if (model != null)
@@ -572,7 +572,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int addseminar(seminar model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {                
                 // Check if user already exists and is not alrady registered
@@ -632,7 +632,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal int addInstructor(instructor model) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 // Check if user already exists and is not alrady registered
@@ -687,7 +687,7 @@ namespace LanguageInstitute.DataAccess
        /// <returns></returns>
         internal int addcontactmessage(message model)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 // Check if user already exists
@@ -732,7 +732,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getseminars()
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 DateTime today = DateTime.Now;
@@ -760,7 +760,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getfutureseminars()
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 DateTime today = DateTime.Now;
@@ -789,7 +789,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal seminar getseminarbyid(int seminar_id)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 seminar seminar = db.seminars.FirstOrDefault(s => s.seminar_id == seminar_id);
@@ -847,7 +847,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getseminarsbyinstructorid(int instructor_id) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 DateTime today = DateTime.Now;
@@ -875,7 +875,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getseminars(bool isActive)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 var semIns = db.seminars.Where(s => s.IsActive == isActive).OrderByDescending(s => s.StartDate).OrderByDescending(s => s.Endtime).Distinct().ToList();
@@ -904,7 +904,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<instructor> getinstructors(bool isActive) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                var instructors = db.instructors.Where(ins=>ins.IsActive==isActive).OrderBy(ins=>ins.Name).Distinct().ToList();
@@ -932,7 +932,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getseminarsbystudentid(int student_id) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<seminar> semimars = (from sem in db.seminars
@@ -963,7 +963,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<instructor> getinstructors()
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<instructor> instructors = db.instructors.Where(s => s.IsActive).OrderBy(ins => ins.Name).Distinct().ToList();
@@ -991,7 +991,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal instructor getinstructorbyid(int instructor_id)  
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 instructor instructor = db.instructors.FirstOrDefault(ins => ins.instructor_id == instructor_id);
@@ -1018,7 +1018,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal student getstudentbyid(int student_id)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 student student = db.students.FirstOrDefault(s => s.student_id == student_id);
@@ -1045,7 +1045,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal client getcompaniesbyid(int client_id)
         { 
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 client client = db.clients.FirstOrDefault(c => c.client_id == client_id);
@@ -1072,7 +1072,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<client> getCompanies()  
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<client> clients = db.clients.Where(c=>c.IsActive).OrderBy(c=>c.Name).Distinct().ToList();  
@@ -1101,7 +1101,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<client> getCompanies(bool IsActive)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<client> clients = db.clients.Where(c => c.IsActive == IsActive).OrderBy(c => c.Name).Distinct().ToList();
@@ -1129,7 +1129,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<Countries> getCountries() 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<Countries> countries = db.Countries.OrderBy(c=>c.Country).Distinct().ToList();
@@ -1155,7 +1155,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<seminar> getregisteredseminars()
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 DateTime today = DateTime.Now;
@@ -1187,7 +1187,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<SeminarEntity> getfilterregisteredseminars(string filterText)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 Expression<Func<registration, bool>> predicate = PredicateBuilder.True<registration>();
@@ -1277,7 +1277,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<student> getseminarregisteredstudents(int seminar_id)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                List<student> students = (from st in db.students 
@@ -1304,7 +1304,7 @@ namespace LanguageInstitute.DataAccess
 
         //internal List<seminar> getfutureseminarsstartdate()  
         //{
-        //   LanguageInstituteContext db = new LanguageInstituteContext();
+        //    LanguageInstituteContext db = new LanguageInstituteContext();
         //    try
         //    {
         //       //getting all seminars now but will change code later for only future seminars
@@ -1333,7 +1333,7 @@ namespace LanguageInstitute.DataAccess
         ///// <returns></returns>
         //internal List<seminar> getfutureseminarsstartdate(int seminar_id)
         //{
-        //   LanguageInstituteContext db = new LanguageInstituteContext();
+        //    LanguageInstituteContext db = new LanguageInstituteContext();
         //    try
         //    {
         //        DateTime today = DateTime.Now;
@@ -1362,7 +1362,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<student> getstudents(int? workshopid) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 List<student> students = new List<student>();
@@ -1401,7 +1401,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<student> getstudents(int seminar_id)
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 //getting all students
@@ -1434,7 +1434,7 @@ namespace LanguageInstitute.DataAccess
         /// <returns></returns>
         internal List<student> getinactivestudents(bool isActive) 
         {
-           LanguageInstituteContext db = new LanguageInstituteContext();
+            LanguageInstituteContext db = new LanguageInstituteContext();
             try
             {
                 //getting all students

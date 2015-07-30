@@ -5,7 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using LanguageInstitute.Models;
-using Domain.StatisticalSolutions.Domain.Models.Context;
+using Domain.LanguageInstitute.Domain.Models.Context;
 using System.Web.Security;
 
 namespace LanguageInstitute.Filters
@@ -40,7 +40,7 @@ namespace LanguageInstitute.Filters
                     //    }
                     //}
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false);
 
                   
 

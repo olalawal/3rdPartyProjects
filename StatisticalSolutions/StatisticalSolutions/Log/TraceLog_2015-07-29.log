@@ -1,0 +1,8 @@
+2015-07-29 19:44:54,670 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-07-29 23:35:19,107 [5] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/ 
+ 2015-07-29 23:36:47,296 [12] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/Admin 
+ 2015-07-29 23:36:59,033 [11] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/WorkshopList 
+ 2015-07-29 23:37:07,717 [8] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditWorkshop/14 
+ 2015-07-29 23:37:39,208 [7] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/StudentList 
+ 2015-07-29 23:37:44,779 [30] INFO  StatisticalSolutions.Controllers.Base.BaseController - Application URL - /StatisticalSolutions/Admin/EditStudent/8 
+ 

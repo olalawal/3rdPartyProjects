@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.StatisticalSolutions.Domain.Models.Context
+namespace Domain.LanguageInstitute.Domain.Models.Context
 {
     public class LanguageInstituteContext : DbContext 
     {

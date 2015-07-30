@@ -9,8 +9,8 @@
     <ProjectGuid>{7BF5E530-BDCA-4CCF-8823-D69251B324C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StatisticalSolutions.Tests</RootNamespace>
-    <AssemblyName>StatisticalSolutions.Tests</AssemblyName>
+    <RootNamespace>LanguageInstitute.Tests</RootNamespace>
+    <AssemblyName>LanguageInstitute.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -123,9 +123,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LanguageInstitute\LanguageInstitute.Web.csproj">
+    <ProjectReference Include="..\LanguageInstitute\LanguageInstitute.csproj">
       <Project>{333BA94E-761A-40D2-A626-E5A79023257E}</Project>
-      <Name>LanguageInstitute.Web</Name>
+      <Name>LanguageInstitute</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

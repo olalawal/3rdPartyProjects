@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wells Fargo N.A.")]
-[assembly: AssemblyProduct("StatisticalSolutions.Domain")]
+[assembly: AssemblyProduct("LanguageInstitute.Domain")]
 [assembly: AssemblyCopyright("Copyright © Wells Fargo N.A. 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

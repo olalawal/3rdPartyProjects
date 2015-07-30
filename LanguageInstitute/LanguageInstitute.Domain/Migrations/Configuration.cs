@@ -5,7 +5,7 @@ namespace Domain.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Domain.StatisticalSolutions.Domain.Models.Context.LanguageInstituteContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Domain.LanguageInstitute.Domain.Models.Context.LanguageInstituteContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace Domain.Migrations
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Domain.StatisticalSolutions.Domain.Models.Context.LanguageInstituteContext context)
+        protected override void Seed(Domain.LanguageInstitute.Domain.Models.Context.LanguageInstituteContext context)
         {
             //  This method will be called after migrating to the latest version.
 
