@@ -1,0 +1,24 @@
+﻿@model LanguageInstitute.Models.student
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<tr>
+    <td>
+        @Html.DisplayFor(model => model.LastName), @Html.DisplayFor(model => model.FirstName)
+        @Html.HiddenFor(model => model.student_id)
+        @Html.HiddenFor(model => model.LastName)
+        @Html.HiddenFor(model => model.FirstName)
+ 
+    </td>
+    <td>
+        @Html.HiddenFor(model => model.Email)
+        @Html.DisplayFor(model => model.Email)
+    </td>
+    <td>
+        @Html.HiddenFor(model => model.Phone)
+        @Html.DisplayFor(model => model.Phone)
+    </td>
+    <td>
+        @Html.CheckBox("chkBxIsActive")
+        @*<input type="checkbox" name="IsActive" id="chkIsActive">*@
+    </td>
+
+</tr>

@@ -1,0 +1,114 @@
+﻿@model LanguageInstitute.Models.InstructorViewModel
+@{
+    ViewBag.Title = "AddConsultant";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+    HtmlHelper.ClientValidationEnabled = true;
+}
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+<div class='container focus'>
+    <div class="breadcrumb" id="divPageTitle_Add">
+        <a tabindex="15" href="@Url.Action("Admin", "Admin")">Dashboard</a>
+        <span class="active"> - Add Consultant</span>
+    </div>
+
+    <div class='sixteen columns form'>
+        <h3>Enter your Consultant info</h3>
+       
+        @using (Html.BeginForm("AddConsultant", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div id="divworkshop">
+                <fieldset>
+                    <ol>
+
+                        <li>
+                            <div>
+                                <label>Consultant Name</label>
+                                @Html.ValidationMessageFor(model => model.InstructorName)
+                                @Html.TextBoxFor(model => model.InstructorName, new { @tabindex = "1", @placeholder = "Consultant Name", @class = "form-control" })
+                            </div>
+                        </li>                                   
+                       
+                        <li>
+                            <label>Address Line 1</label>
+                            @Html.ValidationMessageFor(model => model.Address1)
+                            @Html.TextBoxFor(model => model.Address1, new { @tabindex = "3", @placeholder = "Address line l", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Address Line 2</label>
+                            @Html.TextBoxFor(model => model.Address2, new { @tabindex = "4", @placeholder = "Address line 2", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>City</label>
+                            @Html.ValidationMessageFor(model => model.City)
+                            @Html.TextBoxFor(model => model.City, new { @tabindex = "5", @placeholder = "City", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>State/Province</label>
+                            @Html.ValidationMessageFor(model => model.StateProvince)
+                            @Html.TextBoxFor(model => model.StateProvince, new { @tabindex = "6", @placeholder = "State/Province", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Country</label>
+                            @Html.ValidationMessageFor(model => model.Country)
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "-- Select Country --", new { @tabindex = "7", @class = "form-control" } )
+                        </li>
+
+                        <li>
+                            <label>Email Address</label>
+                            @Html.ValidationMessageFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "8", @placeholder = "Email address", @class = "form-control" })
+
+                        </li>
+
+                        <li>
+                            <label>Phone Number</label>
+                            @Html.ValidationMessageFor(model => model.Phone)
+                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "9", @placeholder = "Phone number", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Fax Number</label>
+                            @Html.ValidationMessageFor(model => model.Fax)
+                            @Html.TextBoxFor(model => model.Fax, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
+
+                        </li>                
+                      
+                        <li>
+                            <label>Description</label>
+                            @Html.ValidationMessageFor(model => model.Description)
+                            @Html.TextBoxFor(model => model.Description, new { @tabindex = "11", @class = "form-control" })
+
+                        </li>
+
+                        <li>                            
+                            <label>Details Html</label>
+                            @Html.ValidationMessageFor(model => model.DetailsHtml)
+                            @Html.TextAreaFor(model => model.DetailsHtml, new { @tabindex = "12", @row = "15", @cols = "50", @class = "form-control html-editor", @style = "width:100%;height:250px;overflow:auto;" })
+
+                        </li>
+                        <li>
+                            <label for="file">Upload Image</label>
+                            @*@Html.ValidationMessageFor(model => model.File)*@
+                            @Html.TextBoxFor(model => model.File, new { type = "file", tabindex = "13" })
+                           
+                        </li>
+                        <li>                         
+                            <input type="submit" tabindex="14" value="Submit" class="button medium green" />
+                        </li>
+                    </ol>
+                </fieldset>
+
+            </div>
+
+        }
+    </div>
+</div>
+

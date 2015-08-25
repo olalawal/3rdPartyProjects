@@ -1,4 +1,3 @@
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\obj\Debug\LanguageInstitute.Tests.csprojResolveAssemblyReference.cache
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Scripts\bootstrap-notify.js
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Scripts\jquery.blockUI.js
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\LanguageInstitute.Tests.dll.config
@@ -10,12 +9,9 @@ D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Newtonsoft.Json.dll
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Net.Http.Formatting.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Spatial.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Helpers.dll
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Http.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Http.OData.dll
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Http.WebHost.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Mvc.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Razor.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
@@ -36,10 +32,7 @@ D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Mono.Math.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\LanguageInstitute.pdb
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\Newtonsoft.Json.xml
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Net.Http.Formatting.xml
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Helpers.xml
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Http.xml
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Http.WebHost.xml
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Mvc.xml
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.Razor.xml
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\System.Web.WebPages.xml
@@ -87,5 +80,6 @@ D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\ru\System.Spatial.resources.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\zh-Hans\System.Spatial.resources.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\obj\Debug\LanguageInstitute.Tests.csprojResolveAssemblyReference.cache
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\obj\Debug\LanguageInstitute.Tests.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Tests\obj\Debug\LanguageInstitute.Tests.pdb

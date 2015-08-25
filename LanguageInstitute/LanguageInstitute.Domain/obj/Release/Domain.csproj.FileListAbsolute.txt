@@ -33,3 +33,15 @@ D:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\ob
 D:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Release\Domain.csproj.GenerateResource.Cache
 D:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Release\Domain.dll
 D:\Projects\3rdPartyProjects\StatisticalSolutions\StatisticalSolutions.Domain\obj\Release\Domain.pdb
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\Domain.dll.config
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\Domain.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\Domain.pdb
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\EntityFramework.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\EntityFramework.xml
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\obj\Release\Domain.csprojResolveAssemblyReference.cache
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\obj\Release\Domain.Migrations.registerchange.resources
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\obj\Release\Domain.csproj.GenerateResource.Cache
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\obj\Release\Domain.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute.Domain\obj\Release\Domain.pdb

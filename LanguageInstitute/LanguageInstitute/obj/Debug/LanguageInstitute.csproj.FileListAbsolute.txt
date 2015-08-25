@@ -97,6 +97,6 @@ D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\ko\System.S
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\ru\System.Spatial.resources.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\zh-Hans\System.Spatial.resources.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\zh-Hant\System.Spatial.resources.dll
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.csprojResolveAssemblyReference.cache
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.pdb
-D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.csprojResolveAssemblyReference.cache
