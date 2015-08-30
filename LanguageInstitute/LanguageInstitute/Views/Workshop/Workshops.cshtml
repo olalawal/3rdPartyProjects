@@ -59,17 +59,26 @@
 
 
                                     <div class="meta">
-                                        <p><span>Teacher:</span> <a href="#">@if (Model.Seminar.instructor != null)
-                                        {
-                                            <span> @Model.Seminar.instructor.Name</span>
-                                        }</a></p>
+                                        <p>
+                                            <span>Teacher:</span> <a href="#">
+                                                @if (sem.instructor != null)
+                                                {
+                                                    <span> @sem.instructor.Name</span>
+                                                }
+                                            </a>
+                                        </p>
                                         <p><span>Start date:</span> <a href="#">@sem.StartDate.ToString("MMM, d")</a></p>
                                         <p><span>Category:</span> <a href="#">WorkShop</a></p>
                                         <p><span><a href="#">5 spots avialable</a></span></p>
                                     </div>
                                     <div class="description">
-                                        <h5><strong>@Html.Raw(Model.Seminar.TitleHtml)</strong></h5>
-                                        <p>Curabitur sed semper dolor. Integer mi nulla, volutpat pharetra lobortis et, tristique non sapien. Pellentesque rutrum imperd iet odio non posuere. Sed nunc nisl, sollicitudin sed ullamcorper quis, accumsan et justo. Proin pharetra pharetra hendrerit. In non risus dui. Mauris ac elit mi, eu porta diam. Nullam ut aliquet risus. Etiam cursus posuere pellentesque.</p>
+                                        <h5><strong>@Html.Raw(sem.TitleHtml)</strong></h5>
+
+                                        <b>@sem.Description  </b>
+                                        <p>
+                                            @sem.EventDetailsHtml
+
+                                        </p>
 
                                         @*<a class="link" href="blog-post.html" class="button color"><span>More</span></a>*@
                                         <a href='#' class="button" onclick='bindPartialView("divWorkshop","Workshop","WorkshopDetails",@sem.seminar_id)'>more</a>
@@ -298,20 +307,20 @@
 
 
             <script type="text/javascript">
-        $(document).ready(function() {
-            $('.slidewrap2').carousel({
-                slider: '.slider',
-                slide: '.slide',
-                slideHed: '.slidehed',
-                nextSlide : '.next',
-                prevSlide : '.prev',
-                addPagination: false,
-                addNav : false
-            });
-            $(window).load(function(){
-                 $("a[class^='prettyPhoto']").prettyPhoto({social_tools: '' });
-            });
-        });
+                $(document).ready(function() {
+                    $('.slidewrap2').carousel({
+                        slider: '.slider',
+                        slide: '.slide',
+                        slideHed: '.slidehed',
+                        nextSlide : '.next',
+                        prevSlide : '.prev',
+                        addPagination: false,
+                        addNav : false
+                    });
+                    $(window).load(function(){
+                        $("a[class^='prettyPhoto']").prettyPhoto({social_tools: '' });
+                    });
+                });
             </script>
             <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
             <script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline/EmpiricalThemes.json?callback=twitterCallback2&count=2"></script>

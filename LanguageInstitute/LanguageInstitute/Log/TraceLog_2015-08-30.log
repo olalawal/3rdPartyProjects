@@ -176,4 +176,37 @@
  2015-08-30 09:48:50,387 [29] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddWorkshop 
  2015-08-30 09:49:23,372 [41] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddConsultant 
  2015-08-30 09:51:34,118 [40] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:52:05,811 [41] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/Admin 
+ 2015-08-30 09:52:10,712 [23] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddConsultant 
+ 2015-08-30 09:53:39,701 [28] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddConsultant 
+ 2015-08-30 09:53:40,690 [45] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/ConsultantList 
+ 2015-08-30 09:53:50,514 [43] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/Admin 
+ 2015-08-30 09:53:53,542 [31] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/WorkshopList 
+ 2015-08-30 09:54:17,165 [31] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/Admin 
+ 2015-08-30 09:54:21,303 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddWorkshop 
+ 2015-08-30 09:57:03,764 [47] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddWorkshop 
+ 2015-08-30 09:57:04,200 [11] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/WorkshopList 
+ 2015-08-30 09:57:17,131 [18] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 09:58:32,490 [18] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 09:58:32,491 [18] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception message - Object reference not set to an instance of an object.
+ 2015-08-30 09:58:32,492 [18] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception stack trace -    at ASP._Page_Views_WorkShop_Workshops_cshtml.Execute() in d:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\Views\Workshop\Workshops.cshtml:line 62
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-08-30 09:58:32,502 [33] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:32,503 [33] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:35,572 [36] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:35,572 [36] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:38,877 [33] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:38,877 [33] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-30 09:58:44,537 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 10:00:42,331 [65] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 10:02:57,031 [81] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
  
