@@ -70,9 +70,9 @@ namespace LanguageInstitute.Controllers
 
         //bios 
 
-        public ActionResult bioBayoLawal()
+        public ActionResult News()
         {
-            ViewBag.Message = "Professor Bayo Lawal";
+            //ViewBag.Message = "Professor Bayo Lawal";
 
             return View();
         }

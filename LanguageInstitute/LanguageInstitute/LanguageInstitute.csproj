@@ -280,14 +280,21 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\about-arch.jpg" />
     <Content Include="Content\images\accent.png" />
+    <Content Include="Content\images\adults class.jpg" />
+    <Content Include="Content\images\africa ball.jpg" />
+    <Content Include="Content\images\african dances.jpg" />
+    <Content Include="Content\images\african tappestry.jpg" />
     <Content Include="Content\images\async\assets\bullets.png" />
     <Content Include="Content\images\async\readme.txt" />
+    <Content Include="Content\images\black professor kids.jpg" />
+    <Content Include="Content\images\black students.jpg" />
     <Content Include="Content\images\blog-mountain.jpg" />
     <Content Include="Content\images\bullet.png" />
     <Content Include="Content\images\button-slider.png" />
     <Content Include="Content\images\carousel1.jpg" />
     <Content Include="Content\images\carousel2.jpg" />
     <Content Include="Content\images\carousel3.jpg" />
+    <Content Include="Content\images\culture and respect.jpg" />
     <Content Include="Content\images\design\accordion-arrow.png" />
     <Content Include="Content\images\design\accordion-gradient.png" />
     <Content Include="Content\images\design\active-indicator.png" />
@@ -473,6 +480,7 @@
     <Content Include="Content\images\design\twitter-bird-dark-bgs.png" />
     <Content Include="Content\images\design\twitter-divider.png" />
     <Content Include="Content\images\Famoye.JPG" />
+    <Content Include="Content\images\felamle professor.jpg" />
     <Content Include="Content\images\Felix.jpg" />
     <Content Include="Content\images\flex\assets\crop.png" />
     <Content Include="Content\images\flex\assets\direction-nav.png" />
@@ -711,9 +719,14 @@
     <Content Include="Content\images\icons\user_blue_32.png" />
     <Content Include="Content\images\icons\user_business_32.png" />
     <Content Include="Content\images\icons\warning_32.png" />
+    <Content Include="Content\images\lesson planet.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\logoMINI.png" />
+    <Content Include="Content\images\male teacher.jpg" />
     <Content Include="Content\images\Male.jpg" />
+    <Content Include="Content\images\multicultarar class 3 .jpg" />
+    <Content Include="Content\images\multicultural.jpg" />
+    <Content Include="Content\images\multiculurar class 2.jpg" />
     <Content Include="Content\images\nivo\assets\bullets.png" />
     <Content Include="Content\images\nivo\assets\crop-360.png" />
     <Content Include="Content\images\nivo\assets\crop-480.png" />
@@ -762,6 +775,7 @@
     <Content Include="Content\images\patterns\wide-rectangles.png" />
     <Content Include="Content\images\patterns\worn-dots.png" />
     <Content Include="Content\images\portfolio-large-mnt.jpg" />
+    <Content Include="Content\images\Primary focus pic. jpg.jpg" />
     <Content Include="Content\images\sidebar-beach.jpg" />
     <Content Include="Content\images\sidebar-mountain.jpg" />
     <Content Include="Content\images\sidebar-train.jpg" />
@@ -816,6 +830,8 @@
     <Content Include="Content\images\untouched\sky-view.jpg" />
     <Content Include="Content\images\untouched\subway.jpg" />
     <Content Include="Content\images\untouched\train.jpg" />
+    <Content Include="Content\images\white teacher.jpg" />
+    <Content Include="Content\images\yourba.jpg" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\jquery.fancybox-buttons.css" />
@@ -1066,6 +1082,9 @@
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Workshop\Workshops.cshtml" />
+    <Content Include="Views\Shared\_PartialLayoutHeaderCarousal.cshtml" />
+    <Content Include="Views\Shared\_PartialLayoutHeaderStandard.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\OpenSans\" />

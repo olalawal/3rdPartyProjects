@@ -5,7 +5,7 @@
     <nextGroupID>0</nextGroupID>
     <documentParameters>
       <canvasColor>16777215</canvasColor>
-      <canvasWindowRect>rect(0, 0, 566, 295)</canvasWindowRect>
+      <canvasWindowRect>rect(0, 0, 546, 287)</canvasWindowRect>
       <imageExportDefaults/>
       <windowTitle>test logo small</windowTitle>
     </documentParameters>
@@ -33,7 +33,7 @@
       <locked>0</locked>
       <myName>Shadows and Gradients--ctoon_shadow.png</myName>
       <specialEffects>
-        <blur>1</blur>
+        <blur>0</blur>
         <blurRadius>20</blurRadius>
         <dropShadow>0</dropShadow>
         <dropShadowParameters>
@@ -56,18 +56,19 @@
         <width>0</width>
       </bevelParameters>
       <characterSpacingFraction>-2</characterSpacingFraction>
-      <x>0</x>
+      <x>1</x>
       <y>32</y>
-      <width>272</width>
+      <width>251</width>
       <height>238</height>
       <currentFont>
         <fontName>Businko Regular</fontName>
         <fontSource>System</fontSource>
       </currentFont>
       <currentScale>47</currentScale>
-      <currentString>West African
-Language 
-Institute</currentString>
+      <currentString>INSTITUTE 
+OF AFRICAN
+LANGUAGES &amp; 
+CULTURE</currentString>
       <curveParameters>
         <circleAngleOffset>310</circleAngleOffset>
         <curveMode>normal</curveMode>
@@ -116,18 +117,18 @@ Institute</currentString>
         <horizontalFlip>0</horizontalFlip>
         <verticalFlip>0</verticalFlip>
       </specialEffects>
-      <maskGradientX>-136</maskGradientX>
+      <maskGradientX>-125</maskGradientX>
       <maskGradientY>-119</maskGradientY>
-      <maskGradientWidth>544</maskGradientWidth>
+      <maskGradientWidth>502</maskGradientWidth>
       <maskGradientHeight>476</maskGradientHeight>
       <maskX>0</maskX>
       <maskY>0</maskY>
     </vectorShapeTextEditor>
     <imageModifier>
-      <x>140</x>
+      <x>131</x>
       <y>-123</y>
       <currentAngle>0</currentAngle>
-      <currentScale>0.55</currentScale>
+      <currentScale>0.52</currentScale>
       <groupID>0</groupID>
       <hidden>0</hidden>
       <imageParameters>
@@ -139,7 +140,7 @@ Institute</currentString>
         <gradientCycles>1</gradientCycles>
         <gradientOffset>(x=0, y=0)</gradientOffset>
         <gradientType>linear</gradientType>
-        <opacity>0.99</opacity>
+        <opacity>0.72</opacity>
         <startColor>16711680</startColor>
       </imageParameters>
       <locked>0</locked>
@@ -147,14 +148,14 @@ Institute</currentString>
       <specialEffects>
         <blur>0</blur>
         <blurRadius>5</blurRadius>
-        <dropShadow>0</dropShadow>
+        <dropShadow>1</dropShadow>
         <dropShadowParameters>
           <blurRadius>92</blurRadius>
           <color>0</color>
           <offset>(x=0, y=0)</offset>
-          <distance>19</distance>
+          <distance>27</distance>
           <angle>325</angle>
-          <opacity>1</opacity>
+          <opacity>0.72</opacity>
         </dropShadowParameters>
         <horizontalFlip>0</horizontalFlip>
         <verticalFlip>0</verticalFlip>

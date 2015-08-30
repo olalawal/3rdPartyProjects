@@ -5,7 +5,7 @@
     <nextGroupID>0</nextGroupID>
     <documentParameters>
       <canvasColor>16777215</canvasColor>
-      <canvasWindowRect>rect(0, 0, 1408, 320)</canvasWindowRect>
+      <canvasWindowRect>rect(0, 0, 1672, 291)</canvasWindowRect>
       <imageExportDefaults/>
       <windowTitle>test logo</windowTitle>
     </documentParameters>
@@ -33,7 +33,7 @@
       <locked>0</locked>
       <myName>Shadows and Gradients--ctoon_shadow.png</myName>
       <specialEffects>
-        <blur>1</blur>
+        <blur>0</blur>
         <blurRadius>20</blurRadius>
         <dropShadow>0</dropShadow>
         <dropShadowParameters>
@@ -55,22 +55,22 @@
         <Raised>0</Raised>
         <width>0</width>
       </bevelParameters>
-      <characterSpacingFraction>15</characterSpacingFraction>
-      <x>23</x>
-      <y>78</y>
-      <width>1367</width>
-      <height>148</height>
+      <characterSpacingFraction>22</characterSpacingFraction>
+      <x>301</x>
+      <y>65</y>
+      <width>1360</width>
+      <height>107</height>
       <currentFont>
         <fontName>Businko Regular</fontName>
         <fontSource>System</fontSource>
       </currentFont>
-      <currentScale>97</currentScale>
-      <currentString>West African Lang Inst</currentString>
+      <currentScale>89</currentScale>
+      <currentString>INST. OF AFRICAN LANGS &amp; CULTURE</currentString>
       <curveParameters>
-        <circleAngleOffset>310</circleAngleOffset>
-        <curveMode>normal</curveMode>
-        <radius>100</radius>
-        <rotatableCharacterAngle>180</rotatableCharacterAngle>
+        <circleAngleOffset>300</circleAngleOffset>
+        <curveMode>rotatable</curveMode>
+        <radius>50</radius>
+        <rotatableCharacterAngle>0</rotatableCharacterAngle>
         <rotatableTextAngle>0</rotatableTextAngle>
         <rotatableTextRegPoint>(x=0, y=0)</rotatableTextRegPoint>
       </curveParameters>
@@ -98,7 +98,7 @@
         <color>11184810</color>
         <opacity>1</opacity>
         <strokeWidth>20</strokeWidth>
-        <outline>0</outline>
+        <outline>1</outline>
       </outlineParameters>
       <specialEffects>
         <blur>0</blur>
@@ -114,10 +114,10 @@
         <horizontalFlip>0</horizontalFlip>
         <verticalFlip>0</verticalFlip>
       </specialEffects>
-      <maskGradientX>-683</maskGradientX>
-      <maskGradientY>-74</maskGradientY>
-      <maskGradientWidth>2734</maskGradientWidth>
-      <maskGradientHeight>296</maskGradientHeight>
+      <maskGradientX>-934</maskGradientX>
+      <maskGradientY>-56</maskGradientY>
+      <maskGradientWidth>3738</maskGradientWidth>
+      <maskGradientHeight>224</maskGradientHeight>
       <maskX>0</maskX>
       <maskY>0</maskY>
     </vectorShapeTextEditor>
@@ -129,16 +129,17 @@
         <width>0</width>
       </bevelParameters>
       <characterSpacingFraction>10</characterSpacingFraction>
-      <x>58</x>
-      <y>183</y>
-      <width>716</width>
-      <height>30</height>
+      <x>296</x>
+      <y>161</y>
+      <width>865</width>
+      <height>138</height>
       <currentFont>
         <fontName>Charrington SemiBold</fontName>
         <fontSource>System</fontSource>
       </currentFont>
       <currentScale>35</currentScale>
-      <currentString>Language Training At Its Best!</currentString>
+      <currentString>Learn to Speak an African Language
+Learn about African culture</currentString>
       <curveParameters>
         <circleAngleOffset>310</circleAngleOffset>
         <curveMode>normal</curveMode>
@@ -187,18 +188,18 @@
         <horizontalFlip>0</horizontalFlip>
         <verticalFlip>0</verticalFlip>
       </specialEffects>
-      <maskGradientX>-358</maskGradientX>
-      <maskGradientY>-15</maskGradientY>
-      <maskGradientWidth>1432</maskGradientWidth>
-      <maskGradientHeight>60</maskGradientHeight>
+      <maskGradientX>-432</maskGradientX>
+      <maskGradientY>-69</maskGradientY>
+      <maskGradientWidth>1730</maskGradientWidth>
+      <maskGradientHeight>276</maskGradientHeight>
       <maskX>0</maskX>
       <maskY>0</maskY>
     </vectorShapeTextEditor>
     <imageModifier>
-      <x>-98</x>
+      <x>-117</x>
       <y>-123</y>
       <currentAngle>0</currentAngle>
-      <currentScale>0.55</currentScale>
+      <currentScale>0.53</currentScale>
       <groupID>0</groupID>
       <hidden>0</hidden>
       <imageParameters>
@@ -210,7 +211,7 @@
         <gradientCycles>1</gradientCycles>
         <gradientOffset>(x=0, y=0)</gradientOffset>
         <gradientType>linear</gradientType>
-        <opacity>0.36</opacity>
+        <opacity>0.9</opacity>
         <startColor>16711680</startColor>
       </imageParameters>
       <locked>0</locked>

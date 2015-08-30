@@ -23,7 +23,7 @@
 		min-width:340px;
 		z-index:99999;
 	}
-	.header.slider-expand {height:500px;}
+	.header.slider-expand {height:auto;}
 	body .slug-pattern {
 		height:343px;
 		width:100%;
