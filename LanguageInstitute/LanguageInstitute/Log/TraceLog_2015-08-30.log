@@ -81,4 +81,99 @@
  2015-08-30 05:48:35,158 [26] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
  2015-08-30 05:48:40,730 [27] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
  2015-08-30 05:51:42,633 [110] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 06:01:47,760 [114] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 06:02:05,971 [111] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 06:03:47,902 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 06:03:57,251 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:13:10,377 [112] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:14:01,398 [108] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:14:43,757 [32] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:16:46,349 [126] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:18:50,138 [18] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:19:18,679 [131] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:20:02,929 [29] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:21:18,587 [106] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:22:37,149 [125] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:26:21,302 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:26:50,491 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:27:11,844 [88] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:30:14,420 [103] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:35:12,629 [104] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:36:23,987 [29] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:37:35,593 [126] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:42:18,258 [146] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:44:43,349 [40] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:45:10,238 [40] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:46:21,470 [109] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:47:46,154 [105] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:48:45,229 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:49:39,815 [105] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:51:13,554 [120] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:53:15,776 [88] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:54:01,801 [109] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 06:57:20,013 [18] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:00:03,085 [42] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:01:05,944 [40] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:02:24,017 [6] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:13:35,869 [65] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 07:14:53,973 [101] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:15:19,484 [7] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/Contact 
+ 2015-08-30 07:16:27,748 [6] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:19:01,249 [45] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:21:10,666 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:21:38,835 [30] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:23:42,823 [49] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:24:30,512 [45] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:03,370 [35] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:19,716 [119] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:23,267 [142] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:36,254 [119] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:40,699 [19] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:25:56,476 [49] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:27:43,743 [141] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:28:06,014 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:28:33,723 [131] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:29:04,851 [124] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:29:57,774 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 07:30:08,553 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:30:13,659 [126] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:30:44,153 [136] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:31:13,370 [21] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:31:34,447 [21] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:31:53,431 [131] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:32:04,806 [103] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:32:52,118 [21] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:36:51,214 [31] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/News 
+ 2015-08-30 07:46:48,362 [108] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 07:59:51,773 [50] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 08:00:43,942 [100] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 08:03:56,613 [62] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 08:04:01,911 [166] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/WorkShop/WorkShops 
+ 2015-08-30 08:58:10,592 [41] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:08:22,254 [11] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:09:00,993 [11] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:09:00,996 [11] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception message - Exception has been thrown by the target of an invocation.
+ 2015-08-30 09:09:00,996 [11] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception stack trace -    at System.RuntimeTypeHandle.CreateInstance(RuntimeType type, Boolean publicOnly, Boolean noCheck, Boolean& canBeCached, RuntimeMethodHandleInternal& ctor, Boolean& bNeedSecurityCheck)
+   at System.RuntimeType.CreateInstanceSlow(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.RuntimeType.CreateInstanceDefaultCtor(Boolean publicOnly, Boolean skipCheckThis, Boolean fillCache, StackCrawlMark& stackMark)
+   at System.Activator.CreateInstance(Type type, Boolean nonPublic)
+   at System.Activator.CreateInstance(Type type)
+   at System.Threading.LazyHelpers`1.ActivatorFactorySelector()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at System.Threading.LazyInitializer.EnsureInitialized[T](T& target, Boolean& initialized, Object& syncLock)
+   at LanguageInstitute.Filters.InitializeSimpleMembershipAttribute.OnActionExecuting(ActionExecutingContext filterContext) in d:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\Filters\InitializeSimpleMembershipAttribute.cs:line 23
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.InvokeActionMethodFilterAsynchronously(IActionFilter filter, ActionExecutingContext preContext, Func`1 nextInChain)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__31(AsyncCallback asyncCallback, Object asyncState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   at System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag, Int32 timeout)
+   at System.Web.Mvc.Async.AsyncResultWrapper.Begin[TResult](AsyncCallback callback, Object state, BeginInvokeDelegate beginDelegate, EndInvokeDelegate`1 endDelegate, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__1e(AsyncCallback asyncCallback, Object asyncState)
+ 2015-08-30 09:14:52,139 [33] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:44:29,297 [7] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:48:07,580 [30] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-30 09:48:40,517 [23] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/Admin 
+ 2015-08-30 09:48:50,387 [29] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddWorkshop 
+ 2015-08-30 09:49:23,372 [41] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Admin/AddConsultant 
+ 2015-08-30 09:51:34,118 [40] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
  

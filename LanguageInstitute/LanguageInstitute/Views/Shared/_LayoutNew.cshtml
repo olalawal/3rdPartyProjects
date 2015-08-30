@@ -17,6 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
     <link media="screen" charset="utf-8" rel="stylesheet" href="~/Content/css/base.css" />
     <link media="screen" charset="utf-8" rel="stylesheet"  href="~/Content/css/skeleton.css" />
     <link media="screen" charset="utf-8" rel="stylesheet"  href="~/Content/css/layout.css" />
@@ -149,7 +150,7 @@
                     <div class="mini">
                         <div class="twelve column alpha omega mini">
                             <div class="logo">
-                                <a href="index.html"><img src="images/logoMINI.png" /></a><!-- Small Logo -->
+                                <a href="index.html"><img src="~/Images/logoMINI.png" /></a><!-- Small Logo -->
                             </div>
                         </div>
 
@@ -167,6 +168,7 @@
             <div class="shadow"></div>
             @RenderSection("headercarousal", false)
             @RenderSection("headerbasic", false)
+            @RenderSection("scripts", required: false)
         </div>
 
         <div class="body">

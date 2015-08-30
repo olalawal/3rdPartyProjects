@@ -1,129 +1,184 @@
-﻿
-@model LanguageInstitute.Models.seminar
-    
-<div class='nine columns'>
+﻿@model LanguageInstitute.Models.seminar
 
-    <div class='nine columns'>
-        <div class="font-bold" style="text-align:center;">
-            <strong>@Html.Raw(Model.TitleHtml)</strong>
+
+
+<div class="twelve columns">
+    <div class="sidebar-right">
+        <!-- important if sidebar is on the right -->
+        <div class="border">
+            <img class="scale-with-grid" src="images/blog-train.jpg" />
+            <a href="images/untouched/train.jpg" class="zoom prettyPhoto"></a>
         </div>
+        <br /><br />
+        <h5 class="title"><strong>@Html.Raw(Model.TitleHtml)</strong></h5>
+
         <div style="text-align:center;">
             @if (Model.instructor != null)
             {
                 <span> @Model.instructor.Name</span>
             }
         </div>
-        <br />
-        @Html.Raw(Model.EventDetailsHtml)
+
+        <p>@Html.Raw(Model.EventDetailsHtml)            </p>
+
+        @*<h5 class="title">Some Accordions</h5>
+        <ul class="accordion" id="1">
+            <li>
+                <div class="parent">
+                    <h6>Why Pick Us?</h6>
+                </div>
+                <div class="tcontent">
+                    Praesent lacus quam, tempus pharetra aliquet vitae, venenatis non risus. Quisque elementum viverra dolor, a sagittis mauris tristique vel. Donec porttitor fermentum ante, et facilisis ipsum laoreet eget. Quisque mauris nisi, porttitor at hendrerit eu, condimentum sed nunc. Quisque iaculis eleifend facilisis. Vivamus in nisi et ante malesuada ullamcorper. Phasellus sed erat velit.
+                </div>
+            </li>
+            <li>
+                <div class="parent acc-active">
+                    <h6>Technical Support</h6>
+                </div>
+                <div class="tcontent">
+                    Sit amet sodales neque. Morbi quis erat eros. Sed nec ligula ligula, id euismod mauris. Vestibulum in turpis metus. In volutpat fermentum ligula, et blandit quam ullamcorper quis. Pellentesque vehicula dignissim sapien, a ornare neque pharetra vel. Sed vulputate accumsan ipsum, id imperdiet neque eleifend a. Donec sem risus, suscipit in ornare vitae, pharetra vitae urna.
+                </div>
+            </li>
+            <li>
+                <div class="parent">
+                    <h6>Responsive Excellence</h6>
+                </div>
+                <div class="tcontent">
+                    Aenean fermentum magna eget nisl consequat ac tristique metus feugiat. Ut justo nulla, gravida aliquet consectetur ut, volutpat quis nibh. Phasellus sollicitudin malesuada congue. Donec sed cursus libero. Aliquam erat volutpat. Pellentesque fringilla cursus rutrum. Maecenas eu ipsum eget dolor dignissim fringilla a quis lorem. Mauris non eleifend turpis. Integer quis arcu ipsum. Aliquam sed orci ut mi pharetra consectetur.
+                </div>
+            </li>
+        </ul>*@
     </div>
-
 </div>
+<div class="four columns">
+    <div class="sidebar">
+        <div class="sideborder"></div>
+        <h5>Most Popular Posts</h5>
+        <ul class="blogs">
+            <li>
 
-<div class='container six columns'>
+                Available dates : <b>
+                    @if (Model.StartDate != null && Model.StartDate != default(DateTime))
+                    {
+                        if (Model.StartDate == Model.Enddate)
+                        {
+                            @Model.StartDate.ToString("MMM, d")
+                        }
+                        else
+                        {
+                            if (Model.StartDate.Month == Model.Enddate.Month)
+                            {
+                                <span>
+                                    @Model.StartDate.ToString("MMM, d")
+                                </span>
+                                <span> - </span>
+                                <span>  @Model.Enddate.Day</span>
+                            }
+                            else
+                            {
+                                <span>
+                                    @Model.StartDate.ToString("MMM, d")
+                                </span>
+                                <span> - </span>
+                                <span> @Model.Enddate.ToString("MMM, d") </span>
+                            }
+                        }
+                    }
+                </b>
 
-    <div class="six columns">
-        Seminar <br />
-        <b>Information</b>
+                <div class="clear"></div>
+            </li>
+
+            <li>
+                The Seminar <br />
+                <b>Location</b>
+                <hr class="hr" />
+                <span>@Html.Raw(Model.Address1)</span><br>
+                @if (!string.IsNullOrEmpty(Model.Address2))
+                {
+                    <span> @Html.Raw(Model.Address2)</span>
+                }
+                @if (!string.IsNullOrEmpty(Model.City))
+                {
+                    <br />
+                    <span> @Html.Raw(Model.City),</span>
+                }
+                @if (!string.IsNullOrEmpty(Model.StateProvince))
+                {
+                    <span> @Html.Raw(Model.StateProvince)</span>
+                }
+                @if (!string.IsNullOrEmpty(Model.ZipPostalCode))
+                {
+                    <span> @Html.Raw(Model.ZipPostalCode)</span>
+                }
+                @if (!string.IsNullOrEmpty(Model.Country))
+                {
+                    <br />
+                    <span> @Html.Raw(Model.Country)</span>
+                }
+
+                <br />
+                <div class="clear"></div>
+            </li>
+
+            <li>
+                <div class="border">
+                    <img src="images/sidebar-beach.jpg" />
+                    <a href="images/untouched/beachstorm.jpg" class="zoom prettyPhoto"></a>
+                </div>
+                <p>
+                    <a href="#">Integer Sit Amet</a>
+                    Cras ac nisl at si gravida...
+                    <span>September 20, 2012</span>
+                </p>
+                <div class="clear"></div>
+            </li>
+        </ul>
+
+        <h5>From the Portfolio</h5>
+        Payment <br />
+        <b>Instructions</b>
         <hr class="hr" />
+        <span>Early bird registion fee is N85,000. The fee for registrations after the early bird registion period is N100,000.00.<br /> All fees include all workshop materials. </span><br />
+        <span> make payments to : <b>GTB</b> bank AC#: <b>0171482631<b></b></span>
+
+        <!--<span>PayPal and all major credit cards are accepted. </span><br /><br />-->
+        <span></span>
+
+        <div class="clear"></div>
+
+
+
     </div>
-
-    <div class="six columns">
-        Available dates : <b>
-            @if (Model.StartDate != null && Model.StartDate != default(DateTime))
-            {
-                if (Model.StartDate == Model.Enddate)
-                {
-                    @Model.StartDate.ToString("MMM, d")
-                }
-                else
-                {
-                    if (Model.StartDate.Month == Model.Enddate.Month)
-                    {
-                        <span>
-                            @Model.StartDate.ToString("MMM, d")
-                        </span>
-                        <span> - </span>
-                        <span>  @Model.Enddate.Day</span>
-                    }
-                    else
-                    {
-                        <span>
-                            @Model.StartDate.ToString("MMM, d")
-                        </span>
-                        <span> - </span>
-                        <span> @Model.Enddate.ToString("MMM, d") </span>
-                    }
-                }
-            }
-        </b>
-    </div>
-
-
-    <div class="clear"></div>
-    <div class="six columns">
-           The Seminar <br />
-            <b>Location</b>
-            <hr class="hr" />
-            <span>@Html.Raw(Model.Address1)</span><br>
-            @if (!string.IsNullOrEmpty(Model.Address2))
-            {
-                <span> @Html.Raw(Model.Address2)</span>
-            }
-            @if (!string.IsNullOrEmpty(Model.City))
-            {
-                <br />
-                <span> @Html.Raw(Model.City),</span>
-            }
-            @if (!string.IsNullOrEmpty(Model.StateProvince))
-            {
-                <span> @Html.Raw(Model.StateProvince)</span>
-            }
-            @if (!string.IsNullOrEmpty(Model.ZipPostalCode))
-            {
-                <span> @Html.Raw(Model.ZipPostalCode)</span>
-            }
-            @if (!string.IsNullOrEmpty(Model.Country))
-            {
-                <br />
-                <span> @Html.Raw(Model.Country)</span>
-                }
-          
-            <br />
-        </div>
-
-        <div class="clear"></div>
-        <div class="six columns">
-            Payment <br />
-            <b>Instructions</b>
-            <hr class="hr" />
-            <span>Early bird registion fee is N85,000. The fee for registrations after the early bird registion period is N100,000.00.<br /> All fees include all workshop materials. </span><br />
-            <span> make payments to : <b>GTB</b> bank AC#: <b>0171482631<b></b></span>
-
-            <!--<span>PayPal and all major credit cards are accepted. </span><br /><br />-->
-            <span></span>
-        </div>
-        <div class="clear"></div>
-        <div class="six columns">
-            Special Lodging Rate <br />
-            <b>Information</b>
-            <hr class="hr" />
-            <span>Princess Luxury Hotel</span>
-            <span>Phone :</span>
-            <span>09032499226</span><br />
-            <!-- <span>Fax :</span>
-             <span>@Html.Raw(Model.Fax)</span><br />-->
-            <span>Email :</span>
-            <span>info@princessluxuryhotels.com</span><br />
-            <span>Lodging Rate : 30% off</span><br>
-        </div>
-
-        <div class="clear"></div>
-
-        <div class="six columns">
-            @if (Model.StartDate != null && Model.StartDate != default(DateTime))
-            {
-                <a href='@Url.Action("RegisterSeminar", "Workshop", new { id = Model.seminar_id })' class='button medium green'>Register Now</a>
-            }
-        </div>
-
 </div>
+
+<div class="clear"></div>
+<a class="button color" href="blog-post.html"><span>Register</span></a>
+
+<div class="sixteen columns">
+    <span class="hr lip-quote"></span>
+    <blockquote class="standard bottom">
+        "Making the simple complicated is commonplace; making the complicated simple, awesomely simple, that's creativity" <br />- Charles Mingus
+    </blockquote>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.slidewrap2').carousel({
+            slider: '.slider',
+            slide: '.slide',
+            slideHed: '.slidehed',
+            nextSlide: '.next',
+            prevSlide: '.prev',
+            addPagination: false,
+            addNav: false
+        });
+        $('.acc-active').click();
+    });
+    $(window).load(function () {
+        $("a[class^='prettyPhoto']").prettyPhoto({ social_tools: '' });
+    });
+</script>
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline/EmpiricalThemes.json?callback=twitterCallback2&count=2"></script>

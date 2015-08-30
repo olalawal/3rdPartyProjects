@@ -739,9 +739,30 @@
 	ul.pricing li.purchase {
 		position:relative;
 		margin:auto;
+        top:20px;
 	}
+
+
+
 	ul.pricing li.purchase .button-wrap {display:inline-block;margin:0;position:relative;top:7px;}
+
+
+    /*  added for formatting tables*/
+
+    ul.pricing li.price span.time {
+		font-size:18px;
+		font-weight:600;
+		font-family:"Open Sans";
+		position:relative;
+        margin-bottom : 100px;
+		
+	}
+
+    /* end of table formating*/
+
+
 	/* ===========  BLOG STYLES  =========== */
+
 	.body .blog {
 		max-width:678px;
 		margin-bottom:41px;

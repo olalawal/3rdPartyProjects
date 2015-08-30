@@ -11,97 +11,307 @@
 
 
 
-<div class="side-shadows"></div>
-  @if (Model!=null)
-  { 
-      if (Model.Seminars!= null)
-    {
-      
-    //TO DO load seminars here as list
 
-            foreach (seminar sem in Model.Seminars)
-            {
-               
-            }
+<div class="body">
+    <div class="body-round"></div>
+    <div class="body-wrapper">
+        <div class="side-shadows"></div>
+        <div class="content">
+            <div class="container callout standard">
 
-    <div class="content">
-        <div class="container callout standard">
-
-            <div class="twelve columns">
-                <h4>Currently Classes</h4>
-                <p class="link-location">You are here: <a href="index.html">Home</a> / <a href="#">Some Link</a> / <a href="#">Current Page</a></p>
-            </div>
-
-            <div class="four columns button-wrap">
-                <div class="wrapper search">
-                    <form action="">
-                        <input type="text" class="search-box" name="" value="" placeholder='Search...' />
-                        <input type="image" src="~/Content/images/design/search-icon.png" class="searchbox-submit" value="" />
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="callout-hr"></div>
-        <div class="container">
-            <div class="sixteen columns">
-
-                <div class="filter">
-
-                    <h5>Filter Display:</h5>
-                    <ul id="filters" class="options pagination">
-                        <li><a href="#" data-filter="*" class="active">All</a></li>
-                        <li><a href="#" data-filter="#construction">Construction</a></li>
-                        <li><a href="#" data-filter="#revelation">Revelation</a></li>
-                    </ul>
-                    <div class="clear"></div>
-
+                <div class="twelve columns">
+                    <h4>Company’s Latest News</h4>
+                    <p class="link-location">You are here: <a href="index.html">Home</a> / <a href="#">Some Link</a> / <a href="#">Current Page</a></p>
                 </div>
 
-                <!-- Isotope Begins -->
-                <div class="portfolio info">
-                    <div id="isotope-container">
-
-                        <div class="item" id="construction">
-                            <div class="zoom img">
-                                <a href="" class="prettyPhoto"><img src="~/Content/images/portfolio-info-big.jpg" class="scale-with-grid" /></a>
-                            </div>
-                            <div class="content">
-                                <h5><a href="#">Youruba 101</a></h5>
-                                <p>
-                                    Ut at purus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sem arcu, tempor vitae porttitor at, aliquet non dolor. Sed euismod felis eget justo sollicitudin eleifend. Praesent iaculis posuere eros sit amet aliquet. Pellentesque consectetur consectetur neque in consectetur. Nulla sed augue nisl, ac facilisis nibh. Nulla convallis euismod sapien, sit amet vehicula dui accumsan vel. Curabitur egestas vulputate velit, ac porta orci euismod et. Integer iaculis pulvinar ante, ac convallis velit venenatis in.
-                                    <div class="right"><a href="#" class="color button"><span>More</span></a></div>
-                                </p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
-                        <div class="item" id="revelation">
-                            <div class="zoom img">
-                                <a href="~/Content/images/untouched/dancing-fashion.jpg" class="prettyPhoto"><img src="~/Content/images/portfolio-info-big.jpg" class="scale-with-grid" /></a>
-                            </div>
-                            <div class="content">
-                                <h5><a href="#">Intro to African Languages</a></h5>
-                                <p>
-                                    In id odio justo, eu aliquet odio. Nunc viverra ligula eu eros egestas vulputate. Phasellus convallis risus et ipsum molestie aliquam. Donec porta bibendum risus eget aliquam. Aliquam eu urna non ipsum vulputate convallis. Fusce tempus augue quis sem commodo tempor. Etiam scelerisque dapibus lorem, a sodales nisi sodales et. Maecenas ornare consequat mattis.
-                                    <div class="right"><a href="#" class="color button"><span>More</span></a></div>
-                                </p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                <div class="four columns button-wrap">
+                    <div class="wrapper search">
+                        <form action="">
+                            <input type="text" class="search-box" name="" value="" placeholder='Search...' />
+                            <input type="image" src="images/design/search-icon.png" class="searchbox-submit" value="" />
+                        </form>
                     </div>
                 </div>
-                <!-- Isotope Ends -->
             </div>
-            <div class="clear"></div><div class="sixteen columns">
-                <span class="hr lip-quote"></span>
-                <blockquote class="standard bottom">
-                    "Making the simple complicated is commonplace; making the complicated simple, awesomely simple, that's creativity" <br />- Charles Mingus
-                </blockquote>
+            <div class="callout-hr"></div>
+            <div class="container">
+
+                <div class="twelve columns">
+
+
+
+                    @if (Model != null)
+                    {
+                        if (Model.Seminars != null && Model.Seminars.Count() > 0)
+                        {
+
+                            //TO DO load seminars here as list
+
+                            foreach (seminar sem in Model.Seminars)
+                            {
+
+                                <div class="blog style-2">
+
+                                    <div class="border">
+                                        <img class="scale-with-grid" src="images/blog-arch.jpg" />
+                                        <a class="link" href="blog-post.html"></a>
+                                    </div>
+
+
+                                    <div class="meta">
+                                        <p><span>Teacher:</span> <a href="#">@if (Model.Seminar.instructor != null)
+                                        {
+                                            <span> @Model.Seminar.instructor.Name</span>
+                                        }</a></p>
+                                        <p><span>Start date:</span> <a href="#">@sem.StartDate.ToString("MMM, d")</a></p>
+                                        <p><span>Category:</span> <a href="#">WorkShop</a></p>
+                                        <p><span><a href="#">5 spots avialable</a></span></p>
+                                    </div>
+                                    <div class="description">
+                                        <h5><strong>@Html.Raw(Model.Seminar.TitleHtml)</strong></h5>
+                                        <p>Curabitur sed semper dolor. Integer mi nulla, volutpat pharetra lobortis et, tristique non sapien. Pellentesque rutrum imperd iet odio non posuere. Sed nunc nisl, sollicitudin sed ullamcorper quis, accumsan et justo. Proin pharetra pharetra hendrerit. In non risus dui. Mauris ac elit mi, eu porta diam. Nullam ut aliquet risus. Etiam cursus posuere pellentesque.</p>
+
+                                        @*<a class="link" href="blog-post.html" class="button color"><span>More</span></a>*@
+                                        <a href='#' class="button" onclick='bindPartialView("divWorkshop","Workshop","WorkshopDetails",@sem.seminar_id)'>more</a>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="foot"></div>
+
+                                </div><!-- Blog Ends -->
+
+
+                            }
+
+
+                        }
+                        else
+                        {
+                            <div class="blog style-2">
+
+                                <div class="border">
+                                    <img class="scale-with-grid" src="images/blog-arch.jpg" />
+                                    <a class="link" href="blog-post.html"></a>
+                                </div>
+
+
+                                <div class="meta">
+                                    <p><span>Teacher:</span> <a href="#">Dr Nike Lawal</a></p>
+                                    <p><span>Posted:</span> <a href="#">August 29</a></p>
+                                    <p><span>Category:</span> <a href="#">Language</a></p>
+                                    <p><span><a href="#">10 Comments</a></span></p>
+                                </div>
+                                <div class="description">
+                                    <h5>Youruba Culture Seminar</h5>
+                                    <p>
+                                        Heritage language learners are learners who already have some familiarity with the language through exposure at home or
+                                        through previous interactions with native speakers of the language. The focus here will be on developing proficiency in
+                                        reading Yoruba literary texts and newspapers, writing about current topical issues, and developing communicative competency in
+                                        cultural and social contexts beyond the basic level. Emphasis will be on turning them into competent speakers of the language by building
+                                        on what they already know.  Heritage class 2 continues with building proficiency in speaking, writing and reading through exposure to more advanced readings and writing.
+
+                                    </p>
+
+                                    <a class="link" href="blog-post.html" class="button color"><span>More</span></a>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="foot"></div>
+
+                            </div><!-- Blog Ends -->
+
+                        }
+
+                    }
+
+                </div>
+
+
+                <div class="four columns">
+                    <div class="sidebar">
+                        <div class="sideborder"></div>
+                        <h5>Full list of Workshops</h5>
+                        <ul class="blogs">
+                            <li>
+                                <div class="border">
+                                    <img src="images/sidebar-train.jpg" />
+                                    <a class='link' href="blog-post.html"></a>
+                                </div>
+                                <p>
+                                    <a href="#">Standard Blog Post</a>
+                                    Cras ac nisl at si gravida...
+                                    <span>September 27, 2012</span>
+                                </p>
+                                <div class="clear"></div>
+                            </li>
+
+                            <li>
+                                <div class="border">
+                                    <img src="images/sidebar-mountain.jpg" />
+                                    <a class='link' href="blog-post.html"></a>
+                                </div>
+                                <p>
+                                    <a href="#">Another Post, Look</a>
+                                    Cras ac nisl at si gravida...
+                                    <span>September 23, 2012</span>
+                                </p>
+                                <div class="clear"></div>
+                            </li>
+
+                            <li>
+                                <div class="border">
+                                    <img src="images/sidebar-beach.jpg" />
+                                    <a class='link' href="blog-post.html"></a>
+                                </div>
+                                <p>
+                                    <a href="#">Integer Sit Amet</a>
+                                    Cras ac nisl at si gravida...
+                                    <span>September 20, 2012</span>
+                                </p>
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+
+                        <h5>From the Portfolio</h5>
+                        <ul class="img-list">
+                            <li class="nosp"><div class="border"><a href="#"><img src="images/sidebar-mountain.jpg" /></a></div></li>
+                            <li><div class="border"><a href="#"><img src="images/sidebar-beach.jpg" /></a></div></li>
+                            <li><div class="border"><a href="#"><img src="images/sidebar-train.jpg" /></a></div></li>
+                            <li class="nosp"><div class="border"><a href="#"><img src="images/sidebar-beach.jpg" /></a></div></li>
+                            <li><div class="border"><a href="#"><img src="images/sidebar-train.jpg" /></a></div></li>
+                            <li><div class="border"><a href="#"><img src="images/sidebar-mountain.jpg" /></a></div></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <div class="clear"></div>
+
+                        <div class="tabbed-area">
+                            <ul class="tabs">
+                                <li><a href="#" title="content_1" class="tab active">Most Viewed</a></li>
+                                <li><a href="#" title="content_2" class="tab">Recent</a></li>
+                                <div class="clear"></div>
+                            </ul>
+
+                            <div id="content_1" class="tcontent">
+                                <ul class="blogs">
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-train.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Responsive and Professional Design</a>
+                                            <span>September 27, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-mountain.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Responsive and Professional Design</a>
+                                            <span>September 23, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-beach.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Responsive and Professional Design</a>
+                                            <span>September 20, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="content_2" class="tcontent">
+                                <ul class="blogs">
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-beach.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Random Title Goes Right Over Here</a>
+                                            <span>September 27, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-train.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Responsive and Professional Design</a>
+                                            <span>September 23, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-mountain.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Responsive and Professional Design</a>
+                                            <span>September 20, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="border">
+                                            <a href="#"><img src="images/sidebar-train.jpg" /></a>
+                                        </div>
+                                        <p>
+                                            <a href="#">Random Title</a>
+                                            <span>September 27, 2012</span>
+                                        </p>
+                                        <div class="clear"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h5>Tag Cloud</h5>
+                        <ul class="cloud">
+                            <li><a href="#">WordPress</a></li>
+                            <li><a href="#">HTML Design</a></li>
+                            <li><a href="#">Cool</a></li>
+                            <li><a href="#">MIA WEB</a></li>
+                            <li><a href="#">Responsive</a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="sixteen columns">
+                    <span class="hr lip-quote"></span>
+                    <blockquote class="standard bottom">
+                        "Making the simple complicated is commonplace; making the complicated simple, awesomely simple, that's creativity" <br />- Charles Mingus
+                    </blockquote>
+                </div>
+
             </div>
-        </div>
-    </div>
-  }
 
-  }
 
-   
+            <script type="text/javascript">
+        $(document).ready(function() {
+            $('.slidewrap2').carousel({
+                slider: '.slider',
+                slide: '.slide',
+                slideHed: '.slidehed',
+                nextSlide : '.next',
+                prevSlide : '.prev',
+                addPagination: false,
+                addNav : false
+            });
+            $(window).load(function(){
+                 $("a[class^='prettyPhoto']").prettyPhoto({social_tools: '' });
+            });
+        });
+            </script>
+            <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+            <script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline/EmpiricalThemes.json?callback=twitterCallback2&count=2"></script>

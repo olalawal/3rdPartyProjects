@@ -31,16 +31,17 @@ namespace LanguageInstitute.Filters
 
                 try
                 {
-                    //using (var context = new LanguageInstituteContext())
-                    //{
-                    //    if (!context.UserProfiles.Exists())
-                    //    {
-                    //        // Create the SimpleMembership database without Entity Framework migration schema
-                    //        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                    //    }
-                    //}
+                    using (var context = new LanguageInstituteContext())
+                    {
+                       
+                            // Create the SimpleMembership database without Entity Framework migration schema
+                         //   ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                        
+                    }
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: false);
+                   // InitializeDatabaseConnection(string connectionString, string providerName, string userTableName, string userIdColumn, string userNameColumn, bool autoCreateTables)
+
+                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 
                   
 
