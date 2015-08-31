@@ -9,5 +9,5 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {color:#217b9d;}
 a, a:visited { color: #2f86a8; }	
 .tabbed-area ul.tabs li a.active {color:#3783a0;border-top:1px solid #2f86a8;}
 .header .nav .standard ul.tabs li a.active, .header .nav .standard ul.tabs li a:hover {color:#3796ba;}
-.header .logo {background-color:transparent;}
+.header .logo {background-color:transparent; margin-top : -20px;}
 .footer .logo-caption, .footer .logo-caption-overlay {background-color:transparent;}

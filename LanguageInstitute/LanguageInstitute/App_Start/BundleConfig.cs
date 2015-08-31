@@ -27,7 +27,13 @@ namespace LanguageInstitute
                             );
         }
 
-
+    //    <link media="screen" charset="utf-8" rel="stylesheet" href="~/Content/css/base.css" />
+    //<link media="screen" charset="utf-8" rel="stylesheet"  href="~/Content/css/skeleton.css" />
+    //<link media="screen" charset="utf-8" rel="stylesheet"  href="~/Content/css/layout.css" />
+    //<link media="screen" charset="utf-8" rel="stylesheet"  href="~/Content/css/child.css" />
+    //<link rel="stylesheet"  href="~/Content/css/animate.min.css" type="text/css" media="screen" charset="utf-8" />
+    //<link rel="stylesheet"  href="~/Content/css/jquery.onebyone.css" type="text/css" media="screen" charset="utf-8" />
+    //<link rel="stylesheet"  href="~/Content/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
 
 
         
@@ -37,10 +43,16 @@ namespace LanguageInstitute
           //.Include("~/Content/bootstrap.css")
                           
                             .Include("~/Content/reset.css")
-                            .Include("~/Content/base.css")
+                            .Include("~/Content/css/base.css")
                             .Include( "~/Content/bootstrap-notify.css")
-                            .Include("~/Content/skeleton.css")
-                            .Include("~/Content/layout.css")
+                            .Include("~/Content/css/skeleton.css")
+                            .Include("~/Content/css/layout.css")
+                            .Include("~/Content/css/child.css")
+
+                            .Include("~/Content/css/animate.min.css")
+                            .Include("~/Content/css/jquery.onebyone.css")
+                            .Include("~/Content/css/prettyPhoto.css")
+
                             .Include("~/Content/jquery-ui.css")
                             .Include("~/Content/JqueryTE/jquery-te-{version}.css")                         
                           .Include("~/Images")
@@ -55,8 +67,19 @@ namespace LanguageInstitute
 
         public static void RegisterJavascriptBundlesNew(BundleCollection bundles)
         {
+
+
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                          "~/Scripts/jquery.easing.1.3.js",
+
+                          "~/Scripts/jquery.carousel.js",
+                          "~/Scripts/jquery.color.animation.js",
+                          "~/Scripts/jquery.prettyPhoto.js",
+                          "~/Scripts/jquery.onebyone.min.js",
+                          "~/Scripts/jquery.touchwipe.min.js",
+
                          "~/Scripts/jquery-migrate-{version}.js",
                          "~/Scripts/JqueryTE/jquery-te-{version}.js",
                           "~/Scripts/jquery.blockUI.js"
@@ -86,6 +109,7 @@ namespace LanguageInstitute
                      "~/Scripts/bootstrap.js", "~/Scripts/bootstrap-notify.js"));
                           
                   bundles.Add(new ScriptBundle("~/bundles/base").Include(                       
+                        "~/Scripts/ default.js",                  
                           "~/Scripts/jquery.mousewheel-3.0.6.pack.js",
                          "~/Scripts/jquery.fancybox.js",
                          "~/Scripts/jquery.fancybox-buttons.js",
