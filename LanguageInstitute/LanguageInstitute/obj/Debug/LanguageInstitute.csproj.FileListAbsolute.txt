@@ -100,3 +100,4 @@ D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\zh-Hant\Sys
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.csprojResolveAssemblyReference.cache
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.dll
 D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\obj\Debug\LanguageInstitute.pdb
+D:\Projects\3rdPartyProjects\LanguageInstitute\LanguageInstitute\bin\jQuery.Validation.Unobtrusive.Native.dll

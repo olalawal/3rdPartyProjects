@@ -1,8 +1,11 @@
 ﻿@{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_LayoutNew.cshtml";
-    HtmlHelper.ClientValidationEnabled = true;
+    //HtmlHelper.ClientValidationEnabled = true;
 }
+
+
+
 
 <div class="side-shadows"></div>
 <div class="content">
@@ -27,13 +30,17 @@
                 <h5 class="semi title style-2">Contact Form</h5>
                 <div class="form-result"></div>
                 <form action="#" class="contactForm" id="contactus" name="contactus">
-                    <input type="text" class="input" id="name" name="name" placeholder="Name *" />
+                    <input type="text" class="input" id="name" name="name" placeholder="Name *" required />
                     <input type="text" class="input" id="email" name="email" placeholder="Email *" />
+                    <input type="text" class="input" id="phone" name="phone" placeholder="Contact Phone (optional)" />
                     <input type="text" class="input extend" id="subject" name="subject" placeholder="Subject" />
                     <textarea name="comment" id="comment" rows="10" cols="65" placeholder="Message *"></textarea>
+
                     <div class="submit">
-                        <a class="button color" href="javascript:contactUsSubmit();"><span>Submit</span></a>
+                        <a class="button color" id="submit" href="#"><span>Submit</span></a>
                     </div>
+
+
                     <div class="clear"></div>
                 </form>
             </div>
@@ -70,5 +77,100 @@
         </div>
 
     </div>
+
+    <script type="text/javascript">
+    
+        //$("form").validate({
+        //    submitHandler: function (form) {
+        //        alert("This is a valid form!");
+        //    }
+        //});
+
+
+
+        $('#contactus input:text').each(function () {
+            debugger;
+            var dd = this;
+            $(this).validate();
+        });
+
+        function Messagemodel() {
+            debugger;
+            var self = this;
+            self.Name = $("#name").val();
+            self.Body = $("#comment").val();
+            self.Subject = $("#subject").val();           
+            self.Email = $("#email").val();
+            self.Phone = $("#phone").val();
+
+       
+
+        };
+
+
+        $("a.button").click(function (e) {
+
+            debugger;
+         e.preventDefault(); // <------------------ stop default behaviour of button
+         var element = this;
+
+         var request = new Messagemodel();
+         var url = baseSiteURL + 'Home/ContactUsMail';
+         var data = JSON.stringify(request);
+         $.ajax({
+             url: url,
+             dataType : 'json',
+             type: 'POST',
+             contentType: 'application/json',
+             data: data,
+             success: function (response) {
+
+                 // perform your save call here
+                 if (data.status == "Success") {
+                     alert("Done");
+                 } else {
+                     alert("Error occurs on the Database level!");
+                 }
+             },
+             error: function (error) {
+                 debugger;
+                 alert("An error has occured!!!");
+             }
+         });
+        });
+
+
+        // Setup form validation on the #register-form element
+        $("#contactus").validate({
+
+            
+            // Specify the validation rules
+            rules: {
+                name: "required",
+                message: "required",
+                subject: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+               
+            },
+
+            // Specify the validation error messages
+                messages: {
+                name: "Please enter your First and Last Name",
+                name: "Please enter a message or a question",
+                email: "Please enter a valid email address",
+                subject: "You did not enter a subject !"
+            },
+
+            submitHandler: function (form) {
+                form.submit();
+            }
+        });
+
+
+
+    </script>
 
 </div>

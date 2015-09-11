@@ -25,7 +25,7 @@ namespace LanguageInstitute.Helpers
             {
                 //SmtpClient oSmtpClient = new SmtpClient();
                 //MailMessage oMailMessage = new MailMessage();
-                var FromAddress = "admin@africanlanguageinstitute.org"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
+                var FromAddress = "info@instituteofafricanlanguages.org"; // (message.systemaddress == null | message.systemaddress.emailaddress == null | message.systemaddress.emailaddress == "") ? "MISReporting@wellsfargo.com" : message.systemaddress.emailaddress;
 
               
                //     // Create the email object first, then add the properties.
@@ -73,7 +73,7 @@ namespace LanguageInstitute.Helpers
                 
                     //Setup credentials to login to our sender email address ("UserName", "Password")
                     client.UseDefaultCredentials = false;
-                    NetworkCredential credentials = new NetworkCredential("admin@africanlanguageinstitute.org", "Kayode02");
+                    NetworkCredential credentials = new NetworkCredential("info@instituteofafricanlanguages.org", "Kayode02");
                     client.Credentials = credentials;
 
                     client.Host = "smtpout.secureserver.net";

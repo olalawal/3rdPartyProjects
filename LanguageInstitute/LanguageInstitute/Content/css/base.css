@@ -480,7 +480,7 @@
 
 /* #Buttons
 ================================================== */
-
+  .medium-button,
 	a.medium-button, a.button.color,a.big-button {
 		background: url(../images/design/button-cut.png) no-repeat scroll top right #404040;
 		display: block;
