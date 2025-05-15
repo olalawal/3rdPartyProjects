@@ -121,8 +121,16 @@ def display_lp_position(position_data, wallet_address):
                 for i, pos in enumerate(positions):
                     with st.expander(f"{pos.get('token0Symbol', 'Unknown')}/{pos.get('token1Symbol', 'Unknown')} Position"):
                         st.json(pos)
+                        
+            # Display the raw JSON data in an expander
+            with st.expander("Raw JSON Data"):
+                st.json(position_data)
         else:
             st.info("No LP positions found for this wallet on Meteora.")
+            
+            # Still display the raw JSON even if no positions are found
+            with st.expander("Raw JSON Data"):
+                st.json(position_data)
     
     except Exception as e:
         st.error(f"Error processing data: {str(e)}")
@@ -158,16 +166,27 @@ if uploaded_file:
                         position_data = fetch_lp_positions(addr)
                         if position_data:
                             st.success("Data retrieved successfully!")
-                            display_lp_position(position_data, addr)
                             
-                            # Option to download the JSON data
-                            json_str = json.dumps(position_data, indent=2)
-                            st.download_button(
-                                label="Download JSON Data",
-                                data=json_str,
-                                file_name=f"meteora_lp_{addr[:6]}_{int(time.time())}.json",
-                                mime="application/json"
-                            )
+                            # Add tabs within this wallet tab for organized viewing
+                            data_tabs = st.tabs(["Dashboard", "Raw JSON"])
+                            
+                            # Dashboard tab with formatted data
+                            with data_tabs[0]:
+                                display_lp_position(position_data, addr)
+                                
+                                # Option to download the JSON data
+                                json_str = json.dumps(position_data, indent=2)
+                                st.download_button(
+                                    label="Download JSON Data",
+                                    data=json_str,
+                                    file_name=f"meteora_lp_{addr[:6]}_{int(time.time())}.json",
+                                    mime="application/json"
+                                )
+                            
+                            # Raw JSON tab with complete API response
+                            with data_tabs[1]:
+                                st.subheader("Complete API Response")
+                                st.json(position_data)
 else:
     # Sample data display for demonstration
     st.info("No file uploaded. Please upload a text file with wallet addresses to get started.")
