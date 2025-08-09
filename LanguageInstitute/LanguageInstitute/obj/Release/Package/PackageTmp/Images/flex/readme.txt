@@ -1,1 +1,0 @@
-The reason I have not placed images here is to avoid redundancy. You can, however, place images here and link them in your HTML files as you wish.
