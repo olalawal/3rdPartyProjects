@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace LanguageInstitute.Models
+{
+    [Table("instructors")]
+    [DataContract]
+    public class instructor
+    {
+
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DataMember]
+        public int instructor_id { get; set; }
+        [DataMember]
+        public virtual ICollection<seminar> assignedseminars { get; set; }
+        [Required]
+        [DataMember]
+        [Display(Name = "Instructor Name")]
+        public string Name { get; set; }
+        [DataMember]
+        [Display(Name = "Address Line 1")]
+        public string Address1 { get; set; }
+        [DataMember]
+        [Display(Name = "Address Line 2")]
+        public string Address2 { get; set; }
+        [DataMember]
+        [Display(Name = "City")]
+        public string City { get; set; }
+        [DataMember]
+        [Display(Name = "State/Province")]
+        public string StateProvince { get; set; }
+        [DataMember]
+        [Display(Name = "ZIP Postal Code")]
+        public string ZipPostalCode { get; set; }
+        [DataMember]
+        [Display(Name = "Country")]
+        public string Country { get; set; }
+        [DataMember]
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+        [DataMember]
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+                         @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+                         @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
+                         ErrorMessage = "Email is not valid")]
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
+        [DataMember]
+        [Display(Name = "Phone number")]
+        public string Phone { get; set; }
+        [DataMember]
+        [Display(Name = "Fax number")]
+        public string Fax { get; set; }
+
+        [DataMember]
+        public bool IsActive { get; set; }
+
+        [DataMember]
+        public string ImageName { get; set; }  
+
+        [DataMember]
+        public string ImagePath { get; set; }
+        [DataMember]
+        public string DetailsHtml { get; set; } 
+
+    }
+}

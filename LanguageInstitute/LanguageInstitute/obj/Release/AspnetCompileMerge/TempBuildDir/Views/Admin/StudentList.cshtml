@@ -1,0 +1,65 @@
+﻿@using LanguageInstitute.Models
+@model List<student>
+@{
+    ViewBag.Title = "StudentList";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div class='container focus'>
+    <div class="breadcrumb" id="divPageTitle_Add">
+        <a tabindex="1" href="@Url.Action("Admin", "Admin")">Dashboard</a>
+        <span class="active"> - Student List</span>
+    </div>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.InactiveStudents))
+{
+    <div class='sixteen form'>
+
+        <div class="checkbox ">
+            @using (Html.BeginForm("InactiveStudents", "Admin", FormMethod.Post, new { @style = "margin:0;margin-left:20px;" }))
+            {
+                <input type="checkbox" name="IsActive" value="false" onclick=" this.form.submit();" />
+                <span>Inactive Students</span>
+            }
+        </div>
+
+    </div>
+}
+
+
+
+    <div class='sixteen form'>
+        <section>
+
+            <div class="content">
+                @if (Model.Count != 0)
+                {
+                    <table class="table table-bordered table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">Name</th>
+                                <th style="width:30%;">Email</th>
+                                <th style="width:30%;">Contact</th>                               
+                                <th style="width:10%;"></th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (student student in Model)
+                            {
+                                @Html.Partial("StudentPartial", student)
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>no student records found</p>
+                }
+
+            </div>
+
+        </section>
+    </div>
+</div>

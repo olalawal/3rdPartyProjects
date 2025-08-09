@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Gaza - Heal Palestine Token</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('gaza-families.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(30, 58, 138, 0.1), rgba(16, 185, 129, 0.1));
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+            background: linear-gradient(45deg, #059669, #047857);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1e40af;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 20px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* How to Help Section */
+        .how-to-help {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            padding: 80px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid #22c55e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2);
+        }
+
+        .step-number {
+            background: linear-gradient(45deg, #22c55e, #16a34a);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            color: #1e40af;
+        }
+
+        /* Token Info Section */
+        .token-info {
+            background: #1e293b;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .token-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .token-card {
+            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .token-card:hover {
+            transform: translateY(-5px);
+            border-color: #22c55e;
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2);
+        }
+
+        .token-card h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #22c55e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Pulse Animation for CTA */
+        @keyframes pulse {
+            0% { box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); }
+            50% { box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5); }
+            100% { box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); }
+        }
+
+        .cta-button {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🧸 Help Gaza Kids</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">How to Help</a></li>
+                <li><a href="#token">Token Info</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Help Gaza's Children</h1>
+                <p>100% of token royalties go directly to supporting Palestinian children and families in Gaza. Every token purchase brings hope to a child in need.</p>
+                <a href="https://bags.fm/a4WcyMS183n6anrtQ5r9i4YVX2VuT7b2h3NywnEBAGS" target="_blank" class="cta-button">
+                    🚀 Buy $GAZA Token for Kids
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #1e40af; margin-bottom: 1rem;">Gaza's Children Need Your Help</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Children in Gaza</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">600K</div>
+                    <div class="stat-label">Kids Need Medical Aid</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Children Malnourished</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Royalties for Kids</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>A Future for Gaza's Children</h2>
+                    <p>The $GAZA token is more than cryptocurrency - it's a lifeline for Palestinian children who deserve safety, education, and hope for tomorrow.</p>
+                    <p>Every transaction directly supports verified organizations providing food, medical care, education, and shelter to children and families in Gaza.</p>
+                    <p>Built on Solana for fast, low-cost transactions, our token ensures maximum impact with minimal fees, so more help reaches the children who need it most.</p>
+                </div>
+                <div class="about-image">
+                    <div class="placeholder-image">
+                        👶 Your uploaded Gaza children & family images will appear here
+                        <br><br>
+                        Upload photos showing:
+                        • Palestinian children & families
+                        • Kids needing support
+                        • Hope and resilience
+                        • Community strength
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-help" id="help">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #1e40af; margin-bottom: 1rem;">Help Gaza's Children</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">Three simple steps to change a child's life</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Get a Solana Wallet</h3>
+                    <p>Download Phantom, Solflare, or another Solana wallet. Fund it with SOL to cover transaction fees.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Visit Our Token Page</h3>
+                    <p>Click the link below to access our $GAZA token on bags.fm - the leading Solana memecoin platform.</p>
+                    <a href="https://bags.fm/a4WcyMS183n6anrtQ5r9i4YVX2VuT7b2h3NywnEBAGS" target="_blank" style="color: #22c55e; font-weight: bold;">View $GAZA Token</a>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Buy & Help Kids Directly</h3>
+                    <p>Purchase $GAZA tokens. Every transaction generates royalties that automatically provide food, medical care, and support to children in Gaza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="token-info" id="token">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Token Information</h2>
+            <p style="text-align: center; font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Transparent, secure, and purpose-driven</p>
+            
+            <div class="token-details">
+                <div class="token-card">
+                    <h3>🌐 Network</h3>
+                    <p>Built on Solana for fast, cheap transactions</p>
+                </div>
+                <div class="token-card">
+                    <h3>💝 Child Support</h3>
+                    <p>100% of royalties go directly to Gaza children's aid organizations</p>
+                </div>
+                <div class="token-card">
+                    <h3>🔒 Security</h3>
+                    <p>Audited smart contracts with transparent fund tracking</p>
+                </div>
+                <div class="token-card">
+                    <h3>📊 Platform</h3>
+                    <p>Available on bags.fm - trusted Solana token marketplace</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://bags.fm/a4WcyMS183n6anrtQ5r9i4YVX2VuT7b2h3NywnEBAGS" target="_blank" class="cta-button">
+                    🚀 Help Gaza Kids Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Help Gaza Kids</h3>
+                    <p>Every token purchase directly helps Palestinian children and families. Join our mission to bring hope to kids in Gaza.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="https://bags.fm/a4WcyMS183n6anrtQ5r9i4YVX2VuT7b2h3NywnEBAGS" target="_blank">Buy $GAZA Token</a></p>
+                    <p><a href="https://bags.fm" target="_blank">bags.fm Platform</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Transparency</h3>
+                    <p>All donations are publicly tracked on the Solana blockchain for complete transparency.</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #374151; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Help Gaza Kids Token. Supporting Palestinian children through decentralized donations.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 85, 48, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2c5530 0%, #1a3d1f 100%)';
+            }
+        });
+
+        // Animate stats when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .step, .token-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

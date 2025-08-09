@@ -1,0 +1,17 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div style="display:inline-block;width:260px;vertical-align:top;">
+        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage", @style = "margin:0 2px 0 10px;display:inline-block;vertical-align:top;" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @style = "margin:0 0 0 10px;display:inline-block;width:60px;" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </div>
+}
+else
+{
+
+        @Html.ActionLink("Member Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+   
+}

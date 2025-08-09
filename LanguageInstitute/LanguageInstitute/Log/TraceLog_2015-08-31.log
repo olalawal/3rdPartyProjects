@@ -1,0 +1,42 @@
+2015-08-31 00:00:55,104 [8] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-31 00:01:18,987 [23] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/Contact 
+ 2015-08-31 00:02:36,184 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/Contact 
+ 2015-08-31 00:02:39,314 [20] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/Contact 
+ 2015-08-31 00:02:39,315 [20] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception message - A space or line break was encountered after the "@" character.  Only valid identifiers, keywords, comments, "(" and "{" are valid at the start of a code block and they must occur immediately following "@" with no space in between.
+
+ 2015-08-31 00:02:39,316 [20] ERROR LanguageInstitute.Controllers.Base.BaseController - Statistical exception stack trace -    at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at Microsoft.Web.Mvc.ViewEngineFixWorker`1.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+ 2015-08-31 00:02:39,329 [8] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:02:39,331 [8] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:03:04,526 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:03:04,526 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:03:06,709 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:03:06,710 [39] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Base/StatisticalError 
+ 2015-08-31 00:03:46,854 [26] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/ 
+ 2015-08-31 00:04:30,914 [41] INFO  LanguageInstitute.Controllers.Base.BaseController - Application URL - /LanguageInstitute/Home/Contact 
+ 

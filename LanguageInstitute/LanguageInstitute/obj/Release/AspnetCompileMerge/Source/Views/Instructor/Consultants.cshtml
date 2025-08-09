@@ -1,0 +1,92 @@
+﻿@using System.Collections.Generic;
+@using LanguageInstitute.Models;
+@model WorkshopInstructorViewModel 
+@{
+    ViewBag.Title = "Consultants";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+
+<div class='container focus'>
+
+    @if (Model.Instructors.Count > 0)
+    {
+        <div class="four columns">
+            @foreach (instructor instructor in Model.Instructors)
+            {
+                <ul>
+                    <li > 
+                        <div class="right-align">
+                            @*<a href='@Url.Action("Consultant", "Instructor", new { id = instructor.instructor_id })'>@instructor.Name</a>*@
+                            <a href='#' onclick='bindPartialView("divInstructor","Instructor","ConsultantDetails",@instructor.instructor_id)'>@instructor.Name</a>
+                        </div>                   
+                        
+                        
+                        <hr class="hr-class" />
+                    </li>
+                </ul>
+               
+            }
+
+        </div>
+
+    <div class='nine columns' id="divInstructor">
+        @if (Model.Instructor != null)
+        {
+            <div class='nine columns'>
+                <div class="nine">
+                    @{string path = "http://LanguageInstitute.azurewebsites.net/" + Model.Instructor.ImagePath;}
+                    <img src=@path height="120" width="120" class="img-circle" />
+                    &nbsp; &nbsp; &nbsp;
+                    <strong>
+                        @Html.Raw(Model.Instructor.Name)
+                    </strong>
+                </div>
+                <div class="nine">
+
+                    <br />
+                    @Html.Raw(Model.Instructor.Description.Trim())
+                </div>
+                <hr />
+                <br />
+                @Html.Raw(Model.Instructor.DetailsHtml)
+            </div>
+
+        }
+        else
+        {
+            <div class='nine columns'>
+
+                <div class="font-24 text-center">Nothing beats personal contact with a great instructor!</div>
+                <br />
+                <div class="text-justify">
+                    When it comes to statistics, a top-notch instructor can make all the difference. At Statistical Horizons, we only recruit the best. All our instructors are recognized experts in their fields. Equally important, they have the talent and experience to make statistics interesting and understandable to researchers from a wide variety of backgrounds. Take one of our seminars and you’ll see what we mean.
+                </div>
+
+                @foreach (instructor instructor in Model.Instructors)
+                {
+                    @Html.Partial("_ConsultantDescriptionPartial", instructor)
+                }
+            </div>
+
+        }
+
+    </div>
+
+        <div class='container six columns'>
+            upcoming <br /><b>Seminars</b>
+            <hr class="hr" />
+            
+            @foreach (seminar sems in Model.Seminars)
+            {
+
+                @Html.Partial("_SeminarPartial", sems)
+
+            }
+        </div>
+    }
+
+</div>

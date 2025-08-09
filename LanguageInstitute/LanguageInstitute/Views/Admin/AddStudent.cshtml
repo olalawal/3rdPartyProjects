@@ -1,0 +1,110 @@
+﻿@model StatisticalSolutions.Models.student
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+  HtmlHelper.ClientValidationEnabled = true;
+}
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+
+    <div class='container focus'>
+        <div class="breadcrumb" id="divPageTitle_Add">
+            <a tabindex="15" href="@Url.Action("Admin", "Admin")">Dashboard</a>
+            <span class="active"> - Add Student</span>
+        </div>
+
+
+    <div class='sixteen columns form'>
+        <h3>Enter your Seminar info</h3>
+        @*<p>Select the workshop you wish to register , it will be pre-selected for you if you already were re-directed</p>*@
+        @using (Html.BeginForm("AddStudent", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div id="divaddstudent">
+                <fieldset>
+                    <ol>
+
+                        <li>
+                            <div>
+                                <label>First Name</label>
+                                @Html.ValidationMessageFor(model => model.FirstName)
+                                @Html.TextBoxFor(model => model.FirstName, new { @tabindex = "1", @placeholder = "First Name", @class = "form-control" })
+                            </div>
+                        </li>
+                        <li>
+
+                            <label>Last name</label>
+                            @Html.ValidationMessageFor(model => model.LastName)
+                            @Html.TextBoxFor(model => model.LastName, new { @tabindex = "2", @placeholder = "Last Name", @class = "form-control" })
+
+                        </li>
+                   
+                        <li>
+                            <label>Address Line 1</label>
+                            @Html.ValidationMessageFor(model => model.Address1)
+                            @Html.TextBoxFor(model => model.Address1, new { @tabindex = "3", @placeholder = "Address line l", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Address Line 2</label>
+                            @Html.TextBoxFor(model => model.Address2, new { @tabindex = "4", @placeholder = "Address line 2", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>City</label>
+                            @Html.ValidationMessageFor(model => model.City)
+                            @Html.TextBoxFor(model => model.City, new { @tabindex = "5", @placeholder = "City", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>State/Province</label>
+                            @Html.ValidationMessageFor(model => model.StateProvince)
+                            @Html.TextBoxFor(model => model.StateProvince, new { @tabindex = "6", @placeholder = "State/Province", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Country</label>
+                            @Html.ValidationMessageFor(model => model.Country)
+                            @Html.DropDownListFor(model => model.Country, new SelectList(Model.Countries, "Country", "Country"), "--Select Country--", new { @tabindex = "7" })
+                        </li>
+
+                        <li>
+                            <label>Email Address</label>
+                            @Html.ValidationMessageFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @tabindex = "8", @placeholder = "Email address", @class = "form-control" })
+
+                        </li>
+
+                        <li>
+                            <label>Phone Number</label>
+                            @Html.ValidationMessageFor(model => model.Phone)
+                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "9", @placeholder = "Phone number", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Fax Number</label>
+                            @Html.ValidationMessageFor(model => model.Fax)
+                            @Html.TextBoxFor(model => model.Phone, new { @tabindex = "10", @placeholder = "Fax number", @class = "form-control" })
+
+                        </li>
+                        <li>
+                            <label>Bank Account #</label>
+                            @Html.ValidationMessageFor(model => model.BankAccountNumber)
+                            @Html.TextBoxFor(model => model.BankAccountNumber, new { @tabindex = "13", @placeholder = "Bank Account Number", @class = "form-control" })
+
+                        </li>
+                        <li>                        
+                            <input type="submit" tabindex="14" value="SUBMIT" class="button medium green" />
+                        </li>
+                    </ol>
+                </fieldset>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+
